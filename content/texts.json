@@ -1,0 +1,138 @@
+{
+  "store": {
+    "index": {
+      "nav_colecciones": "Colecciones",
+      "nav_historia": "Historia",
+      "nav_nft": "NFTs",
+      "nav_contacto": "Contacto",
+      "nav_bolsa": "Bolsa",
+      "logo": "JOIS",
+      
+      "hero_subtitle": "Primavera-Verano 2024",
+      "hero_title": "JOIS",
+      "hero_tagline": "Cuero encuentra código",
+      "hero_description": "Una nueva era del lujo masculino emerge. Cada pieza cuenta una historia de precisión artesanal y diseño atemporal.",
+      "hero_btn": "Descubrir",
+      "scroll_text": "Scroll",
+      
+      "collections_subtitle": "Explore",
+      "collections_title": "Colecciones",
+      "chamarras_title": "Chamarras",
+      "chamarras_subtitle": "Leather Excellence",
+      "chamarras_desc": "3 Modelos",
+      "carteras_title": "Carteras",
+      "carteras_subtitle": "Craftsmanship",
+      "carteras_desc": "3 Modelos",
+      "bolsos_title": "Bolsos",
+      "bolsos_subtitle": "Modern Elegance",
+      "bolsos_desc": "2 Modelos",
+      "ver_link": "Ver",
+      
+      "noir_name": "Noir",
+      "noir_desc": "Cuero premium negro, diseño minimalista",
+      "imperial_name": "Imperial",
+      "imperial_desc": "Cuero marrón con acabados dorados",
+      "phantom_name": "Phantom",
+      "phantom_desc": "Cuero oscuro, estilo futurista",
+      "eclipse_name": "Eclipse",
+      "eclipse_desc": "Cartera compacta, cuero negro italiano",
+      "sovereign_name": "Sovereign",
+      "sovereign_desc": "Diseño executivo, cuero premium",
+      "matrix_name": "Matrix",
+      "matrix_desc": "Diseño único, textura exclusiva",
+      "cipher_name": "Cipher",
+      "cipher_desc": "Bolso de viaje, espacio completo",
+      "vault_name": "Vault",
+      "vault_desc": "Bolso premium, cierre biométrico",
+      
+      "story_subtitle": "Our Heritage",
+      "story_title": "Nuestra Historia",
+      "story_text": "JOIS nace de la visión de crear accesorios masculinos que fusionan la tradición artesanal del cuero con la precisión del código. Cada pieza es diseñada para quienes entienden que el lujo verdadero trasciende las tendencias pasajeras.",
+      
+      "contact_subtitle": "Get in Touch",
+      "contact_title": "Contacto",
+      "contact_email_label": "Email",
+      "contact_email": "info@joisleather.io",
+      "contact_location_label": "Ubicación",
+      "contact_location": "Ciudad de México, México",
+      
+      "footer_tagline": "Leather Luxury",
+      "footer_colecciones": "Colecciones",
+      "footer_info": "Información",
+      "footer_pagos": "Pagos",
+      "footer_payments": "USD · BTC · USDT",
+      "footer_copyright": "© 2024 JOIS Leather. Todos los derechos reservados.",
+      
+      "cart_title": "Tu Bolsa",
+      "cart_empty": "Tu bolsa está vacía",
+      "cart_total": "Total",
+      "cart_checkout_usd": "Pagar con Tarjeta",
+      "cart_checkout_usd_small": "USD",
+      "cart_checkout_crypto": "Pagar con Crypto",
+      "cart_checkout_crypto_small": "BTC · USDT",
+      "add_to_cart": "Añadir a la Bolsa"
+    },
+    
+    "nft": {
+      "nav_tienda": "Tienda",
+      "nav_coleccion": "Colección",
+      "logo": "JOIS",
+      "btn_connect": "Conectar Wallet",
+      
+      "hero_status": "Live Drop",
+      "hero_title": "JOIS NFT",
+      "hero_subtitle": "Colección Digital Exclusiva",
+      "hero_description": "Cada NFT representa la esencia del lujo JOIS en el mundo digital. Edición limitada, coleccionables únicos.",
+      "timer_label": "Drop Ends In",
+      
+      "stats_total": "Total NFTs",
+      "stats_remaining": "Remaining",
+      "stats_price": "ETH Price",
+      "stats_collectors": "Collectors",
+      
+      "collection_subtitle": "Digital Collectibles",
+      "collection_title": "La Colección",
+      "view_details": "View Details",
+      
+      "nft_jacket_noir": "Chamarra Noir",
+      "nft_jacket_imperial": "Chamarra Imperial",
+      "nft_jacket_phantom": "Chamarra Phantom",
+      "nft_wallet_eclipse": "Cartera Eclipse",
+      "nft_wallet_sovereign": "Cartera Sovereign",
+      "nft_wallet_matrix": "Cartera Matrix",
+      "nft_bag_cipher": "Bolso Cipher",
+      "nft_bag_vault": "Bolso Vault",
+      
+      "rarity_legendary": "Legendary",
+      "rarity_epic": "Epic",
+      "rarity_rare": "Rare",
+      
+      "mint_btn": "Mint NFT",
+      
+      "how_subtitle": "Simple Process",
+      "how_title": "Cómo Funciona",
+      "step1_title": "Conecta tu Wallet",
+      "step1_desc": "MetaMask, WalletConnect o Coinbase",
+      "step2_title": "Elige tu NFT",
+      "step2_desc": "Selecciona de la colección",
+      "step3_title": "Mint tu NFT",
+      "step3_desc": "Confirma y es tuyo",
+      "step4_title": "Colecciona",
+      "step4_desc": "Vende o colecciona",
+      
+      "footer_tagline": "Leather Luxury meets Digital Art",
+      "footer_copyright": "© 2024 JOIS Leather. Powered by Polygon",
+      
+      "lightbox_title": "NFT Name",
+      "lightbox_edition": "Edition #001 / 888",
+      "lightbox_rarity": "Rarity",
+      "lightbox_traits": "Traits",
+      
+      "wallet_modal_title": "Conectar Wallet",
+      "wallet_modal_desc": "Selecciona tu wallet",
+      "wallet_metamask": "MetaMask",
+      "wallet_wconnect": "WalletConnect",
+      "wallet_coinbase": "Coinbase"
+    }
+  }
+}
