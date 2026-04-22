@@ -130,6 +130,60 @@ El editor funciona **localmente en el navegador**. Para que los cambios se refle
 
 ---
 
+---
+
+## Dashboard del Cliente
+
+### Acceso
+- **Mi Cuenta:** `dashboard/account.html`
+- **Mis Pedidos:** `dashboard/orders.html`
+
+### Funciones
+- Ver perfil del cliente
+- Pedidos activos con estado
+- Historial de pedidos
+- Rastrear pedido por número
+- Direcciones guardadas
+
+---
+
+## Panel Administrativo
+
+### Acceso
+- **Login:** `admin/login.html`
+- **Dashboard:** `admin/dashboard.html`
+- Usuario: `admin`
+- Contraseña: `jois2024`
+
+### Funciones del Admin
+
+#### Gestión de Pedidos
+- Ver todos los pedidos
+- Filtrar por estado (Pendiente, Enviado, Entregado, Cancelado)
+- Actualizar estado del pedido
+- Agregar número de tracking
+- Ver detalle completo del pedido
+
+#### Gestión de Productos
+- Editar nombre, descripción, precio
+- Actualizar stock
+- Cambiar estado (Activo, Inactivo, Agotado)
+- Cambiar categoría
+
+#### Inventario y Envíos
+- Configurar tiempo de entrega
+- Configurar costo de envío
+- Editar información de envío
+
+#### Configuración General
+- Nombre de la tienda
+- Email de contacto
+- Teléfono
+- Dirección
+- Descripción de la marca
+
+---
+
 ## Sistema de Media
 
 ### Editor de Media

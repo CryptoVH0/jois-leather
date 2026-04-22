@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JOIS — Admin Dashboard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #0D0D0D;
+            color: #fff;
+            min-height: 100vh;
+        }
+        a { text-decoration: none; color: inherit; }
+        
+        /* Sidebar */
+        .sidebar {
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 260px;
+            height: 100vh;
+            background: #1A1A1A;
+            border-right: 1px solid #333;
+            padding: 30px 0;
+        }
+        .sidebar-logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 28px;
+            letter-spacing: 10px;
+            color: #B8860B;
+            text-align: center;
+            padding-bottom: 30px;
+            border-bottom: 1px solid #333;
+            margin-bottom: 30px;
+        }
+        .sidebar-nav { list-style: none; }
+        .sidebar-nav li { margin-bottom: 5px; }
+        .sidebar-nav a {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 15px 30px;
+            font-size: 12px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #888;
+            transition: all 0.3s;
+        }
+        .sidebar-nav a:hover,
+        .sidebar-nav a.active {
+            background: #252525;
+            color: #fff;
+            border-left: 3px solid #B8860B;
+        }
+        .sidebar-nav .icon {
+            font-size: 18px;
+            width: 24px;
+            text-align: center;
+        }
+        .logout-btn {
+            position: absolute;
+            bottom: 30px;
+            left: 30px;
+            right: 30px;
+            padding: 15px;
+            background: transparent;
+            border: 1px solid #C41E3A;
+            color: #C41E3A;
+            font-size: 11px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        .logout-btn:hover {
+            background: #C41E3A;
+            color: #fff;
+        }
+        
+        /* Main Content */
+        .main-content {
+            margin-left: 260px;
+            padding: 40px;
+        }
+        .page-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 40px;
+        }
+        .page-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 32px;
+            font-weight: 400;
+        }
+        
+        /* Cards */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+        .stat-card {
+            background: #1A1A1A;
+            border: 1px solid #333;
+            padding: 30px;
+        }
+        .stat-label {
+            font-size: 10px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #888;
+            margin-bottom: 15px;
+        }
+        .stat-value {
+            font-size: 36px;
+            font-weight: 300;
+            color: #B8860B;
+        }
+        .stat-change {
+            font-size: 11px;
+            color: #4CAF50;
+            margin-top: 10px;
+        }
+        
+        /* Table */
+        .data-table {
+            background: #1A1A1A;
+            border: 1px solid #333;
+            overflow: hidden;
+        }
+        .table-header {
+            display: grid;
+            grid-template-columns: 150px 1fr 150px 120px 150px;
+            padding: 20px 30px;
+            background: #252525;
+            font-size: 10px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #888;
+        }
+        .table-row {
+            display: grid;
+            grid-template-columns: 150px 1fr 150px 120px 150px;
+            padding: 20px 30px;
+            border-bottom: 1px solid #333;
+            align-items: center;
+            transition: background 0.3s;
+        }
+        .table-row:hover { background: #252525; }
+        .table-row:last-child { border-bottom: none; }
+        .order-id { color: #B8860B; }
+        .status-badge {
+            display: inline-block;
+            padding: 5px 12px;
+            font-size: 9px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+        .status-pending { background: #F5A623; color: #000; }
+        .status-shipped { background: #4A90E2; color: #fff; }
+        .status-delivered { background: #4CAF50; color: #fff; }
+        .status-cancelled { background: #C41E3A; color: #fff; }
+        
+        .action-btn {
+            padding: 8px 15px;
+            background: transparent;
+            border: 1px solid #333;
+            color: #888;
+            font-size: 10px;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        .action-btn:hover {
+            border-color: #B8860B;
+            color: #B8860B;
+        }
+        
+        /* Tabs */
+        .tabs {
+            display: flex;
+            gap: 2px;
+            margin-bottom: 30px;
+            background: #1A1A1A;
+            padding: 5px;
+            border: 1px solid #333;
+        }
+        .tab {
+            padding: 12px 25px;
+            background: transparent;
+            border: none;
+            color: #888;
+            font-size: 11px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        .tab.active {
+            background: #B8860B;
+            color: #fff;
+        }
+        .tab:hover:not(.active) {
+            background: #252525;
+            color: #fff;
+        }
+        
+        /* Form Styles */
+        .form-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-group.full { grid-column: span 2; }
+        .form-group label {
+            display: block;
+            font-size: 10px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #888;
+            margin-bottom: 10px;
+        }
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 15px;
+            background: #0D0D0D;
+            border: 1px solid #333;
+            color: #fff;
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            outline: none;
+        }
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            border-color: #B8860B;
+        }
+        .form-group textarea { min-height: 100px; resize: vertical; }
+        
+        .btn-save {
+            padding: 15px 40px;
+            background: #B8860B;
+            border: none;
+            color: #fff;
+            font-size: 11px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        .btn-save:hover { background: #D4AF37; }
+        
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.9);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+        }
+        .modal.active { display: flex; }
+        .modal-content {
+            background: #1A1A1A;
+            border: 1px solid #333;
+            padding: 40px;
+            max-width: 800px;
+            width: 90%;
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+        .modal-header h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 24px;
+        }
+        .modal-close {
+            font-size: 28px;
+            color: #888;
+            cursor: pointer;
+        }
+        .modal-close:hover { color: #fff; }
+        
+        /* Notifications */
+        .notification {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #4CAF50;
+            color: #fff;
+            padding: 15px 30px;
+            font-size: 12px;
+            letter-spacing: 1px;
+            transform: translateX(120%);
+            transition: transform 0.4s ease;
+            z-index: 3000;
+        }
+        .notification.show { transform: translateX(0); }
+    </style>
+</head>
+<body>
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <div class="sidebar-logo">JOIS</div>
+        <nav>
+            <ul class="sidebar-nav">
+                <li><a href="#" class="active" onclick="showSection('dashboard')"><span class="icon">📊</span> Dashboard</a></li>
+                <li><a href="#" onclick="showSection('orders')"><span class="icon">📦</span> Pedidos</a></li>
+                <li><a href="#" onclick="showSection('products')"><span class="icon">🛍</span> Productos</a></li>
+                <li><a href="#" onclick="showSection('inventory')"><span class="icon">📋</span> Inventario</a></li>
+                <li><a href="#" onclick="showSection('customers')"><span class="icon">👥</span> Clientes</a></li>
+                <li><a href="#" onclick="showSection('analytics')"><span class="icon">📈</span> Análisis</a></li>
+                <li><a href="#" onclick="showSection('settings')"><span class="icon">⚙️</span> Configuración</a></li>
+            </ul>
+        </nav>
+        <button class="logout-btn" onclick="logout()">Cerrar Sesión</button>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Dashboard Section -->
+        <section id="section-dashboard" class="admin-section">
+            <div class="page-header">
+                <h1 class="page-title">Dashboard</h1>
+                <span style="color: #888; font-size: 12px;">Última actualización: Hace 5 minutos</span>
+            </div>
+            
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-label">Pedidos del Mes</div>
+                    <div class="stat-value">127</div>
+                    <div class="stat-change">↑ 12% vs mes anterior</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-label">Ingresos Totales</div>
+                    <div class="stat-value">$45,280</div>
+                    <div class="stat-change">↑ 8% vs mes anterior</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-label">Productos Vendidos</div>
+                    <div class="stat-value">234</div>
+                    <div class="stat-change">↑ 15% vs mes anterior</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-label">Clientes Nuevos</div>
+                    <div class="stat-value">43</div>
+                    <div class="stat-change">↑ 22% vs mes anterior</div>
+                </div>
+            </div>
+
+            <h2 style="font-size: 18px; margin-bottom: 20px; color: #888;">Pedidos Recientes</h2>
+            <div class="data-table">
+                <div class="table-header">
+                    <span>Pedido</span>
+                    <span>Cliente</span>
+                    <span>Estado</span>
+                    <span>Total</span>
+                    <span>Acciones</span>
+                </div>
+                <div class="table-body" id="recentOrders">
+                    <!-- Orders will be loaded here -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Orders Section -->
+        <section id="section-orders" class="admin-section" style="display: none;">
+            <div class="page-header">
+                <h1 class="page-title">Gestión de Pedidos</h1>
+            </div>
+            
+            <div class="tabs">
+                <button class="tab active" onclick="filterOrdersAdmin('all')">Todos</button>
+                <button class="tab" onclick="filterOrdersAdmin('pending')">Pendientes</button>
+                <button class="tab" onclick="filterOrdersAdmin('shipped')">Enviados</button>
+                <button class="tab" onclick="filterOrdersAdmin('delivered')">Entregados</button>
+                <button class="tab" onclick="filterOrdersAdmin('cancelled')">Cancelados</button>
+            </div>
+
+            <div class="data-table">
+                <div class="table-header">
+                    <span>Pedido</span>
+                    <span>Cliente</span>
+                    <span>Estado</span>
+                    <span>Total</span>
+                    <span>Acciones</span>
+                </div>
+                <div class="table-body" id="allOrders">
+                    <!-- All orders will be loaded here -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Products Section -->
+        <section id="section-products" class="admin-section" style="display: none;">
+            <div class="page-header">
+                <h1 class="page-title">Gestión de Productos</h1>
+                <button class="btn-save" onclick="openProductModal()">+ Nuevo Producto</button>
+            </div>
+
+            <div class="data-table">
+                <div class="table-header">
+                    <span>Producto</span>
+                    <span>Categoría</span>
+                    <span>Precio</span>
+                    <span>Stock</span>
+                    <span>Acciones</span>
+                </div>
+                <div class="table-body" id="productsTable">
+                    <!-- Products will be loaded here -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Inventory Section -->
+        <section id="section-inventory" class="admin-section" style="display: none;">
+            <div class="page-header">
+                <h1 class="page-title">Inventario y Envíos</h1>
+            </div>
+
+            <div class="form-grid" style="margin-bottom: 30px;">
+                <div class="form-group">
+                    <label>Tiempo de Entrega (días)</label>
+                    <input type="number" id="deliveryTime" value="5-7" min="1" max="30">
+                </div>
+                <div class="form-group">
+                    <label>Costo de Envío</label>
+                    <input type="number" id="shippingCost" value="15" min="0">
+                </div>
+                <div class="form-group full">
+                    <label>Información de Envío</label>
+                    <textarea id="shippingInfo">Envío express a toda la República Mexicana. Entrega en 5-7 días hábiles. Seguimiento disponible en tiempo real.</textarea>
+                </div>
+            </div>
+            <button class="btn-save" onclick="saveInventory()">Guardar Cambios</button>
+        </section>
+
+        <!-- Customers Section -->
+        <section id="section-customers" class="admin-section" style="display: none;">
+            <div class="page-header">
+                <h1 class="page-title">Base de Clientes</h1>
+            </div>
+
+            <div class="data-table">
+                <div class="table-header">
+                    <span>Cliente</span>
+                    <span>Email</span>
+                    <span>Pedidos</span>
+                    <span>Total</span>
+                    <span>Acciones</span>
+                </div>
+                <div class="table-body" id="customersTable">
+                    <!-- Customers will be loaded here -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Settings Section -->
+        <section id="section-settings" class="admin-section" style="display: none;">
+            <div class="page-header">
+                <h1 class="page-title">Configuración General</h1>
+            </div>
+
+            <div class="form-grid">
+                <div class="form-group">
+                    <label>Nombre de la Tienda</label>
+                    <input type="text" id="storeName" value="JOIS Leather">
+                </div>
+                <div class="form-group">
+                    <label>Email de Contacto</label>
+                    <input type="email" id="storeEmail" value="info@joisleather.io">
+                </div>
+                <div class="form-group">
+                    <label>Teléfono</label>
+                    <input type="tel" id="storePhone" value="+52 55 1234 5678">
+                </div>
+                <div class="form-group">
+                    <label>Dirección</label>
+                    <input type="text" id="storeAddress" value="Ciudad de México, México">
+                </div>
+                <div class="form-group full">
+                    <label>Descripción de la Marca</label>
+                    <textarea id="brandDescription">JOIS nace de la visión de crear accesorios masculinos que fusionan la tradición artesanal del cuero con la precisión del código.</textarea>
+                </div>
+            </div>
+            <button class="btn-save" onclick="saveSettings()">Guardar Configuración</button>
+        </section>
+    </main>
+
+    <!-- Order Detail Modal -->
+    <div class="modal" id="orderModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Detalle del Pedido</h2>
+                <span class="modal-close" onclick="closeOrderModal()">×</span>
+            </div>
+            <div id="orderDetailContent">
+                <!-- Order detail will be loaded here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Product Modal -->
+    <div class="modal" id="productModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Editar Producto</h2>
+                <span class="modal-close" onclick="closeProductModal()">×</span>
+            </div>
+            <div class="form-grid">
+                <div class="form-group">
+                    <label>Nombre del Producto</label>
+                    <input type="text" id="productName" placeholder="Nombre del producto">
+                </div>
+                <div class="form-group">
+                    <label>Categoría</label>
+                    <select id="productCategory">
+                        <option value="chamarra">Chamarra</option>
+                        <option value="cartera">Cartera</option>
+                        <option value="bolso">Bolso</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Precio USD</label>
+                    <input type="number" id="productPrice" placeholder="0">
+                </div>
+                <div class="form-group">
+                    <label>Stock</label>
+                    <input type="number" id="productStock" placeholder="0">
+                </div>
+                <div class="form-group full">
+                    <label>Descripción</label>
+                    <textarea id="productDescription" placeholder="Descripción del producto"></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Estado</label>
+                    <select id="productStatus">
+                        <option value="active">Activo</option>
+                        <option value="inactive">Inactivo</option>
+                        <option value="out_of_stock">Agotado</option>
+                    </select>
+                </div>
+            </div>
+            <button class="btn-save" onclick="saveProduct()">Guardar Producto</button>
+        </div>
+    </div>
+
+    <div class="notification" id="notification"></div>
+
+    <script src="app-admin.js"></script>
+</body>
+</html>

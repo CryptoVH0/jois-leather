@@ -1,0 +1,458 @@
+/* ============================================
+   JOIS Dashboard Styles
+   ============================================ */
+
+:root {
+    --black: #000000;
+    --white: #FFFFFF;
+    --cream: #FAF8F5;
+    --sand: #E8E4DE;
+    --charcoal: #1A1A1A;
+    --dark: #0D0D0D;
+    --gold: #B8860B;
+    --gold-light: #D4AF37;
+    --gray: #6B6B6B;
+    --gray-light: #A3A3A3;
+    --wine: #722F37;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', -apple-system, sans-serif;
+    background-color: var(--cream);
+    color: var(--charcoal);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3 {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-weight: 400;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* ============================================
+   DASHBOARD NAV
+   ============================================ */
+.dashboard-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 25px 60px;
+    background: var(--white);
+    border-bottom: 1px solid var(--sand);
+}
+
+.nav-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 24px;
+    letter-spacing: 10px;
+    color: var(--black);
+}
+
+.nav-links {
+    display: flex;
+    gap: 40px;
+}
+
+.nav-links a {
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--gray);
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: var(--gold);
+}
+
+/* ============================================
+   DASHBOARD CONTENT
+   ============================================ */
+.dashboard-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 60px 40px;
+}
+
+.dashboard-section {
+    margin-bottom: 80px;
+}
+
+.dashboard-section.full {
+    max-width: 100%;
+}
+
+.section-title {
+    font-size: 36px;
+    letter-spacing: 3px;
+    margin-bottom: 40px;
+    color: var(--black);
+}
+
+/* ============================================
+   PROFILE CARD
+   ============================================ */
+.profile-card {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    background: var(--white);
+    padding: 40px;
+    border: 1px solid var(--sand);
+}
+
+.profile-avatar {
+    width: 80px;
+    height: 80px;
+    background: var(--charcoal);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 24px;
+    color: var(--gold);
+}
+
+.profile-info {
+    flex: 1;
+}
+
+.profile-name {
+    font-size: 24px;
+    letter-spacing: 2px;
+    margin-bottom: 5px;
+}
+
+.profile-email {
+    font-size: 14px;
+    color: var(--gray);
+    margin-bottom: 5px;
+}
+
+.profile-member {
+    font-size: 12px;
+    color: var(--gold);
+}
+
+.btn-edit {
+    padding: 12px 30px;
+    background: transparent;
+    border: 1px solid var(--black);
+    font-family: 'Inter', sans-serif;
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.btn-edit:hover {
+    background: var(--black);
+    color: var(--white);
+}
+
+/* ============================================
+   ORDERS
+   ============================================ */
+.orders-list {
+    background: var(--white);
+    border: 1px solid var(--sand);
+}
+
+.order-card {
+    padding: 30px;
+    border-bottom: 1px solid var(--sand);
+}
+
+.order-card:last-child {
+    border-bottom: none;
+}
+
+.order-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.order-id {
+    font-size: 14px;
+    letter-spacing: 2px;
+    color: var(--gold);
+}
+
+.order-date {
+    font-size: 12px;
+    color: var(--gray);
+}
+
+.order-status {
+    display: inline-block;
+    padding: 5px 15px;
+    font-size: 9px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.order-status.pending { background: #F5A623; color: #000; }
+.order-status.shipped { background: #4A90E2; color: #fff; }
+.order-status.delivered { background: #4CAF50; color: #fff; }
+.order-status.cancelled { background: #C41E3A; color: #fff; }
+
+.order-items {
+    margin-bottom: 20px;
+}
+
+.order-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--sand);
+    font-size: 13px;
+}
+
+.order-total {
+    text-align: right;
+    font-size: 18px;
+    color: var(--black);
+}
+
+.order-actions {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.btn-track-order {
+    padding: 10px 25px;
+    background: var(--black);
+    color: var(--white);
+    border: none;
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+/* Track Order */
+.track-order {
+    background: var(--white);
+    padding: 40px;
+    border: 1px solid var(--sand);
+}
+
+.track-form {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.track-form input {
+    flex: 1;
+    padding: 15px 20px;
+    border: 1px solid var(--sand);
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    outline: none;
+}
+
+.track-form input:focus {
+    border-color: var(--gold);
+}
+
+.btn-track {
+    padding: 15px 40px;
+    background: var(--gold);
+    border: none;
+    color: var(--white);
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+.track-result {
+    padding: 30px;
+    background: var(--cream);
+    display: none;
+}
+
+.track-result.active {
+    display: block;
+}
+
+/* Filter Bar */
+.filter-bar {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 30px;
+}
+
+.filter-btn {
+    padding: 12px 25px;
+    background: var(--white);
+    border: 1px solid var(--sand);
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.filter-btn.active,
+.filter-btn:hover {
+    background: var(--black);
+    color: var(--white);
+    border-color: var(--black);
+}
+
+/* ============================================
+   ADDRESSES
+   ============================================ */
+.addresses-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.address-card {
+    background: var(--white);
+    padding: 30px;
+    border: 1px solid var(--sand);
+    position: relative;
+}
+
+.address-badge {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: var(--gold);
+    color: var(--white);
+    padding: 5px 12px;
+    font-size: 9px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.address-card h3 {
+    font-size: 16px;
+    letter-spacing: 2px;
+    margin-bottom: 15px;
+}
+
+.address-card p {
+    font-size: 13px;
+    color: var(--gray);
+    line-height: 1.6;
+}
+
+.address-card .btn-small {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background: transparent;
+    border: 1px solid var(--sand);
+    font-size: 10px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+.address-card.add-new {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 200px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.address-card.add-new:hover {
+    border-color: var(--gold);
+}
+
+.add-icon {
+    font-size: 32px;
+    color: var(--gold);
+    margin-bottom: 15px;
+}
+
+/* ============================================
+   DASHBOARD FOOTER
+   ============================================ */
+.dashboard-footer {
+    padding: 40px 60px;
+    background: var(--charcoal);
+    text-align: center;
+}
+
+.dashboard-footer p {
+    font-size: 12px;
+    color: var(--gray);
+    margin-bottom: 15px;
+}
+
+.footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+
+.footer-links a {
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--gray);
+}
+
+.footer-links a:hover {
+    color: var(--gold);
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+@media (max-width: 1024px) {
+    .addresses-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .dashboard-nav {
+        padding: 20px 30px;
+    }
+    
+    .nav-links {
+        gap: 20px;
+    }
+    
+    .dashboard-content {
+        padding: 40px 20px;
+    }
+    
+    .profile-card {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .addresses-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .track-form {
+        flex-direction: column;
+    }
+}

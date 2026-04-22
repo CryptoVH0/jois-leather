@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JOIS — Mi Cuenta</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles-dashboard.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="dashboard-nav">
+        <a href="index.html" class="nav-logo">JOIS</a>
+        <div class="nav-links">
+            <a href="account.html">Mi Cuenta</a>
+            <a href="orders.html">Mis Pedidos</a>
+            <a href="index.html">Volver a la Tienda</a>
+        </div>
+    </nav>
+
+    <!-- Dashboard Content -->
+    <main class="dashboard-content">
+        <!-- Profile Section -->
+        <section class="dashboard-section">
+            <h1 class="section-title">Mi Perfil</h1>
+            <div class="profile-card">
+                <div class="profile-avatar">
+                    <span>JD</span>
+                </div>
+                <div class="profile-info">
+                    <h2 class="profile-name">Juan Doe</h2>
+                    <p class="profile-email">juan@email.com</p>
+                    <p class="profile-member">Miembro desde 2024</p>
+                </div>
+                <button class="btn-edit" onclick="editProfile()">Editar Perfil</button>
+            </div>
+        </section>
+
+        <!-- Active Orders -->
+        <section class="dashboard-section">
+            <h1 class="section-title">Pedidos Activos</h1>
+            <div class="orders-list" id="activeOrders">
+                <!-- Orders will be loaded here -->
+            </div>
+        </section>
+
+        <!-- Order History -->
+        <section class="dashboard-section">
+            <h1 class="section-title">Historial de Pedidos</h1>
+            <div class="orders-list" id="orderHistory">
+                <!-- Past orders will be loaded here -->
+            </div>
+        </section>
+
+        <!-- Track Order -->
+        <section class="dashboard-section">
+            <h1 class="section-title">Rastrear Pedido</h1>
+            <div class="track-order">
+                <div class="track-form">
+                    <input type="text" id="orderNumber" placeholder="Número de pedido (ej: JOIS-2024-001)">
+                    <button class="btn-track" onclick="trackOrder()">Rastrear</button>
+                </div>
+                <div class="track-result" id="trackResult">
+                    <!-- Track result will appear here -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Addresses -->
+        <section class="dashboard-section">
+            <h1 class="section-title">Direcciones Guardadas</h1>
+            <div class="addresses-grid">
+                <div class="address-card">
+                    <span class="address-badge">Principal</span>
+                    <h3>Dirección de Envío</h3>
+                    <p>Av. Principal 123</p>
+                    <p>Col. Centro</p>
+                    <p>Ciudad de México, CDMX 06600</p>
+                    <p>México</p>
+                    <p>+52 55 1234 5678</p>
+                    <button class="btn-small">Editar</button>
+                </div>
+                <div class="address-card">
+                    <h3>Dirección de Facturación</h3>
+                    <p>Av. Principal 123</p>
+                    <p>Col. Centro</p>
+                    <p>Ciudad de México, CDMX 06600</p>
+                    <p>México</p>
+                    <button class="btn-small">Editar</button>
+                </div>
+                <div class="address-card add-new">
+                    <span class="add-icon">+</span>
+                    <p>Agregar nueva dirección</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="dashboard-footer">
+        <p>© 2024 JOIS Leather. Todos los derechos reservados.</p>
+        <div class="footer-links">
+            <a href="../index.html">Tienda</a>
+            <a href="../admin/login.html">Admin</a>
+        </div>
+    </footer>
+
+    <script src="app-dashboard.js"></script>
+</body>
+</html>

@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JOIS — Admin Login</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #0D0D0D;
+            color: #fff;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .login-container {
+            width: 100%;
+            max-width: 400px;
+            padding: 40px;
+            background: #1A1A1A;
+            border: 1px solid #333;
+        }
+        .login-logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 36px;
+            letter-spacing: 15px;
+            text-align: center;
+            margin-bottom: 10px;
+            color: #B8860B;
+        }
+        .login-subtitle {
+            text-align: center;
+            font-size: 11px;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: #666;
+            margin-bottom: 40px;
+        }
+        .form-group {
+            margin-bottom: 25px;
+        }
+        .form-group label {
+            display: block;
+            font-size: 10px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #888;
+            margin-bottom: 10px;
+        }
+        .form-group input {
+            width: 100%;
+            padding: 15px;
+            background: #0D0D0D;
+            border: 1px solid #333;
+            color: #fff;
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            outline: none;
+        }
+        .form-group input:focus {
+            border-color: #B8860B;
+        }
+        .btn-login {
+            width: 100%;
+            padding: 18px;
+            background: #B8860B;
+            border: none;
+            color: #fff;
+            font-family: 'Inter', sans-serif;
+            font-size: 11px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        .btn-login:hover {
+            background: #D4AF37;
+        }
+        .login-footer {
+            margin-top: 30px;
+            text-align: center;
+        }
+        .login-footer a {
+            font-size: 11px;
+            color: #666;
+            text-decoration: none;
+        }
+        .login-footer a:hover {
+            color: #B8860B;
+        }
+        .error-msg {
+            color: #C41E3A;
+            font-size: 12px;
+            margin-top: 15px;
+            text-align: center;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <div class="login-logo">JOIS</div>
+        <div class="login-subtitle">Panel Administrativo</div>
+        
+        <form onsubmit="handleLogin(event)">
+            <div class="form-group">
+                <label>Usuario</label>
+                <input type="text" id="username" placeholder="Ingresa tu usuario" required>
+            </div>
+            <div class="form-group">
+                <label>Contraseña</label>
+                <input type="password" id="password" placeholder="Ingresa tu contraseña" required>
+            </div>
+            <button type="submit" class="btn-login">Ingresar</button>
+            <p class="error-msg" id="errorMsg">Usuario o contraseña incorrectos</p>
+        </form>
+        
+        <div class="login-footer">
+            <a href="../index.html">← Volver a la tienda</a>
+        </div>
+    </div>
+
+    <script>
+        // Simple auth - in production use proper authentication
+        const ADMIN_USER = 'admin';
+        const ADMIN_PASS = 'jois2024';
+        
+        function handleLogin(e) {
+            e.preventDefault();
+            
+            const user = document.getElementById('username').value;
+            const pass = document.getElementById('password').value;
+            
+            if (user === ADMIN_USER && pass === ADMIN_PASS) {
+                sessionStorage.setItem('jois_admin', 'true');
+                window.location.href = 'dashboard.html';
+            } else {
+                document.getElementById('errorMsg').style.display = 'block';
+            }
+        }
+    </script>
+</body>
+</html>

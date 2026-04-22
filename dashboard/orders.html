@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JOIS — Mis Pedidos</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles-dashboard.css">
+</head>
+<body>
+    <nav class="dashboard-nav">
+        <a href="index.html" class="nav-logo">JOIS</a>
+        <div class="nav-links">
+            <a href="account.html">Mi Cuenta</a>
+            <a href="orders.html">Mis Pedidos</a>
+            <a href="../index.html">Volver a la Tienda</a>
+        </div>
+    </nav>
+
+    <main class="dashboard-content">
+        <section class="dashboard-section full">
+            <h1 class="section-title">Mis Pedidos</h1>
+            
+            <div class="filter-bar">
+                <button class="filter-btn active" onclick="filterOrders('all')">Todos</button>
+                <button class="filter-btn" onclick="filterOrders('active')">Activos</button>
+                <button class="filter-btn" onclick="filterOrders('completed')">Completados</button>
+                <button class="filter-btn" onclick="filterOrders('cancelled')">Cancelados</button>
+            </div>
+
+            <div class="orders-table" id="ordersTable">
+                <div class="table-header">
+                    <span>Pedido</span>
+                    <span>Fecha</span>
+                    <span>Estado</span>
+                    <span>Total</span>
+                    <span>Acciones</span>
+                </div>
+                <div class="table-body" id="ordersTableBody">
+                    <!-- Orders will be loaded here -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Order Detail Modal -->
+        <div class="modal" id="orderModal">
+            <div class="modal-content">
+                <span class="modal-close" onclick="closeOrderModal()">×</span>
+                <h2>Detalle del Pedido</h2>
+                <div id="orderDetail">
+                    <!-- Order detail will be loaded here -->
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="dashboard-footer">
+        <p>© 2024 JOIS Leather. Todos los derechos reservados.</p>
+    </footer>
+
+    <script src="app-dashboard.js"></script>
+</body>
+</html>
