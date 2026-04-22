@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JOIS — Leather Luxury</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <canvas id="matrix"></canvas>
+    
+    <nav>
+        <div class="logo">JOIS</div>
+        <div class="nav-links">
+            <a href="#hero">Inicio</a>
+            <a href="#products">Tienda</a>
+            <a href="#about">Nosotros</a>
+            <a href="#contact">Contacto</a>
+        </div>
+        <div class="cart-icon" onclick="toggleCart()">
+            <span>🛒</span>
+            <span class="cart-count" id="cartCount">0</span>
+        </div>
+    </nav>
+
+    <section id="hero">
+        <div class="hero-content">
+            <h1 class="glitch" data-text="JOIS">JOIS</h1>
+            <p class="tagline">Donde el cuero encuentra el código</p>
+            <div class="hero-price">
+                <span>USD</span>
+                <span class="price-value" id="heroPrice">$0.00</span>
+                <span class="crypto-price">
+                    <span id="heroBtc">₿ 0.0000</span>
+                    <span id="heroUsdt">⚡ 0.00</span>
+                </span>
+            </div>
+            <a href="#products" class="btn-primary">Explorar Colección</a>
+        </div>
+    </section>
+
+    <section id="products">
+        <h2>Colección Exclusiva</h2>
+        <div class="product-grid" id="productGrid">
+            <!-- Chamarras -->
+            <div class="product-card" data-name="Chamarra Noir" data-price="450" data-category="chamarra">
+                <div class="product-image">👕</div>
+                <h3>Chamarra Noir</h3>
+                <p class="product-desc">Cuero premium negro, diseño minimalista</p>
+                <div class="price-display">
+                    <span class="usd-price">$450 USD</span>
+                    <span class="crypto-prices">
+                        <span class="btc" data-crypto="btc">₿ 0.00</span>
+                        <span class="usdt" data-crypto="usdt">⚡ 0.00</span>
+                    </span>
+                </div>
+                <button onclick="addToCart('Chamarra Noir', 450)">Añadir al carrito</button>
+            </div>
+
+            <div class="product-card" data-name="Chamarra Imperial" data-price="520" data-category="chamarra">
+                <div class="product-image">👕</div>
+                <h3>Chamarra Imperial</h3>
+                <p class="product-desc">Cuero marrón con acabados dorados</p>
+                <div class="price-display">
+                    <span class="usd-price">$520 USD</span>
+                    <span class="crypto-prices">
+                        <span class="btc" data-crypto="btc">₿ 0.00</span>
+                        <span class="usdt" data-crypto="usdt">⚡ 0.00</span>
+                    </span>
+                </div>
+                <button onclick="addToCart('Chamarra Imperial', 520)">Añadir al carrito</button>
+            </div>
+
+            <div class="product-card" data-name="Chamarra Phantom" data-price="480" data-category="chamarra">
+                <div class="product-image">👕</div>
+                <h3>Chamarra Phantom</h3>
+                <p class="product-desc">Cuero oscuro, estilo futurista</p>
+                <div class="price-display">
+                    <span class="usd-price">$480 USD</span>
+                    <span class="crypto-prices">
+                        <span class="btc" data-crypto="btc">₿ 0.00</span>
+                        <span class="usdt" data-crypto="usdt">⚡ 0.00</span>
+                    </span>
+                </div>
+                <button onclick="addToCart('Chamarra Phantom', 480)">Añadir al carrito</button>
+            </div>
+
+            <!-- Carteras -->
+            <div class="product-card" data-name="Cartera Eclipse" data-price="180" data-category="cartera">
+                <div class="product-image">👛</div>
+                <h3>Cartera Eclipse</h3>
+                <p class="product-desc">Cartera compacta, cuero negro</p>
+                <div class="price-display">
+                    <span class="usd-price">$180 USD</span>
+                    <span class="crypto-prices">
+                        <span class="btc" data-crypto="btc">₿ 0.00</span>
+                        <span class="usdt" data-crypto="usdt">⚡ 0.00</span>
+                    </span>
+                </div>
+                <button onclick="addToCart('Cartera Eclipse', 180)">Añadir al carrito</button>
+            </div>
+
+            <div class="product-card" data-name="Cartera Sovereign" data-price="220" data-category="cartera">
+                <div class="product-image">👛</div>
+                <h3>Cartera Sovereign</h3>
+                <p class="product-desc">Cartera completa, diseño executivo</p>
+                <div class="price-display">
+                    <span class="usd-price">$220 USD</span>
+                    <span class="crypto-prices">
+                        <span class="btc" data-crypto="btc">₿ 0.00</span>
+                        <span class="usdt" data-crypto="usdt">⚡ 0.00</span>
+                    </span>
+                </div>
+                <button onclick="addToCart('Cartera Sovereign', 220)">Añadir al carrito</button>
+            </div>
+
+            <div class="product-card" data-name="Cartera Matrix" data-price="200" data-category="cartera">
+                <div class="product-image">👛</div>
+                <h3>Cartera Matrix</h3>
+                <p class="product-desc">Diseño único, cuero texturizado</p>
+                <div class="price-display">
+                    <span class="usd-price">$200 USD</span>
+                    <span class="crypto-prices">
+                        <span class="btc" data-crypto="btc">₿ 0.00</span>
+                        <span class="usdt" data-crypto="usdt">⚡ 0.00</span>
+                    </span>
+                </div>
+                <button onclick="addToCart('Cartera Matrix', 200)">Añadir al carrito</button>
+            </div>
+
+            <!-- Bolsos -->
+            <div class="product-card" data-name="Bolso Cipher" data-price="380" data-category="bolso">
+                <div class="product-image">👜</div>
+                <h3>Bolso Cipher</h3>
+                <p class="product-desc">Bolso de viaje, espacio completo</p>
+                <div class="price-display">
+                    <span class="usd-price">$380 USD</span>
+                    <span class="crypto-prices">
+                        <span class="btc" data-crypto="btc">₿ 0.00</span>
+                        <span class="usdt" data-crypto="usdt">⚡ 0.00</span>
+                    </span>
+                </div>
+                <button onclick="addToCart('Bolso Cipher', 380)">Añadir al carrito</button>
+            </div>
+
+            <div class="product-card" data-name="Bolso Vault" data-price="420" data-category="bolso">
+                <div class="product-image">👜</div>
+                <h3>Bolso Vault</h3>
+                <p class="product-desc">Bolso premium, cierre biométrico</p>
+                <div class="price-display">
+                    <span class="usd-price">$420 USD</span>
+                    <span class="crypto-prices">
+                        <span class="btc" data-crypto="btc">₿ 0.00</span>
+                        <span class="usdt" data-crypto="usdt">⚡ 0.00</span>
+                    </span>
+                </div>
+                <button onclick="addToCart('Bolso Vault', 420)">Añadir al carrito</button>
+            </div>
+        </div>
+    </section>
+
+    <section id="about">
+        <h2>Nosotros</h2>
+        <p class="about-text">JOIS nace de la fusión entre la elegancia atemporal del cuero y la precisión del código. Cada pieza es diseñada para quien entiende que el lujo no es solo apariencia — es actitud.</p>
+    </section>
+
+    <section id="contact">
+        <h2>Contacto</h2>
+        <p>¿Preguntas? Escríbenos a <strong>info@joisleather.io</strong></p>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 JOIS Leather. Todos los derechos reservados.</p>
+        <p>Aceptamos USD, BTC y USDT</p>
+    </footer>
+
+    <!-- Cart Modal -->
+    <div id="cartModal" class="cart-modal">
+        <div class="cart-content">
+            <span class="close-cart" onclick="toggleCart()">&times;</span>
+            <h2>Tu Carrito</h2>
+            <div id="cartItems"></div>
+            <div class="cart-total">
+                <span>Total:</span>
+                <span id="cartTotal">$0 USD</span>
+                <div class="crypto-total">
+                    <span id="cartBtc">₿ 0.00</span>
+                    <span id="cartUsdt">⚡ 0.00</span>
+                </div>
+            </div>
+            <div class="checkout-options">
+                <button class="btn-checkout" onclick="checkoutStripe()">Pagar con Tarjeta (USD)</button>
+                <button class="btn-checkout-crypto" onclick="checkoutCrypto()">Pagar con Crypto</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
