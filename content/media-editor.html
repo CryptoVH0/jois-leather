@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JOIS — Media Manager</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Menlo, Monaco, 'Courier New', monospace;
+            background: #0a0a0a;
+            color: #fff;
+            min-height: 100vh;
+            padding: 40px;
+        }
+        
+        .header {
+            border-bottom: 1px solid #333;
+            padding-bottom: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .header h1 {
+            font-size: 24px;
+            letter-spacing: 8px;
+            color: #7C120C;
+            margin-bottom: 10px;
+        }
+        
+        .header p {
+            font-size: 12px;
+            color: #888;
+        }
+        
+        .specs {
+            background: #111;
+            border: 1px solid #333;
+            padding: 25px;
+            margin-bottom: 40px;
+        }
+        
+        .specs h3 {
+            font-size: 12px;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: #7C120C;
+            margin-bottom: 20px;
+        }
+        
+        .specs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        
+        .spec-item {
+            background: #0a0a0a;
+            padding: 15px;
+            border: 1px solid #222;
+        }
+        
+        .spec-item h4 {
+            font-size: 11px;
+            letter-spacing: 2px;
+            color: #E23C28;
+            margin-bottom: 10px;
+        }
+        
+        .spec-item p {
+            font-size: 11px;
+            color: #666;
+            line-height: 1.6;
+        }
+        
+        .spec-item code {
+            color: #fff;
+            background: #222;
+            padding: 2px 6px;
+        }
+        
+        .container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+        
+        .panel {
+            background: #111;
+            border: 1px solid #333;
+            padding: 30px;
+        }
+        
+        .panel h2 {
+            font-size: 14px;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: #7C120C;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #333;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            font-size: 10px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #888;
+            margin-bottom: 8px;
+        }
+        
+        .form-group select,
+        .form-group input {
+            width: 100%;
+            background: #0a0a0a;
+            border: 1px solid #333;
+            color: #fff;
+            padding: 12px 15px;
+            font-family: Menlo, Monaco, monospace;
+            font-size: 13px;
+            outline: none;
+        }
+        
+        .form-group select:focus,
+        .form-group input:focus {
+            border-color: #7C120C;
+        }
+        
+        .drop-zone {
+            border: 2px dashed #333;
+            padding: 40px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin-bottom: 20px;
+        }
+        
+        .drop-zone:hover,
+        .drop-zone.active {
+            border-color: #7C120C;
+            background: rgba(124, 18, 12, 0.1);
+        }
+        
+        .drop-zone input {
+            display: none;
+        }
+        
+        .drop-zone p {
+            font-size: 12px;
+            color: #666;
+        }
+        
+        .drop-zone .icon {
+            font-size: 40px;
+            margin-bottom: 15px;
+        }
+        
+        .preview {
+            background: #0a0a0a;
+            padding: 20px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .preview img,
+        .preview video {
+            max-width: 100%;
+            max-height: 300px;
+        }
+        
+        .btn {
+            width: 100%;
+            padding: 15px;
+            background: #7C120C;
+            border: none;
+            color: #fff;
+            font-family: Menlo, Monaco, monospace;
+            font-size: 11px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        
+        .btn:hover {
+            background: #E23C28;
+        }
+        
+        .btn-secondary {
+            background: #333;
+            margin-top: 10px;
+        }
+        
+        .btn-secondary:hover {
+            background: #444;
+        }
+        
+        .media-list {
+            max-height: 500px;
+            overflow-y: auto;
+        }
+        
+        .media-item {
+            display: grid;
+            grid-template-columns: 80px 1fr auto;
+            gap: 15px;
+            align-items: center;
+            background: #0a0a0a;
+            border: 1px solid #222;
+            padding: 15px;
+            margin-bottom: 10px;
+            cursor: pointer;
+            transition: border-color 0.3s;
+        }
+        
+        .media-item:hover,
+        .media-item.active {
+            border-color: #7C120C;
+        }
+        
+        .media-item img {
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+            background: #222;
+        }
+        
+        .media-info .code {
+            font-size: 11px;
+            color: #E23C28;
+            margin-bottom: 5px;
+        }
+        
+        .media-info .name {
+            font-size: 12px;
+            color: #ccc;
+        }
+        
+        .media-info .meta {
+            font-size: 10px;
+            color: #666;
+            margin-top: 5px;
+        }
+        
+        .media-actions button {
+            background: none;
+            border: 1px solid #333;
+            color: #888;
+            padding: 8px 12px;
+            cursor: pointer;
+            font-size: 10px;
+            margin-left: 5px;
+        }
+        
+        .media-actions button:hover {
+            border-color: #7C120C;
+            color: #fff;
+        }
+        
+        .tabs {
+            display: flex;
+            gap: 2px;
+            margin-bottom: 20px;
+            background: #0a0a0a;
+            padding: 5px;
+        }
+        
+        .tab {
+            padding: 10px 20px;
+            background: transparent;
+            border: none;
+            color: #888;
+            font-family: Menlo, Monaco, monospace;
+            font-size: 10px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            cursor: pointer;
+        }
+        
+        .tab.active {
+            background: #7C120C;
+            color: #fff;
+        }
+        
+        .notification {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #7C120C;
+            color: #fff;
+            padding: 15px 30px;
+            font-size: 12px;
+            letter-spacing: 2px;
+            transform: translateX(120%);
+            transition: transform 0.4s ease;
+            z-index: 1000;
+        }
+        
+        .notification.show {
+            transform: translateX(0);
+        }
+        
+        .quick-links {
+            margin-top: 20px;
+        }
+        
+        .quick-links a {
+            display: inline-block;
+            padding: 10px 20px;
+            background: #0a0a0a;
+            border: 1px solid #333;
+            color: #fff;
+            font-size: 10px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-right: 10px;
+            transition: all 0.3s;
+        }
+        
+        .quick-links a:hover {
+            border-color: #7C120C;
+            background: #7C120C;
+        }
+        
+        .upload-list {
+            margin-top: 20px;
+        }
+        
+        .upload-item {
+            background: #0a0a0a;
+            border: 1px solid #222;
+            padding: 15px;
+            margin-bottom: 10px;
+        }
+        
+        .upload-item .name {
+            font-size: 12px;
+            color: #ccc;
+            margin-bottom: 5px;
+        }
+        
+        .upload-item .progress {
+            height: 4px;
+            background: #222;
+            margin-top: 10px;
+        }
+        
+        .upload-item .progress-bar {
+            height: 100%;
+            background: #7C120C;
+            width: 0%;
+            transition: width 0.3s;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>JOIS MEDIA MANAGER</h1>
+        <p>Gestiona imágenes y videos de productos. Especifica la medida correcta para cada tipo.</p>
+    </div>
+    
+    <!-- Specs Guide -->
+    <div class="specs">
+        <h3>Medidas Recomendadas</h3>
+        <div class="specs-grid">
+            <div class="spec-item">
+                <h4>Hero / Portada</h4>
+                <p>1920 × 1080 px<br>16:9 | JPG 80%<br><code>Máx 500KB</code></p>
+            </div>
+            <div class="spec-item">
+                <h4>Productos Grid</h4>
+                <p>800 × 1200 px<br>2:3 | JPG 80%<br><code>Máx 400KB</code></p>
+            </div>
+            <div class="spec-item">
+                <h4>Colecciones</h4>
+                <p>600 × 800 px<br>3:4 | JPG 80%<br><code>Máx 300KB</code></p>
+            </div>
+            <div class="spec-item">
+                <h4>NFT Art</h4>
+                <p>1024 × 1024 px<br>1:1 | PNG<br><code>Máx 2MB</code></p>
+            </div>
+            <div class="spec-item">
+                <h4>Video Hero</h4>
+                <p>1920 × 1080 px<br>MP4 H.264<br><code>5-15 seg | Máx 10MB</code></p>
+            </div>
+            <div class="spec-item">
+                <h4>Video Producto</h4>
+                <p>1080 × 1080 px<br>MP4 H.264<br><code>5-10 seg | Máx 5MB</code></p>
+            </div>
+        </div>
+    </div>
+    
+    <div class="container">
+        <div class="panel">
+            <h2>Subir Media</h2>
+            
+            <div class="form-group">
+                <label>Tipo de contenido</label>
+                <select id="mediaType">
+                    <option value="product">Imagen de Producto</option>
+                    <option value="hero">Imagen Hero</option>
+                    <option value="collection">Imagen Colección</option>
+                    <option value="nft">Arte NFT</option>
+                    <option value="video-hero">Video Hero</option>
+                    <option value="video-product">Video Producto</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label> Código del producto</label>
+                <select id="productCode">
+                    <optgroup label="Chamarras">
+                        <option value="jacket-noir">jacket-noir</option>
+                        <option value="jacket-imperial">jacket-imperial</option>
+                        <option value="jacket-phantom">jacket-phantom</option>
+                    </optgroup>
+                    <optgroup label="Carteras">
+                        <option value="wallet-eclipse">wallet-eclipse</option>
+                        <option value="wallet-sovereign">wallet-sovereign</option>
+                        <option value="wallet-matrix">wallet-matrix</option>
+                    </optgroup>
+                    <optgroup label="Bolsos">
+                        <option value="bag-cipher">bag-cipher</option>
+                        <option value="bag-vault">bag-vault</option>
+                    </optgroup>
+                    <optgroup label="General">
+                        <option value="hero-main">hero-main</option>
+                        <option value="hero-nft">hero-nft</option>
+                    </optgroup>
+                </select>
+            </div>
+            
+            <div class="drop-zone" id="dropZone">
+                <input type="file" id="fileInput" accept="image/*,video/*">
+                <div class="icon">📁</div>
+                <p>Arrastra archivos aquí o click para seleccionar</p>
+                <p style="margin-top: 10px; color: #666;">JPG, PNG, MP4 • Máx 10MB</p>
+            </div>
+            
+            <div class="preview" id="preview" style="display: none;">
+                <img id="previewImage" style="display: none;">
+                <video id="previewVideo" controls style="display: none;"></video>
+            </div>
+            
+            <button class="btn" onclick="uploadMedia()">Subir Media</button>
+            
+            <div class="quick-links">
+                <a href="index.html" target="_blank">Ver Tienda</a>
+                <a href="nft.html" target="_blank">Ver NFTs</a>
+                <a href="editor.html" target="_blank">Editor Textos</a>
+            </div>
+        </div>
+        
+        <div class="panel">
+            <h2>Biblioteca de Media</h2>
+            
+            <div class="tabs">
+                <button class="tab active" onclick="filterMedia('all')">Todos</button>
+                <button class="tab" onclick="filterMedia('image')">Imágenes</button>
+                <button class="tab" onclick="filterMedia('video')">Videos</button>
+            </div>
+            
+            <div class="media-list" id="mediaList">
+                <!-- Media items will be loaded here -->
+            </div>
+        </div>
+    </div>
+    
+    <div class="notification" id="notification"></div>
+    
+    <script>
+        let mediaLibrary = [];
+        let selectedFile = null;
+        
+        // Initialize
+        function init() {
+            loadMediaLibrary();
+            setupDropZone();
+        }
+        
+        // Load media library from localStorage
+        function loadMediaLibrary() {
+            const stored = localStorage.getItem('jois_media');
+            if (stored) {
+                mediaLibrary = JSON.parse(stored);
+            }
+            renderMediaList();
+        }
+        
+        // Render media list
+        function renderMediaList(filter = 'all') {
+            const list = document.getElementById('mediaList');
+            list.innerHTML = '';
+            
+            const filtered = filter === 'all' 
+                ? mediaLibrary 
+                : mediaLibrary.filter(m => m.type.startsWith(filter));
+            
+            if (filtered.length === 0) {
+                list.innerHTML = '<p style="color: #666; text-align: center; padding: 40px;">No hay media cargado</p>';
+                return;
+            }
+            
+            filtered.forEach((media, index) => {
+                const div = document.createElement('div');
+                div.className = 'media-item';
+                div.innerHTML = `
+                    <img src="${media.preview}" alt="${media.name}">
+                    <div class="media-info">
+                        <div class="code">${media.code}</div>
+                        <div class="name">${media.name}</div>
+                        <div class="meta">${media.type} • ${media.size}</div>
+                    </div>
+                    <div class="media-actions">
+                        <button onclick="previewMedia(${index})">Ver</button>
+                        <button onclick="deleteMedia(${index})">×</button>
+                    </div>
+                `;
+                list.appendChild(div);
+            });
+        }
+        
+        // Filter media
+        function filterMedia(filter) {
+            document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+            event.target.classList.add('active');
+            renderMediaList(filter);
+        }
+        
+        // Setup drop zone
+        function setupDropZone() {
+            const dropZone = document.getElementById('dropZone');
+            const fileInput = document.getElementById('fileInput');
+            
+            dropZone.addEventListener('click', () => fileInput.click());
+            
+            dropZone.addEventListener('dragover', (e) => {
+                e.preventDefault();
+                dropZone.classList.add('active');
+            });
+            
+            dropZone.addEventListener('dragleave', () => {
+                dropZone.classList.remove('active');
+            });
+            
+            dropZone.addEventListener('drop', (e) => {
+                e.preventDefault();
+                dropZone.classList.remove('active');
+                if (e.dataTransfer.files.length) {
+                    handleFile(e.dataTransfer.files[0]);
+                }
+            });
+            
+            fileInput.addEventListener('change', (e) => {
+                if (e.target.files.length) {
+                    handleFile(e.target.files[0]);
+                }
+            });
+        }
+        
+        // Handle file
+        function handleFile(file) {
+            selectedFile = file;
+            
+            const preview = document.getElementById('preview');
+            const previewImage = document.getElementById('previewImage');
+            const previewVideo = document.getElementById('previewVideo');
+            
+            preview.style.display = 'block';
+            
+            if (file.type.startsWith('video/')) {
+                previewImage.style.display = 'none';
+                previewVideo.style.display = 'block';
+                previewVideo.src = URL.createObjectURL(file);
+            } else {
+                previewVideo.style.display = 'none';
+                previewImage.style.display = 'block';
+                previewImage.src = URL.createObjectURL(file);
+            }
+        }
+        
+        // Upload media
+        function uploadMedia() {
+            if (!selectedFile) {
+                showNotification('Selecciona un archivo primero');
+                return;
+            }
+            
+            const mediaType = document.getElementById('mediaType').value;
+            const productCode = document.getElementById('productCode').value;
+            
+            // Create preview
+            const reader = new FileReader();
+            reader.onload = (e) => {
+                const media = {
+                    id: Date.now(),
+                    code: productCode,
+                    name: selectedFile.name,
+                    type: mediaType,
+                    mime: selectedFile.type,
+                    size: formatSize(selectedFile.size),
+                    preview: e.target.result,
+                    data: e.target.result // Base64 for local storage
+                };
+                
+                mediaLibrary.push(media);
+                localStorage.setItem('jois_media', JSON.stringify(mediaLibrary));
+                
+                showNotification('✓ Media cargado correctamente');
+                renderMediaList();
+                
+                // Reset
+                selectedFile = null;
+                document.getElementById('preview').style.display = 'none';
+            };
+            reader.readAsDataURL(selectedFile);
+        }
+        
+        // Preview media
+        function previewMedia(index) {
+            const media = mediaLibrary[index];
+            window.open(media.preview, '_blank');
+        }
+        
+        // Delete media
+        function deleteMedia(index) {
+            if (confirm('¿Eliminar este media?')) {
+                mediaLibrary.splice(index, 1);
+                localStorage.setItem('jois_media', JSON.stringify(mediaLibrary));
+                renderMediaList();
+                showNotification('Media eliminado');
+            }
+        }
+        
+        // Format file size
+        function formatSize(bytes) {
+            if (bytes < 1024) return bytes + ' B';
+            if (bytes < 1024 * 1024) return (bytes / 1024).toFixed(1) + ' KB';
+            return (bytes / (1024 * 1024)).toFixed(1) + ' MB';
+        }
+        
+        // Show notification
+        function showNotification(message) {
+            const notif = document.getElementById('notification');
+            notif.textContent = message;
+            notif.classList.add('show');
+            setTimeout(() => notif.classList.remove('show'), 3000);
+        }
+        
+        // Init
+        init();
+    </script>
+</body>
+</html>

@@ -127,3 +127,26 @@ content/
 ## Nota importante
 
 El editor funciona **localmente en el navegador**. Para que los cambios se reflejen para todos los usuarios, hay que descargar el JSON y subirlo al repo de GitHub.
+
+---
+
+## Sistema de Media
+
+### Editor de Media
+Usa: `content/media-editor.html`
+
+### Medidas recomendadas
+
+| Tipo | Medida | Formato |
+|------|--------|---------|
+| Hero | 1920×1080 px | JPG 80% |
+| Productos | 800×1200 px | JPG 80% |
+| Colecciones | 600×800 px | JPG 80% |
+| NFT Art | 1024×1024 px | PNG |
+| Video Hero | 1920×1080 px | MP4 H.264 |
+
+### Cómo funciona
+1. **Subes** la imagen/video desde el editor
+2. **Selecciona** el tipo y código de producto
+3. **Se guarda** localmente en el navegador
+4. **Para producción**: necesitas integrar con tu hosting
