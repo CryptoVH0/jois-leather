@@ -911,6 +911,96 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 }
 
 /* ============================================
+   CART SHIPPING SECTION
+   ============================================ */
+.cart-shipping-section {
+    padding: 20px 30px;
+    border-top: 1px solid var(--gray);
+    background: var(--gray-light);
+}
+
+.cart-shipping-header {
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 15px;
+}
+
+.cart-shipping-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.cart-shipping-options {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.cart-shipping-option {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 15px;
+    border: 1px solid var(--gray);
+    background: var(--white);
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.cart-shipping-option:hover {
+    border-color: var(--text-dark);
+}
+
+.cart-shipping-option.selected {
+    border-color: var(--wine);
+    background: rgba(114, 47, 55, 0.03);
+}
+
+.cart-shipping-option-info {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.cart-shipping-option-name {
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+
+.cart-shipping-option-days {
+    font-size: 10px;
+    color: var(--text-muted);
+}
+
+.cart-shipping-option-price {
+    font-family: var(--font-mono);
+    font-size: 14px;
+}
+
+.cart-shipping-row {
+    display: none;
+    justify-content: space-between;
+    padding: 15px 0;
+    border-top: 1px solid var(--gray);
+    margin-top: 15px;
+}
+
+.cart-shipping-row-label {
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+
+.cart-shipping-row-value {
+    font-family: var(--font-mono);
+    font-size: 14px;
+}
+
+/* ============================================
    RESPONSIVE
    ============================================ */
 @media (max-width: 1024px) {

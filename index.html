@@ -7,8 +7,9 @@
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="styles.css?v=7.0">
-    <link rel="stylesheet" href="styles-video.css?v=7.0">
+    <link rel="stylesheet" href="styles.css?v=8.0">
+    <link rel="stylesheet" href="styles-video.css?v=8.0">
+    <link rel="stylesheet" href="shipping/styles-shipping.css">
     
     <!-- SEO Meta Tags -->
     <meta name="description" content="JOIS Leather — Maison de cuir contemporain. Cuero artesanal premium desde Ciudad de México. Chamarras, carteras y bolsos de lujo.">
@@ -483,6 +484,27 @@
         <div id="cartItems" class="cart-items">
             <div class="cart-empty"><span>Tu bolsa está vacía</span></div>
         </div>
+        
+        <!-- Shipping Estimator in Cart -->
+        <div class="cart-shipping-section" id="cartShippingSection" style="display: none;">
+            <div class="cart-shipping-header">
+                <span>Estimar Envío</span>
+            </div>
+            <div class="cart-shipping-form">
+                <select id="cartCountrySelect" class="shipping-country-select">
+                    <option value="">País</option>
+                    <option value="MX">México</option>
+                    <option value="US">Estados Unidos</option>
+                    <option value="ES">España</option>
+                    <option value="FR">Francia</option>
+                    <option value="DE">Alemania</option>
+                    <option value="IT">Italia</option>
+                    <option value="GB">Reino Unido</option>
+                </select>
+                <div class="cart-shipping-options" id="cartShippingOptions"></div>
+            </div>
+        </div>
+        
         <div class="cart-footer">
             <div class="cart-total">
                 <span>Total</span>
@@ -500,6 +522,7 @@
     </div>
     <div class="cart-overlay" onclick="toggleCart()"></div>
 
-    <script src="app.js?v=7.0"></script>
+    <script src="shipping/shipping-calculator.js"></script>
+    <script src="app.js?v=8.0"></script>
 </body>
 </html>
