@@ -4,42 +4,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JOIS — Maison de Cuir</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="styles.css?v=5.0">
-    <link rel="stylesheet" href="styles-video.css?v=5.0">
+    <link rel="stylesheet" href="styles.css?v=6.0">
+    <link rel="stylesheet" href="styles-video.css?v=6.0">
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="JOIS Leather — Maison de cuir contemporain. Cuero artesanal premium desde Ciudad de México. Chamarras, carteras y bolsos de lujo.">
+    <meta name="keywords" content="cuero, leather goods, luxury, Mexico, chamarras, carteras, bolsos, JOIS, leather, luxury fashion">
+    <meta property="og:title" content="JOIS Leather — Maison de Cuir">
+    <meta property="og:description" content="Maison de cuir contemporain. Cuero artesanal premium desde Ciudad de México.">
+    <meta property="og:image" content="https://cryptovh0.github.io/jois-leather/assets/images/jacket-noir.png">
+    <meta property="og:url" content="https://joisleather.io">
+    <meta name="twitter:card" content="summary_large_image">
 </head>
 <body>
     <!-- Navigation - LV Style -->
     <nav class="navbar">
         <div class="nav-left">
-            <button class="nav-icon-btn" onclick="toggleMenu()">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                    <path d="M3 12h18M3 6h18M3 18h18"/>
-                </svg>
-            </button>
-            <button class="nav-icon-btn" onclick="toggleSearch()">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                    <circle cx="11" cy="11" r="7"/>
-                    <path d="M21 21l-4.35-4.35"/>
-                </svg>
-            </button>
+            <a href="index.html" class="nav-link">Inicio</a>
+            <a href="#hombre" class="nav-link">Hombre</a>
+            <a href="#mujer" class="nav-link">Mujer</a>
         </div>
-        <a href="#" class="logo">JOIS</a>
+        <a href="index.html" class="logo">JOIS</a>
         <div class="nav-right">
-            <!-- Social Icons -->
-            <a href="https://www.tiktok.com/@joisleather" target="_blank" class="social-icon" title="TikTok">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-5.2 1.74 2.89 2.89 0 012.31-4.64 2.93 2.93 0 01.88.13V9.4a6.84 6.84 0 00-1-.05A6.33 6.33 0 005 20.1a6.34 6.34 0 0010.86-4.43v-7a8.16 8.16 0 004.77 1.52v-3.4a4.85 4.85 0 01-1-.1z"/>
-                </svg>
-            </a>
-            <a href="https://www.instagram.com/leatherjois" target="_blank" class="social-icon" title="Instagram">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                    <rect x="2" y="2" width="20" height="20" rx="5"/>
-                    <circle cx="12" cy="12" r="4"/>
-                    <circle cx="18" cy="6" r="1"/>
-                </svg>
-            </a>
+            <a href="#nosotros" class="nav-link">Nosotros</a>
+            <a href="#contacto" class="nav-link">Contacto</a>
             <button class="nav-icon-btn" onclick="toggleCart()">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
                     <path d="M6 6h15l-1.5 9h-12z"/>
@@ -52,7 +43,7 @@
         </div>
     </nav>
 
-    <!-- Hero Section - LV Style -->
+    <!-- Hero Section -->
     <section class="hero">
         <div class="hero-bg" style="background-image: url('assets/images/jacket-noir.png');"></div>
         <div class="hero-overlay"></div>
@@ -60,111 +51,393 @@
             <span class="hero-category">Nueva Colección</span>
             <h1 class="hero-title">JOIS</h1>
             <p class="hero-subtitle">Maison de Cuir Contemporáneo</p>
-            <a href="#collections" class="hero-cta">Descubrir</a>
+            <a href="#hombre" class="hero-cta">Descubrir</a>
         </div>
     </section>
 
-    <!-- Section: Intro -->
+    <!-- Intro -->
     <section class="section-intro">
         <p class="intro-text">Explora la selección de las creaciones de la Maison</p>
     </section>
 
-    <!-- Section: Categories Grid -->
-    <section id="collections" class="section-categories">
+    <!-- Categories Quick Access -->
+    <section class="section-categories">
         <div class="categories-grid">
-            <a href="#chamarras" class="category-card">
+            <a href="#hombre" class="category-card">
                 <div class="category-image">
-                    <img src="assets/images/jacket-imperial.png" alt="Chamarras">
+                    <img src="assets/images/jacket-imperial.png" alt="Hombre">
                 </div>
-                <span class="category-name">Chamarras</span>
+                <span class="category-name">Hombre</span>
             </a>
-            <a href="#carteras" class="category-card">
+            <a href="#mujer" class="category-card">
                 <div class="category-image">
-                    <img src="assets/images/wallet-eclipse.png" alt="Carteras">
+                    <img src="assets/images/wallet-eclipse.png" alt="Mujer">
                 </div>
-                <span class="category-name">Carteras</span>
-            </a>
-            <a href="#bolsos" class="category-card">
-                <div class="category-image">
-                    <img src="assets/images/bag-cipher.png" alt="Bolsos">
-                </div>
-                <span class="category-name">Bolsos</span>
-            </a>
-            <a href="nft.html" class="category-card">
-                <div class="category-image">
-                    <img src="assets/images/jacket-phantom.png" alt="NFT">
-                </div>
-                <span class="category-name">NFT</span>
+                <span class="category-name">Mujer</span>
             </a>
         </div>
     </section>
 
-    <!-- Section: Featured Product -->
-    <section class="section-featured">
-        <span class="section-label">01 — Chamarras</span>
-        <h2 class="section-title">La Pieza Central</h2>
-        <div class="featured-image">
-            <img src="assets/images/jacket-noir.png" alt="Chamarra Noir">
+    <!-- ======== SECCIÓN HOMBRE ======== -->
+    <section id="hombre" class="section-category-page">
+        <div class="category-header">
+            <span class="category-tag">01</span>
+            <h2 class="category-title">Hombre</h2>
+            <p class="category-desc">Piezas definidas para el hombre moderno. Cuero premium, diseño atemporal.</p>
         </div>
-        <p class="featured-desc">Cuero premium negro. Diseño minimalista con acabados discretos que envejecen con dignidad.</p>
-        <a href="#chamarras" class="btn-explore">Ver colección →</a>
+        
+        <!-- Chamarras Hombre -->
+        <div class="category-section">
+            <h3 class="sub-category-title">Chamarras</h3>
+            <div class="products-grid">
+                <article class="product-card" data-name="Chamarra Noir" data-price="450">
+                    <div class="product-image">
+                        <img src="assets/images/jacket-noir.png" alt="Chamarra Noir">
+                        <div class="product-badge">Permanente</div>
+                        <div class="product-actions">
+                            <button class="btn-quick-add" onclick="addToCart('Chamarra Noir', 450)">Añadir a Bolsa</button>
+                        </div>
+                    </div>
+                    <div class="product-details">
+                        <span class="product-category">Chamarra</span>
+                        <h4 class="product-name">Noir</h4>
+                        <p class="product-desc">Cuero premium negro. Diseño minimalista con acabados discretos.</p>
+                        <div class="product-pricing">
+                            <span class="price-main">$450 USD</span>
+                            <span class="price-crypto font-mono">USDT 450</span>
+                        </div>
+                    </div>
+                </article>
+                <article class="product-card" data-name="Chamarra Imperial" data-price="520">
+                    <div class="product-image">
+                        <img src="assets/images/jacket-imperial.png" alt="Chamarra Imperial">
+                        <div class="product-badge">Nuevo</div>
+                        <div class="product-actions">
+                            <button class="btn-quick-add" onclick="addToCart('Chamarra Imperial', 520)">Añadir a Bolsa</button>
+                        </div>
+                    </div>
+                    <div class="product-details">
+                        <span class="product-category">Chamarra</span>
+                        <h4 class="product-name">Imperial</h4>
+                        <p class="product-desc">Cuero marrón con acabados dorados. Diseño ativo para el hombre moderno.</p>
+                        <div class="product-pricing">
+                            <span class="price-main">$520 USD</span>
+                            <span class="price-crypto font-mono">USDT 520</span>
+                        </div>
+                    </div>
+                </article>
+                <article class="product-card" data-name="Chamarra Phantom" data-price="480">
+                    <div class="product-image">
+                        <img src="assets/images/jacket-phantom.png" alt="Chamarra Phantom">
+                        <div class="product-badge">Limited</div>
+                        <div class="product-actions">
+                            <button class="btn-quick-add" onclick="addToCart('Chamarra Phantom', 480)">Añadir a Bolsa</button>
+                        </div>
+                    </div>
+                    <div class="product-details">
+                        <span class="product-category">Chamarra</span>
+                        <h4 class="product-name">Phantom</h4>
+                        <p class="product-desc">Cuero oscuro con carácter. Estilo futurista con detalles únicos.</p>
+                        <div class="product-pricing">
+                            <span class="price-main">$480 USD</span>
+                            <span class="price-crypto font-mono">USDT 480</span>
+                        </div>
+                    </div>
+                </article>
+                <article class="product-card" data-name="Shirt Jacket" data-price="380">
+                    <div class="product-image">
+                        <img src="assets/images/jacket-phantom.png" alt="Shirt Jacket">
+                        <div class="product-badge">Nuevo</div>
+                        <div class="product-actions">
+                            <button class="btn-quick-add" onclick="addToCart('Shirt Jacket', 380)">Añadir a Bolsa</button>
+                        </div>
+                    </div>
+                    <div class="product-details">
+                        <span class="product-category">Chamarra</span>
+                        <h4 class="product-name">Shirt Jacket</h4>
+                        <p class="product-desc">Híbrido entre camisa y chamarra. Versatilidad premium.</p>
+                        <div class="product-pricing">
+                            <span class="price-main">$380 USD</span>
+                            <span class="price-crypto font-mono">USDT 380</span>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+
+        <!-- Carteras Hombre -->
+        <div class="category-section">
+            <h3 class="sub-category-title">Carteras</h3>
+            <div class="products-grid">
+                <article class="product-card" data-name="Cartera Eclipse" data-price="180">
+                    <div class="product-image">
+                        <img src="assets/images/wallet-eclipse.png" alt="Cartera Eclipse">
+                        <div class="product-badge">Bestseller</div>
+                        <div class="product-actions">
+                            <button class="btn-quick-add" onclick="addToCart('Cartera Eclipse', 180)">Añadir a Bolsa</button>
+                        </div>
+                    </div>
+                    <div class="product-details">
+                        <span class="product-category">Cartera</span>
+                        <h4 class="product-name">Eclipse</h4>
+                        <p class="product-desc">Cuero negro con interior premium. Diseño slim.</p>
+                        <div class="product-pricing">
+                            <span class="price-main">$180 USD</span>
+                            <span class="price-crypto font-mono">USDT 180</span>
+                        </div>
+                    </div>
+                </article>
+                <article class="product-card" data-name="Cartera Sovereign" data-price="220">
+                    <div class="product-image">
+                        <img src="assets/images/wallet-sovereign.png" alt="Cartera Sovereign">
+                        <div class="product-badge">Nuevo</div>
+                        <div class="product-actions">
+                            <button class="btn-quick-add" onclick="addToCart('Cartera Sovereign', 220)">Añadir a Bolsa</button>
+                        </div>
+                    </div>
+                    <div class="product-details">
+                        <span class="product-category">Cartera</span>
+                        <h4 class="product-name">Sovereign</h4>
+                        <p class="product-desc">Cuero cognac con detalles dorados. Capacidad completa.</p>
+                        <div class="product-pricing">
+                            <span class="price-main">$220 USD</span>
+                            <span class="price-crypto font-mono">USDT 220</span>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+
+        <!-- Bolsos Hombre -->
+        <div class="category-section">
+            <h3 class="sub-category-title">Bolsos</h3>
+            <div class="products-grid">
+                <article class="product-card" data-name="Weekender Bag" data-price="480">
+                    <div class="product-image">
+                        <img src="assets/images/bag-cipher.png" alt="Weekender Bag">
+                        <div class="product-badge">Nuevo</div>
+                        <div class="product-actions">
+                            <button class="btn-quick-add" onclick="addToCart('Weekender Bag', 480)">Añadir a Bolsa</button>
+                        </div>
+                    </div>
+                    <div class="product-details">
+                        <span class="product-category">Bolso</span>
+                        <h4 class="product-name">Weekender Bag</h4>
+                        <p class="product-desc">Diseño para viajes cortos. Espacio funcional con estilo.</p>
+                        <div class="product-pricing">
+                            <span class="price-main">$480 USD</span>
+                            <span class="price-crypto font-mono">USDT 480</span>
+                        </div>
+                    </div>
+                </article>
+                <article class="product-card" data-name="Bolso Cipher" data-price="380">
+                    <div class="product-image">
+                        <img src="assets/images/bag-cipher.png" alt="Bolso Cipher">
+                        <div class="product-badge">Permanente</div>
+                        <div class="product-actions">
+                            <button class="btn-quick-add" onclick="addToCart('Bolso Cipher', 380)">Añadir a Bolsa</button>
+                        </div>
+                    </div>
+                    <div class="product-details">
+                        <span class="product-category">Bolso</span>
+                        <h4 class="product-name">Cipher</h4>
+                        <p class="product-desc">Cuero negro multi-compartimentos. Para el día a día.</p>
+                        <div class="product-pricing">
+                            <span class="price-main">$380 USD</span>
+                            <span class="price-crypto font-mono">USDT 380</span>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
     </section>
 
-    <!-- Section: Split Editorial -->
-    <section class="section-split">
-        <div class="split-image">
-            <img src="assets/images/wallet-eclipse.png" alt="Carteras">
-        </div>
-        <div class="split-content">
-            <span class="section-label">02 — Accesorios</span>
-            <h2 class="split-title">Carteras</h2>
-            <p class="split-desc">Cada accesorio, una declaración de estilo personal.</p>
-            <a href="#carteras" class="btn-explore">Explorar →</a>
-        </div>
-    </section>
-
-    <!-- Section: Full Width -->
-    <section class="section-full">
-        <div class="full-image">
-            <img src="assets/images/bag-vault.png" alt="Bolsos">
-        </div>
-        <div class="full-content">
-            <span class="section-label">03 — Functional</span>
-            <h2 class="full-title">Bolsos</h2>
-            <a href="#bolsos" class="btn-explore light">Explorar →</a>
-        </div>
-    </section>
-
-    <!-- Section: Heritage -->
-    <section id="story" class="section-heritage">
-        <div class="heritage-media">
-            <img src="assets/images/jacket-phantom.png" alt="Heritage">
-        </div>
-        <div class="heritage-content">
-            <span class="section-label">Notre Histoire</span>
-            <h2 class="heritage-title">La Artesanía<br>del Mañana</h2>
-            <p class="heritage-desc">JOIS nace de una visión híbrida: honrar la tradición del cuero mientras abrazamos las posibilidades del código digital.</p>
-            <a href="#story" class="btn-explore">Más sobre nosotros →</a>
-        </div>
-    </section>
-
-    <!-- Section: NFT -->
-    <section class="section-nft">
-        <span class="section-label">Digital Collectibles</span>
-        <h2 class="section-title">NFT Collection</h2>
-        <div class="nft-image">
-            <img src="assets/images/jacket-phantom.png" alt="NFT">
-        </div>
-        <p class="nft-desc">Coleccionables digitales únicos en blockchain. El futuro del lujo.</p>
-        <a href="nft.html" class="btn-explore">Explorar →</a>
-    </section>
-
-    <!-- Editorial Quote -->
+    <!-- Editorial Divider -->
     <section class="section-quote">
         <span class="quote-line"></span>
         <blockquote>"El lujo no es lo que compramos,<br>es lo que somos."</blockquote>
         <span class="quote-line"></span>
         <cite>— Fundador, JOIS</cite>
+    </section>
+
+    <!-- ======== SECCIÓN MUJER ======== -->
+    <section id="mujer" class="section-category-page">
+        <div class="category-header">
+            <span class="category-tag">02</span>
+            <h2 class="category-title">Mujer</h2>
+            <p class="category-desc">Piezas definidas para la mujer moderna. Elegancia atemporal en cada detalle.</p>
+        </div>
+        
+        <!-- Chamarras Mujer -->
+        <div class="category-section">
+            <h3 class="sub-category-title">Chamarras</h3>
+            <div class="products-grid">
+                <article class="product-card" data-name="Chamarra Noir" data-price="450">
+                    <div class="product-image">
+                        <img src="assets/images/jacket-noir.png" alt="Chamarra Noir">
+                        <div class="product-badge">Permanente</div>
+                        <div class="product-actions">
+                            <button class="btn-quick-add" onclick="addToCart('Chamarra Noir', 450)">Añadir a Bolsa</button>
+                        </div>
+                    </div>
+                    <div class="product-details">
+                        <span class="product-category">Chamarra</span>
+                        <h4 class="product-name">Noir</h4>
+                        <p class="product-desc">Cuero premium negro. Diseño minimalista con acabados discretos.</p>
+                        <div class="product-pricing">
+                            <span class="price-main">$450 USD</span>
+                            <span class="price-crypto font-mono">USDT 450</span>
+                        </div>
+                    </div>
+                </article>
+                <article class="product-card" data-name="Chamarra Imperial" data-price="520">
+                    <div class="product-image">
+                        <img src="assets/images/jacket-imperial.png" alt="Chamarra Imperial">
+                        <div class="product-badge">Nuevo</div>
+                        <div class="product-actions">
+                            <button class="btn-quick-add" onclick="addToCart('Chamarra Imperial', 520)">Añadir a Bolsa</button>
+                        </div>
+                    </div>
+                    <div class="product-details">
+                        <span class="product-category">Chamarra</span>
+                        <h4 class="product-name">Imperial</h4>
+                        <p class="product-desc">Cuero marrón con acabados dorados. Elegancia moderna.</p>
+                        <div class="product-pricing">
+                            <span class="price-main">$520 USD</span>
+                            <span class="price-crypto font-mono">USDT 520</span>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+
+        <!-- Carteras Mujer -->
+        <div class="category-section">
+            <h3 class="sub-category-title">Carteras</h3>
+            <div class="products-grid">
+                <article class="product-card" data-name="Cartera Eclipse" data-price="180">
+                    <div class="product-image">
+                        <img src="assets/images/wallet-eclipse.png" alt="Cartera Eclipse">
+                        <div class="product-badge">Bestseller</div>
+                        <div class="product-actions">
+                            <button class="btn-quick-add" onclick="addToCart('Cartera Eclipse', 180)">Añadir a Bolsa</button>
+                        </div>
+                    </div>
+                    <div class="product-details">
+                        <span class="product-category">Cartera</span>
+                        <h4 class="product-name">Eclipse</h4>
+                        <p class="product-desc">Cuero negro con interior premium. Diseño elegante y funcional.</p>
+                        <div class="product-pricing">
+                            <span class="price-main">$180 USD</span>
+                            <span class="price-crypto font-mono">USDT 180</span>
+                        </div>
+                    </div>
+                </article>
+                <article class="product-card" data-name="Cartera Matrix" data-price="200">
+                    <div class="product-image">
+                        <img src="assets/images/wallet-matrix.png" alt="Cartera Matrix">
+                        <div class="product-badge">Limited</div>
+                        <div class="product-actions">
+                            <button class="btn-quick-add" onclick="addToCart('Cartera Matrix', 200)">Añadir a Bolsa</button>
+                        </div>
+                    </div>
+                    <div class="product-details">
+                        <span class="product-category">Cartera</span>
+                        <h4 class="product-name">Matrix</h4>
+                        <p class="product-desc">Cuero tech-negro con interior organizado. Para la profesional moderna.</p>
+                        <div class="product-pricing">
+                            <span class="price-main">$200 USD</span>
+                            <span class="price-crypto font-mono">USDT 200</span>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+
+        <!-- Bolsos Mujer -->
+        <div class="category-section">
+            <h3 class="sub-category-title">Bolsos</h3>
+            <div class="products-grid">
+                <article class="product-card" data-name="Weekender Bag" data-price="480">
+                    <div class="product-image">
+                        <img src="assets/images/bag-vault.png" alt="Weekender Bag">
+                        <div class="product-badge">Nuevo</div>
+                        <div class="product-actions">
+                            <button class="btn-quick-add" onclick="addToCart('Weekender Bag', 480)">Añadir a Bolsa</button>
+                        </div>
+                    </div>
+                    <div class="product-details">
+                        <span class="product-category">Bolso</span>
+                        <h4 class="product-name">Weekender Bag</h4>
+                        <p class="product-desc">Diseño elegante para viajes cortos. Funcionalidad premium.</p>
+                        <div class="product-pricing">
+                            <span class="price-main">$480 USD</span>
+                            <span class="price-crypto font-mono">USDT 480</span>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- ======== SOBRE NOSOTROS ======== -->
+    <section id="nosotros" class="section-about">
+        <div class="about-media">
+            <img src="assets/images/jacket-phantom.png" alt="JOIS Heritage">
+        </div>
+        <div class="about-content">
+            <span class="section-label">Notre Histoire</span>
+            <h2 class="about-title">La Artesanía<br>del Mañana</h2>
+            <p class="about-text">JOIS nace de una visión híbrida: honrar la tradición del cuero mientras abrazamos las posibilidades del código digital. Cada pieza es diseñada para trascender temporadas y convertirse en compañero de vida.</p>
+            <p class="about-text">Desde Ciudad de México, cada producto JOIS es elaborado con materiales de la más alta calidad. Nuestro atelier combina técnicas artesanales centenarias con innovación contemporánea.</p>
+            <div class="about-values">
+                <div class="value-item">
+                    <span class="value-num">01</span>
+                    <span class="value-text">Selección de grano premium</span>
+                </div>
+                <div class="value-item">
+                    <span class="value-num">02</span>
+                    <span class="value-text">Diseño atemporal</span>
+                </div>
+                <div class="value-item">
+                    <span class="value-num">03</span>
+                    <span class="value-text">Construcción durable</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- NFT Section -->
+    <section class="section-nft">
+        <div class="nft-content">
+            <span class="section-label">Digital Collectibles</span>
+            <h2 class="nft-title">NFT Collection</h2>
+            <p class="nft-desc">Coleccionables digitales únicos. El futuro del lujo, tokenizado en blockchain.</p>
+            <a href="nft.html" class="btn-explore">Explorar NFT →</a>
+        </div>
+    </section>
+
+    <!-- ======== CONTACTO ======== -->
+    <section id="contacto" class="section-contact">
+        <div class="contact-info">
+            <span class="section-label">Get in Touch</span>
+            <h2 class="contact-title">Contacto</h2>
+            <div class="contact-details">
+                <div class="contact-item">
+                    <span class="contact-label">Email</span>
+                    <span class="contact-value font-mono">info@joisleather.io</span>
+                </div>
+                <div class="contact-item">
+                    <span class="contact-label">Ubicación</span>
+                    <span class="contact-value">Ciudad de México, México</span>
+                </div>
+                <div class="contact-item">
+                    <span class="contact-label">Horario</span>
+                    <span class="contact-value">Lunes a Viernes, 10:00 — 19:00</span>
+                </div>
+            </div>
+            <a href="mailto:info@joisleather.io" class="btn-explore">Escribirnos →</a>
+        </div>
     </section>
 
     <!-- Footer -->
@@ -180,16 +453,15 @@
             </div>
             <div class="footer-nav">
                 <div class="footer-col">
-                    <h4>Colecciones</h4>
-                    <a href="#chamarras">Chamarras</a>
-                    <a href="#carteras">Carteras</a>
-                    <a href="#bolsos">Bolsos</a>
+                    <h4>Tienda</h4>
+                    <a href="#hombre">Hombre</a>
+                    <a href="#mujer">Mujer</a>
                     <a href="nft.html">NFT</a>
                 </div>
                 <div class="footer-col">
                     <h4>Information</h4>
-                    <a href="#story">Heritage</a>
-                    <a href="#contact">Contacto</a>
+                    <a href="#nosotros">Nosotros</a>
+                    <a href="#contacto">Contacto</a>
                     <a href="legal/TERMINOS-Y-CONDICIONES.md">Términos</a>
                     <a href="legal/PRIVACIDAD.md">Privacidad</a>
                 </div>
@@ -213,9 +485,7 @@
             <button class="cart-close" onclick="toggleCart()">×</button>
         </div>
         <div id="cartItems" class="cart-items">
-            <div class="cart-empty">
-                <span>Tu bolsa está vacía</span>
-            </div>
+            <div class="cart-empty"><span>Tu bolsa está vacía</span></div>
         </div>
         <div class="cart-footer">
             <div class="cart-total">
@@ -227,19 +497,13 @@
                 </div>
             </div>
             <div class="cart-actions">
-                <button class="btn-checkout" onclick="checkoutStripe()">
-                    <span>Pagar con Tarjeta</span>
-                    <small class="font-mono">USD</small>
-                </button>
-                <button class="btn-checkout-crypto" onclick="checkoutCrypto()">
-                    <span>Pagar con Crypto</span>
-                    <small class="font-mono">BTC · USDT</small>
-                </button>
+                <button class="btn-checkout" onclick="checkoutStripe()">Pagar con Tarjeta <small class="font-mono">USD</small></button>
+                <button class="btn-checkout-crypto" onclick="checkoutCrypto()">Pagar con Crypto <small class="font-mono">BTC · USDT</small></button>
             </div>
         </div>
     </div>
     <div class="cart-overlay" onclick="toggleCart()"></div>
 
-    <script src="app.js?v=5.0"></script>
+    <script src="app.js?v=6.0"></script>
 </body>
 </html>
