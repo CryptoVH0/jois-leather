@@ -1,42 +1,20 @@
 /* ============================================
-   JOIS — Minimal Animations (LV Style)
+   JOIS — Minimal Animations
    ============================================ */
 
-/* ============================================
-   SUBTLE ANIMATIONS ONLY
-   ============================================ */
-
-/* Hero subtle zoom */
-@keyframes heroZoom {
+/* Subtle zoom on hero */
+@keyframes subtleZoom {
     0% { transform: scale(1); }
     100% { transform: scale(1.05); }
 }
 
-.hero-bg {
-    animation: heroZoom 20s ease-out forwards;
-}
-
-/* Scroll line pulse */
-@keyframes scrollPulse {
-    0%, 100% { opacity: 0.3; }
-    50% { opacity: 1; }
-}
-
-/* Split image hover zoom */
-@keyframes subtleZoom {
+/* Hover zoom for images */
+@keyframes imageZoom {
     0% { transform: scale(1); }
-    100% { transform: scale(1.03); }
+    100% { transform: scale(1.05); }
 }
 
-/* ============================================
-   RESPONSIVE
-   ============================================ */
+/* Mobile: disable animations */
 @media (max-width: 768px) {
-    .hero-bg {
-        animation: none;
-    }
-    
-    .section-split:hover .split-image img {
-        transform: none;
-    }
+    .hero-bg { animation: none !important; }
 }

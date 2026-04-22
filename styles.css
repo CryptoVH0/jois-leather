@@ -1,37 +1,31 @@
 /* ============================================
-   JOIS — LV Style Layout CSS
-   Minimal, Editorial, Luxury
+   JOIS — LV Style CSS v5
+   Clean, Minimal, Luxury
    ============================================ */
 
-/* ============================================
-   VARIABLES
-   ============================================ */
 :root {
     --white: #FFFFFF;
     --gray-light: #F8F8F8;
     --gray: #E8E8E8;
     --gray-dark: #666666;
-    --black: #0D0D0D;
+    --black: #0A0A0A;
     --wine: #722F37;
     --wine-dark: #4A1F24;
     --gold: #B8860B;
-    --text-dark: #1A1A1A;
+    --text-dark: #0A0A0A;
     --text-muted: #666666;
     --font-display: 'Times New Roman', serif;
     --font-body: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     --font-mono: 'Menlo', 'Monaco', monospace;
 }
 
-/* ============================================
-   RESET
-   ============================================ */
 * { margin: 0; padding: 0; box-sizing: border-box; }
 html { scroll-behavior: smooth; }
 body {
     font-family: var(--font-body);
     background: var(--white);
     color: var(--text-dark);
-    line-height: 1.6;
+    line-height: 1.7;
     -webkit-font-smoothing: antialiased;
     overflow-x: hidden;
 }
@@ -39,75 +33,81 @@ a { text-decoration: none; color: inherit; }
 img { max-width: 100%; height: auto; display: block; }
 button { font-family: inherit; cursor: pointer; border: none; background: none; }
 
-/* ============================================
-   TYPOGRAPHY
-   ============================================ */
 .font-display { font-family: var(--font-display) !important; }
 .font-mono { font-family: var(--font-mono) !important; }
 
 /* ============================================
-   NAVIGATION - LV Ultra Minimal
+   NAVIGATION - LV Minimal
    ============================================ */
 .navbar {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    height: 70px;
+    height: 60px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0 50px;
+    padding: 0 20px;
     background: var(--white);
     z-index: 1000;
     border-bottom: 1px solid var(--gray);
 }
 
-.logo {
-    font-family: var(--font-display);
-    font-size: 24px;
-    letter-spacing: 0.35em;
-    color: var(--text-dark);
-}
-
 .nav-left, .nav-right {
     display: flex;
     align-items: center;
-    gap: 35px;
+    gap: 12px;
 }
 
-.nav-link {
-    font-size: 11px;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: var(--text-dark);
-    transition: color 0.3s;
-}
-
-.nav-link:hover { color: var(--wine); }
-
-.cart-icon {
-    position: relative;
+.nav-icon-btn {
+    width: 40px;
+    height: 40px;
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 40px;
-    height: 40px;
-    transition: all 0.3s;
+    color: var(--text-dark);
+    transition: opacity 0.3s;
 }
 
-.cart-icon:hover { opacity: 0.6; }
+.nav-icon-btn:hover { opacity: 0.5; }
 
-.bag-icon {
-    width: 20px;
-    height: 20px;
+.logo {
+    font-family: var(--font-display);
+    font-size: 20px;
+    letter-spacing: 0.35em;
+    color: var(--text-dark);
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.social-icon {
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-dark);
+    transition: opacity 0.3s;
+}
+
+.social-icon:hover { opacity: 0.5; }
+
+.cart-icon {
+    position: relative;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     color: var(--text-dark);
 }
 
 .bag-count {
     position: absolute;
-    top: -4px;
-    right: -4px;
+    top: 2px;
+    right: 2px;
     width: 16px;
     height: 16px;
     background: var(--wine);
@@ -120,25 +120,12 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
     justify-content: center;
 }
 
-.nav-mobile-toggle {
-    display: none;
-    flex-direction: column;
-    gap: 5px;
-    width: 25px;
-}
-
-.nav-mobile-toggle span {
-    width: 100%;
-    height: 1px;
-    background: var(--black);
-}
-
 /* ============================================
-   HERO - LV Full Screen Centered
+   HERO - Full Screen Image
    ============================================ */
 .hero {
     height: 100vh;
-    min-height: 700px;
+    min-height: 600px;
     position: relative;
     display: flex;
     align-items: center;
@@ -154,162 +141,159 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
     height: 100%;
     background-size: cover;
     background-position: center;
-    background-repeat: no-repeat;
+    animation: subtleZoom 20s ease-out forwards;
 }
 
-.hero-overlay-dark {
+@keyframes subtleZoom {
+    0% { transform: scale(1); }
+    100% { transform: scale(1.05); }
+}
+
+.hero-overlay {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0,0,0,0.35);
+    background: rgba(0,0,0,0.25);
 }
 
-.hero-content-centered {
+.hero-content {
     position: relative;
     z-index: 10;
     text-align: center;
     color: var(--white);
+    padding: 0 30px;
 }
 
-.hero-season {
+.hero-category {
     font-size: 10px;
     letter-spacing: 0.4em;
     text-transform: uppercase;
     color: var(--gold);
     display: block;
-    margin-bottom: 25px;
-}
-
-.hero-title-lg {
-    font-family: var(--font-display);
-    font-size: clamp(80px, 18vw, 200px);
-    font-weight: 400;
-    letter-spacing: 0.2em;
-    line-height: 1;
     margin-bottom: 20px;
 }
 
-.hero-subtitle {
-    font-size: 12px;
-    letter-spacing: 0.25em;
-    text-transform: uppercase;
-    color: rgba(255,255,255,0.7);
-    margin-bottom: 50px;
+.hero-title {
+    font-family: var(--font-display);
+    font-size: clamp(70px, 20vw, 180px);
+    font-weight: 400;
+    letter-spacing: 0.2em;
+    line-height: 1;
+    margin-bottom: 15px;
 }
 
-.btn-discover {
-    display: inline-flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 15px;
-    color: var(--white);
+.hero-subtitle {
+    font-size: 11px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.7);
+    margin-bottom: 40px;
+}
+
+.hero-cta {
     font-size: 11px;
     letter-spacing: 0.2em;
     text-transform: uppercase;
+    color: var(--white);
+    border-bottom: 1px solid rgba(255,255,255,0.5);
+    padding-bottom: 5px;
     transition: all 0.3s;
 }
 
-.btn-discover:hover { opacity: 0.7; }
-
-.btn-discover svg {
-    animation: bounceDown 2s ease infinite;
-}
-
-@keyframes bounceDown {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(8px); }
-}
-
-.scroll-indicator {
-    position: absolute;
-    bottom: 40px;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 10;
-}
-
-.scroll-line {
-    width: 1px;
-    height: 50px;
-    background: rgba(255,255,255,0.4);
-    animation: scrollPulse 2s ease infinite;
-}
-
-@keyframes scrollPulse {
-    0%, 100% { opacity: 0.3; }
-    50% { opacity: 1; }
+.hero-cta:hover {
+    border-color: var(--white);
 }
 
 /* ============================================
-   SPLIT SECTIONS - LV Editorial
+   SECTION INTRO
    ============================================ */
-.section-split {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    min-height: 80vh;
-}
-
-.section-split.reverse {
-    direction: rtl;
-}
-
-.section-split.reverse > * {
-    direction: ltr;
-}
-
-.split-image {
-    overflow: hidden;
-    background: var(--gray-light);
-}
-
-.split-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 8s ease-out;
-}
-
-.section-split:hover .split-image img {
-    transform: scale(1.03);
-}
-
-.split-content {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding: 80px;
+.section-intro {
+    padding: 60px 30px;
+    text-align: center;
     background: var(--white);
 }
 
-.split-label {
+.intro-text {
+    font-size: 14px;
+    letter-spacing: 0.05em;
+    color: var(--text-muted);
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+/* ============================================
+   CATEGORIES GRID - LV Style
+   ============================================ */
+.section-categories {
+    padding: 0 15px 60px;
+    background: var(--white);
+}
+
+.categories-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.category-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.category-image {
+    width: 100%;
+    aspect-ratio: 1;
+    overflow: hidden;
+    background: var(--gray-light);
+    margin-bottom: 15px;
+}
+
+.category-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 6s ease-out;
+}
+
+.category-card:hover .category-image img {
+    transform: scale(1.05);
+}
+
+.category-name {
+    font-size: 12px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--text-dark);
+}
+
+/* ============================================
+   SECTION LABELS & TITLES
+   ============================================ */
+.section-label {
     font-size: 10px;
     letter-spacing: 0.3em;
     text-transform: uppercase;
     color: var(--text-muted);
-    margin-bottom: 20px;
     display: block;
+    margin-bottom: 15px;
 }
 
-.split-title {
+.section-title {
     font-family: var(--font-display);
-    font-size: clamp(36px, 5vw, 56px);
+    font-size: clamp(28px, 6vw, 42px);
     font-weight: 400;
-    line-height: 1.1;
     letter-spacing: 0.05em;
-    margin-bottom: 25px;
+    line-height: 1.2;
+    margin-bottom: 30px;
 }
 
-.split-desc {
-    font-size: 14px;
-    color: var(--text-muted);
-    line-height: 1.8;
-    max-width: 380px;
-    margin-bottom: 35px;
-}
-
-.btn-text {
+.btn-explore {
     font-size: 11px;
     letter-spacing: 0.15em;
     text-transform: uppercase;
@@ -320,23 +304,103 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
     transition: all 0.3s;
 }
 
-.btn-text:hover {
+.btn-explore:hover {
     color: var(--wine);
     border-color: var(--wine);
 }
 
-.btn-text.light {
+.btn-explore.light {
     color: var(--white);
     border-color: var(--white);
+}
+
+/* ============================================
+   FEATURED SECTION
+   ============================================ */
+.section-featured {
+    padding: 80px 30px;
+    text-align: center;
+    background: var(--white);
+}
+
+.featured-image {
+    max-width: 500px;
+    margin: 0 auto 30px;
+    overflow: hidden;
+}
+
+.featured-image img {
+    width: 100%;
+    transition: transform 6s ease-out;
+}
+
+.section-featured:hover .featured-image img {
+    transform: scale(1.03);
+}
+
+.featured-desc {
+    font-size: 14px;
+    color: var(--text-muted);
+    max-width: 400px;
+    margin: 0 auto 25px;
+    line-height: 1.8;
+}
+
+/* ============================================
+   SPLIT SECTION
+   ============================================ */
+.section-split {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.section-split .split-image {
+    aspect-ratio: 1;
+    overflow: hidden;
+}
+
+.section-split .split-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 6s ease-out;
+}
+
+.section-split:hover .split-image img {
+    transform: scale(1.05);
+}
+
+.split-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 50px 30px;
+    background: var(--gray-light);
+}
+
+.split-title {
+    font-family: var(--font-display);
+    font-size: clamp(24px, 4vw, 36px);
+    font-weight: 400;
+    letter-spacing: 0.05em;
+    line-height: 1.2;
+    margin-bottom: 15px;
+}
+
+.split-desc {
+    font-size: 13px;
+    color: var(--text-muted);
+    line-height: 1.8;
+    margin-bottom: 25px;
 }
 
 /* ============================================
    FULL WIDTH SECTION
    ============================================ */
 .section-full {
-    height: 70vh;
-    min-height: 500px;
     position: relative;
+    height: 80vh;
+    min-height: 500px;
     overflow: hidden;
 }
 
@@ -351,89 +415,43 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
     object-fit: cover;
 }
 
-.full-overlay {
+.full-content {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0,0,0,0.4);
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     text-align: center;
     color: var(--white);
+    background: rgba(0,0,0,0.3);
 }
 
 .full-title {
     font-family: var(--font-display);
-    font-size: clamp(48px, 8vw, 100px);
+    font-size: clamp(40px, 10vw, 80px);
     font-weight: 400;
     letter-spacing: 0.1em;
-    margin: 20px 0 30px;
+    margin: 15px 0 25px;
 }
 
 /* ============================================
-   EDITORIAL QUOTE - LV Minimal
+   HERITAGE SECTION
    ============================================ */
-.editorial {
-    padding: 120px 40px;
-    background: var(--white);
-    text-align: center;
-}
-
-.editorial-content {
-    max-width: 700px;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 30px;
-}
-
-.editorial-line {
-    width: 60px;
-    height: 1px;
-    background: var(--wine);
-}
-
-.editorial blockquote {
-    font-family: var(--font-display);
-    font-size: clamp(24px, 4vw, 40px);
-    font-weight: 400;
-    font-style: italic;
-    line-height: 1.4;
-    color: var(--text-dark);
-}
-
-.editorial-author {
-    font-size: 11px;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--text-muted);
-}
-
-/* ============================================
-   HERITAGE
-   ============================================ */
-.heritage {
+.section-heritage {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    min-height: 600px;
 }
 
 .heritage-media {
-    background: var(--gray-light);
+    aspect-ratio: 4/3;
+    overflow: hidden;
 }
 
-.heritage-image {
-    width: 100%;
-    height: 100%;
-    min-height: 500px;
-}
-
-.heritage-image img {
+.heritage-media img {
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -443,48 +461,118 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding: 80px;
+    padding: 60px 40px;
     background: var(--white);
 }
 
-.heritage-text {
-    margin: 25px 0 30px;
+.heritage-title {
+    font-family: var(--font-display);
+    font-size: clamp(24px, 4vw, 36px);
+    font-weight: 400;
+    line-height: 1.2;
+    margin-bottom: 20px;
 }
 
-.heritage-text p {
-    font-size: 14px;
+.heritage-desc {
+    font-size: 13px;
     color: var(--text-muted);
+    line-height: 1.8;
+    margin-bottom: 25px;
+}
+
+/* ============================================
+   NFT SECTION
+   ============================================ */
+.section-nft {
+    padding: 80px 30px;
+    text-align: center;
+    background: var(--gray-light);
+}
+
+.nft-image {
+    max-width: 400px;
+    margin: 0 auto 30px;
+    overflow: hidden;
+}
+
+.nft-image img {
+    width: 100%;
+    transition: transform 6s ease-out;
+}
+
+.section-nft:hover .nft-image img {
+    transform: scale(1.03);
+}
+
+.nft-desc {
+    font-size: 13px;
+    color: var(--text-muted);
+    max-width: 350px;
+    margin: 0 auto 25px;
     line-height: 1.8;
 }
 
 /* ============================================
-   FOOTER - LV Clean
+   QUOTE SECTION
+   ============================================ */
+.section-quote {
+    padding: 100px 30px;
+    text-align: center;
+    background: var(--white);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+}
+
+.quote-line {
+    width: 50px;
+    height: 1px;
+    background: var(--wine);
+}
+
+.section-quote blockquote {
+    font-family: var(--font-display);
+    font-size: clamp(20px, 4vw, 32px);
+    font-weight: 400;
+    font-style: italic;
+    line-height: 1.4;
+    color: var(--text-dark);
+}
+
+.section-quote cite {
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    color: var(--text-muted);
+    font-style: normal;
+}
+
+/* ============================================
+   FOOTER - Clean LV Style
    ============================================ */
 .footer {
     background: var(--white);
     border-top: 1px solid var(--gray);
-    padding: 80px 50px 40px;
+    padding: 60px 30px 40px;
 }
 
 .footer-main {
     display: grid;
     grid-template-columns: 1fr 2fr;
-    gap: 80px;
-    max-width: 1400px;
-    margin: 0 auto 60px;
-    padding-bottom: 60px;
-    border-bottom: 1px solid var(--gray);
+    gap: 50px;
+    max-width: 1000px;
+    margin: 0 auto 50px;
 }
 
 .footer-brand {
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: 15px;
 }
 
 .footer-logo {
     font-family: var(--font-display);
-    font-size: 28px;
+    font-size: 24px;
     letter-spacing: 0.3em;
 }
 
@@ -494,10 +582,31 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
     color: var(--text-muted);
 }
 
+.footer-socials {
+    display: flex;
+    gap: 20px;
+    margin-top: 10px;
+}
+
+.social-link {
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-dark);
+    border-bottom: 1px solid var(--text-dark);
+    padding-bottom: 3px;
+    transition: all 0.3s;
+}
+
+.social-link:hover {
+    color: var(--wine);
+    border-color: var(--wine);
+}
+
 .footer-nav {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 40px;
+    gap: 30px;
 }
 
 .footer-col h4 {
@@ -526,14 +635,18 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 }
 
 .footer-bottom {
-    max-width: 1400px;
+    max-width: 1000px;
     margin: 0 auto;
+    padding-top: 30px;
+    border-top: 1px solid var(--gray);
+    display: flex;
+    justify-content: space-between;
 }
 
 .footer-bottom p {
-    font-size: 11px;
-    color: var(--text-muted);
+    font-size: 10px;
     letter-spacing: 0.05em;
+    color: var(--text-muted);
 }
 
 /* ============================================
@@ -542,8 +655,8 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 .cart-drawer {
     position: fixed;
     top: 0;
-    right: -420px;
-    width: 420px;
+    right: -400px;
+    width: 400px;
     height: 100vh;
     background: var(--white);
     z-index: 2000;
@@ -556,7 +669,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 .cart-drawer.open { right: 0; }
 
 .cart-header {
-    padding: 30px 40px;
+    padding: 25px 30px;
     border-bottom: 1px solid var(--gray);
     display: flex;
     justify-content: space-between;
@@ -565,12 +678,12 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 
 .cart-header h2 {
     font-family: var(--font-display);
-    font-size: 16px;
+    font-size: 14px;
     letter-spacing: 0.2em;
 }
 
 .cart-close {
-    font-size: 24px;
+    font-size: 22px;
     color: var(--text-dark);
     transition: color 0.3s;
 }
@@ -580,7 +693,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 .cart-items {
     flex: 1;
     overflow-y: auto;
-    padding: 20px 40px;
+    padding: 20px 30px;
 }
 
 .cart-empty {
@@ -589,7 +702,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 }
 
 .cart-empty span {
-    font-size: 11px;
+    font-size: 10px;
     letter-spacing: 0.15em;
     color: var(--text-muted);
     text-transform: uppercase;
@@ -597,9 +710,9 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 
 .cart-item {
     display: grid;
-    grid-template-columns: 70px 1fr;
-    gap: 20px;
-    padding: 25px 0;
+    grid-template-columns: 60px 1fr;
+    gap: 15px;
+    padding: 20px 0;
     border-bottom: 1px solid var(--gray);
 }
 
@@ -616,30 +729,30 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 }
 
 .cart-item-name {
-    font-size: 14px;
+    font-size: 13px;
     letter-spacing: 0.1em;
     margin-bottom: 5px;
 }
 
 .cart-item-price {
     font-family: var(--font-mono);
-    font-size: 12px;
+    font-size: 11px;
     color: var(--text-muted);
 }
 
 .cart-item-remove {
-    font-size: 10px;
+    font-size: 9px;
     color: var(--text-muted);
     text-transform: uppercase;
     letter-spacing: 0.1em;
-    margin-top: 12px;
+    margin-top: 10px;
     cursor: pointer;
 }
 
 .cart-item-remove:hover { color: var(--wine); }
 
 .cart-footer {
-    padding: 30px 40px;
+    padding: 25px 30px;
     border-top: 1px solid var(--gray);
     background: var(--gray-light);
 }
@@ -657,45 +770,42 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
     text-transform: uppercase;
 }
 
-.total-prices { text-align: right; }
-
 .total-usd {
     font-family: var(--font-mono);
-    font-size: 18px;
-    display: block;
+    font-size: 16px;
 }
 
 .total-crypto {
     font-family: var(--font-mono);
-    font-size: 11px;
+    font-size: 10px;
     color: var(--text-muted);
 }
 
 .cart-actions {
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: 10px;
 }
 
 .btn-checkout {
     width: 100%;
-    padding: 18px;
+    padding: 16px;
     background: var(--black);
     color: var(--white);
-    font-size: 11px;
+    font-size: 10px;
     letter-spacing: 0.2em;
     text-transform: uppercase;
-    transition: all 0.3s;
+    transition: background 0.3s;
 }
 
 .btn-checkout:hover { background: var(--wine); }
 
 .btn-checkout-crypto {
     width: 100%;
-    padding: 18px;
+    padding: 16px;
     background: transparent;
     color: var(--black);
-    font-size: 11px;
+    font-size: 10px;
     letter-spacing: 0.2em;
     text-transform: uppercase;
     border: 1px solid var(--black);
@@ -726,98 +836,46 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 }
 
 /* ============================================
-   RESPONSIVE - Mobile First
+   RESPONSIVE
    ============================================ */
-@media (max-width: 1024px) {
-    .navbar { padding: 0 30px; }
-    .nav-left { display: none; }
-    .nav-mobile-toggle { display: flex; }
-    .section-split { grid-template-columns: 1fr; }
-    .section-split.reverse { direction: ltr; }
-    .split-content { padding: 60px 40px; }
-    .heritage { grid-template-columns: 1fr; }
-    .footer-main { grid-template-columns: 1fr; gap: 50px; }
-}
-
 @media (max-width: 768px) {
-    .navbar { height: 60px; padding: 0 20px; }
-    .logo { font-size: 20px; }
-    .nav-right { gap: 20px; }
-    .hero-title-lg { font-size: 60px; letter-spacing: 0.15em; }
-    .hero-subtitle { font-size: 10px; }
-    .split-content { padding: 50px 25px; }
-    .split-title { font-size: 32px; }
-    .section-full { height: 50vh; }
-    .full-title { font-size: 40px; }
-    .editorial { padding: 80px 25px; }
-    .editorial blockquote { font-size: 24px; }
-    .heritage-content { padding: 50px 25px; }
-    .footer { padding: 60px 25px 30px; }
-    .footer-nav { grid-template-columns: 1fr; gap: 30px; }
-    .footer-bottom { text-align: center; }
+    .navbar { height: 55px; padding: 0 15px; }
+    .logo { font-size: 18px; }
+    
+    .hero { min-height: 500px; }
+    .hero-bg { animation: none; }
+    .hero-title { font-size: 50px; }
+    
+    .section-intro { padding: 50px 20px; }
+    .section-categories { padding: 0 10px 50px; }
+    .categories-grid { gap: 8px; }
+    
+    .section-split { grid-template-columns: 1fr; }
+    .split-image { aspect-ratio: 4/3; }
+    .split-content { padding: 40px 25px; }
+    
+    .section-full { height: 60vh; }
+    
+    .section-heritage { grid-template-columns: 1fr; }
+    .heritage-media { aspect-ratio: 16/9; }
+    .heritage-content { padding: 40px 25px; }
+    
+    .section-nft { padding: 60px 20px; }
+    
+    .footer { padding: 50px 25px 30px; }
+    .footer-main { grid-template-columns: 1fr; gap: 40px; }
+    .footer-nav { grid-template-columns: repeat(2, 1fr); }
+    .footer-bottom { 
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+    }
+    
     .cart-drawer { width: 100%; right: -100%; }
-    .cart-header, .cart-items, .cart-footer { padding-left: 25px; padding-right: 25px; }
 }
 
 @media (max-width: 480px) {
-    .hero-title-lg { font-size: 48px; }
-    .nav-link { font-size: 10px; letter-spacing: 0.1em; }
-    .nav-right { gap: 15px; }
-    .split-label { font-size: 9px; }
-    .split-title { font-size: 28px; }
-    .split-desc { font-size: 13px; }
-}
-
-/* ============================================
-   PRELOADER
-   ============================================ */
-.preloader {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: var(--white);
-    z-index: 9999;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: opacity 0.6s ease, visibility 0.6s ease;
-}
-
-.preloader.hidden {
-    opacity: 0;
-    visibility: hidden;
-}
-
-.preloader-content {
-    text-align: center;
-}
-
-.preloader-logo {
-    font-family: var(--font-display);
-    font-size: 48px;
-    letter-spacing: 0.3em;
-    display: block;
-    margin-bottom: 20px;
-}
-
-.preloader-line {
-    width: 60px;
-    height: 1px;
-    background: var(--wine);
-    margin: 0 auto 15px;
-    animation: preloaderPulse 1.5s ease infinite;
-}
-
-@keyframes preloaderPulse {
-    0%, 100% { width: 60px; }
-    50% { width: 120px; }
-}
-
-.preloader-text {
-    font-size: 10px;
-    letter-spacing: 0.3em;
-    text-transform: uppercase;
-    color: var(--text-muted);
+    .hero-title { font-size: 42px; letter-spacing: 0.15em; }
+    .section-title { font-size: 24px; }
+    .footer-nav { grid-template-columns: 1fr; }
 }

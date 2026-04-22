@@ -1,26 +1,13 @@
 /* ============================================
-   JOIS — Core JS (Cart + Nav)
+   JOIS — Core JS
    ============================================ */
 
 document.addEventListener('DOMContentLoaded', () => {
-    initPreloader();
     initScrollNav();
 });
 
 /* ============================================
-   PRELOADER
-   ============================================ */
-function initPreloader() {
-    const preloader = document.querySelector('.preloader');
-    if (preloader) {
-        setTimeout(() => {
-            preloader.classList.add('hidden');
-        }, 1000);
-    }
-}
-
-/* ============================================
-   SCROLL NAVIGATION
+   NAVIGATION
    ============================================ */
 function initScrollNav() {
     const navbar = document.querySelector('.navbar');
@@ -33,8 +20,21 @@ function initScrollNav() {
     });
 }
 
+function toggleMenu() {
+    // Menu toggle - can expand to full menu later
+    alert('Menú: Colecciones | Heritage | NFT | Contacto');
+}
+
+function toggleSearch() {
+    // Search toggle
+    const query = prompt('Buscar producto:');
+    if (query) {
+        alert(`Buscando: ${query}`);
+    }
+}
+
 /* ============================================
-   CART FUNCTIONS
+   CART
    ============================================ */
 let cart = [];
 
@@ -46,14 +46,12 @@ function toggleCart() {
 }
 
 function addToCart(name, price) {
-    const existingItem = cart.find(item => item.name === name);
-    
-    if (existingItem) {
-        existingItem.qty += 1;
+    const existing = cart.find(item => item.name === name);
+    if (existing) {
+        existing.qty += 1;
     } else {
         cart.push({ name, price, qty: 1 });
     }
-    
     updateCartUI();
     toggleCart();
 }
@@ -72,11 +70,9 @@ function updateCartUI() {
     
     if (!cartItems) return;
     
-    // Update count
     const totalItems = cart.reduce((sum, item) => sum + item.qty, 0);
     if (cartCount) cartCount.textContent = totalItems;
     
-    // Update items list
     if (cart.length === 0) {
         cartItems.innerHTML = '<div class="cart-empty"><span>Tu bolsa está vacía</span></div>';
     } else {
@@ -94,7 +90,6 @@ function updateCartUI() {
         `).join('');
     }
     
-    // Update totals
     const total = cart.reduce((sum, item) => sum + (item.price * item.qty), 0);
     if (cartTotal) cartTotal.textContent = `$${total} USD`;
     if (cartBtc) cartBtc.textContent = `₿ ${(total / 65000).toFixed(5)}`;
@@ -102,9 +97,9 @@ function updateCartUI() {
 }
 
 function checkoutStripe() {
-    alert('Stripe checkout próximamente.\nPor ahora contáctanos en info@joisleather.io para completar tu compra.');
+    alert('Stripe checkout próximamente.\nContáctanos: info@joisleather.io');
 }
 
 function checkoutCrypto() {
-    alert('Pago con crypto próximamente.\nPor ahora contáctanos en info@joisleather.io para opciones de BTC/USDT.');
+    alert('Pago con crypto próximamente.\nContáctanos: info@joisleather.io');
 }
