@@ -6,8 +6,7 @@
     <title>JOIS NFT — Digital Collection</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles-nft.css">
+    <link href="styles-nft.css" rel="stylesheet">
 </head>
 <body>
     <!-- Navigation -->
@@ -15,14 +14,12 @@
         <div class="nav-left">
             <a href="index.html">Tienda</a>
             <a href="#collection">Colección</a>
-            <a href="#about">Sobre</a>
         </div>
         <div class="nav-center">
             <h1 class="logo">JOIS</h1>
         </div>
         <div class="nav-right">
             <button class="btn-connect-wallet" onclick="connectWallet()">
-                <span class="wallet-icon">🔗</span>
                 <span>Conectar Wallet</span>
             </button>
         </div>
@@ -38,7 +35,7 @@
             </div>
             <h2 class="hero-title-nft">JOIS NFT</h2>
             <p class="hero-subtitle-nft">Colección Digital Exclusiva</p>
-            <p class="hero-desc-nft">Cada NFT representa la esencia del lujo JOIS en el mundo digital. Edicion limitada, coleccionables únicos.</p>
+            <p class="hero-desc-nft">Cada NFT representa la esencia del lujo JOIS en el mundo digital. Edición limitada, coleccionables únicos.</p>
             
             <div class="drop-timer">
                 <div class="timer-label">Drop Ends In</div>
@@ -99,14 +96,13 @@
         <div class="section-header-nft">
             <p class="section-subtitle">Digital Collectibles</p>
             <h2 class="section-title">La Colección</h2>
-            <p class="section-desc">Cada pieza es única.once you own it, it's yours forever on the blockchain.</p>
         </div>
 
         <div class="nft-grid">
             <!-- NFT Card 1 -->
             <div class="nft-card" onclick="openLightbox(this)" data-nft="jacket-noir">
                 <div class="nft-image-container">
-                    <img src="assets/images/nft-jacket-noir.png" alt="Chamarra Noir NFT" class="nft-image">
+                    <img src="assets/images/nft-jacket-noir.png" alt="Chamarra Noir NFT">
                     <div class="nft-edition">#001 / 888</div>
                     <div class="nft-hover-overlay">
                         <span class="view-text">View Details</span>
@@ -119,20 +115,17 @@
                         <span class="attr">Traits: 7</span>
                     </div>
                     <div class="nft-price">
-                        <span class="price-label">Price</span>
                         <span class="price-value">0.15 ETH</span>
                         <span class="price-usd">~$280 USD</span>
                     </div>
-                    <button class="btn-mint" onclick="event.stopPropagation(); mintNFT('jacket-noir')">
-                        Mint NFT
-                    </button>
+                    <button class="btn-mint" onclick="event.stopPropagation(); mintNFT('jacket-noir')">Mint NFT</button>
                 </div>
             </div>
 
             <!-- NFT Card 2 -->
             <div class="nft-card" onclick="openLightbox(this)" data-nft="jacket-imperial">
                 <div class="nft-image-container">
-                    <img src="assets/images/nft-jacket-imperial.png" alt="Chamarra Imperial NFT" class="nft-image">
+                    <img src="assets/images/nft-jacket-imperial.png" alt="Chamarra Imperial NFT">
                     <div class="nft-edition">#002 / 888</div>
                     <div class="nft-hover-overlay">
                         <span class="view-text">View Details</span>
@@ -145,20 +138,17 @@
                         <span class="attr">Traits: 5</span>
                     </div>
                     <div class="nft-price">
-                        <span class="price-label">Price</span>
                         <span class="price-value">0.12 ETH</span>
                         <span class="price-usd">~$220 USD</span>
                     </div>
-                    <button class="btn-mint" onclick="event.stopPropagation(); mintNFT('jacket-imperial')">
-                        Mint NFT
-                    </button>
+                    <button class="btn-mint" onclick="event.stopPropagation(); mintNFT('jacket-imperial')">Mint NFT</button>
                 </div>
             </div>
 
             <!-- NFT Card 3 -->
             <div class="nft-card" onclick="openLightbox(this)" data-nft="jacket-phantom">
                 <div class="nft-image-container">
-                    <img src="assets/images/nft-jacket-phantom.png" alt="Chamarra Phantom NFT" class="nft-image">
+                    <img src="assets/images/nft-jacket-phantom.png" alt="Chamarra Phantom NFT">
                     <div class="nft-edition">#003 / 888</div>
                     <div class="nft-hover-overlay">
                         <span class="view-text">View Details</span>
@@ -171,20 +161,17 @@
                         <span class="attr">Traits: 8</span>
                     </div>
                     <div class="nft-price">
-                        <span class="price-label">Price</span>
                         <span class="price-value">0.18 ETH</span>
                         <span class="price-usd">~$340 USD</span>
                     </div>
-                    <button class="btn-mint" onclick="event.stopPropagation(); mintNFT('jacket-phantom')">
-                        Mint NFT
-                    </button>
+                    <button class="btn-mint" onclick="event.stopPropagation(); mintNFT('jacket-phantom')">Mint NFT</button>
                 </div>
             </div>
 
             <!-- NFT Card 4 -->
             <div class="nft-card" onclick="openLightbox(this)" data-nft="wallet-eclipse">
                 <div class="nft-image-container">
-                    <img src="assets/images/nft-wallet-eclipse.png" alt="Cartera Eclipse NFT" class="nft-image">
+                    <img src="assets/images/nft-wallet-eclipse.png" alt="Cartera Eclipse NFT">
                     <div class="nft-edition">#004 / 888</div>
                     <div class="nft-hover-overlay">
                         <span class="view-text">View Details</span>
@@ -197,20 +184,17 @@
                         <span class="attr">Traits: 4</span>
                     </div>
                     <div class="nft-price">
-                        <span class="price-label">Price</span>
                         <span class="price-value">0.05 ETH</span>
                         <span class="price-usd">~$95 USD</span>
                     </div>
-                    <button class="btn-mint" onclick="event.stopPropagation(); mintNFT('wallet-eclipse')">
-                        Mint NFT
-                    </button>
+                    <button class="btn-mint" onclick="event.stopPropagation(); mintNFT('wallet-eclipse')">Mint NFT</button>
                 </div>
             </div>
 
             <!-- NFT Card 5 -->
             <div class="nft-card" onclick="openLightbox(this)" data-nft="wallet-sovereign">
                 <div class="nft-image-container">
-                    <img src="assets/images/nft-wallet-sovereign.png" alt="Cartera Sovereign NFT" class="nft-image">
+                    <img src="assets/images/nft-wallet-sovereign.png" alt="Cartera Sovereign NFT">
                     <div class="nft-edition">#005 / 888</div>
                     <div class="nft-hover-overlay">
                         <span class="view-text">View Details</span>
@@ -223,20 +207,17 @@
                         <span class="attr">Traits: 6</span>
                     </div>
                     <div class="nft-price">
-                        <span class="price-label">Price</span>
                         <span class="price-value">0.08 ETH</span>
                         <span class="price-usd">~$150 USD</span>
                     </div>
-                    <button class="btn-mint" onclick="event.stopPropagation(); mintNFT('wallet-sovereign')">
-                        Mint NFT
-                    </button>
+                    <button class="btn-mint" onclick="event.stopPropagation(); mintNFT('wallet-sovereign')">Mint NFT</button>
                 </div>
             </div>
 
             <!-- NFT Card 6 -->
             <div class="nft-card" onclick="openLightbox(this)" data-nft="wallet-matrix">
                 <div class="nft-image-container">
-                    <img src="assets/images/nft-wallet-matrix.png" alt="Cartera Matrix NFT" class="nft-image">
+                    <img src="assets/images/nft-wallet-matrix.png" alt="Cartera Matrix NFT">
                     <div class="nft-edition">#006 / 888</div>
                     <div class="nft-hover-overlay">
                         <span class="view-text">View Details</span>
@@ -249,20 +230,17 @@
                         <span class="attr">Traits: 9</span>
                     </div>
                     <div class="nft-price">
-                        <span class="price-label">Price</span>
                         <span class="price-value">0.10 ETH</span>
                         <span class="price-usd">~$190 USD</span>
                     </div>
-                    <button class="btn-mint" onclick="event.stopPropagation(); mintNFT('wallet-matrix')">
-                        Mint NFT
-                    </button>
+                    <button class="btn-mint" onclick="event.stopPropagation(); mintNFT('wallet-matrix')">Mint NFT</button>
                 </div>
             </div>
 
             <!-- NFT Card 7 -->
             <div class="nft-card" onclick="openLightbox(this)" data-nft="bag-cipher">
                 <div class="nft-image-container">
-                    <img src="assets/images/nft-bag-cipher.png" alt="Bolso Cipher NFT" class="nft-image">
+                    <img src="assets/images/nft-bag-cipher.png" alt="Bolso Cipher NFT">
                     <div class="nft-edition">#007 / 888</div>
                     <div class="nft-hover-overlay">
                         <span class="view-text">View Details</span>
@@ -275,20 +253,17 @@
                         <span class="attr">Traits: 5</span>
                     </div>
                     <div class="nft-price">
-                        <span class="price-label">Price</span>
                         <span class="price-value">0.14 ETH</span>
                         <span class="price-usd">~$265 USD</span>
                     </div>
-                    <button class="btn-mint" onclick="event.stopPropagation(); mintNFT('bag-cipher')">
-                        Mint NFT
-                    </button>
+                    <button class="btn-mint" onclick="event.stopPropagation(); mintNFT('bag-cipher')">Mint NFT</button>
                 </div>
             </div>
 
             <!-- NFT Card 8 -->
             <div class="nft-card" onclick="openLightbox(this)" data-nft="bag-vault">
                 <div class="nft-image-container">
-                    <img src="assets/images/nft-bag-vault.png" alt="Bolso Vault NFT" class="nft-image">
+                    <img src="assets/images/nft-bag-vault.png" alt="Bolso Vault NFT">
                     <div class="nft-edition">#008 / 888</div>
                     <div class="nft-hover-overlay">
                         <span class="view-text">View Details</span>
@@ -301,13 +276,10 @@
                         <span class="attr">Traits: 7</span>
                     </div>
                     <div class="nft-price">
-                        <span class="price-label">Price</span>
                         <span class="price-value">0.20 ETH</span>
                         <span class="price-usd">~$380 USD</span>
                     </div>
-                    <button class="btn-mint" onclick="event.stopPropagation(); mintNFT('bag-vault')">
-                        Mint NFT
-                    </button>
+                    <button class="btn-mint" onclick="event.stopPropagation(); mintNFT('bag-vault')">Mint NFT</button>
                 </div>
             </div>
         </div>
@@ -322,55 +294,23 @@
         <div class="steps-grid">
             <div class="step-item">
                 <div class="step-number">01</div>
-                <div class="step-icon">🔗</div>
                 <h3>Conecta tu Wallet</h3>
-                <p>Conecta MetaMask, WalletConnect o Coinbase Wallet</p>
+                <p>MetaMask, WalletConnect o Coinbase</p>
             </div>
             <div class="step-item">
                 <div class="step-number">02</div>
-                <div class="step-icon">🎨</div>
                 <h3>Elige tu NFT</h3>
-                <p>Selecciona el NFT que más te guste de la colección</p>
+                <p>Selecciona de la colección</p>
             </div>
             <div class="step-item">
                 <div class="step-number">03</div>
-                <div class="step-icon">💎</div>
                 <h3>Mint tu NFT</h3>
-                <p>Confirma la transacción y tu NFT será tuyo para siempre</p>
+                <p>Confirma y es tuyo</p>
             </div>
             <div class="step-item">
                 <div class="step-number">04</div>
-                <div class="step-icon">🏆</div>
-                <h3>Colecciona y negocia</h3>
-                <p>Vizualiza en tu wallet, vendelo o coleccionalo</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- About Section -->
-    <section id="about" class="nft-about">
-        <div class="about-content">
-            <p class="section-subtitle">The Vision</p>
-            <h2 class="section-title">Sobre la Colección</h2>
-            <p class="about-text">JOIS NFT Collection representa la fusión entre el lujo físico y el mundo digital. Cada pieza ha sido diseñada con la misma atención al detalle que nuestras productos físicos — pero con propiedades únicas solo posibles en blockchain.</p>
-            <p class="about-text">Los poseedores de NFTs JOIS obtienen acceso exclusivo a future drops, eventos privados y beneficios que trascienden el mundo digital.</p>
-        </div>
-        <div class="about-features">
-            <div class="feature-item">
-                <span class="feature-icon">✓</span>
-                <span>Verificado en blockchain</span>
-            </div>
-            <div class="feature-item">
-                <span class="feature-icon">✓</span>
-                <span>Propiedad 100% tú</span>
-            </div>
-            <div class="feature-item">
-                <span class="feature-icon">✓</span>
-                <span>Acceso a eventos exclusivos</span>
-            </div>
-            <div class="feature-item">
-                <span class="feature-icon">✓</span>
-                <span>Tradeable en marketplaces</span>
+                <h3>Colecciona</h3>
+                <p>Vende o colecciona</p>
             </div>
         </div>
     </section>
@@ -385,17 +325,10 @@
             <div class="footer-links">
                 <a href="index.html">Tienda</a>
                 <a href="#collection">NFTs</a>
-                <a href="#about">Sobre</a>
-            </div>
-            <div class="footer-social">
-                <span>Twitter</span>
-                <span>Instagram</span>
-                <span>Discord</span>
             </div>
         </div>
         <div class="footer-bottom">
-            <p>© 2024 JOIS Leather. Todos los derechos reservados.</p>
-            <p>Powered by Polygon Blockchain</p>
+            <p>© 2024 JOIS Leather. Powered by Polygon</p>
         </div>
     </footer>
 
@@ -426,18 +359,15 @@
     <div id="walletModal" class="wallet-modal">
         <div class="wallet-content">
             <h2>Conectar Wallet</h2>
-            <p>Selecciona tu wallet para continuar</p>
+            <p>Selecciona tu wallet</p>
             <div class="wallet-options">
                 <button class="wallet-option" onclick="connectMetaMask()">
-                    <span class="wallet-logo">🦊</span>
                     <span>MetaMask</span>
                 </button>
                 <button class="wallet-option" onclick="connectWalletConnect()">
-                    <span class="wallet-logo">🔗</span>
                     <span>WalletConnect</span>
                 </button>
                 <button class="wallet-option" onclick="connectCoinbase()">
-                    <span class="wallet-logo">💙</span>
                     <span>Coinbase</span>
                 </button>
             </div>

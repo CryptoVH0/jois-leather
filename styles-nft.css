@@ -1,16 +1,19 @@
 /* ============================================
-   JOIS NFT — Digital Collection Styles
+   JOIS NFT — Minimalist Digital Collection
+   Font: Menlo (system monospace)
+   Colors: Black, White, Gray, Wine/Burgundy
    ============================================ */
 
 :root {
     --black: #000000;
-    --dark: #0a0a0a;
-    --charcoal: #1a1a1a;
-    --gold: #c9a962;
-    --gold-light: #e8d5a3;
-    --white: #ffffff;
-    --gray: #888888;
-    --green: #00ff41;
+    --white: #FFFFFF;
+    --off-white: #F5F5F5;
+    --gray-light: #BDBDBD;
+    --gray: #828282;
+    --gray-dark: #262626;
+    --charcoal: #333333;
+    --wine: #7C120C;
+    --wine-light: #E23C28;
 }
 
 * {
@@ -24,10 +27,11 @@ html {
 }
 
 body {
-    font-family: 'Inter', sans-serif;
-    background-color: var(--dark);
+    font-family: Menlo, Monaco, 'Courier New', monospace;
+    background-color: var(--black);
     color: var(--white);
     overflow-x: hidden;
+    font-size: 14px;
 }
 
 /* Navigation */
@@ -36,12 +40,13 @@ body {
     top: 0;
     left: 0;
     width: 100%;
-    padding: 20px 50px;
+    padding: 25px 60px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     z-index: 1000;
-    background: linear-gradient(to bottom, rgba(10,10,10,0.95), transparent);
+    background: var(--black);
+    border-bottom: 1px solid var(--gray-dark);
 }
 
 .nav-left {
@@ -50,48 +55,42 @@ body {
 }
 
 .nav-left a {
-    color: var(--white);
-    font-size: 12px;
-    letter-spacing: 2px;
+    font-size: 10px;
+    letter-spacing: 3px;
     text-transform: uppercase;
+    color: var(--gray);
     transition: color 0.3s;
 }
 
 .nav-left a:hover {
-    color: var(--gold);
+    color: var(--white);
 }
 
 .logo {
-    font-size: 28px;
-    letter-spacing: 15px;
-    font-weight: 600;
-    color: var(--gold);
+    font-size: 22px;
+    letter-spacing: 10px;
+    font-weight: 400;
 }
 
 .btn-connect-wallet {
-    display: flex;
-    align-items: center;
-    gap: 10px;
     background: transparent;
-    border: 1px solid var(--gold);
-    color: var(--gold);
+    border: 1px solid var(--wine);
+    color: var(--wine);
     padding: 12px 24px;
-    font-size: 12px;
+    font-family: Menlo, Monaco, monospace;
+    font-size: 10px;
     letter-spacing: 2px;
+    text-transform: uppercase;
     cursor: pointer;
     transition: all 0.3s;
 }
 
 .btn-connect-wallet:hover {
-    background: var(--gold);
-    color: var(--black);
+    background: var(--wine);
+    color: var(--white);
 }
 
-.wallet-icon {
-    font-size: 16px;
-}
-
-/* Hero NFT Section */
+/* Hero NFT */
 .hero-nft {
     height: 100vh;
     position: relative;
@@ -109,9 +108,9 @@ body {
     width: 100%;
     height: 100%;
     background: 
-        radial-gradient(circle at 30% 50%, rgba(201, 169, 98, 0.15) 0%, transparent 50%),
-        radial-gradient(circle at 70% 80%, rgba(201, 169, 98, 0.1) 0%, transparent 40%),
-        linear-gradient(180deg, var(--black) 0%, var(--dark) 100%);
+        radial-gradient(circle at 30% 50%, rgba(124, 18, 12, 0.2) 0%, transparent 50%),
+        radial-gradient(circle at 70% 80%, rgba(124, 18, 12, 0.1) 0%, transparent 40%),
+        linear-gradient(180deg, var(--black) 0%, var(--gray-dark) 100%);
 }
 
 .hero-content-nft {
@@ -125,40 +124,39 @@ body {
     display: inline-flex;
     align-items: center;
     gap: 10px;
-    background: rgba(0, 255, 65, 0.1);
-    border: 1px solid var(--green);
+    background: rgba(124, 18, 12, 0.2);
+    border: 1px solid var(--wine);
     padding: 8px 20px;
     margin-bottom: 40px;
-    font-size: 11px;
-    letter-spacing: 3px;
+    font-size: 9px;
+    letter-spacing: 4px;
     text-transform: uppercase;
-    color: var(--green);
+    color: var(--wine-light);
 }
 
 .status-dot {
-    width: 8px;
-    height: 8px;
-    background: var(--green);
+    width: 6px;
+    height: 6px;
+    background: var(--wine-light);
     border-radius: 50%;
     animation: pulse 2s infinite;
 }
 
 @keyframes pulse {
     0%, 100% { opacity: 1; }
-    50% { opacity: 0.5; }
+    50% { opacity: 0.4; }
 }
 
 .hero-title-nft {
-    font-size: clamp(60px, 12vw, 150px);
-    letter-spacing: 30px;
-    font-weight: 600;
-    color: var(--gold);
-    text-shadow: 0 0 60px rgba(201, 169, 98, 0.5);
+    font-size: clamp(60px, 12vw, 140px);
+    letter-spacing: 25px;
+    font-weight: 400;
+    color: var(--white);
     margin-bottom: 20px;
 }
 
 .hero-subtitle-nft {
-    font-size: 14px;
+    font-size: 11px;
     letter-spacing: 8px;
     text-transform: uppercase;
     color: var(--gray);
@@ -166,11 +164,11 @@ body {
 }
 
 .hero-desc-nft {
-    max-width: 600px;
+    max-width: 500px;
     margin: 0 auto;
-    font-size: 16px;
+    font-size: 13px;
     line-height: 1.8;
-    color: rgba(255,255,255,0.6);
+    color: var(--gray-light);
 }
 
 /* Drop Timer */
@@ -179,10 +177,10 @@ body {
 }
 
 .timer-label {
-    font-size: 11px;
+    font-size: 9px;
     letter-spacing: 4px;
     text-transform: uppercase;
-    color: var(--gold);
+    color: var(--wine);
     margin-bottom: 20px;
 }
 
@@ -190,7 +188,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 20px;
+    gap: 15px;
 }
 
 .timer-block {
@@ -200,36 +198,36 @@ body {
 }
 
 .timer-number {
-    font-size: 48px;
-    font-weight: 600;
+    font-size: 40px;
+    font-weight: 400;
     color: var(--white);
     line-height: 1;
 }
 
 .timer-text {
-    font-size: 10px;
+    font-size: 9px;
     letter-spacing: 2px;
     text-transform: uppercase;
     color: var(--gray);
-    margin-top: 10px;
+    margin-top: 8px;
 }
 
 .timer-separator {
-    font-size: 48px;
-    color: var(--gold);
+    font-size: 40px;
+    color: var(--wine);
     opacity: 0.5;
 }
 
 .scroll-indicator-nft {
     position: absolute;
-    bottom: 50px;
+    bottom: 40px;
     left: 50%;
     transform: translateX(-50%);
     text-align: center;
 }
 
 .scroll-indicator-nft span {
-    font-size: 10px;
+    font-size: 9px;
     letter-spacing: 4px;
     text-transform: uppercase;
     color: var(--gray);
@@ -237,15 +235,9 @@ body {
 
 .scroll-line {
     width: 1px;
-    height: 60px;
-    background: linear-gradient(to bottom, var(--gold), transparent);
+    height: 50px;
+    background: linear-gradient(to bottom, var(--wine), transparent);
     margin: 15px auto 0;
-    animation: scrollPulse 2s ease-in-out infinite;
-}
-
-@keyframes scrollPulse {
-    0%, 100% { opacity: 1; transform: scaleY(1); }
-    50% { opacity: 0.5; transform: scaleY(1.2); }
 }
 
 /* Stats Bar */
@@ -255,9 +247,9 @@ body {
     align-items: center;
     gap: 60px;
     padding: 40px;
-    background: var(--charcoal);
-    border-top: 1px solid rgba(201, 169, 98, 0.2);
-    border-bottom: 1px solid rgba(201, 169, 98, 0.2);
+    background: var(--gray-dark);
+    border-top: 1px solid var(--charcoal);
+    border-bottom: 1px solid var(--charcoal);
 }
 
 .stat-item {
@@ -266,14 +258,13 @@ body {
 
 .stat-value {
     display: block;
-    font-size: 32px;
-    font-weight: 600;
-    color: var(--gold);
+    font-size: 28px;
+    color: var(--white);
 }
 
 .stat-label {
-    font-size: 11px;
-    letter-spacing: 2px;
+    font-size: 9px;
+    letter-spacing: 3px;
     text-transform: uppercase;
     color: var(--gray);
     margin-top: 5px;
@@ -281,13 +272,14 @@ body {
 
 .stat-divider {
     width: 1px;
-    height: 50px;
-    background: rgba(201, 169, 98, 0.3);
+    height: 40px;
+    background: var(--charcoal);
 }
 
 /* NFT Collection */
 .nft-collection {
     padding: 120px 60px;
+    background: var(--black);
 }
 
 .section-header-nft {
@@ -296,48 +288,37 @@ body {
 }
 
 .section-subtitle {
-    font-size: 11px;
+    font-size: 9px;
     letter-spacing: 6px;
     text-transform: uppercase;
-    color: var(--gold);
-    margin-bottom: 20px;
+    color: var(--wine);
+    margin-bottom: 15px;
 }
 
 .section-title {
-    font-size: 48px;
-    font-weight: 600;
-    letter-spacing: 5px;
-    margin-bottom: 20px;
-}
-
-.section-desc {
-    font-size: 16px;
-    color: var(--gray);
-    max-width: 500px;
-    margin: 0 auto;
+    font-size: 32px;
+    font-weight: 400;
+    letter-spacing: 8px;
 }
 
 .nft-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 30px;
-    max-width: 1600px;
+    gap: 2px;
+    max-width: 1400px;
     margin: 0 auto;
+    background: var(--gray-dark);
 }
 
 /* NFT Card */
 .nft-card {
-    background: var(--charcoal);
-    border: 1px solid rgba(201, 169, 98, 0.1);
+    background: var(--black);
     cursor: pointer;
-    transition: all 0.4s ease;
-    overflow: hidden;
+    transition: all 0.3s ease;
 }
 
 .nft-card:hover {
-    border-color: var(--gold);
-    transform: translateY(-10px);
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+    background: var(--gray-dark);
 }
 
 .nft-image-container {
@@ -352,10 +333,12 @@ body {
     height: 100%;
     object-fit: cover;
     transition: transform 0.5s ease;
+    opacity: 0.9;
 }
 
 .nft-card:hover .nft-image {
-    transform: scale(1.05);
+    transform: scale(1.03);
+    opacity: 1;
 }
 
 .nft-edition {
@@ -363,9 +346,9 @@ body {
     top: 15px;
     left: 15px;
     background: rgba(0, 0, 0, 0.8);
-    color: var(--gold);
-    padding: 6px 12px;
-    font-size: 10px;
+    color: var(--wine-light);
+    padding: 5px 10px;
+    font-size: 9px;
     letter-spacing: 1px;
 }
 
@@ -375,7 +358,7 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.6);
+    background: rgba(124, 18, 12, 0.8);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -388,12 +371,12 @@ body {
 }
 
 .view-text {
-    font-size: 12px;
-    letter-spacing: 3px;
+    font-size: 10px;
+    letter-spacing: 4px;
     text-transform: uppercase;
     color: var(--white);
     border: 1px solid var(--white);
-    padding: 12px 30px;
+    padding: 12px 25px;
 }
 
 .nft-info {
@@ -401,49 +384,36 @@ body {
 }
 
 .nft-name {
-    font-size: 18px;
-    font-weight: 600;
-    letter-spacing: 2px;
+    font-size: 15px;
+    letter-spacing: 3px;
     margin-bottom: 10px;
 }
 
 .nft-attributes {
     display: flex;
     gap: 20px;
-    font-size: 12px;
+    font-size: 10px;
     color: var(--gray);
     margin-bottom: 20px;
 }
 
 .nft-attributes strong {
-    color: var(--gold);
+    color: var(--wine-light);
 }
 
 .nft-price {
-    border-top: 1px solid rgba(201, 169, 98, 0.2);
-    padding-top: 20px;
     margin-bottom: 20px;
-}
-
-.price-label {
-    display: block;
-    font-size: 10px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: var(--gray);
-    margin-bottom: 8px;
 }
 
 .price-value {
     display: block;
-    font-size: 24px;
-    font-weight: 600;
+    font-size: 20px;
     color: var(--white);
 }
 
 .price-usd {
     display: block;
-    font-size: 12px;
+    font-size: 11px;
     color: var(--gray);
     margin-top: 5px;
 }
@@ -451,153 +421,94 @@ body {
 .btn-mint {
     width: 100%;
     padding: 15px;
-    background: var(--gold);
+    background: var(--wine);
     border: none;
-    color: var(--black);
-    font-size: 12px;
-    font-weight: 600;
-    letter-spacing: 2px;
+    color: var(--white);
+    font-family: Menlo, Monaco, monospace;
+    font-size: 10px;
+    letter-spacing: 3px;
     text-transform: uppercase;
     cursor: pointer;
     transition: all 0.3s;
 }
 
 .btn-mint:hover {
-    background: var(--white);
-    box-shadow: 0 0 30px rgba(201, 169, 98, 0.5);
+    background: var(--wine-light);
 }
 
 /* How It Works */
 .how-it-works {
     padding: 120px 60px;
-    background: var(--charcoal);
+    background: var(--gray-dark);
 }
 
 .steps-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 40px;
-    max-width: 1400px;
+    gap: 2px;
+    max-width: 1200px;
     margin: 0 auto;
+    background: var(--black);
 }
 
 .step-item {
+    background: var(--black);
+    padding: 50px 30px;
     text-align: center;
-    padding: 40px 30px;
-    border: 1px solid rgba(201, 169, 98, 0.1);
-    transition: all 0.3s;
+    transition: background 0.3s;
 }
 
 .step-item:hover {
-    border-color: var(--gold);
+    background: var(--gray-dark);
 }
 
 .step-number {
     font-size: 48px;
-    font-weight: 600;
-    color: rgba(201, 169, 98, 0.3);
-    margin-bottom: 20px;
-}
-
-.step-icon {
-    font-size: 40px;
+    font-weight: 400;
+    color: var(--wine);
+    opacity: 0.4;
     margin-bottom: 20px;
 }
 
 .step-item h3 {
-    font-size: 16px;
+    font-size: 13px;
     letter-spacing: 3px;
     text-transform: uppercase;
     margin-bottom: 15px;
 }
 
 .step-item p {
-    font-size: 13px;
+    font-size: 11px;
     color: var(--gray);
-    line-height: 1.6;
-}
-
-/* About Section */
-.nft-about {
-    padding: 120px 60px;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 80px;
-    max-width: 1400px;
-    margin: 0 auto;
-}
-
-.about-content .section-title {
-    text-align: left;
-}
-
-.about-text {
-    font-size: 16px;
-    line-height: 1.8;
-    color: var(--gray);
-    margin-bottom: 30px;
-}
-
-.about-features {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    justify-content: center;
-}
-
-.feature-item {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-    padding: 20px;
-    background: var(--charcoal);
-    border: 1px solid rgba(201, 169, 98, 0.1);
-}
-
-.feature-icon {
-    width: 30px;
-    height: 30px;
-    background: var(--gold);
-    color: var(--black);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: bold;
-}
-
-.feature-item span:last-child {
-    font-size: 14px;
-    letter-spacing: 2px;
 }
 
 /* Footer */
 .footer-nft {
     background: var(--black);
     padding: 80px 60px 40px;
-    border-top: 1px solid rgba(201, 169, 98, 0.2);
+    border-top: 1px solid var(--gray-dark);
 }
 
 .footer-content {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    max-width: 1400px;
+    max-width: 1200px;
     margin: 0 auto;
-    padding-bottom: 60px;
-    border-bottom: 1px solid rgba(201, 169, 98, 0.1);
+    padding-bottom: 40px;
+    border-bottom: 1px solid var(--gray-dark);
 }
 
 .footer-logo {
-    font-size: 36px;
-    letter-spacing: 15px;
-    color: var(--gold);
-    font-weight: 600;
+    font-size: 28px;
+    letter-spacing: 10px;
+    font-weight: 400;
 }
 
 .footer-content p {
-    font-size: 13px;
+    font-size: 11px;
     color: var(--gray);
-    margin-top: 10px;
+    margin-top: 8px;
 }
 
 .footer-links {
@@ -606,41 +517,24 @@ body {
 }
 
 .footer-links a {
-    font-size: 12px;
-    letter-spacing: 2px;
+    font-size: 10px;
+    letter-spacing: 3px;
     text-transform: uppercase;
     color: var(--gray);
     transition: color 0.3s;
 }
 
 .footer-links a:hover {
-    color: var(--gold);
-}
-
-.footer-social {
-    display: flex;
-    gap: 20px;
-}
-
-.footer-social span {
-    font-size: 12px;
-    letter-spacing: 2px;
-    color: var(--gray);
-    cursor: pointer;
-    transition: color 0.3s;
-}
-
-.footer-social span:hover {
-    color: var(--gold);
+    color: var(--white);
 }
 
 .footer-bottom {
     text-align: center;
-    padding-top: 40px;
+    padding-top: 30px;
 }
 
 .footer-bottom p {
-    font-size: 12px;
+    font-size: 10px;
     color: var(--gray);
 }
 
@@ -656,32 +550,27 @@ body {
     z-index: 2000;
     justify-content: center;
     align-items: center;
-    opacity: 0;
-    transition: opacity 0.3s ease;
 }
 
 .lightbox.active {
     display: flex;
-    opacity: 1;
 }
 
 .lightbox-content {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    max-width: 1000px;
+    max-width: 900px;
     width: 90%;
-    background: var(--charcoal);
-    border: 1px solid rgba(201, 169, 98, 0.3);
+    background: var(--gray-dark);
 }
 
 .lightbox-close {
     position: absolute;
     top: 30px;
     right: 30px;
-    font-size: 40px;
-    color: var(--white);
+    font-size: 36px;
+    color: var(--gray);
     cursor: pointer;
-    z-index: 2001;
 }
 
 .lightbox-image-container {
@@ -694,7 +583,7 @@ body {
 
 #lightbox-image {
     max-width: 100%;
-    max-height: 500px;
+    max-height: 450px;
     object-fit: contain;
 }
 
@@ -706,56 +595,52 @@ body {
 }
 
 .lightbox-info h3 {
-    font-size: 32px;
+    font-size: 24px;
     letter-spacing: 5px;
     margin-bottom: 10px;
 }
 
 #lightbox-edition {
-    font-size: 13px;
-    color: var(--gold);
+    font-size: 11px;
+    color: var(--wine-light);
     margin-bottom: 30px;
 }
 
 .lightbox-attributes {
     display: flex;
     gap: 30px;
-    font-size: 14px;
+    font-size: 12px;
     color: var(--gray);
     margin-bottom: 30px;
 }
 
 .lightbox-attributes strong {
-    color: var(--gold);
+    color: var(--wine-light);
 }
 
 .lightbox-price {
-    border-top: 1px solid rgba(201, 169, 98, 0.2);
-    padding-top: 30px;
     margin-bottom: 30px;
 }
 
 #lightbox-price {
     display: block;
-    font-size: 36px;
-    font-weight: 600;
-    color: var(--white);
+    font-size: 32px;
 }
 
 #lightbox-usd {
     display: block;
-    font-size: 14px;
+    font-size: 13px;
     color: var(--gray);
     margin-top: 5px;
 }
 
 .btn-mint-full {
-    padding: 20px;
-    background: var(--gold);
+    padding: 18px;
+    background: var(--wine);
     border: none;
-    color: var(--black);
-    font-size: 14px;
-    font-weight: 600;
+    color: var(--white);
+    font-family: Menlo, Monaco, monospace;
+    font-size: 11px;
     letter-spacing: 3px;
     text-transform: uppercase;
     cursor: pointer;
@@ -763,8 +648,7 @@ body {
 }
 
 .btn-mint-full:hover {
-    background: var(--white);
-    box-shadow: 0 0 40px rgba(201, 169, 98, 0.5);
+    background: var(--wine-light);
 }
 
 /* Wallet Modal */
@@ -786,23 +670,22 @@ body {
 }
 
 .wallet-content {
-    background: var(--charcoal);
-    border: 1px solid rgba(201, 169, 98, 0.3);
+    background: var(--gray-dark);
     padding: 60px;
-    max-width: 450px;
+    max-width: 400px;
     width: 90%;
     text-align: center;
     position: relative;
 }
 
 .wallet-content h2 {
-    font-size: 24px;
+    font-size: 18px;
     letter-spacing: 5px;
     margin-bottom: 10px;
 }
 
 .wallet-content p {
-    font-size: 14px;
+    font-size: 12px;
     color: var(--gray);
     margin-bottom: 40px;
 }
@@ -810,47 +693,37 @@ body {
 .wallet-options {
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: 10px;
 }
 
 .wallet-option {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-    padding: 20px;
+    padding: 18px;
     background: var(--black);
-    border: 1px solid rgba(201, 169, 98, 0.2);
+    border: 1px solid var(--gray-dark);
     color: var(--white);
-    font-size: 14px;
-    letter-spacing: 2px;
+    font-family: Menlo, Monaco, monospace;
+    font-size: 11px;
+    letter-spacing: 3px;
     cursor: pointer;
     transition: all 0.3s;
 }
 
 .wallet-option:hover {
-    border-color: var(--gold);
-    background: rgba(201, 169, 98, 0.1);
-}
-
-.wallet-logo {
-    font-size: 24px;
+    border-color: var(--wine);
+    background: var(--wine);
 }
 
 .wallet-close {
     position: absolute;
     top: 20px;
     right: 20px;
-    font-size: 30px;
+    font-size: 28px;
     color: var(--gray);
     cursor: pointer;
 }
 
-.wallet-close:hover {
-    color: var(--white);
-}
-
 /* Responsive */
-@media (max-width: 1200px) {
+@media (max-width: 1024px) {
     .nft-grid {
         grid-template-columns: repeat(2, 1fr);
     }
@@ -858,15 +731,11 @@ body {
     .steps-grid {
         grid-template-columns: repeat(2, 1fr);
     }
-    
-    .nft-about {
-        grid-template-columns: 1fr;
-    }
 }
 
 @media (max-width: 768px) {
     .navbar {
-        padding: 15px 20px;
+        padding: 20px 30px;
     }
     
     .nav-left {
@@ -896,20 +765,7 @@ body {
     
     .footer-content {
         flex-direction: column;
-        gap: 40px;
+        gap: 30px;
         text-align: center;
-    }
-    
-    .footer-links {
-        flex-wrap: wrap;
-        justify-content: center;
-    }
-    
-    .timer-number {
-        font-size: 32px;
-    }
-    
-    .timer-separator {
-        font-size: 32px;
     }
 }

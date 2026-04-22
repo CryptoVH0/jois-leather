@@ -6,24 +6,22 @@
     <title>JOIS — Leather Luxury</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
+    <link href="styles.css" rel="stylesheet">
 </head>
 <body>
     <!-- Navigation -->
     <nav class="navbar">
         <div class="nav-left">
             <a href="#collections">Colecciones</a>
-            <a href="#story">Nuestra Historia</a>
-            <a href="#atelier">Atelier</a>
+            <a href="#story">Historia</a>
+            <a href="nft.html">NFTs</a>
         </div>
         <div class="nav-center">
             <h1 class="logo">JOIS</h1>
         </div>
         <div class="nav-right">
             <a href="#contact">Contacto</a>
-            <a href="nft.html">NFTs</a>
-            <span class="cart-icon" onclick="toggleCart()">Bag (0)</span>
+            <span class="cart-icon" onclick="toggleCart()">Bolsa (0)</span>
         </div>
     </nav>
 
@@ -33,10 +31,10 @@
         <div class="hero-content">
             <p class="hero-subtitle">Primavera-Verano 2024</p>
             <h2 class="hero-title">JOIS</h2>
-            <p class="hero-tagline">Donde el cuero encuentra el código</p>
+            <p class="hero-tagline">Cuero encuentra código</p>
             <div class="hero-divider"></div>
             <p class="hero-description">Una nueva era del lujo masculino emerge. Cada pieza cuenta una historia de precisión artesanal y diseño atemporal.</p>
-            <a href="#collections" class="btn-discover">Descubrir Colección</a>
+            <a href="#collections" class="btn-discover">Descubrir</a>
         </div>
         <div class="scroll-indicator">
             <span>Scroll</span>
@@ -52,45 +50,45 @@
         </div>
         
         <div class="collection-grid">
-            <div class="collection-item large">
+            <div class="collection-item">
                 <div class="collection-image">
-                    <div class="placeholder-img jackets"></div>
+                    <img src="assets/images/jacket-noir.png" alt="Chamarras">
                     <div class="collection-overlay">
                         <span class="collection-number">01</span>
                         <h3>Chamarras</h3>
-                        <p>3 Modelos Exclusivos</p>
-                        <a href="#chamarras" class="collection-link">Ver Colección</a>
+                        <p>3 Modelos</p>
+                        <a href="#chamarras" class="collection-link">Ver</a>
                     </div>
                 </div>
             </div>
             
             <div class="collection-item">
                 <div class="collection-image">
-                    <div class="placeholder-img wallets"></div>
+                    <img src="assets/images/wallet-eclipse.png" alt="Carteras">
                     <div class="collection-overlay">
                         <span class="collection-number">02</span>
                         <h3>Carteras</h3>
-                        <p>3 Modelos Exclusivos</p>
-                        <a href="#carteras" class="collection-link">Ver Colección</a>
+                        <p>3 Modelos</p>
+                        <a href="#carteras" class="collection-link">Ver</a>
                     </div>
                 </div>
             </div>
             
             <div class="collection-item">
                 <div class="collection-image">
-                    <div class="placeholder-img bags"></div>
+                    <img src="assets/images/bag-cipher.png" alt="Bolsos">
                     <div class="collection-overlay">
                         <span class="collection-number">03</span>
                         <h3>Bolsos</h3>
-                        <p>2 Modelos Exclusivos</p>
-                        <a href="#bolsos" class="collection-link">Ver Colección</a>
+                        <p>2 Modelos</p>
+                        <a href="#bolsos" class="collection-link">Ver</a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Featured Products -->
+    <!-- Chamarras Section -->
     <section id="chamarras" class="featured">
         <div class="section-header">
             <p class="section-subtitle">Leather Excellence</p>
@@ -100,7 +98,7 @@
         <div class="products-grid">
             <div class="product-card" data-name="Chamarra Noir" data-price="450" data-category="chamarra">
                 <div class="product-image">
-                    <div class="placeholder-product">🧥</div>
+                    <img src="assets/images/jacket-noir.png" alt="Chamarra Noir">
                     <div class="product-hover">
                         <button onclick="addToCart('Chamarra Noir', 450)">Añadir a la Bolsa</button>
                     </div>
@@ -108,7 +106,7 @@
                 <div class="product-info">
                     <span class="product-category">Chamarra</span>
                     <h3>Noir</h3>
-                    <p class="product-desc">Cuero premium negro, diseño minimalista con acabados discretos</p>
+                    <p class="product-desc">Cuero premium negro, diseño minimalista</p>
                     <div class="product-price">
                         <span class="price-usd">$450 USD</span>
                         <span class="price-crypto">
@@ -121,7 +119,7 @@
 
             <div class="product-card" data-name="Chamarra Imperial" data-price="520" data-category="chamarra">
                 <div class="product-image">
-                    <div class="placeholder-product">🧥</div>
+                    <img src="assets/images/jacket-imperial.png" alt="Chamarra Imperial">
                     <div class="product-hover">
                         <button onclick="addToCart('Chamarra Imperial', 520)">Añadir a la Bolsa</button>
                     </div>
@@ -129,7 +127,7 @@
                 <div class="product-info">
                     <span class="product-category">Chamarra</span>
                     <h3>Imperial</h3>
-                    <p class="product-desc">Cuero marrón con acabados dorados, diseño executivo</p>
+                    <p class="product-desc">Cuero marrón con acabados dorados</p>
                     <div class="product-price">
                         <span class="price-usd">$520 USD</span>
                         <span class="price-crypto">
@@ -142,7 +140,7 @@
 
             <div class="product-card" data-name="Chamarra Phantom" data-price="480" data-category="chamarra">
                 <div class="product-image">
-                    <div class="placeholder-product">🧥</div>
+                    <img src="assets/images/jacket-phantom.png" alt="Chamarra Phantom">
                     <div class="product-hover">
                         <button onclick="addToCart('Chamarra Phantom', 480)">Añadir a la Bolsa</button>
                     </div>
@@ -150,7 +148,7 @@
                 <div class="product-info">
                     <span class="product-category">Chamarra</span>
                     <h3>Phantom</h3>
-                    <p class="product-desc">Cuero oscuro, estilo futurista con detalles únicos</p>
+                    <p class="product-desc">Cuero oscuro, estilo futurista</p>
                     <div class="product-price">
                         <span class="price-usd">$480 USD</span>
                         <span class="price-crypto">
@@ -173,7 +171,7 @@
         <div class="products-grid">
             <div class="product-card" data-name="Cartera Eclipse" data-price="180" data-category="cartera">
                 <div class="product-image">
-                    <div class="placeholder-product">👛</div>
+                    <img src="assets/images/wallet-eclipse.png" alt="Cartera Eclipse">
                     <div class="product-hover">
                         <button onclick="addToCart('Cartera Eclipse', 180)">Añadir a la Bolsa</button>
                     </div>
@@ -194,7 +192,7 @@
 
             <div class="product-card" data-name="Cartera Sovereign" data-price="220" data-category="cartera">
                 <div class="product-image">
-                    <div class="placeholder-product">👛</div>
+                    <img src="assets/images/wallet-sovereign.png" alt="Cartera Sovereign">
                     <div class="product-hover">
                         <button onclick="addToCart('Cartera Sovereign', 220)">Añadir a la Bolsa</button>
                     </div>
@@ -215,7 +213,7 @@
 
             <div class="product-card" data-name="Cartera Matrix" data-price="200" data-category="cartera">
                 <div class="product-image">
-                    <div class="placeholder-product">👛</div>
+                    <img src="assets/images/wallet-matrix.png" alt="Cartera Matrix">
                     <div class="product-hover">
                         <button onclick="addToCart('Cartera Matrix', 200)">Añadir a la Bolsa</button>
                     </div>
@@ -246,7 +244,7 @@
         <div class="products-grid">
             <div class="product-card" data-name="Bolso Cipher" data-price="380" data-category="bolso">
                 <div class="product-image">
-                    <div class="placeholder-product">👜</div>
+                    <img src="assets/images/bag-cipher.png" alt="Bolso Cipher">
                     <div class="product-hover">
                         <button onclick="addToCart('Bolso Cipher', 380)">Añadir a la Bolsa</button>
                     </div>
@@ -254,7 +252,7 @@
                 <div class="product-info">
                     <span class="product-category">Bolso</span>
                     <h3>Cipher</h3>
-                    <p class="product-desc">Bolso de viaje, espacio completo, cuero premium</p>
+                    <p class="product-desc">Bolso de viaje, espacio completo</p>
                     <div class="product-price">
                         <span class="price-usd">$380 USD</span>
                         <span class="price-crypto">
@@ -267,7 +265,7 @@
 
             <div class="product-card" data-name="Bolso Vault" data-price="420" data-category="bolso">
                 <div class="product-image">
-                    <div class="placeholder-product">👜</div>
+                    <img src="assets/images/bag-vault.png" alt="Bolso Vault">
                     <div class="product-hover">
                         <button onclick="addToCart('Bolso Vault', 420)">Añadir a la Bolsa</button>
                     </div>
@@ -295,52 +293,16 @@
             <h2 class="section-title">Nuestra Historia</h2>
             <div class="story-text">
                 <p>JOIS nace de la visión de crear accesorios masculinos que fusionan la tradición artesanal del cuero con la precisión del código. Cada pieza es diseñada para quienes entienden que el lujo verdadero trasciende las tendencias pasajeras.</p>
-                <p>Desde nuestro atelier en México, cada producto JOIS es elaborado con materiales de la más alta calidad, siguiendo procesos que honran tanto la tradición como la innovación.</p>
             </div>
-            <a href="#atelier" class="btn-text">Conocer más →</a>
         </div>
-        <div class="story-image">
-            <div class="placeholder-story"></div>
-        </div>
-    </section>
-
-    <!-- Atelier Section -->
-    <section id="atelier" class="atelier">
-        <div class="atelier-grid">
-            <div class="atelier-item">
-                <div class="atelier-content">
-                    <span class="atelier-number">01</span>
-                    <h3>Selección</h3>
-                    <p>Cada pieza de cuero es seleccionada cuidadosamente de los mejores proveedores internacionales.</p>
-                </div>
-            </div>
-            <div class="atelier-item">
-                <div class="atelier-content">
-                    <span class="atelier-number">02</span>
-                    <h3>Diseño</h3>
-                    <p>Diseños exclusivos creados por nuestro equipo, fusionando clásicos atemporales con innovación.</p>
-                </div>
-            </div>
-            <div class="atelier-item">
-                <div class="atelier-content">
-                    <span class="atelier-number">03</span>
-                    <h3>Craft</h3>
-                    <p>Artesanos expertos dan vida a cada pieza con técnicas tradicionales perfeccionadas.</p>
-                </div>
-            </div>
-            <div class="atelier-item">
-                <div class="atelier-content">
-                    <span class="atelier-number">04</span>
-                    <h3>Control</h3>
-                    <p>Cada producto pasa por rigurosos controles de calidad antes de llegar a tus manos.</p>
-                </div>
-            </div>
+        <div class="story-visual">
+            <span class="big-number">01</span>
         </div>
     </section>
 
     <!-- Contact Section -->
     <section id="contact" class="contact">
-        <div class="contact-header">
+        <div class="section-header">
             <p class="section-subtitle">Get in Touch</p>
             <h2 class="section-title">Contacto</h2>
         </div>
@@ -352,10 +314,6 @@
             <div class="contact-info">
                 <p class="contact-label">Ubicación</p>
                 <p class="contact-value">Ciudad de México, México</p>
-            </div>
-            <div class="contact-info">
-                <p class="contact-label">Horario</p>
-                <p class="contact-value">Lunes a Viernes 10:00 - 19:00</p>
             </div>
         </div>
     </section>
@@ -376,20 +334,18 @@
                 </div>
                 <div class="footer-col">
                     <h4>Información</h4>
-                    <a href="#story">Nuestra Historia</a>
-                    <a href="#atelier">Atelier</a>
+                    <a href="#story">Historia</a>
                     <a href="#contact">Contacto</a>
+                    <a href="nft.html">NFTs</a>
                 </div>
                 <div class="footer-col">
                     <h4>Pagos</h4>
                     <span>USD · BTC · USDT</span>
-                    <span>Stripe Enabled</span>
                 </div>
             </div>
         </div>
         <div class="footer-bottom">
             <p>© 2024 JOIS Leather. Todos los derechos reservados.</p>
-            <p>Aceptamos criptomonedas y pagos internacionales</p>
         </div>
     </footer>
 
