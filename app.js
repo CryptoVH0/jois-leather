@@ -1,5 +1,5 @@
 /* ============================================
-   JOIS LEATHER — Application Logic
+   JOIS — Application Logic
    ============================================ */
 
 // State
@@ -9,16 +9,31 @@ const usdtPrice = 1;
 
 // Initialize
 document.addEventListener('DOMContentLoaded', () => {
+    initPreloader();
     initNavbarScroll();
     fetchCryptoPrices();
     setInterval(fetchCryptoPrices, 60000);
 });
 
 // ============================================
+// PRELOADER
+// ============================================
+function initPreloader() {
+    const preloader = document.querySelector('.preloader');
+    if (preloader) {
+        setTimeout(() => {
+            preloader.classList.add('hidden');
+        }, 2000);
+    }
+}
+
+// ============================================
 // NAVIGATION
 // ============================================
 function initNavbarScroll() {
     const navbar = document.querySelector('.navbar');
+    if (!navbar) return;
+    
     window.addEventListener('scroll', () => {
         if (window.scrollY > 100) {
             navbar.classList.add('scrolled');
@@ -26,6 +41,10 @@ function initNavbarScroll() {
             navbar.classList.remove('scrolled');
         }
     });
+}
+
+function toggleMobileNav() {
+    // Mobile nav toggle logic
 }
 
 // ============================================
@@ -47,14 +66,14 @@ async function fetchCryptoPrices() {
 function updateAllCryptoPrices() {
     if (btcPrice === 0) return;
     
-    // Update product cards
+    // Update all product cards
     document.querySelectorAll('.product-card').forEach(card => {
         const price = parseFloat(card.dataset.price);
         const btcEl = card.querySelector('.btc-price');
         const usdtEl = card.querySelector('.usdt-price');
         
-        if (btcEl) btcEl.textContent = '₿ ' + (price / btcPrice).toFixed(8);
-        if (usdtEl) usdtEl.textContent = '⚡ ' + price.toFixed(2);
+        if (btcEl) btcEl.textContent = '₿ ' + (price / btcPrice).toFixed(6);
+        if (usdtEl) usdtEl.textContent = 'USDT ' + price.toFixed(2);
     });
     
     // Update cart if open
@@ -75,6 +94,9 @@ function addToCart(name, price) {
     
     updateCartCount();
     showNotification(`${name} añadida a tu bolsa`);
+    
+    // Open cart drawer
+    toggleCart();
 }
 
 function removeFromCart(name) {
@@ -85,12 +107,17 @@ function removeFromCart(name) {
 
 function updateCartCount() {
     const count = cart.reduce((sum, item) => sum + item.quantity, 0);
-    document.querySelector('.cart-icon').textContent = `Bag (${count})`;
+    const countEl = document.getElementById('cartCount');
+    if (countEl) countEl.textContent = count;
 }
 
 function toggleCart() {
-    const modal = document.getElementById('cartModal');
-    modal.classList.toggle('active');
+    const drawer = document.getElementById('cartDrawer');
+    const overlay = document.querySelector('.cart-overlay');
+    
+    if (drawer) drawer.classList.toggle('active');
+    if (overlay) overlay.classList.toggle('active');
+    
     updateCartDisplay();
 }
 
@@ -100,11 +127,13 @@ function updateCartDisplay() {
     const cartBtcEl = document.getElementById('cartBtc');
     const cartUsdtEl = document.getElementById('cartUsdt');
     
+    if (!cartItemsEl) return;
+    
     if (cart.length === 0) {
-        cartItemsEl.innerHTML = '<div class="cart-empty">Tu bolsa está vacía</div>';
-        cartTotalEl.textContent = '$0 USD';
+        cartItemsEl.innerHTML = '<div class="cart-empty"><span>Tu bolsa está vacía</span></div>';
+        if (cartTotalEl) cartTotalEl.textContent = '$0 USD';
         if (cartBtcEl) cartBtcEl.textContent = '₿ 0.00';
-        if (cartUsdtEl) cartUsdtEl.textContent = '⚡ 0.00';
+        if (cartUsdtEl) cartUsdtEl.textContent = 'USDT 0.00';
         return;
     }
     
@@ -127,14 +156,10 @@ function updateCartDisplay() {
     });
     
     cartItemsEl.innerHTML = html;
-    cartTotalEl.textContent = `$${totalUSD} USD`;
     
-    if (cartBtcEl && btcPrice > 0) {
-        cartBtcEl.textContent = '₿ ' + (totalUSD / btcPrice).toFixed(8);
-    }
-    if (cartUsdtEl) {
-        cartUsdtEl.textContent = '⚡ ' + totalUSD.toFixed(2);
-    }
+    if (cartTotalEl) cartTotalEl.textContent = `$${totalUSD} USD`;
+    if (cartBtcEl && btcPrice > 0) cartBtcEl.textContent = '₿ ' + (totalUSD / btcPrice).toFixed(6);
+    if (cartUsdtEl) cartUsdtEl.textContent = 'USDT ' + totalUSD.toFixed(2);
 }
 
 // ============================================
@@ -149,7 +174,6 @@ function checkoutStripe() {
     const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
     showNotification('Redirigiendo a Stripe Checkout...');
     
-    // In production, redirect to Stripe
     setTimeout(() => {
         alert(`Stripe Checkout\nTotal: $${total} USD\n\nEn producción, esto te llevaría al pago seguro de Stripe.`);
     }, 1000);
@@ -162,11 +186,10 @@ function checkoutCrypto() {
     }
     
     const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
-    const totalBtc = (total / btcPrice).toFixed(8);
+    const totalBtc = (total / btcPrice).toFixed(6);
     
     showNotification('Generando dirección de pago crypto...');
     
-    // In production with NOWPayments
     setTimeout(() => {
         alert(`Pago con Criptomoneda\n\nBTC: ${totalBtc} BTC\nUSDT: ${total} USDT\n\nEn producción, esto generaría una dirección única de pago.`);
     }, 1000);
@@ -176,14 +199,18 @@ function checkoutCrypto() {
 // NOTIFICATIONS
 // ============================================
 function showNotification(message) {
+    // Remove existing
+    const existing = document.querySelector('.notification');
+    if (existing) existing.remove();
+    
     const notification = document.createElement('div');
     notification.className = 'notification';
     notification.textContent = message;
     document.body.appendChild(notification);
     
-    setTimeout(() => {
+    requestAnimationFrame(() => {
         notification.classList.add('show');
-    }, 10);
+    });
     
     setTimeout(() => {
         notification.classList.remove('show');
@@ -192,8 +219,8 @@ function showNotification(message) {
 }
 
 // Add notification styles
-const notificationStyles = document.createElement('style');
-notificationStyles.textContent = `
+const notificationStyle = document.createElement('style');
+notificationStyle.textContent = `
     .notification {
         position: fixed;
         bottom: 30px;
@@ -201,28 +228,22 @@ notificationStyles.textContent = `
         background: #000;
         color: #fff;
         padding: 20px 40px;
-        font-family: 'Times New Roman', serif;
         font-size: 12px;
-        letter-spacing: 2px;
-        z-index: 3000;
+        letter-spacing: 1px;
+        z-index: 9999;
         transform: translateX(120%);
-        transition: transform 0.3s ease;
+        transition: transform 0.4s cubic-bezier(0.25, 0.1, 0.25, 1);
+        font-family: 'Inter', sans-serif;
     }
     .notification.show {
         transform: translateX(0);
     }
 `;
-document.head.appendChild(notificationStyles);
+document.head.appendChild(notificationStyle);
 
-// Close cart on outside click
-document.addEventListener('click', (e) => {
-    const modal = document.getElementById('cartModal');
-    if (e.target === modal) {
-        toggleCart();
-    }
-});
-
-// Smooth scroll for anchor links
+// ============================================
+// SMOOTH SCROLL
+// ============================================
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function(e) {
         e.preventDefault();
@@ -231,4 +252,21 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             target.scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
     });
+});
+
+// ============================================
+// PARALLAX (optional enhancement)
+// ============================================
+function initParallax() {
+    const scrolled = window.pageYOffset;
+    const hero = document.querySelector('.hero-content');
+    
+    if (hero && scrolled < window.innerHeight) {
+        hero.style.transform = `translateY(${scrolled * 0.3}px)`;
+        hero.style.opacity = 1 - (scrolled / (window.innerHeight * 0.8));
+    }
+}
+
+window.addEventListener('scroll', () => {
+    requestAnimationFrame(initParallax);
 });
