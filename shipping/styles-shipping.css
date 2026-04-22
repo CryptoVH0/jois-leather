@@ -1,0 +1,145 @@
+/* ============================================
+   JOIS — Shipping Estimator UI
+   ============================================ */
+
+.shipping-estimator {
+    padding: 25px;
+    background: var(--white);
+    border: 1px solid var(--gray);
+    margin-top: 20px;
+}
+
+.shipping-estimator-title {
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 15px;
+    display: block;
+}
+
+.shipping-destination {
+    margin-bottom: 20px;
+}
+
+.shipping-destination label {
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    display: block;
+    margin-bottom: 8px;
+}
+
+.shipping-country-select {
+    width: 100%;
+    padding: 12px 15px;
+    font-size: 13px;
+    border: 1px solid var(--gray);
+    background: var(--white);
+    color: var(--text-dark);
+    font-family: inherit;
+    cursor: pointer;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23666' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 15px center;
+}
+
+.shipping-country-select:focus {
+    outline: none;
+    border-color: var(--text-dark);
+}
+
+.shipping-options {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.shipping-option {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    border: 1px solid var(--gray);
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.shipping-option:hover {
+    border-color: var(--text-dark);
+}
+
+.shipping-option.selected {
+    border-color: var(--wine);
+    background: rgba(114, 47, 55, 0.03);
+}
+
+.shipping-option-info {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.shipping-option-name {
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+
+.shipping-option-days {
+    font-size: 11px;
+    color: var(--text-muted);
+}
+
+.shipping-option-provider {
+    font-size: 10px;
+    color: var(--text-muted);
+}
+
+.shipping-option-price {
+    font-family: var(--font-mono);
+    font-size: 16px;
+}
+
+.shipping-option-price.free {
+    color: var(--wine);
+    font-weight: 500;
+}
+
+.shipping-option-price.loading {
+    font-size: 11px;
+    color: var(--text-muted);
+    font-family: inherit;
+}
+
+.shipping-free-badge {
+    display: inline-block;
+    padding: 3px 8px;
+    background: var(--wine);
+    color: var(--white);
+    font-size: 9px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-left: 10px;
+}
+
+.shipping-estimate-note {
+    font-size: 10px;
+    color: var(--text-muted);
+    margin-top: 15px;
+    font-style: italic;
+}
+
+.shipping-no-result {
+    padding: 20px;
+    text-align: center;
+    color: var(--text-muted);
+    font-size: 13px;
+}
+
+.shipping-contact {
+    color: var(--wine);
+    font-weight: 500;
+}

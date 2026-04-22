@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shipping Estimator — JOIS</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="styles-shipping.css">
+</head>
+<body>
+    <div class="shipping-estimator" id="shippingEstimator">
+        <span class="shipping-estimator-title">Estimado de Envío</span>
+        
+        <div class="shipping-destination">
+            <label for="countrySelect">Destino</label>
+            <select id="countrySelect" class="shipping-country-select">
+                <option value="">Selecciona tu país</option>
+                <option value="MX">México</option>
+                <option value="US">Estados Unidos</option>
+                <option value="ES">España</option>
+                <option value="FR">Francia</option>
+                <option value="DE">Alemania</option>
+                <option value="IT">Italia</option>
+                <option value="GB">Reino Unido</option>
+                <option value="PT">Portugal</option>
+                <option value="NL">Países Bajos</option>
+                <option value="BE">Bélgica</option>
+                <option value="CA">Canadá</option>
+                <option value="AR">Argentina</option>
+                <option value="CO">Colombia</option>
+                <option value="CL">Chile</option>
+                <option value="PE">Perú</option>
+            </select>
+        </div>
+
+        <div class="shipping-options" id="shippingOptions">
+            <div class="shipping-option" data-option="standard">
+                <div class="shipping-option-info">
+                    <span class="shipping-option-name">Estándar</span>
+                    <span class="shipping-option-days">5-7 días hábiles</span>
+                    <span class="shipping-option-provider">Estes</span>
+                </div>
+                <div class="shipping-option-price">
+                    <span class="price-value">—</span>
+                </div>
+            </div>
+            <div class="shipping-option" data-option="express">
+                <div class="shipping-option-info">
+                    <span class="shipping-option-name">Express</span>
+                    <span class="shipping-option-days">2-3 días hábiles</span>
+                    <span class="shipping-option-provider">Estes Express</span>
+                </div>
+                <div class="shipping-option-price">
+                    <span class="price-value">—</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="shipping-options" id="shippingOptionsLoading" style="display: none;">
+            <div class="shipping-option">
+                <div class="shipping-option-info">
+                    <span class="shipping-option-name">Calculando...</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="shipping-no-result" id="shippingNoResult" style="display: none;">
+            <p>No disponible para esta dirección.</p>
+            <p>Contáctanos: <a href="mailto:info@joisleather.io" class="shipping-contact">info@joisleather.io</a></p>
+        </div>
+
+        <p class="shipping-estimate-note" id="shippingNote" style="display: none;">
+            *Estimado. El costo final se confirma en checkout.
+        </p>
+    </div>
+
+    <script src="shipping-calculator.js"></script>
+    <script>
+        const countrySelect = document.getElementById('countrySelect');
+        const shippingOptions = document.getElementById('shippingOptions');
+        const shippingOptionsLoading = document.getElementById('shippingOptionsLoading');
+        const shippingNoResult = document.getElementById('shippingNoResult');
+        const shippingNote = document.getElementById('shippingNote');
+        const priceValues = document.querySelectorAll('.price-value');
+
+        let currentEstimate = null;
+
+        countrySelect.addEventListener('change', async (e) => {
+            const country = e.target.value;
+            if (!country) {
+                resetOptions();
+                return;
+            }
+
+            // Show loading
+            shippingOptions.style.display = 'none';
+            shippingOptionsLoading.style.display = 'flex';
+            shippingNoResult.style.display = 'none';
+
+            // Get weight from product data (would come from actual product)
+            const weightKg = window.currentProductWeight || 1.0;
+            const subtotal = window.cartSubtotal || 0;
+
+            try {
+                currentEstimate = await shippingCalculator.calculate(country, weightKg, subtotal);
+                
+                if (currentEstimate.error) {
+                    shippingOptionsLoading.style.display = 'none';
+                    shippingNoResult.style.display = 'block';
+                } else {
+                    displayEstimate(currentEstimate);
+                }
+            } catch (error) {
+                shippingOptionsLoading.style.display = 'none';
+                shippingNoResult.style.display = 'block';
+            }
+        });
+
+        function displayEstimate(estimate) {
+            shippingOptionsLoading.style.display = 'none';
+            shippingNoResult.style.display = 'none';
+            shippingOptions.style.display = 'flex';
+            shippingNote.style.display = 'block';
+
+            const options = document.querySelectorAll('.shipping-option');
+            
+            options.forEach((option, index) => {
+                const optionData = estimate.options[index];
+                const priceEl = option.querySelector('.price-value');
+                
+                if (optionData) {
+                    priceEl.textContent = optionData.display_cost;
+                    if (optionData.cost === 0) {
+                        priceEl.innerHTML = 'GRATIS<span class="shipping-free-badge">Envío gratis</span>';
+                    }
+                }
+            });
+        }
+
+        function resetOptions() {
+            shippingOptions.style.display = 'none';
+            shippingOptionsLoading.style.display = 'none';
+            shippingNoResult.style.display = 'none';
+            shippingNote.style.display = 'none';
+            priceValues.forEach(el => el.textContent = '—');
+        }
+
+        // Option selection
+        document.querySelectorAll('.shipping-option').forEach(option => {
+            option.addEventListener('click', () => {
+                document.querySelectorAll('.shipping-option').forEach(o => o.classList.remove('selected'));
+                option.classList.add('selected');
+                
+                const selectedType = option.dataset.option;
+                const selectedOption = currentEstimate?.options.find(o => o.type === selectedType);
+                
+                if (selectedOption && window.selectShippingOption) {
+                    window.selectShippingOption(selectedOption);
+                }
+            });
+        });
+    </script>
+</body>
+</html>

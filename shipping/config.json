@@ -1,0 +1,111 @@
+{
+  "config_version": "1.0",
+  "last_updated": "2024-04-22",
+  
+  "zones": [
+    {
+      "zone_id": "MX",
+      "zone_name": "México",
+      "countries": ["MX"],
+      "currency": "MXN",
+      "currency_symbol": "$",
+      "free_shipping_threshold": 5000,
+      "free_shipping_threshold_usd": 300,
+      "max_weight_kg": 30,
+      "default_weight_kg": 1.0,
+      "rates": {
+        "standard": {
+          "base_rate": 150,
+          "per_kg_rate": 80,
+          "estimated_days": "5-7",
+          "provider": "Estes"
+        },
+        "express": {
+          "base_rate": 280,
+          "per_kg_rate": 150,
+          "estimated_days": "2-3",
+          "provider": "Estes Express"
+        }
+      }
+    },
+    {
+      "zone_id": "US",
+      "zone_name": "Estados Unidos",
+      "countries": ["US"],
+      "currency": "USD",
+      "currency_symbol": "$",
+      "free_shipping_threshold": 300,
+      "free_shipping_threshold_usd": 300,
+      "max_weight_kg": 30,
+      "default_weight_kg": 1.0,
+      "rates": {
+        "standard": {
+          "base_rate": 25,
+          "per_kg_rate": 12,
+          "estimated_days": "7-10",
+          "provider": "FedEx"
+        },
+        "express": {
+          "base_rate": 45,
+          "per_kg_rate": 25,
+          "estimated_days": "3-5",
+          "provider": "FedEx Express"
+        }
+      }
+    },
+    {
+      "zone_id": "EU",
+      "zone_name": "Europa",
+      "countries": ["ES", "FR", "DE", "IT", "PT", "GB", "NL", "BE"],
+      "currency": "EUR",
+      "currency_symbol": "€",
+      "free_shipping_threshold": 350,
+      "free_shipping_threshold_usd": 380,
+      "max_weight_kg": 20,
+      "default_weight_kg": 1.5,
+      "rates": {
+        "standard": {
+          "base_rate": 35,
+          "per_kg_rate": 18,
+          "estimated_days": "10-15",
+          "provider": "DHL"
+        },
+        "express": {
+          "base_rate": 60,
+          "per_kg_rate": 35,
+          "estimated_days": "5-7",
+          "provider": "DHL Express"
+        }
+      }
+    }
+  ],
+
+  "shipping_classes": {
+    "standard": {
+      "multiplier": 1.0,
+      "description": "Carteras, accesorios"
+    },
+    "bulky": {
+      "multiplier": 1.5,
+      "description": "Bolsos, weekenders"
+    },
+    "fragile": {
+      "multiplier": 2.0,
+      "description": "Productos frágiles"
+    }
+  },
+
+  "fallback": {
+    "enabled": true,
+    "message": "Contáctanos para calcular el envío",
+    "contact_email": "info@joisleather.io"
+  },
+
+  "messages": {
+    "calculating": "Calculando...",
+    "free_shipping": "Envío gratis disponible",
+    "no_shipping": "Envío no disponible para esta dirección",
+    "select_destination": "Selecciona tu destino",
+    "shipping_estimate": "Estimado de envío"
+  }
+}
