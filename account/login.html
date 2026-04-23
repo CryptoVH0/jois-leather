@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Cuenta — JOIS</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #0A0A0A;
+            color: #fff;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .account-container {
+            width: 100%;
+            max-width: 420px;
+            padding: 40px;
+        }
+        
+        .logo {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .logo a {
+            font-family: 'Times New Roman', serif;
+            font-size: 28px;
+            letter-spacing: 0.4em;
+            color: #fff;
+            text-decoration: none;
+        }
+        
+        .auth-card {
+            background: #1a1a1a;
+            border: 1px solid #333;
+            padding: 40px;
+        }
+        
+        .auth-tabs {
+            display: flex;
+            gap: 0;
+            margin-bottom: 30px;
+            border-bottom: 1px solid #333;
+        }
+        
+        .auth-tab {
+            flex: 1;
+            padding: 15px;
+            font-size: 11px;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: #666;
+            background: none;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s;
+            border-bottom: 2px solid transparent;
+        }
+        
+        .auth-tab.active {
+            color: #C4A35A;
+            border-bottom-color: #C4A35A;
+        }
+        
+        .auth-tab:hover:not(.active) {
+            color: #fff;
+        }
+        
+        .auth-form {
+            display: none;
+        }
+        
+        .auth-form.active {
+            display: block;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-label {
+            display: block;
+            font-size: 10px;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: #888;
+            margin-bottom: 8px;
+        }
+        
+        .form-input {
+            width: 100%;
+            padding: 14px 16px;
+            font-size: 14px;
+            background: #222;
+            border: 1px solid #333;
+            color: #fff;
+            font-family: inherit;
+            transition: all 0.3s;
+        }
+        
+        .form-input:focus {
+            outline: none;
+            border-color: #C4A35A;
+        }
+        
+        .form-input::placeholder {
+            color: #555;
+        }
+        
+        .btn-auth {
+            width: 100%;
+            padding: 16px;
+            font-size: 11px;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            background: #C4A35A;
+            border: none;
+            color: #0A0A0A;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-family: inherit;
+        }
+        
+        .btn-auth:hover {
+            background: #a68b3d;
+        }
+        
+        .btn-auth:disabled {
+            background: #444;
+            color: #888;
+            cursor: not-allowed;
+        }
+        
+        .auth-divider {
+            text-align: center;
+            margin: 25px 0;
+            position: relative;
+        }
+        
+        .auth-divider::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background: #333;
+        }
+        
+        .auth-divider span {
+            position: relative;
+            background: #1a1a1a;
+            padding: 0 15px;
+            font-size: 10px;
+            color: #666;
+            letter-spacing: 0.1em;
+        }
+        
+        .social-login {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        
+        .btn-social {
+            width: 100%;
+            padding: 14px;
+            font-size: 11px;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            background: #222;
+            border: 1px solid #333;
+            color: #fff;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-family: inherit;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+        
+        .btn-social:hover {
+            border-color: #C4A35A;
+        }
+        
+        .btn-social svg {
+            width: 18px;
+            height: 18px;
+        }
+        
+        .forgot-link {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+            font-size: 11px;
+            color: #666;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .forgot-link:hover {
+            color: #C4A35A;
+        }
+        
+        .back-link {
+            display: block;
+            text-align: center;
+            margin-top: 30px;
+            font-size: 11px;
+            color: #666;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .back-link:hover {
+            color: #fff;
+        }
+        
+        .back-link svg {
+            width: 14px;
+            height: 14px;
+            vertical-align: middle;
+            margin-right: 5px;
+        }
+        
+        /* Success/Error Messages */
+        .auth-message {
+            padding: 15px;
+            margin-bottom: 20px;
+            font-size: 12px;
+            text-align: center;
+            display: none;
+        }
+        
+        .auth-message.success {
+            background: rgba(196, 163, 90, 0.1);
+            border: 1px solid #C4A35A;
+            color: #C4A35A;
+            display: block;
+        }
+        
+        .auth-message.error {
+            background: rgba(220, 53, 69, 0.1);
+            border: 1px solid #dc3545;
+            color: #dc3545;
+            display: block;
+        }
+        
+        /* Loading spinner */
+        .spinner {
+            display: inline-block;
+            width: 16px;
+            height: 16px;
+            border: 2px solid #0A0A0A;
+            border-top-color: transparent;
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+            margin-right: 8px;
+            vertical-align: middle;
+        }
+        
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <div class="account-container">
+        <div class="logo">
+            <a href="../index.html">JOIS</a>
+        </div>
+        
+        <div class="auth-card">
+            <div class="auth-tabs">
+                <button class="auth-tab active" onclick="showTab('login')">Iniciar Sesión</button>
+                <button class="auth-tab" onclick="showTab('register')">Registrarse</button>
+            </div>
+            
+            <!-- Login Form -->
+            <form id="loginForm" class="auth-form active" onsubmit="handleLogin(event)">
+                <div id="loginMessage" class="auth-message"></div>
+                
+                <div class="form-group">
+                    <label class="form-label">Correo Electrónico</label>
+                    <input type="email" class="form-input" id="loginEmail" placeholder="tu@email.com" required>
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label">Contraseña</label>
+                    <input type="password" class="form-input" id="loginPassword" placeholder="••••••••" required minlength="6">
+                </div>
+                
+                <button type="submit" class="btn-auth" id="loginBtn">
+                    Iniciar Sesión
+                </button>
+                
+                <a href="#" class="forgot-link" onclick="showTab('reset'); return false;">
+                    ¿Olvidaste tu contraseña?
+                </a>
+                
+                <div class="auth-divider">
+                    <span>o continúa con</span>
+                </div>
+                
+                <div class="social-login">
+                    <button type="button" class="btn-social" onclick="socialLogin('google')">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
+                            <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
+                            <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/>
+                            <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
+                        </svg>
+                        Continuar con Google
+                    </button>
+                    <button type="button" class="btn-social" onclick="socialLogin('apple')">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
+                        </svg>
+                        Continuar con Apple
+                    </button>
+                </div>
+            </form>
+            
+            <!-- Register Form -->
+            <form id="registerForm" class="auth-form" onsubmit="handleRegister(event)">
+                <div id="registerMessage" class="auth-message"></div>
+                
+                <div class="form-group">
+                    <label class="form-label">Nombre Completo</label>
+                    <input type="text" class="form-input" id="registerName" placeholder="Tu nombre" required>
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label">Correo Electrónico</label>
+                    <input type="email" class="form-input" id="registerEmail" placeholder="tu@email.com" required>
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label">Contraseña</label>
+                    <input type="password" class="form-input" id="registerPassword" placeholder="Mínimo 8 caracteres" required minlength="8">
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label">Confirmar Contraseña</label>
+                    <input type="password" class="form-input" id="registerConfirm" placeholder="Repite la contraseña" required minlength="8">
+                </div>
+                
+                <button type="submit" class="btn-auth" id="registerBtn">
+                    Crear Cuenta
+                </button>
+                
+                <p style="font-size: 10px; color: #555; text-align: center; margin-top: 15px; line-height: 1.6;">
+                    Al registrarte, aceptas nuestros 
+                    <a href="../legal/TERMINOS-Y-CONDICIONES.html" style="color: #888;">Términos y Condiciones</a> y 
+                    <a href="../legal/PRIVACIDAD.html" style="color: #888;">Política de Privacidad</a>.
+                </p>
+                
+                <div class="auth-divider">
+                    <span>o regístrate con</span>
+                </div>
+                
+                <div class="social-login">
+                    <button type="button" class="btn-social" onclick="socialLogin('google')">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
+                            <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
+                            <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/>
+                            <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
+                        </svg>
+                        Continuar con Google
+                    </button>
+                    <button type="button" class="btn-social" onclick="socialLogin('apple')">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
+                        </svg>
+                        Continuar con Apple
+                    </button>
+                </div>
+            </form>
+            
+            <!-- Password Reset Form -->
+            <form id="resetForm" class="auth-form" onsubmit="handleReset(event)">
+                <div id="resetMessage" class="auth-message"></div>
+                
+                <p style="font-size: 13px; color: #888; margin-bottom: 25px; text-align: center;">
+                    Ingresa tu correo y te enviaremos un enlace para restablecer tu contraseña.
+                </p>
+                
+                <div class="form-group">
+                    <label class="form-label">Correo Electrónico</label>
+                    <input type="email" class="form-input" id="resetEmail" placeholder="tu@email.com" required>
+                </div>
+                
+                <button type="submit" class="btn-auth" id="resetBtn">
+                    Enviar Enlace
+                </button>
+                
+                <a href="#" class="forgot-link" onclick="showTab('login'); return false;">
+                    ← Volver a Iniciar Sesión
+                </a>
+            </form>
+        </div>
+        
+        <a href="../index.html" class="back-link">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M19 12H5M12 19l-7-7 7-7"/>
+            </svg>
+            Volver a JOIS
+        </a>
+    </div>
+    
+    <script>
+        // ===== TAB NAVIGATION =====
+        function showTab(tab) {
+            // Hide all forms
+            document.querySelectorAll('.auth-form').forEach(f => f.classList.remove('active'));
+            document.querySelectorAll('.auth-tab').forEach(t => t.classList.remove('active'));
+            
+            // Show selected form
+            if (tab === 'login') {
+                document.getElementById('loginForm').classList.add('active');
+                document.querySelectorAll('.auth-tab')[0].classList.add('active');
+            } else if (tab === 'register') {
+                document.getElementById('registerForm').classList.add('active');
+                document.querySelectorAll('.auth-tab')[1].classList.add('active');
+            } else if (tab === 'reset') {
+                document.getElementById('resetForm').classList.add('active');
+            }
+            
+            // Clear messages
+            document.querySelectorAll('.auth-message').forEach(m => {
+                m.classList.remove('success', 'error');
+                m.style.display = 'none';
+            });
+        }
+        
+        // ===== FORM HANDLERS =====
+        function handleLogin(e) {
+            e.preventDefault();
+            const btn = document.getElementById('loginBtn');
+            const email = document.getElementById('loginEmail').value;
+            const password = document.getElementById('loginPassword').value;
+            const msg = document.getElementById('loginMessage');
+            
+            // Show loading
+            btn.disabled = true;
+            btn.innerHTML = '<span class="spinner"></span>Verificando...';
+            
+            // Simulate API call (replace with real authentication)
+            setTimeout(() => {
+                // For demo, check localStorage users
+                const users = JSON.parse(localStorage.getItem('jois_users') || '[]');
+                const user = users.find(u => u.email === email && u.password === password);
+                
+                if (user) {
+                    // Login success
+                    localStorage.setItem('jois_current_user', JSON.stringify({
+                        name: user.name,
+                        email: user.email
+                    }));
+                    msg.textContent = '¡Bienvenido de vuelta! Redirigiendo...';
+                    msg.className = 'auth-message success';
+                    msg.style.display = 'block';
+                    
+                    setTimeout(() => {
+                        window.location.href = '../dashboard/account.html';
+                    }, 1500);
+                } else {
+                    msg.textContent = 'Correo o contraseña incorrectos';
+                    msg.className = 'auth-message error';
+                    msg.style.display = 'block';
+                    btn.disabled = false;
+                    btn.innerHTML = 'Iniciar Sesión';
+                }
+            }, 1000);
+        }
+        
+        function handleRegister(e) {
+            e.preventDefault();
+            const btn = document.getElementById('registerBtn');
+            const name = document.getElementById('registerName').value;
+            const email = document.getElementById('registerEmail').value;
+            const password = document.getElementById('registerPassword').value;
+            const confirm = document.getElementById('registerConfirm').value;
+            const msg = document.getElementById('registerMessage');
+            
+            // Validate passwords match
+            if (password !== confirm) {
+                msg.textContent = 'Las contraseñas no coinciden';
+                msg.className = 'auth-message error';
+                msg.style.display = 'block';
+                return;
+            }
+            
+            // Validate password length
+            if (password.length < 8) {
+                msg.textContent = 'La contraseña debe tener al menos 8 caracteres';
+                msg.className = 'auth-message error';
+                msg.style.display = 'block';
+                return;
+            }
+            
+            // Show loading
+            btn.disabled = true;
+            btn.innerHTML = '<span class="spinner"></span>Creando cuenta...';
+            
+            // Simulate API call
+            setTimeout(() => {
+                // Check if user exists
+                const users = JSON.parse(localStorage.getItem('jois_users') || '[]');
+                
+                if (users.find(u => u.email === email)) {
+                    msg.textContent = 'Ya existe una cuenta con este correo';
+                    msg.className = 'auth-message error';
+                    msg.style.display = 'block';
+                    btn.disabled = false;
+                    btn.innerHTML = 'Crear Cuenta';
+                    return;
+                }
+                
+                // Create user
+                users.push({ name, email, password, createdAt: new Date().toISOString() });
+                localStorage.setItem('jois_users', JSON.stringify(users));
+                
+                // Auto login
+                localStorage.setItem('jois_current_user', JSON.stringify({ name, email }));
+                
+                msg.textContent = '¡Cuenta creada exitosamente! Redirigiendo...';
+                msg.className = 'auth-message success';
+                msg.style.display = 'block';
+                
+                setTimeout(() => {
+                    window.location.href = '../dashboard/account.html';
+                }, 1500);
+            }, 1000);
+        }
+        
+        function handleReset(e) {
+            e.preventDefault();
+            const btn = document.getElementById('resetBtn');
+            const email = document.getElementById('resetEmail').value;
+            const msg = document.getElementById('resetMessage');
+            
+            btn.disabled = true;
+            btn.innerHTML = '<span class="spinner"></span>Enviando...';
+            
+            setTimeout(() => {
+                // For demo, always show success (in real app, check if email exists)
+                msg.textContent = 'Se ha enviado un enlace a tu correo para restablecer la contraseña';
+                msg.className = 'auth-message success';
+                msg.style.display = 'block';
+                btn.innerHTML = 'Enviar Enlace';
+                
+                setTimeout(() => {
+                    showTab('login');
+                    btn.disabled = false;
+                }, 3000);
+            }, 1000);
+        }
+        
+        // ===== SOCIAL LOGIN (Demo) =====
+        function socialLogin(provider) {
+            // In production, this would redirect to OAuth flow
+            const msg = document.getElementById('loginMessage') || document.getElementById('registerMessage');
+            msg.textContent = `Login con ${provider} próximamente disponible`;
+            msg.className = 'auth-message error';
+            msg.style.display = 'block';
+        }
+        
+        // ===== CHECK IF LOGGED IN =====
+        window.addEventListener('load', () => {
+            const currentUser = localStorage.getItem('jois_current_user');
+            if (currentUser) {
+                // Already logged in, redirect to dashboard
+                window.location.href = '../dashboard/account.html';
+            }
+        });
+    </script>
+</body>
+</html>
