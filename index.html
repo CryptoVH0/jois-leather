@@ -1188,6 +1188,8 @@
     </footer>
     
     <!-- Cart Drawer -->
+
+    <!-- Cart Drawer -->
     <div class="cart-overlay" onclick="toggleCart()"></div>
     <div class="cart-drawer" id="cartDrawer">
         <div class="cart-header">
@@ -1199,47 +1201,126 @@
                 <span>Tu bolsa está vacía</span>
             </div>
         </div>
+        
+        <!-- Currency Selector -->
+        <div class="currency-selector">
+            <span class="currency-label">Ver precios en:</span>
+            <div class="currency-buttons">
+                <button class="currency-btn active" data-currency="MXN" onclick="switchCurrency('MXN')">MXN</button>
+                <button class="currency-btn" data-currency="USD" onclick="switchCurrency('USD')">USD</button>
+                <button class="currency-btn" data-currency="CRYPTO" onclick="switchCurrency('CRYPTO')">CRYPTO</button>
+            </div>
+        </div>
+        
         <div class="cart-footer">
             <div class="cart-total">
                 <span>Total</span>
-                <div>
-                    <span class="total-usd" id="cartTotal">$0 USD</span>
-                    <span class="total-crypto" id="cartTotalCrypto" style="display: block; font-size: 12px; color: var(--beige); margin-top: 4px;"></span>
+                <div class="total-prices">
+                    <span class="total-mxn" id="cartTotal">$0 MXN</span>
+                    <span class="total-secondary" id="cartTotalMXN">$0 USD</span>
+                    <span class="total-crypto" id="cartTotalCrypto"></span>
                 </div>
             </div>
             
-            <div class="cart-actions" style="display: flex; flex-direction: column; gap: 12px;">
-                <button class="btn-checkout" onclick="checkoutStripe()" style="border-radius: 8px;">Pagar con Tarjeta</button>
-                <button class="btn-checkout-crypto" onclick="checkoutCrypto()" style="background: var(--beige); color: var(--black); font-size: 12px; padding: 20px; border-radius: 8px;">
-                    PAGAR CON CRYPTO
+            <div class="payment-methods">
+                <button class="btn-pay card" onclick="checkoutStripe()">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
+                    Tarjeta
+                </button>
+                <button class="btn-pay crypto" onclick="checkoutCrypto()">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 6v12M9 9l3-3 3 3M9 15l3 3 3-3"/></svg>
+                    Crypto
                 </button>
             </div>
         </div>
     </div>
     
     <style>
-        .crypto-btn {
-            padding: 10px 16px;
-            font-size: 11px;
-            font-family: var(--font-mono);
+        .currency-selector {
+            padding: 20px;
             background: var(--gray-light);
+            border-bottom: 1px solid var(--gray);
+        }
+        .currency-label {
+            display: block;
+            font-size: 10px;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            margin-bottom: 12px;
+        }
+        .currency-buttons {
+            display: flex;
+            gap: 8px;
+        }
+        .currency-btn {
+            flex: 1;
+            padding: 10px 12px;
+            font-size: 11px;
+            font-weight: 500;
+            letter-spacing: 0.05em;
+            background: var(--white);
             border: 1px solid var(--gray);
+            border-radius: 6px;
             cursor: pointer;
             transition: all 0.3s;
         }
-        .crypto-btn:hover {
-            border-color: var(--beige);
-            background: var(--white);
+        .currency-btn:hover { border-color: var(--beige); }
+        .currency-btn.active {
+            background: var(--black);
+            color: var(--white);
+            border-color: var(--black);
         }
-        .crypto-btn.selected {
-            background: var(--beige);
-            color: var(--black);
-            border-color: var(--beige);
+        .cart-total {
+            padding: 20px;
+            border-bottom: 1px solid var(--gray);
         }
+        .cart-total > span:first-child {
+            display: block;
+            font-size: 10px;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            margin-bottom: 10px;
+        }
+        .total-prices { display: flex; flex-direction: column; gap: 5px; }
+        .total-mxn { font-family: var(--font-mono); font-size: 24px; font-weight: 600; }
+        .total-secondary { font-size: 13px; color: var(--text-muted); }
+        .total-crypto { display: flex; gap: 15px; margin-top: 5px; }
+        .crypto-total {
+            font-family: var(--font-mono);
+            font-size: 11px;
+            color: var(--beige);
+            background: rgba(196, 163, 90, 0.1);
+            padding: 4px 8px;
+            border-radius: 4px;
+        }
+        .cart-item-price { display: flex; flex-direction: column; gap: 2px; }
+        .price-mxn { font-family: var(--font-mono); font-size: 15px; }
+        .price-usd { font-size: 12px; color: var(--text-muted); }
+        .payment-methods { display: flex; gap: 12px; padding: 20px; }
+        .btn-pay {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 16px;
+            font-size: 11px;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        .btn-pay.card { background: var(--black); color: var(--white); }
+        .btn-pay.card:hover { background: var(--beige); color: var(--black); }
+        .btn-pay.crypto { background: var(--white); color: var(--black); border: 1px solid var(--black); }
+        .btn-pay.crypto:hover { background: var(--beige); border-color: var(--beige); }
     </style>
     
-    <script src="app.js?v=27"></script>
-    
+    <script src="app-cart.js"></script>
     <!-- Load custom content from Content Manager -->
     <script>
         window.addEventListener('load', () => {
