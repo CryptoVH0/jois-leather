@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Content Editor — JOIS</title>
+    <link rel="stylesheet" href="../styles.css">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #1a1a1a;
+            color: #fff;
+            min-height: 100vh;
+            padding: 40px;
+        }
+        .editor-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .editor-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #333;
+        }
+        .editor-title {
+            font-family: 'Times New Roman', serif;
+            font-size: 28px;
+            letter-spacing: 0.1em;
+        }
+        .editor-actions {
+            display: flex;
+            gap: 15px;
+        }
+        .btn {
+            padding: 12px 24px;
+            font-size: 11px;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            border: 1px solid #fff;
+            background: transparent;
+            color: #fff;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        .btn:hover {
+            background: #fff;
+            color: #1a1a1a;
+        }
+        .btn-save {
+            background: #C4A35A;
+            border-color: #C4A35A;
+            color: #1a1a1a;
+        }
+        .btn-save:hover {
+            background: #a68b3d;
+            border-color: #a68b3d;
+        }
+        .tabs {
+            display: flex;
+            gap: 5px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+        .tab {
+            padding: 10px 20px;
+            font-size: 11px;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            border: 1px solid #333;
+            background: transparent;
+            color: #888;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        .tab.active {
+            background: #C4A35A;
+            border-color: #C4A35A;
+            color: #1a1a1a;
+        }
+        .tab:hover:not(.active) {
+            border-color: #C4A35A;
+            color: #C4A35A;
+        }
+        .panel {
+            display: none;
+            background: #222;
+            border: 1px solid #333;
+            padding: 30px;
+        }
+        .panel.active {
+            display: block;
+        }
+        .form-group {
+            margin-bottom: 25px;
+        }
+        .form-label {
+            display: block;
+            font-size: 10px;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: #888;
+            margin-bottom: 8px;
+        }
+        .form-input {
+            width: 100%;
+            padding: 12px 15px;
+            font-size: 14px;
+            background: #333;
+            border: 1px solid #444;
+            color: #fff;
+            font-family: inherit;
+        }
+        .form-input:focus {
+            outline: none;
+            border-color: #C4A35A;
+        }
+        .form-textarea {
+            min-height: 100px;
+            resize: vertical;
+        }
+        .form-row {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+        .section-title {
+            font-family: 'Times New Roman', serif;
+            font-size: 18px;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #333;
+        }
+        .product-edit {
+            background: #2a2a2a;
+            padding: 20px;
+            margin-bottom: 20px;
+            border: 1px solid #333;
+        }
+        .product-name {
+            font-family: 'Times New Roman', serif;
+            font-size: 16px;
+            margin-bottom: 15px;
+            color: #C4A35A;
+        }
+        .color-preview {
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            vertical-align: middle;
+            margin-left: 10px;
+            border: 1px solid #fff;
+        }
+        .color-input-group {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        .color-input {
+            width: 80px;
+        }
+        .success-msg {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #C4A35A;
+            color: #1a1a1a;
+            padding: 15px 25px;
+            font-size: 12px;
+            letter-spacing: 0.1em;
+            display: none;
+        }
+        .success-msg.show {
+            display: block;
+        }
+        .info-text {
+            font-size: 11px;
+            color: #666;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="editor-container">
+        <div class="editor-header">
+            <h1 class="editor-title">JOIS — Content Editor</h1>
+            <div class="editor-actions">
+                <button class="btn" onclick="resetChanges()">Descartar Cambios</button>
+                <button class="btn btn-save" onclick="saveChanges()">Guardar Cambios</button>
+            </div>
+        </div>
+
+        <div class="tabs">
+            <button class="tab active" onclick="showPanel('brand')">Brand</button>
+            <button class="tab" onclick="showPanel('nav')">Navegación</button>
+            <button class="tab" onclick="showPanel('hero')">Hero</button>
+            <button class="tab" onclick="showPanel('products-h')">Productos Hombre</button>
+            <button class="tab" onclick="showPanel('products-m')">Productos Mujer</button>
+            <button class="tab" onclick="showPanel('about')">Nosotros</button>
+            <button class="tab" onclick="showPanel('contact')">Contacto</button>
+            <button class="tab" onclick="showPanel('colors')">Colores</button>
+        </div>
+
+        <!-- Brand Panel -->
+        <div id="panel-brand" class="panel active">
+            <h2 class="section-title">Brand Settings</h2>
+            <div class="form-row">
+                <div class="form-group">
+                    <label class="form-label">Nombre de la Marca</label>
+                    <input type="text" class="form-input" id="brand_name" value="JOIS">
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Tagline</label>
+                    <input type="text" class="form-input" id="brand_tagline" value="Maison de Cuir Contemporáneo">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label class="form-label">Temporada</label>
+                    <input type="text" class="form-input" id="brand_season" value="Primavera — Verano 2024">
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Statement</label>
+                    <input type="text" class="form-input" id="brand_statement" value="Donde el arte de la piel encuentra el código del futuro">
+                </div>
+            </div>
+        </div>
+
+        <!-- Navigation Panel -->
+        <div id="panel-nav" class="panel">
+            <h2 class="section-title">Navegación</h2>
+            <div class="form-row">
+                <div class="form-group">
+                    <label class="form-label">Tienda</label>
+                    <input type="text" class="form-input" id="nav_tienda" value="Tienda">
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Hombre</label>
+                    <input type="text" class="form-input" id="nav_hombre" value="Hombre">
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Mujer</label>
+                    <input type="text" class="form-input" id="nav_mujer" value="Mujer">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label class="form-label">Nosotros</label>
+                    <input type="text" class="form-input" id="nav_nosotros" value="Nosotros">
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Contacto</label>
+                    <input type="text" class="form-input" id="nav_contacto" value="Contacto">
+                </div>
+            </div>
+        </div>
+
+        <!-- Hero Panel -->
+        <div id="panel-hero" class="panel">
+            <h2 class="section-title">Hero Section</h2>
+            <div class="form-group">
+                <label class="form-label">Categoría</label>
+                <input type="text" class="form-input" id="hero_category" value="Nueva Colección">
+            </div>
+            <div class="form-group">
+                <label class="form-label">Título</label>
+                <input type="text" class="form-input" id="hero_title" value="JOIS">
+            </div>
+            <div class="form-group">
+                <label class="form-label">Subtítulo</label>
+                <input type="text" class="form-input" id="hero_subtitle" value="Maison de Cuir Contemporáneo">
+            </div>
+            <div class="form-group">
+                <label class="form-label">CTA Button</label>
+                <input type="text" class="form-input" id="hero_cta" value="Explorar Colección">
+            </div>
+        </div>
+
+        <!-- Products Hombre Panel -->
+        <div id="panel-products-h" class="panel">
+            <h2 class="section-title">Productos Hombre</h2>
+            
+            <div class="product-edit">
+                <div class="product-name">Jacket — Noir</div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label class="form-label">Nombre</label>
+                        <input type="text" class="form-input" id="h_jacket_noir_name" value="Noir">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Precio (USD)</label>
+                        <input type="number" class="form-input" id="h_jacket_noir_price" value="450">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Badge</label>
+                        <input type="text" class="form-input" id="h_jacket_noir_badge" value="Permanente">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Descripción</label>
+                    <textarea class="form-input form-textarea" id="h_jacket_noir_desc">Cuero premium negro. Diseño minimalista con acabados discretos.</textarea>
+                </div>
+            </div>
+
+            <div class="product-edit">
+                <div class="product-name">Jacket — Imperial</div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label class="form-label">Nombre</label>
+                        <input type="text" class="form-input" id="h_jacket_imperial_name" value="Imperial">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Precio (USD)</label>
+                        <input type="number" class="form-input" id="h_jacket_imperial_price" value="520">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Badge</label>
+                        <input type="text" class="form-input" id="h_jacket_imperial_badge" value="Nuevo">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Descripción</label>
+                    <textarea class="form-input form-textarea" id="h_jacket_imperial_desc">Cuero marrón con acabados dorados. Diseño ativo para el hombre moderno.</textarea>
+                </div>
+            </div>
+
+            <div class="product-edit">
+                <div class="product-name">Jacket — Phantom</div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label class="form-label">Nombre</label>
+                        <input type="text" class="form-input" id="h_jacket_phantom_name" value="Phantom">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Precio (USD)</label>
+                        <input type="number" class="form-input" id="h_jacket_phantom_price" value="480">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Badge</label>
+                        <input type="text" class="form-input" id="h_jacket_phantom_badge" value="Limited">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Descripción</label>
+                    <textarea class="form-input form-textarea" id="h_jacket_phantom_desc">Cuero oscuro con carácter. Estilo futurista con detalles únicos.</textarea>
+                </div>
+            </div>
+
+            <div class="product-edit">
+                <div class="product-name">Jacket — Shirt Jacket</div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label class="form-label">Nombre</label>
+                        <input type="text" class="form-input" id="h_jacket_shirt_name" value="Shirt Jacket">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Precio (USD)</label>
+                        <input type="number" class="form-input" id="h_jacket_shirt_price" value="380">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Badge</label>
+                        <input type="text" class="form-input" id="h_jacket_shirt_badge" value="Nuevo">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Descripción</label>
+                    <textarea class="form-input form-textarea" id="h_jacket_shirt_desc">Híbrido entre camisa y chamarra. Versatilidad premium.</textarea>
+                </div>
+            </div>
+
+            <div class="product-edit">
+                <div class="product-name">Wallet — Eclipse</div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label class="form-label">Nombre</label>
+                        <input type="text" class="form-input" id="h_wallet_eclipse_name" value="Eclipse">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Precio (USD)</label>
+                        <input type="number" class="form-input" id="h_wallet_eclipse_price" value="180">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Badge</label>
+                        <input type="text" class="form-input" id="h_wallet_eclipse_badge" value="Bestseller">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Descripción</label>
+                    <textarea class="form-input form-textarea" id="h_wallet_eclipse_desc">Cuero negro con interior premium. Diseño slim.</textarea>
+                </div>
+            </div>
+
+            <div class="product-edit">
+                <div class="product-name">Wallet — Sovereign</div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label class="form-label">Nombre</label>
+                        <input type="text" class="form-input" id="h_wallet_sovereign_name" value="Sovereign">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Precio (USD)</label>
+                        <input type="number" class="form-input" id="h_wallet_sovereign_price" value="220">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Badge</label>
+                        <input type="text" class="form-input" id="h_wallet_sovereign_badge" value="Nuevo">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Descripción</label>
+                    <textarea class="form-input form-textarea" id="h_wallet_sovereign_desc">Cuero cognac con detalles dorados. Capacidad completa.</textarea>
+                </div>
+            </div>
+
+            <div class="product-edit">
+                <div class="product-name">Weekender — Weekender Bag</div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label class="form-label">Nombre</label>
+                        <input type="text" class="form-input" id="h_weekender_weekender_name" value="Weekender">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Precio (USD)</label>
+                        <input type="number" class="form-input" id="h_weekender_weekender_price" value="480">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Badge</label>
+                        <input type="text" class="form-input" id="h_weekender_weekender_badge" value="Nuevo">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Descripción</label>
+                    <textarea class="form-input form-textarea" id="h_weekender_weekender_desc">Diseño para viajes cortos. Espacio funcional con estilo.</textarea>
+                </div>
+            </div>
+
+            <div class="product-edit">
+                <div class="product-name">Weekender — Cipher</div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label class="form-label">Nombre</label>
+                        <input type="text" class="form-input" id="h_weekender_cipher_name" value="Cipher">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Precio (USD)</label>
+                        <input type="number" class="form-input" id="h_weekender_cipher_price" value="380">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Badge</label>
+                        <input type="text" class="form-input" id="h_weekender_cipher_badge" value="Permanente">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Descripción</label>
+                    <textarea class="form-input form-textarea" id="h_weekender_cipher_desc">Cuero negro multi-compartimentos. Para el día a día.</textarea>
+                </div>
+            </div>
+        </div>
+
+        <!-- Products Mujer Panel -->
+        <div id="panel-products-m" class="panel">
+            <h2 class="section-title">Productos Mujer</h2>
+            
+            <div class="product-edit">
+                <div class="product-name">Jacket — Noir</div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label class="form-label">Nombre</label>
+                        <input type="text" class="form-input" id="m_jacket_noir_name" value="Noir">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Precio (USD)</label>
+                        <input type="number" class="form-input" id="m_jacket_noir_price" value="450">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Badge</label>
+                        <input type="text" class="form-input" id="m_jacket_noir_badge" value="Permanente">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Descripción</label>
+                    <textarea class="form-input form-textarea" id="m_jacket_noir_desc">Cuero premium negro. Diseño minimalista con acabados discretos.</textarea>
+                </div>
+            </div>
+
+            <div class="product-edit">
+                <div class="product-name">Jacket — Imperial</div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label class="form-label">Nombre</label>
+                        <input type="text" class="form-input" id="m_jacket_imperial_name" value="Imperial">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Precio (USD)</label>
+                        <input type="number" class="form-input" id="m_jacket_imperial_price" value="520">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Badge</label>
+                        <input type="text" class="form-input" id="m_jacket_imperial_badge" value="Nuevo">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Descripción</label>
+                    <textarea class="form-input form-textarea" id="m_jacket_imperial_desc">Cuero marrón con acabados dorados. Elegancia moderna.</textarea>
+                </div>
+            </div>
+
+            <div class="product-edit">
+                <div class="product-name">Wallet — Eclipse</div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label class="form-label">Nombre</label>
+                        <input type="text" class="form-input" id="m_wallet_eclipse_name" value="Eclipse">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Precio (USD)</label>
+                        <input type="number" class="form-input" id="m_wallet_eclipse_price" value="180">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Badge</label>
+                        <input type="text" class="form-input" id="m_wallet_eclipse_badge" value="Bestseller">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Descripción</label>
+                    <textarea class="form-input form-textarea" id="m_wallet_eclipse_desc">Cuero negro con interior premium. Diseño elegante y funcional.</textarea>
+                </div>
+            </div>
+
+            <div class="product-edit">
+                <div class="product-name">Wallet — Matrix</div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label class="form-label">Nombre</label>
+                        <input type="text" class="form-input" id="m_wallet_matrix_name" value="Matrix">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Precio (USD)</label>
+                        <input type="number" class="form-input" id="m_wallet_matrix_price" value="200">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Badge</label>
+                        <input type="text" class="form-input" id="m_wallet_matrix_badge" value="Limited">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Descripción</label>
+                    <textarea class="form-input form-textarea" id="m_wallet_matrix_desc">Cuero tech-negro con interior organizado. Para la profesional moderna.</textarea>
+                </div>
+            </div>
+
+            <div class="product-edit">
+                <div class="product-name">Weekender — Weekender Bag</div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label class="form-label">Nombre</label>
+                        <input type="text" class="form-input" id="m_weekender_weekender_name" value="Weekender">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Precio (USD)</label>
+                        <input type="number" class="form-input" id="m_weekender_weekender_price" value="480">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Badge</label>
+                        <input type="text" class="form-input" id="m_weekender_weekender_badge" value="Nuevo">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Descripción</label>
+                    <textarea class="form-input form-textarea" id="m_weekender_weekender_desc">Diseño elegante para viajes cortos. Funcionalidad premium.</textarea>
+                </div>
+            </div>
+        </div>
+
+        <!-- About Panel -->
+        <div id="panel-about" class="panel">
+            <h2 class="section-title">Nosotros</h2>
+            <div class="form-group">
+                <label class="form-label">Label</label>
+                <input type="text" class="form-input" id="about_label" value="Notre Histoire">
+            </div>
+            <div class="form-group">
+                <label class="form-label">Título</label>
+                <input type="text" class="form-input" id="about_title" value="La Artesanía del Mañana">
+            </div>
+            <div class="form-group">
+                <label class="form-label">Texto</label>
+                <textarea class="form-input form-textarea" id="about_text">JOIS nace de una visión híbrida: honorar la tradición del cuero mientras abrazamos las posibilidades del código digital.</textarea>
+            </div>
+            <div class="form-group">
+                <label class="form-label">Valor 1</label>
+                <input type="text" class="form-input" id="about_value1" value="Selección de grano premium">
+            </div>
+            <div class="form-group">
+                <label class="form-label">Valor 2</label>
+                <input type="text" class="form-input" id="about_value2" value="Diseño atemporal">
+            </div>
+            <div class="form-group">
+                <label class="form-label">Valor 3</label>
+                <input type="text" class="form-input" id="about_value3" value="Construcción durable">
+            </div>
+        </div>
+
+        <!-- Contact Panel -->
+        <div id="panel-contact" class="panel">
+            <h2 class="section-title">Contacto</h2>
+            <div class="form-group">
+                <label class="form-label">Label</label>
+                <input type="text" class="form-input" id="contact_label" value="Get in Touch">
+            </div>
+            <div class="form-group">
+                <label class="form-label">Título</label>
+                <input type="text" class="form-input" id="contact_title" value="Contacto">
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label class="form-label">Email</label>
+                    <input type="email" class="form-input" id="contact_email" value="info@joisleather.io">
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Ubicación</label>
+                    <input type="text" class="form-input" id="contact_location" value="Ciudad de México, México">
+                </div>
+            </div>
+        </div>
+
+        <!-- Colors Panel -->
+        <div id="panel-colors" class="panel">
+            <h2 class="section-title">Colores</h2>
+            <p class="info-text" style="margin-bottom: 20px;">Usa el formato HEX (#RRGGBB) o nombre CSS (black, white, etc.)</p>
+            <div class="form-row">
+                <div class="form-group">
+                    <label class="form-label">Primary (Negro)</label>
+                    <div class="color-input-group">
+                        <input type="text" class="form-input color-input" id="color_primary" value="#0A0A0A">
+                        <span class="color-preview" style="background: #0A0A0A;"></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Secondary (Beige)</label>
+                    <div class="color-input-group">
+                        <input type="text" class="form-input color-input" id="color_secondary" value="#C4A35A">
+                        <span class="color-preview" style="background: #C4A35A;"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label class="form-label">White</label>
+                    <div class="color-input-group">
+                        <input type="text" class="form-input color-input" id="color_white" value="#FFFFFF">
+                        <span class="color-preview" style="background: #FFFFFF;"></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Gray Light</label>
+                    <div class="color-input-group">
+                        <input type="text" class="form-input color-input" id="color_gray_light" value="#F5F5F5">
+                        <span class="color-preview" style="background: #F5F5F5;"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="success-msg" id="successMsg">Cambios guardados correctamente</div>
+
+    <script>
+        function showPanel(name) {
+            document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+            document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+            document.getElementById('panel-' + name).classList.add('active');
+            event.target.classList.add('active');
+        }
+
+        function saveChanges() {
+            const data = {};
+            document.querySelectorAll('.form-input').forEach(input => {
+                const id = input.id;
+                data[id] = input.value;
+            });
+            
+            // Send to localStorage for demo
+            localStorage.setItem('jois_content_changes', JSON.stringify(data));
+            
+            // Show success message
+            document.getElementById('successMsg').classList.add('show');
+            setTimeout(() => {
+                document.getElementById('successMsg').classList.remove('show');
+            }, 3000);
+        }
+
+        function resetChanges() {
+            if (confirm('¿Descartar todos los cambios?')) {
+                localStorage.removeItem('jois_content_changes');
+                location.reload();
+            }
+        }
+
+        // Load saved changes on page load
+        window.addEventListener('load', () => {
+            const saved = localStorage.getItem('jois_content_changes');
+            if (saved) {
+                const data = JSON.parse(saved);
+                Object.keys(data).forEach(id => {
+                    const input = document.getElementById(id);
+                    if (input) input.value = data[id];
+                });
+            }
+        });
+    </script>
+</body>
+</html>

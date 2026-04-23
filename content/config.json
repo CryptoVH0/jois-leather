@@ -1,0 +1,199 @@
+{
+  "brand": {
+    "name": "JOIS",
+    "tagline": "Maison de Cuir Contemporáneo",
+    "season": "Primavera — Verano 2024",
+    "statement": "Donde el arte de la piel encuentra el código del futuro",
+    "founded": "Est. 2024 — Ciudad de México"
+  },
+
+  "nav": {
+    "tienda": "Tienda",
+    "hombre": "Hombre",
+    "mujer": "Mujer",
+    "nosotros": "Nosotros",
+    "contacto": "Contacto"
+  },
+
+  "hero": {
+    "category": "Nueva Colección",
+    "title": "JOIS",
+    "subtitle": "Maison de Cuir Contemporáneo",
+    "cta": "Explorar Colección"
+  },
+
+  "sections": {
+    "shop": {
+      "label": "Explore",
+      "title": "La Colección"
+    },
+    "hombre": {
+      "number": "01",
+      "title": "Hombre",
+      "desc": "Piezas definidas para el hombre moderno"
+    },
+    "mujer": {
+      "number": "02",
+      "title": "Mujer",
+      "desc": "Elegancia atemporal en cada detalle"
+    }
+  },
+
+  "products": {
+    "hombre": {
+      "jacket": {
+        "title": "Jacket",
+        "noir": {
+          "name": "Noir",
+          "desc": "Cuero premium negro. Diseño minimalista con acabados discretos.",
+          "price": 450,
+          "badge": "Permanente"
+        },
+        "imperial": {
+          "name": "Imperial",
+          "desc": "Cuero marrón con acabados dorados. Diseño ativo para el hombre moderno.",
+          "price": 520,
+          "badge": "Nuevo"
+        },
+        "phantom": {
+          "name": "Phantom",
+          "desc": "Cuero oscuro con carácter. Estilo futurista con detalles únicos.",
+          "price": 480,
+          "badge": "Limited"
+        },
+        "shirt_jacket": {
+          "name": "Shirt Jacket",
+          "desc": "Híbrido entre camisa y chamarra. Versatilidad premium.",
+          "price": 380,
+          "badge": "Nuevo"
+        }
+      },
+      "wallet": {
+        "title": "Wallet",
+        "eclipse": {
+          "name": "Eclipse",
+          "desc": "Cuero negro con interior premium. Diseño slim.",
+          "price": 180,
+          "badge": "Bestseller"
+        },
+        "sovereign": {
+          "name": "Sovereign",
+          "desc": "Cuero cognac con detalles dorados. Capacidad completa.",
+          "price": 220,
+          "badge": "Nuevo"
+        }
+      },
+      "weekender": {
+        "title": "Weekender",
+        "weekender": {
+          "name": "Weekender",
+          "desc": "Diseño para viajes cortos. Espacio funcional con estilo.",
+          "price": 480,
+          "badge": "Nuevo"
+        },
+        "cipher": {
+          "name": "Cipher",
+          "desc": "Cuero negro multi-compartimentos. Para el día a día.",
+          "price": 380,
+          "badge": "Permanente"
+        }
+      }
+    },
+    "mujer": {
+      "jacket": {
+        "title": "Jacket",
+        "noir": {
+          "name": "Noir",
+          "desc": "Cuero premium negro. Diseño minimalista con acabados discretos.",
+          "price": 450,
+          "badge": "Permanente"
+        },
+        "imperial": {
+          "name": "Imperial",
+          "desc": "Cuero marrón con acabados dorados. Elegancia moderna.",
+          "price": 520,
+          "badge": "Nuevo"
+        }
+      },
+      "wallet": {
+        "title": "Wallet",
+        "eclipse": {
+          "name": "Eclipse",
+          "desc": "Cuero negro con interior premium. Diseño elegante y funcional.",
+          "price": 180,
+          "badge": "Bestseller"
+        },
+        "matrix": {
+          "name": "Matrix",
+          "desc": "Cuero tech-negro con interior organizado. Para la profesional moderna.",
+          "price": 200,
+          "badge": "Limited"
+        }
+      },
+      "weekender": {
+        "title": "Weekender",
+        "weekender": {
+          "name": "Weekender",
+          "desc": "Diseño elegante para viajes cortos. Funcionalidad premium.",
+          "price": 480,
+          "badge": "Nuevo"
+        }
+      }
+    }
+  },
+
+  "about": {
+    "label": "Notre Histoire",
+    "title": "La Artesanía del Mañana",
+    "text": "JOIS nace de una visión híbrida: honorar la tradición del cuero mientras abrazamos las posibilidades del código digital.",
+    "values": [
+      "Selección de grano premium",
+      "Diseño atemporal",
+      "Construcción durable"
+    ]
+  },
+
+  "nft": {
+    "label": "Digital Collectibles",
+    "title": "NFT Collection",
+    "desc": "Coleccionables digitales únicos. El futuro del lujo, tokenizado en blockchain.",
+    "cta": "Explorar NFT →"
+  },
+
+  "contact": {
+    "label": "Get in Touch",
+    "title": "Contacto",
+    "email_label": "Email",
+    "email": "info@joisleather.io",
+    "location_label": "Ubicación",
+    "location": "Ciudad de México, México",
+    "cta": "Escribirnos →"
+  },
+
+  "footer": {
+    "tagline": "Maison de Cuir Contemporáneo",
+    "shop_title": "Tienda",
+    "info_title": "Information",
+    "payment_title": "Aceptamos",
+    "payment_methods": "USD · BTC · USDT · ETH",
+    "copyright": "© 2024 JOIS Leather. Todos los derechos reservados."
+  },
+
+  "cart": {
+    "title": "Tu Bolsa",
+    "empty": "Tu bolsa está vacía",
+    "total": "Total",
+    "checkout_card": "Pagar con Tarjeta",
+    "checkout_crypto": "Pagar con Crypto"
+  },
+
+  "colors": {
+    "primary": "#0A0A0A",
+    "secondary": "#C4A35A",
+    "white": "#FFFFFF",
+    "gray_light": "#F5F5F5",
+    "gray": "#E8E8E8",
+    "text_dark": "#0A0A0A",
+    "text_muted": "#6B6B6B"
+  }
+}
