@@ -225,8 +225,8 @@ function checkoutStripe() {
         alert('Tu bolsa está vacía');
         return;
     }
-    const totals = calculateTotals();
-    alert(`Pago con Tarjeta\n\nTotal: ${formatMXN(totals.mxn)}\n(${formatUSD(totals.usd)})\n\nPróximamente disponible.\nContáctanos: info@joisleather.io`);
+    // Redirect to checkout page
+    window.location.href = 'checkout.html';
 }
 
 function checkoutCrypto() {
@@ -236,6 +236,15 @@ function checkoutCrypto() {
     }
     const totals = calculateTotals();
     alert(`Pago con Crypto\n\nTotal: ${formatMXN(totals.mxn)}\n${formatUSD(totals.usd)}\n\nBTC: ${formatCrypto(totals.usd, 'BTC')}\nETH: ${formatCrypto(totals.usd, 'ETH')}\n\nPróximamente disponible.\nContáctanos: info@joisleather.io`);
+}
+
+function checkoutWhatsApp() {
+    if (cart.length === 0) {
+        alert('Tu bolsa está vacía');
+        return;
+    }
+    // Redirect to checkout page with WhatsApp option
+    window.location.href = 'checkout.html';
 }
 
 function getProductImage(productName) {

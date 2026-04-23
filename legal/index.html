@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Información Legal — JOIS Leather</title>
+    <link rel="stylesheet" href="../styles.css?v=33">
+    <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+    <style>
+        :root {
+            --white: #FFFFFF;
+            --off-white: #FAFAFA;
+            --gray-light: #F5F5F5;
+            --gray: #E8E8E8;
+            --gray-dark: #999999;
+            --black: #0A0A0A;
+            --beige: #C4A35A;
+            --beige-dark: #A68B3D;
+            --text-dark: #0A0A0A;
+            --text-muted: #6B6B6B;
+            --text-light: #999999;
+            --font-display: 'Times New Roman', Georgia, serif;
+            --font-body: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            --font-mono: 'Menlo', 'Monaco', 'Courier New', monospace;
+            --transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: var(--font-body);
+            background: var(--off-white);
+            color: var(--text-dark);
+            min-height: 100vh;
+        }
+
+        .legal-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+
+        .legal-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .legal-header .logo {
+            font-family: var(--font-display);
+            font-size: 28px;
+            letter-spacing: 0.4em;
+            color: var(--text-dark);
+            margin-bottom: 20px;
+        }
+
+        .legal-header h1 {
+            font-family: var(--font-display);
+            font-size: clamp(36px, 5vw, 48px);
+            font-weight: 400;
+            letter-spacing: 0.05em;
+            margin-bottom: 15px;
+        }
+
+        .legal-header p {
+            font-size: 14px;
+            color: var(--text-muted);
+            max-width: 500px;
+            margin: 0 auto;
+            line-height: 1.7;
+        }
+
+        .legal-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+        }
+
+        @media (max-width: 700px) {
+            .legal-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .legal-card {
+            background: var(--white);
+            border-radius: 16px;
+            padding: 40px;
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            border: 1px solid transparent;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .legal-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.08);
+            border-color: var(--beige);
+        }
+
+        .legal-card-icon {
+            width: 56px;
+            height: 56px;
+            background: var(--black);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 25px;
+        }
+
+        .legal-card-icon svg {
+            width: 24px;
+            height: 24px;
+            color: var(--beige);
+        }
+
+        .legal-card h2 {
+            font-family: var(--font-display);
+            font-size: 22px;
+            font-weight: 400;
+            letter-spacing: 0.03em;
+            margin-bottom: 12px;
+        }
+
+        .legal-card p {
+            font-size: 13px;
+            color: var(--text-muted);
+            line-height: 1.7;
+            margin-bottom: 25px;
+            flex: 1;
+        }
+
+        .legal-card-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 11px;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--text-dark);
+            border-bottom: 1px solid var(--gray);
+            padding-bottom: 5px;
+            width: fit-content;
+            transition: all 0.3s;
+        }
+
+        .legal-card-link:hover {
+            color: var(--beige);
+            border-color: var(--beige);
+        }
+
+        .legal-card-link svg {
+            width: 16px;
+            height: 16px;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 11px;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            margin-bottom: 40px;
+            transition: color 0.3s;
+        }
+
+        .back-link:hover {
+            color: var(--beige);
+        }
+
+        .back-link svg {
+            width: 16px;
+            height: 16px;
+        }
+
+        .legal-footer {
+            margin-top: 60px;
+            text-align: center;
+            padding-top: 40px;
+            border-top: 1px solid var(--gray);
+        }
+
+        .legal-footer p {
+            font-size: 12px;
+            color: var(--text-light);
+            letter-spacing: 0.05em;
+        }
+
+        .legal-footer a {
+            color: var(--beige);
+        }
+
+        .legal-footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="legal-container">
+        <a href="index.html" class="back-link">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M19 12H5M12 19l-7-7 7-7"/>
+            </svg>
+            Volver a JOIS
+        </a>
+
+        <div class="legal-header">
+            <div class="logo">JOIS</div>
+            <h1>Información Legal</h1>
+            <p>Transparencia y confianza. Conoce tus derechos y nuestra compromiso contigo.</p>
+        </div>
+
+        <div class="legal-grid">
+            <!-- Términos y Condiciones -->
+            <div class="legal-card">
+                <div class="legal-card-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                        <polyline points="14 2 14 8 20 8"/>
+                        <line x1="16" y1="13" x2="8" y2="13"/>
+                        <line x1="16" y1="17" x2="8" y2="17"/>
+                        <polyline points="10 9 9 9 8 9"/>
+                    </svg>
+                </div>
+                <h2>Términos y Condiciones</h2>
+                <p>Todas las condiciones de uso de nuestra plataforma, incluyendo compras, pagos, envíos y devoluciones.</p>
+                <a href="TERMINOS-Y-CONDICIONES.html" class="legal-card-link">
+                    Leer documento
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                </a>
+            </div>
+
+            <!-- Política de Privacidad -->
+            <div class="legal-card">
+                <div class="legal-card-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                    </svg>
+                </div>
+                <h2>Política de Privacidad</h2>
+                <p>Cómo recopilamos, usamos y protegemos tus datos personales. Cumplimiento con la Ley Federal de Protección de Datos.</p>
+                <a href="PRIVACIDAD.html" class="legal-card-link">
+                    Leer documento
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                </a>
+            </div>
+
+            <!-- Guía Anti-Fraudes -->
+            <div class="legal-card">
+                <div class="legal-card-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                        <path d="M9 12l2 2 4-4"/>
+                    </svg>
+                </div>
+                <h2>Guía Anti-Fraudes</h2>
+                <p>Protección para ti y para nosotros. Conoce los fraudes más comunes y cómo evitar problemas en tus compras.</p>
+                <a href="PROTECCION-FRAUDES.html" class="legal-card-link">
+                    Leer documento
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                </a>
+            </div>
+
+            <!-- Política de Envíos -->
+            <div class="legal-card">
+                <div class="legal-card-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <rect x="1" y="3" width="15" height="13"/>
+                        <polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/>
+                        <circle cx="5.5" cy="18.5" r="2.5"/>
+                        <circle cx="18.5" cy="18.5" r="2.5"/>
+                    </svg>
+                </div>
+                <h2>Política de Envíos</h2>
+                <p>Costos, tiempos de entrega, opciones de envío gratuito y seguimiento de tu pedido.</p>
+                <a href="../shipping-policy.html" class="legal-card-link">
+                    Leer documento
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+
+        <div class="legal-footer">
+            <p>¿Tienes preguntas? Contáctanos en <a href="mailto:info@joisleather.io">info@joisleather.io</a></p>
+        </div>
+    </div>
+</body>
+</html>

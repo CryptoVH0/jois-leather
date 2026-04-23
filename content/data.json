@@ -72,6 +72,38 @@
   "brand": {
     "name": "JOIS",
     "tagline": "Maison de Cuir Contemporáneo",
-    "season": "Nueva Colección"
+    "season": "Nueva Colección",
+    "about": {
+      "title": "La Artesanía del Mañana",
+      "subtitle": "Notre Histoire",
+      "description": "JOIS nace de una visión híbrida: honorar la tradición del cuero mientras abrazamos las posibilidades del código digital. Cada pieza es una declaración de identidad, diseñada para quienes buscan distinción sin renunciar a la modernidad.",
+      "mission": "Crear productos de cuero premium que fusionan artesanía tradicional con diseño contemporáneo, ofreciendo a nuestros clientes piezas que trascienden temporadas y se convierten en parte de su identidad.",
+      "values": [
+        {
+          "title": "Calidad sin Compromiso",
+          "description": "Cada producto JOIS está fabricado con cuero de primera selección, seleccionado cuidadosamente y trabajado por artesanos con décadas de experiencia."
+        },
+        {
+          "title": "Diseño con Intención",
+          "description": "No creamos moda, creamos statements. Cada pieza es diseñada con un propósito, pensando en cómo complementará el guardarropa de quien la porte."
+        },
+        {
+          "title": "Transparencia Total",
+          "description": "De la fuente del cuero al proceso de fabricación, somos transparentes con cada paso. Conoces exactamente qué estás comprando y por qué."
+        },
+        {
+          "title": "Innovación Discreta",
+          "description": "La innovación en JOIS no es visible, es experimentada. Procesos modernos que mejoran la durabilidad, comodidad y experiencia sin sacrificar estética."
+        }
+      ],
+      "craftsmanship": "Más de 25 años de experiencia en trabajar cuero. Cada pieza pasa por un proceso meticuloso de selección, corte, costura y acabado que garantiza calidad de nivel luxury.",
+      "location": "Ciudad de México, México",
+      "founded": "2024"
+    },
+    "social": {
+      "instagram": "leatherjois",
+      "tiktok": "joisleather",
+      "email": "info@joisleather.io"
+    }
   }
 }

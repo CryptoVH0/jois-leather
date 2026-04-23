@@ -1,0 +1,847 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Política de Envíos — JOIS Leather</title>
+    <link rel="stylesheet" href="styles.css?v=33">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <style>
+        :root {
+            --white: #FFFFFF;
+            --off-white: #FAFAFA;
+            --gray-light: #F5F5F5;
+            --gray: #E8E8E8;
+            --gray-dark: #999999;
+            --black: #0A0A0A;
+            --beige: #C4A35A;
+            --beige-dark: #A68B3D;
+            --text-dark: #0A0A0A;
+            --text-muted: #6B6B6B;
+            --text-light: #999999;
+            --font-display: 'Times New Roman', Georgia, serif;
+            --font-body: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            --font-mono: 'Menlo', 'Monaco', 'Courier New', monospace;
+            --transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: var(--font-body);
+            background: var(--off-white);
+            color: var(--text-dark);
+            line-height: 1.7;
+        }
+
+        .shipping-page {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 11px;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            margin-bottom: 40px;
+            transition: color 0.3s;
+        }
+
+        .back-link:hover { color: var(--beige); }
+        .back-link svg { width: 16px; height: 16px; }
+
+        .shipping-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .shipping-header .logo {
+            font-family: var(--font-display);
+            font-size: 28px;
+            letter-spacing: 0.4em;
+            color: var(--text-dark);
+            margin-bottom: 20px;
+        }
+
+        .shipping-header h1 {
+            font-family: var(--font-display);
+            font-size: clamp(36px, 5vw, 48px);
+            font-weight: 400;
+            letter-spacing: 0.05em;
+            margin-bottom: 15px;
+        }
+
+        .shipping-header p {
+            font-size: 14px;
+            color: var(--text-muted);
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        /* Shipping Zones */
+        .shipping-zones {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        @media (max-width: 768px) {
+            .shipping-zones {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .zone-card {
+            background: var(--white);
+            border-radius: 16px;
+            padding: 35px;
+            border: 1px solid var(--gray);
+            transition: all 0.4s;
+        }
+
+        .zone-card:hover {
+            border-color: var(--beige);
+            transform: translateY(-3px);
+        }
+
+        .zone-flag {
+            font-size: 32px;
+            margin-bottom: 20px;
+        }
+
+        .zone-card h2 {
+            font-family: var(--font-display);
+            font-size: 22px;
+            font-weight: 400;
+            margin-bottom: 20px;
+            letter-spacing: 0.03em;
+        }
+
+        .zone-detail {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 0;
+            border-bottom: 1px solid var(--gray-light);
+        }
+
+        .zone-detail:last-child {
+            border-bottom: none;
+        }
+
+        .zone-detail span:first-child {
+            font-size: 12px;
+            color: var(--text-muted);
+            letter-spacing: 0.05em;
+        }
+
+        .zone-detail span:last-child {
+            font-family: var(--font-mono);
+            font-size: 14px;
+        }
+
+        .free-badge {
+            color: var(--beige);
+            font-weight: 600;
+        }
+
+        /* Delivery Table */
+        .delivery-section {
+            background: var(--white);
+            border-radius: 16px;
+            padding: 40px;
+            margin-bottom: 60px;
+        }
+
+        .delivery-section h2 {
+            font-family: var(--font-display);
+            font-size: 24px;
+            font-weight: 400;
+            margin-bottom: 30px;
+            letter-spacing: 0.03em;
+        }
+
+        .delivery-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .delivery-table th,
+        .delivery-table td {
+            padding: 18px 20px;
+            text-align: left;
+            border-bottom: 1px solid var(--gray-light);
+        }
+
+        .delivery-table th {
+            font-size: 10px;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        .delivery-table td {
+            font-size: 14px;
+        }
+
+        .delivery-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .delivery-table .flag-col {
+            width: 60px;
+        }
+
+        .delivery-table .price-col {
+            font-family: var(--font-mono);
+            text-align: right;
+        }
+
+        @media (max-width: 600px) {
+            .delivery-table th,
+            .delivery-table td {
+                padding: 12px;
+                font-size: 12px;
+            }
+        }
+
+        /* Shipping Estimator Widget */
+        .estimator-section {
+            background: var(--black);
+            color: var(--white);
+            border-radius: 16px;
+            padding: 50px;
+            margin-bottom: 60px;
+        }
+
+        .estimator-section h2 {
+            font-family: var(--font-display);
+            font-size: 28px;
+            font-weight: 400;
+            margin-bottom: 10px;
+        }
+
+        .estimator-section > p {
+            font-size: 13px;
+            color: rgba(255,255,255,0.6);
+            margin-bottom: 30px;
+        }
+
+        .estimator-widget {
+            background: var(--white);
+            border-radius: 12px;
+            padding: 30px;
+            max-width: 400px;
+        }
+
+        .estimator-row {
+            margin-bottom: 20px;
+        }
+
+        .estimator-row label {
+            display: block;
+            font-size: 11px;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            margin-bottom: 8px;
+        }
+
+        .estimator-row select,
+        .estimator-row input {
+            width: 100%;
+            padding: 14px 16px;
+            font-size: 14px;
+            font-family: var(--font-body);
+            border: 1px solid var(--gray);
+            border-radius: 8px;
+            background: var(--white);
+            outline: none;
+        }
+
+        .estimator-row select:focus,
+        .estimator-row input:focus {
+            border-color: var(--beige);
+        }
+
+        .estimator-result {
+            padding-top: 20px;
+            border-top: 1px solid var(--gray);
+            display: none;
+        }
+
+        .estimator-result.show {
+            display: block;
+        }
+
+        .estimator-options {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .estimator-option {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px;
+            background: var(--gray-light);
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .estimator-option:hover {
+            background: var(--gray);
+        }
+
+        .estimator-option.selected {
+            background: var(--beige);
+            color: var(--black);
+        }
+
+        .estimator-option-name {
+            font-size: 13px;
+        }
+
+        .estimator-option-days {
+            font-size: 11px;
+            opacity: 0.7;
+            margin-top: 2px;
+        }
+
+        .estimator-option-price {
+            font-family: var(--font-mono);
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        /* Process Steps */
+        .process-section {
+            margin-bottom: 60px;
+        }
+
+        .process-section h2 {
+            font-family: var(--font-display);
+            font-size: 28px;
+            font-weight: 400;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+        }
+
+        @media (max-width: 768px) {
+            .process-steps {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .process-steps {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .process-step {
+            text-align: center;
+            padding: 30px 20px;
+            background: var(--white);
+            border-radius: 12px;
+        }
+
+        .process-step-number {
+            width: 48px;
+            height: 48px;
+            background: var(--black);
+            color: var(--beige);
+            font-family: var(--font-mono);
+            font-size: 18px;
+            font-weight: 600;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+        }
+
+        .process-step h3 {
+            font-family: var(--font-display);
+            font-size: 16px;
+            font-weight: 400;
+            margin-bottom: 8px;
+        }
+
+        .process-step p {
+            font-size: 12px;
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            background: var(--white);
+            border-radius: 16px;
+            padding: 40px;
+        }
+
+        .faq-section h2 {
+            font-family: var(--font-display);
+            font-size: 24px;
+            font-weight: 400;
+            margin-bottom: 30px;
+        }
+
+        .faq-item {
+            border-bottom: 1px solid var(--gray-light);
+            padding: 25px 0;
+        }
+
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+
+        .faq-item h3 {
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: var(--text-dark);
+        }
+
+        .faq-item p {
+            font-size: 13px;
+            color: var(--text-muted);
+            line-height: 1.7;
+        }
+
+        /* Contact CTA */
+        .contact-section {
+            text-align: center;
+            padding: 60px;
+            background: var(--gray-light);
+            border-radius: 16px;
+            margin-top: 60px;
+        }
+
+        .contact-section h2 {
+            font-family: var(--font-display);
+            font-size: 28px;
+            font-weight: 400;
+            margin-bottom: 15px;
+        }
+
+        .contact-section p {
+            font-size: 14px;
+            color: var(--text-muted);
+            margin-bottom: 25px;
+        }
+
+        .contact-section a {
+            display: inline-block;
+            padding: 16px 35px;
+            background: var(--black);
+            color: var(--white);
+            font-size: 11px;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            border-radius: 8px;
+            transition: all 0.3s;
+        }
+
+        .contact-section a:hover {
+            background: var(--beige);
+            color: var(--black);
+        }
+    </style>
+</head>
+<body>
+    <div class="shipping-page">
+        <a href="index.html" class="back-link">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M19 12H5M12 19l-7-7 7-7"/>
+            </svg>
+            Volver a JOIS
+        </a>
+
+        <div class="shipping-header">
+            <div class="logo">JOIS</div>
+            <h1>Política de Envíos</h1>
+            <p>Envíos seguros y confiables a México, Estados Unidos y Europa.</p>
+        </div>
+
+        <!-- Shipping Zones -->
+        <div class="shipping-zones">
+            <div class="zone-card">
+                <div class="zone-flag">🇲🇽</div>
+                <h2>México</h2>
+                <div class="zone-detail">
+                    <span>Envío estándar</span>
+                    <span class="free-badge">GRATIS +$5,000 MXN</span>
+                </div>
+                <div class="zone-detail">
+                    <span>Pedidos menores</span>
+                    <span>$299 MXN</span>
+                </div>
+                <div class="zone-detail">
+                    <span>Tiempo de entrega</span>
+                    <span>3-5 días hábiles</span>
+                </div>
+                <div class="zone-detail">
+                    <span>Envío express</span>
+                    <span>$499 MXN</span>
+                </div>
+            </div>
+
+            <div class="zone-card">
+                <div class="zone-flag">🇺🇸</div>
+                <h2>Estados Unidos</h2>
+                <div class="zone-detail">
+                    <span>Envío estándar</span>
+                    <span class="free-badge">GRATIS +$300 USD</span>
+                </div>
+                <div class="zone-detail">
+                    <span>Pedidos menores</span>
+                    <span>$25 USD</span>
+                </div>
+                <div class="zone-detail">
+                    <span>Tiempo de entrega</span>
+                    <span>7-10 días hábiles</span>
+                </div>
+                <div class="zone-detail">
+                    <span>Envío express</span>
+                    <span>$45 USD</span>
+                </div>
+            </div>
+
+            <div class="zone-card">
+                <div class="zone-flag">🇪🇺</div>
+                <h2>Europa</h2>
+                <div class="zone-detail">
+                    <span>Envío estándar</span>
+                    <span class="free-badge">GRATIS +€350 EUR</span>
+                </div>
+                <div class="zone-detail">
+                    <span>Pedidos menores</span>
+                    <span>€35 EUR</span>
+                </div>
+                <div class="zone-detail">
+                    <span>Tiempo de entrega</span>
+                    <span>10-14 días hábiles</span>
+                </div>
+                <div class="zone-detail">
+                    <span>Envío express</span>
+                    <span>€65 EUR</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Delivery Times Table -->
+        <div class="delivery-section">
+            <h2>Tiempos de Entrega por Región</h2>
+            <table class="delivery-table">
+                <thead>
+                    <tr>
+                        <th class="flag-col"></th>
+                        <th>Región</th>
+                        <th>Estándar</th>
+                        <th>Express</th>
+                        <th class="price-col">Costo adicional</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>🇲🇽</td>
+                        <td>México (CDMX)</td>
+                        <td>2-3 días hábiles</td>
+                        <td>1 día hábil</td>
+                        <td class="price-col">$499 MXN</td>
+                    </tr>
+                    <tr>
+                        <td>🇲🇽</td>
+                        <td>México (Interior)</td>
+                        <td>3-5 días hábiles</td>
+                        <td>2-3 días hábiles</td>
+                        <td class="price-col">$499 MXN</td>
+                    </tr>
+                    <tr>
+                        <td>🇺🇸</td>
+                        <td>Estados Unidos</td>
+                        <td>7-10 días hábiles</td>
+                        <td>4-5 días hábiles</td>
+                        <td class="price-col">$45 USD</td>
+                    </tr>
+                    <tr>
+                        <td>🇪🇸</td>
+                        <td>España</td>
+                        <td>10-14 días hábiles</td>
+                        <td>6-8 días hábiles</td>
+                        <td class="price-col">€65 EUR</td>
+                    </tr>
+                    <tr>
+                        <td>🇩🇪</td>
+                        <td>Alemania</td>
+                        <td>10-14 días hábiles</td>
+                        <td>6-8 días hábiles</td>
+                        <td class="price-col">€65 EUR</td>
+                    </tr>
+                    <tr>
+                        <td>🌍</td>
+                        <td>Otros países</td>
+                        <td>14-21 días hábiles</td>
+                        <td>7-10 días hábiles</td>
+                        <td class="price-col">Consultar</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Shipping Estimator Widget -->
+        <div class="estimator-section">
+            <h2>Calcula tu Envío</h2>
+            <p>Ingresa el destino y el valor de tu pedido para estimar el costo de envío.</p>
+            
+            <div class="estimator-widget">
+                <div class="estimator-row">
+                    <label>País de destino</label>
+                    <select id="calcCountry">
+                        <option value="">Selecciona tu país</option>
+                        <option value="MX">México</option>
+                        <option value="US">Estados Unidos</option>
+                        <option value="ES">España</option>
+                        <option value="FR">Francia</option>
+                        <option value="DE">Alemania</option>
+                        <option value="IT">Italia</option>
+                        <option value="GB">Reino Unido</option>
+                        <option value="PT">Portugal</option>
+                        <option value="NL">Países Bajos</option>
+                        <option value="BE">Bélgica</option>
+                        <option value="CA">Canadá</option>
+                        <option value="AR">Argentina</option>
+                        <option value="CO">Colombia</option>
+                        <option value="CL">Chile</option>
+                        <option value="PE">Perú</option>
+                    </select>
+                </div>
+                <div class="estimator-row">
+                    <label>Valor del pedido (USD)</label>
+                    <input type="number" id="calcAmount" placeholder="Ej: 500" min="0" step="1">
+                </div>
+                
+                <div class="estimator-result" id="estimatorResult">
+                    <label>Opciones de envío:</label>
+                    <div class="estimator-options">
+                        <div class="estimator-option" data-type="standard">
+                            <div>
+                                <div class="estimator-option-name">Estándar</div>
+                                <div class="estimator-option-days">5-7 días hábiles</div>
+                            </div>
+                            <div class="estimator-option-price" id="standardPrice">—</div>
+                        </div>
+                        <div class="estimator-option" data-type="express">
+                            <div>
+                                <div class="estimator-option-name">Express</div>
+                                <div class="estimator-option-days">2-3 días hábiles</div>
+                            </div>
+                            <div class="estimator-option-price" id="expressPrice">—</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Process Steps -->
+        <div class="process-section">
+            <h2>¿Cómo funciona tu envío?</h2>
+            <div class="process-steps">
+                <div class="process-step">
+                    <div class="process-step-number">1</div>
+                    <h3>Confirmación</h3>
+                    <p>Recibirás un email de confirmación con los detalles de tu pedido.</p>
+                </div>
+                <div class="process-step">
+                    <div class="process-step-number">2</div>
+                    <h3>Preparación</h3>
+                    <p>Tu producto es cuidadosamente empacado en nuestras instalaciones.</p>
+                </div>
+                <div class="process-step">
+                    <div class="process-step-number">3</div>
+                    <h3>Envío</h3>
+                    <p>Recibirás un número de rastreo para seguir tu pedido en tiempo real.</p>
+                </div>
+                <div class="process-step">
+                    <div class="process-step-number">4</div>
+                    <h3>Entrega</h3>
+                    <p>Tu pedido llega directamente a tu puerta. ¡Disfrútalo!</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- FAQ -->
+        <div class="faq-section">
+            <h2>Preguntas Frecuentes</h2>
+            
+            <div class="faq-item">
+                <h3>¿Cuánto tarda en procesar mi pedido?</h3>
+                <p>Los pedidos se procesan en 1-2 días hábiles. Una vez enviado, recibirás un email con el número de rastreo.</p>
+            </div>
+            
+            <div class="faq-item">
+                <h3>¿Puedo rastrear mi pedido?</h3>
+                <p>Sí, recibirás un número de seguimiento por email una vez que tu pedido sea enviado. Puedes rastrear tu pedido en el sitio del transportista.</p>
+            </div>
+            
+            <div class="faq-item">
+                <h3>¿Hacemos envíos a apartados postales?</h3>
+                <p>No, actualmente no enviamos a apartados postales. La dirección de envío debe ser una dirección física completa.</p>
+            </div>
+            
+            <div class="faq-item">
+                <h3>¿Qué pasa si no estoy en casa durante la entrega?</h3>
+                <p>El transportista dejará un aviso e intentará una segunda entrega. Si no puedes recibir el paquete, contacta al transportista directamente para reprogramar.</p>
+            </div>
+            
+            <div class="faq-item">
+                <h3>¿Los impuestos están incluidos en el precio?</h3>
+                <p>Para envíos internacionales, pueden aplicarse aranceles e impuestos de importación que no están incluidos en el precio. Estos corren por cuenta del comprador.</p>
+            </div>
+        </div>
+
+        <!-- Contact CTA -->
+        <div class="contact-section">
+            <h2>¿Tienes dudas sobre envíos?</h2>
+            <p>Nuestro equipo está listo para ayudarte con cualquier pregunta.</p>
+            <a href="mailto:info@joisleather.io">Contactar por Email</a>
+        </div>
+    </div>
+
+    <script>
+        const calcCountry = document.getElementById('calcCountry');
+        const calcAmount = document.getElementById('calcAmount');
+        const estimatorResult = document.getElementById('estimatorResult');
+        const standardPrice = document.getElementById('standardPrice');
+        const expressPrice = document.getElementById('expressPrice');
+
+        // Free shipping thresholds
+        const freeThresholds = {
+            'MX': { amount: 5000, currency: 'MXN', rate: 1 },
+            'US': { amount: 300, currency: 'USD', rate: 17.5 },
+            'ES': { amount: 350, currency: 'EUR', rate: 19.5 },
+            'FR': { amount: 350, currency: 'EUR', rate: 19.5 },
+            'DE': { amount: 350, currency: 'EUR', rate: 19.5 },
+            'IT': { amount: 350, currency: 'EUR', rate: 19.5 },
+            'GB': { amount: 300, currency: 'GBP', rate: 22 },
+            'PT': { amount: 350, currency: 'EUR', rate: 19.5 },
+            'NL': { amount: 350, currency: 'EUR', rate: 19.5 },
+            'BE': { amount: 350, currency: 'EUR', rate: 19.5 },
+            'CA': { amount: 350, currency: 'CAD', rate: 13.5 },
+            'AR': { amount: 300, currency: 'USD', rate: 17.5 },
+            'CO': { amount: 300, currency: 'USD', rate: 17.5 },
+            'CL': { amount: 300, currency: 'USD', rate: 17.5 },
+            'PE': { amount: 300, currency: 'USD', rate: 17.5 }
+        };
+
+        // Standard shipping costs
+        const standardCosts = {
+            'MX': { cost: 299, currency: 'MXN' },
+            'US': { cost: 25, currency: 'USD' },
+            'ES': { cost: 35, currency: 'EUR' },
+            'FR': { cost: 35, currency: 'EUR' },
+            'DE': { cost: 35, currency: 'EUR' },
+            'IT': { cost: 35, currency: 'EUR' },
+            'GB': { cost: 30, currency: 'GBP' },
+            'PT': { cost: 35, currency: 'EUR' },
+            'NL': { cost: 35, currency: 'EUR' },
+            'BE': { cost: 35, currency: 'EUR' },
+            'CA': { cost: 25, currency: 'CAD' },
+            'AR': { cost: 30, currency: 'USD' },
+            'CO': { cost: 30, currency: 'USD' },
+            'CL': { cost: 30, currency: 'USD' },
+            'PE': { cost: 30, currency: 'USD' }
+        };
+
+        // Express shipping costs
+        const expressCosts = {
+            'MX': { cost: 499, currency: 'MXN' },
+            'US': { cost: 45, currency: 'USD' },
+            'ES': { cost: 65, currency: 'EUR' },
+            'FR': { cost: 65, currency: 'EUR' },
+            'DE': { cost: 65, currency: 'EUR' },
+            'IT': { cost: 65, currency: 'EUR' },
+            'GB': { cost: 55, currency: 'GBP' },
+            'PT': { cost: 65, currency: 'EUR' },
+            'NL': { cost: 65, currency: 'EUR' },
+            'BE': { cost: 65, currency: 'EUR' },
+            'CA': { cost: 45, currency: 'CAD' },
+            'AR': { cost: 50, currency: 'USD' },
+            'CO': { cost: 50, currency: 'USD' },
+            'CL': { cost: 50, currency: 'USD' },
+            'PE': { cost: 50, currency: 'USD' }
+        };
+
+        const currencySymbols = {
+            'MXN': '$',
+            'USD': '$',
+            'EUR': '€',
+            'GBP': '£',
+            'CAD': 'C$'
+        };
+
+        function formatPrice(amount, currency) {
+            return currencySymbols[currency] + amount.toLocaleString('es-MX') + ' ' + currency;
+        }
+
+        function calculateShipping() {
+            const country = calcCountry.value;
+            const amount = parseFloat(calcAmount.value) || 0;
+
+            if (!country || amount <= 0) {
+                estimatorResult.classList.remove('show');
+                return;
+            }
+
+            estimatorResult.classList.add('show');
+
+            const threshold = freeThresholds[country] || { amount: 0, currency: 'USD' };
+
+            // Convert amount to MXN for comparison
+            const amountMXN = amount * (threshold.rate || 17.5);
+
+            // Standard shipping
+            const standard = standardCosts[country] || { cost: 35, currency: 'USD' };
+            if (amountMXN >= threshold.amount) {
+                standardPrice.textContent = 'GRATIS';
+                standardPrice.style.color = '#C4A35A';
+            } else {
+                standardPrice.textContent = formatPrice(standard.cost, standard.currency);
+                standardPrice.style.color = '';
+            }
+
+            // Express shipping
+            const express = expressCosts[country] || { cost: 65, currency: 'EUR' };
+            expressPrice.textContent = formatPrice(express.cost, express.currency);
+        }
+
+        calcCountry.addEventListener('change', calculateShipping);
+        calcAmount.addEventListener('input', calculateShipping);
+
+        // Option selection
+        document.querySelectorAll('.estimator-option').forEach(option => {
+            option.addEventListener('click', () => {
+                document.querySelectorAll('.estimator-option').forEach(o => o.classList.remove('selected'));
+                option.classList.add('selected');
+            });
+        });
+    </script>
+</body>
+</html>
