@@ -1,0 +1,1109 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JOIS — Content Manager</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #0A0A0A;
+            color: #fff;
+            min-height: 100vh;
+        }
+        
+        /* Header */
+        .header {
+            background: #1a1a1a;
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #333;
+        }
+        .header-title {
+            font-family: 'Times New Roman', serif;
+            font-size: 20px;
+            letter-spacing: 0.2em;
+        }
+        .header-actions {
+            display: flex;
+            gap: 15px;
+        }
+        
+        /* Buttons */
+        .btn {
+            padding: 10px 20px;
+            font-size: 10px;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            border: 1px solid #444;
+            background: transparent;
+            color: #888;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-family: inherit;
+        }
+        .btn:hover {
+            border-color: #C4A35A;
+            color: #C4A35A;
+        }
+        .btn-primary {
+            background: #C4A35A;
+            border-color: #C4A35A;
+            color: #0A0A0A;
+        }
+        .btn-primary:hover {
+            background: #a68b3d;
+            border-color: #a68b3d;
+            color: #0A0A0A;
+        }
+        .btn-danger {
+            border-color: #722F37;
+            color: #722F37;
+        }
+        .btn-danger:hover {
+            background: #722F37;
+            color: #fff;
+        }
+        
+        /* Tabs */
+        .tabs {
+            display: flex;
+            gap: 3px;
+            padding: 20px 40px;
+            background: #111;
+            overflow-x: auto;
+            border-bottom: 1px solid #222;
+        }
+        .tab {
+            padding: 12px 24px;
+            font-size: 10px;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            border: 1px solid #333;
+            background: transparent;
+            color: #666;
+            cursor: pointer;
+            transition: all 0.3s;
+            white-space: nowrap;
+        }
+        .tab.active {
+            background: #C4A35A;
+            border-color: #C4A35A;
+            color: #0A0A0A;
+        }
+        .tab:hover:not(.active) {
+            border-color: #C4A35A;
+            color: #C4A35A;
+        }
+        
+        /* Panels */
+        .panel-container {
+            padding: 40px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        .panel {
+            display: none;
+        }
+        .panel.active {
+            display: block;
+        }
+        
+        /* Form Elements */
+        .form-group {
+            margin-bottom: 25px;
+        }
+        .form-label {
+            display: block;
+            font-size: 10px;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: #888;
+            margin-bottom: 8px;
+        }
+        .form-input, .form-textarea, .form-select {
+            width: 100%;
+            padding: 12px 15px;
+            font-size: 13px;
+            background: #1a1a1a;
+            border: 1px solid #333;
+            color: #fff;
+            font-family: inherit;
+        }
+        .form-input:focus, .form-textarea:focus, .form-select:focus {
+            outline: none;
+            border-color: #C4A35A;
+        }
+        .form-textarea {
+            min-height: 80px;
+            resize: vertical;
+        }
+        .form-row {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        
+        /* Section */
+        .section-title {
+            font-family: 'Times New Roman', serif;
+            font-size: 16px;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #333;
+            color: #C4A35A;
+        }
+        
+        /* Media Upload */
+        .media-upload-area {
+            border: 2px dashed #333;
+            padding: 40px;
+            text-align: center;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+        .media-upload-area:hover {
+            border-color: #C4A35A;
+            background: rgba(196, 163, 90, 0.05);
+        }
+        .media-upload-area.dragover {
+            border-color: #C4A35A;
+            background: rgba(196, 163, 90, 0.1);
+        }
+        .upload-icon {
+            font-size: 32px;
+            margin-bottom: 15px;
+            color: #666;
+        }
+        .upload-text {
+            font-size: 12px;
+            color: #888;
+            margin-bottom: 10px;
+        }
+        .upload-hint {
+            font-size: 10px;
+            color: #555;
+        }
+        .upload-formats {
+            font-size: 10px;
+            color: #444;
+            margin-top: 10px;
+        }
+        
+        /* Image Preview Grid */
+        .image-preview-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+        .image-preview {
+            position: relative;
+            aspect-ratio: 1;
+            background: #1a1a1a;
+            border: 1px solid #333;
+            overflow: hidden;
+        }
+        .image-preview img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .image-preview-actions {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 10px;
+            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+            display: flex;
+            gap: 10px;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        .image-preview:hover .image-preview-actions {
+            opacity: 1;
+        }
+        .image-preview-actions button {
+            flex: 1;
+            padding: 8px;
+            font-size: 9px;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            border: 1px solid #fff;
+            background: transparent;
+            color: #fff;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        .image-preview-actions button:hover {
+            background: #fff;
+            color: #0A0A0A;
+        }
+        .image-preview-actions button.delete:hover {
+            background: #722F37;
+            border-color: #722F37;
+        }
+        
+        /* Current Image */
+        .current-image {
+            margin-bottom: 20px;
+        }
+        .current-image-label {
+            font-size: 10px;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: #666;
+            margin-bottom: 10px;
+        }
+        .current-image-preview {
+            position: relative;
+            max-width: 400px;
+            aspect-ratio: 16/9;
+            background: #1a1a1a;
+            border: 1px solid #333;
+            overflow: hidden;
+        }
+        .current-image-preview img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .current-image-actions {
+            display: flex;
+            gap: 10px;
+            margin-top: 10px;
+        }
+        
+        /* Product Card Edit */
+        .product-edit-card {
+            background: #1a1a1a;
+            border: 1px solid #333;
+            padding: 25px;
+            margin-bottom: 20px;
+        }
+        .product-edit-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #333;
+        }
+        .product-edit-name {
+            font-family: 'Times New Roman', serif;
+            font-size: 16px;
+            color: #C4A35A;
+        }
+        .product-image-upload {
+            display: grid;
+            grid-template-columns: 200px 1fr;
+            gap: 20px;
+            align-items: start;
+        }
+        .product-image-preview {
+            aspect-ratio: 3/4;
+            background: #222;
+            border: 1px dashed #444;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s;
+            overflow: hidden;
+        }
+        .product-image-preview:hover {
+            border-color: #C4A35A;
+        }
+        .product-image-preview img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .product-image-preview .placeholder {
+            text-align: center;
+            color: #555;
+        }
+        .product-image-preview .placeholder span {
+            display: block;
+            font-size: 10px;
+            margin-top: 5px;
+        }
+        
+        /* Toast */
+        .toast {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            padding: 15px 25px;
+            background: #C4A35A;
+            color: #0A0A0A;
+            font-size: 12px;
+            letter-spacing: 0.1em;
+            transform: translateY(100px);
+            opacity: 0;
+            transition: all 0.3s;
+            z-index: 9999;
+        }
+        .toast.show {
+            transform: translateY(0);
+            opacity: 1;
+        }
+        .toast.error {
+            background: #722F37;
+            color: #fff;
+        }
+        
+        /* Color Input */
+        .color-input-group {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        .color-preview {
+            width: 40px;
+            height: 40px;
+            border: 1px solid #444;
+            cursor: pointer;
+        }
+        
+        /* File input hidden */
+        .file-input-hidden {
+            display: none;
+        }
+        
+        /* Info text */
+        .info-text {
+            font-size: 10px;
+            color: #555;
+            margin-top: 5px;
+        }
+        
+        /* Grid for media items */
+        .media-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        .media-item {
+            background: #1a1a1a;
+            border: 1px solid #333;
+            padding: 15px;
+        }
+        .media-item-preview {
+            aspect-ratio: 16/9;
+            background: #222;
+            margin-bottom: 15px;
+            overflow: hidden;
+        }
+        .media-item-preview img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .media-item-name {
+            font-size: 12px;
+            margin-bottom: 10px;
+            word-break: break-all;
+        }
+        .media-item-actions {
+            display: flex;
+            gap: 10px;
+        }
+        .media-item-actions button {
+            flex: 1;
+            padding: 8px;
+            font-size: 9px;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            border: 1px solid #444;
+            background: transparent;
+            color: #888;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        .media-item-actions button:hover {
+            border-color: #C4A35A;
+            color: #C4A35A;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1 class="header-title">JOIS — Content Manager</h1>
+        <div class="header-actions">
+            <button class="btn" onclick="previewSite()">👁 Ver Sitio</button>
+            <button class="btn btn-primary" onclick="saveAllChanges()">💾 Guardar Cambios</button>
+        </div>
+    </div>
+    
+    <div class="tabs">
+        <button class="tab active" onclick="showPanel('brand')">Brand</button>
+        <button class="tab" onclick="showPanel('hero')">Hero / Video</button>
+        <button class="tab" onclick="showPanel('products')">Productos</button>
+        <button class="tab" onclick="showPanel('media')">Media Library</button>
+        <button class="tab" onclick="showPanel('colors')">Colores</button>
+        <button class="tab" onclick="showPanel('seo')">SEO</button>
+    </div>
+    
+    <div class="panel-container">
+        <!-- BRAND PANEL -->
+        <div id="panel-brand" class="panel active">
+            <h2 class="section-title">Brand Settings</h2>
+            <div class="form-row">
+                <div class="form-group">
+                    <label class="form-label">Nombre de la Marca</label>
+                    <input type="text" class="form-input" id="brand_name" value="JOIS">
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Tagline</label>
+                    <input type="text" class="form-input" id="brand_tagline" value="Maison de Cuir Contemporáneo">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label class="form-label">Temporada / Colección</label>
+                    <input type="text" class="form-input" id="brand_season" value="Nueva Colección">
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Año</label>
+                    <input type="text" class="form-input" id="brand_year" value="2024">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="form-label">Statement Principal</label>
+                <input type="text" class="form-input" id="brand_statement" value="Donde el arte de la piel encuentra el código del futuro">
+            </div>
+            <div class="form-group">
+                <label class="form-label">Descripción About</label>
+                <textarea class="form-textarea" id="brand_about">JOIS nace de una visión híbrida: honorar la tradición del cuero mientras abrazamos las posibilidades del código digital. Cada pieza es una declaración de identidad, diseñada para quienes buscan distinción sin renunciar a la modernidad.</textarea>
+            </div>
+        </div>
+        
+        <!-- HERO / VIDEO PANEL -->
+        <div id="panel-hero" class="panel">
+            <h2 class="section-title">Hero Section</h2>
+            
+            <div class="current-image">
+                <div class="current-image-label">Imagen Hero Actual</div>
+                <div class="current-image-preview" id="heroImagePreview">
+                    <img src="https://images.unsplash.com/photo-1558171813-4c088753af8f?w=1200&q=80" alt="Hero">
+                </div>
+                <div class="current-image-actions">
+                    <button class="btn" onclick="document.getElementById('heroImageInput').click()">📷 Cambiar Imagen</button>
+                    <input type="file" id="heroImageInput" class="file-input-hidden" accept="image/*" onchange="handleImageUpload(this, 'heroImagePreview')">
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label class="form-label">URL de Imagen Hero</label>
+                <input type="text" class="form-input" id="hero_image_url" value="https://images.unsplash.com/photo-1558171813-4c088753af8f?w=1200&q=80" onchange="updateHeroImage()">
+                <p class="info-text">Pegar URL de imagen o subir una nueva arriba</p>
+            </div>
+            
+            <div class="form-group">
+                <label class="form-label">Badge Hero (ej: "Nueva Colección")</label>
+                <input type="text" class="form-input" id="hero_badge" value="Nueva Colección">
+            </div>
+            
+            <div class="form-group">
+                <label class="form-label">Título Principal</label>
+                <input type="text" class="form-input" id="hero_title" value="JOIS">
+            </div>
+            
+            <div class="form-group">
+                <label class="form-label">Subtítulo</label>
+                <input type="text" class="form-input" id="hero_subtitle" value="Maison de Cuir Contemporáneo">
+            </div>
+            
+            <div class="form-group">
+                <label class="form-label">Texto del Botón CTA</label>
+                <input type="text" class="form-input" id="hero_cta" value="Ver Colección">
+            </div>
+            
+            <h2 class="section-title" style="margin-top: 40px;">Video Hero (Opcional)</h2>
+            
+            <div class="current-image">
+                <div class="current-image-label">Video Actual</div>
+                <div class="current-image-preview" id="heroVideoPreview" style="background: #222; display: flex; align-items: center; justify-content: center;">
+                    <div style="text-align: center; color: #666;">
+                        <span style="font-size: 32px;">🎬</span>
+                        <p style="font-size: 11px; margin-top: 10px;">Sin video configurado</p>
+                    </div>
+                </div>
+                <div class="current-image-actions">
+                    <button class="btn" onclick="document.getElementById('heroVideoInput').click()">🎬 Subir Video</button>
+                    <input type="file" id="heroVideoInput" class="file-input-hidden" accept="video/*" onchange="handleVideoUpload(this, 'heroVideoPreview')">
+                    <button class="btn btn-danger" onclick="removeVideo()">✕ Eliminar Video</button>
+                </div>
+                <p class="info-text">Formatos: MP4, WebM. Máx 50MB recomendado.</p>
+            </div>
+        </div>
+        
+        <!-- PRODUCTS PANEL -->
+        <div id="panel-products" class="panel">
+            <h2 class="section-title">Editar Productos</h2>
+            <p class="info-text" style="margin-bottom: 30px;">Haz clic en la imagen del producto para cambiar la foto. Edita nombre, precio y descripción.</p>
+            
+            <!-- Product 1 -->
+            <div class="product-edit-card">
+                <div class="product-edit-header">
+                    <span class="product-edit-name">Shirt Jacket — Hombre</span>
+                    <span style="font-size: 10px; color: #666;">ID: h_shirt_jacket</span>
+                </div>
+                <div class="product-image-upload">
+                    <div class="product-image-preview" onclick="document.getElementById('p1Image').click()">
+                        <img src="https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=600&q=80" alt="Shirt Jacket" id="p1ImagePreview">
+                        <div class="placeholder" id="p1Placeholder">
+                            <span>📷</span>
+                            <span>Click para cambiar</span>
+                        </div>
+                    </div>
+                    <input type="file" id="p1Image" class="file-input-hidden" accept="image/*" onchange="handleProductImage(this, 'p1ImagePreview', 'p1Placeholder')">
+                    <div class="product-details-edit">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label class="form-label">Nombre</label>
+                                <input type="text" class="form-input" id="p1_name" value="shirt jacket">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Precio (USD)</label>
+                                <input type="number" class="form-input" id="p1_price" value="380">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Badge</label>
+                            <select class="form-select" id="p1_badge">
+                                <option value="Nuevo">Nuevo</option>
+                                <option value="Limited">Limited</option>
+                                <option value="Permanente">Permanente</option>
+                                <option value="Bestseller">Bestseller</option>
+                                <option value="">Sin Badge</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Descripción</label>
+                            <textarea class="form-textarea" id="p1_desc">Híbrido entre camisa y chamarra. Versatilidad premium para el hombre moderno.</textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Product 2 -->
+            <div class="product-edit-card">
+                <div class="product-edit-header">
+                    <span class="product-edit-name">Bomber — Hombre</span>
+                    <span style="font-size: 10px; color: #666;">ID: h_bomber</span>
+                </div>
+                <div class="product-image-upload">
+                    <div class="product-image-preview" onclick="document.getElementById('p2Image').click()">
+                        <img src="https://images.unsplash.com/photo-1551028719-00167b16eac5?w=600&q=80" alt="Bomber" id="p2ImagePreview">
+                        <div class="placeholder" id="p2Placeholder">
+                            <span>📷</span>
+                            <span>Click para cambiar</span>
+                        </div>
+                    </div>
+                    <input type="file" id="p2Image" class="file-input-hidden" accept="image/*" onchange="handleProductImage(this, 'p2ImagePreview', 'p2Placeholder')">
+                    <div class="product-details-edit">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label class="form-label">Nombre</label>
+                                <input type="text" class="form-input" id="p2_name" value="bomber">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Precio (USD)</label>
+                                <input type="number" class="form-input" id="p2_price" value="520">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Badge</label>
+                            <select class="form-select" id="p2_badge">
+                                <option value="Nuevo">Nuevo</option>
+                                <option value="Limited" selected>Limited</option>
+                                <option value="Permanente">Permanente</option>
+                                <option value="Bestseller">Bestseller</option>
+                                <option value="">Sin Badge</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Descripción</label>
+                            <textarea class="form-textarea" id="p2_desc">Cuero premium con acabados únicos. Diseño inspirado en el piloto clásico.</textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Product 3 -->
+            <div class="product-edit-card">
+                <div class="product-edit-header">
+                    <span class="product-edit-name">Weekender — Unisex</span>
+                    <span style="font-size: 10px; color: #666;">ID: weekender</span>
+                </div>
+                <div class="product-image-upload">
+                    <div class="product-image-preview" onclick="document.getElementById('p3Image').click()">
+                        <img src="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=600&q=80" alt="Weekender" id="p3ImagePreview">
+                        <div class="placeholder" id="p3Placeholder">
+                            <span>📷</span>
+                            <span>Click para cambiar</span>
+                        </div>
+                    </div>
+                    <input type="file" id="p3Image" class="file-input-hidden" accept="image/*" onchange="handleProductImage(this, 'p3ImagePreview', 'p3Placeholder')">
+                    <div class="product-details-edit">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label class="form-label">Nombre</label>
+                                <input type="text" class="form-input" id="p3_name" value="weekender">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Precio (USD)</label>
+                                <input type="number" class="form-input" id="p3_price" value="480">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Badge</label>
+                            <select class="form-select" id="p3_badge">
+                                <option value="Nuevo" selected>Nuevo</option>
+                                <option value="Limited">Limited</option>
+                                <option value="Permanente">Permanente</option>
+                                <option value="Bestseller">Bestseller</option>
+                                <option value="">Sin Badge</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Descripción</label>
+                            <textarea class="form-textarea" id="p3_desc">Diseño para viajes cortos. Espacio funcional con estilo atemporal.</textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Product 4 -->
+            <div class="product-edit-card">
+                <div class="product-edit-header">
+                    <span class="product-edit-name">Wallet — Unisex</span>
+                    <span style="font-size: 10px; color: #666;">ID: wallet</span>
+                </div>
+                <div class="product-image-upload">
+                    <div class="product-image-preview" onclick="document.getElementById('p4Image').click()">
+                        <img src="https://images.unsplash.com/photo-1627123424574-724758594e93?w=600&q=80" alt="Wallet" id="p4ImagePreview">
+                        <div class="placeholder" id="p4Placeholder">
+                            <span>📷</span>
+                            <span>Click para cambiar</span>
+                        </div>
+                    </div>
+                    <input type="file" id="p4Image" class="file-input-hidden" accept="image/*" onchange="handleProductImage(this, 'p4ImagePreview', 'p4Placeholder')">
+                    <div class="product-details-edit">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label class="form-label">Nombre</label>
+                                <input type="text" class="form-input" id="p4_name" value="wallet">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Precio (USD)</label>
+                                <input type="number" class="form-input" id="p4_price" value="180">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Badge</label>
+                            <select class="form-select" id="p4_badge">
+                                <option value="Nuevo">Nuevo</option>
+                                <option value="Limited">Limited</option>
+                                <option value="Permanente">Permanente</option>
+                                <option value="Bestseller" selected>Bestseller</option>
+                                <option value="">Sin Badge</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Descripción</label>
+                            <textarea class="form-textarea" id="p4_desc">Cuero premium con interior organizado. Diseño slim y funcional.</textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- MEDIA LIBRARY PANEL -->
+        <div id="panel-media" class="panel">
+            <h2 class="section-title">Media Library</h2>
+            <p class="info-text" style="margin-bottom: 30px;">Sube y gestiona todas tus imágenes y videos. Usa el URL de cada archivo en los productos o secciones.</p>
+            
+            <div class="media-upload-area" 
+                 id="mediaUploadArea"
+                 onclick="document.getElementById('mediaFileInput').click()"
+                 ondragover="handleDragOver(event)"
+                 ondragleave="handleDragLeave(event)"
+                 ondrop="handleDrop(event)">
+                <div class="upload-icon">📁</div>
+                <div class="upload-text">Arrastra archivos aquí o haz clic para seleccionar</div>
+                <div class="upload-hint">Máx 10MB por archivo</div>
+                <div class="upload-formats">Formatos: JPG, PNG, GIF, WebP, MP4, WebM</div>
+            </div>
+            <input type="file" id="mediaFileInput" class="file-input-hidden" accept="image/*,video/*" multiple onchange="handleMediaUpload(this.files)">
+            
+            <h3 class="section-title" style="margin-top: 40px;">Archivos Subidos</h3>
+            <div class="media-grid" id="mediaGrid">
+                <!-- Uploaded files will appear here -->
+            </div>
+            
+            <p class="info-text" style="margin-top: 20px;">
+                <strong>Nota:</strong> Los archivos se guardan en tu navegador (localStorage). 
+                Para persistencia real, necesitas un servidor con almacenamiento de archivos.
+            </p>
+        </div>
+        
+        <!-- COLORS PANEL -->
+        <div id="panel-colors" class="panel">
+            <h2 class="section-title">Colores del Sitio</h2>
+            <p class="info-text" style="margin-bottom: 30px;">Usa formato HEX (#RRGGBB) o nombres CSS válidos.</p>
+            
+            <div class="form-row">
+                <div class="form-group">
+                    <label class="form-label">Negro (Primary)</label>
+                    <div class="color-input-group">
+                        <input type="text" class="form-input" id="color_primary" value="#0A0A0A" style="width: 120px;">
+                        <input type="color" class="color-preview" id="color_primary_preview" value="#0A0A0A" onchange="syncColorInput('color_primary', this.value)">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Beige (Accent)</label>
+                    <div class="color-input-group">
+                        <input type="text" class="form-input" id="color_beige" value="#C4A35A" style="width: 120px;">
+                        <input type="color" class="color-preview" id="color_beige_preview" value="#C4A35A" onchange="syncColorInput('color_beige', this.value)">
+                    </div>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label class="form-label">Blanco</label>
+                    <div class="color-input-group">
+                        <input type="text" class="form-input" id="color_white" value="#FFFFFF" style="width: 120px;">
+                        <input type="color" class="color-preview" id="color_white_preview" value="#FFFFFF" onchange="syncColorInput('color_white', this.value)">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Gris Claro (Background)</label>
+                    <div class="color-input-group">
+                        <input type="text" class="form-input" id="color_gray" value="#F5F5F5" style="width: 120px;">
+                        <input type="color" class="color-preview" id="color_gray_preview" value="#F5F5F5" onchange="syncColorInput('color_gray', this.value)">
+                    </div>
+                </div>
+            </div>
+            
+            <h3 class="section-title" style="margin-top: 40px;">Vista Previa</h3>
+            <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; max-width: 400px;">
+                <div style="aspect-ratio: 1; background: var(--preview_primary, #0A0A0A);"></div>
+                <div style="aspect-ratio: 1; background: var(--preview_beige, #C4A35A);"></div>
+                <div style="aspect-ratio: 1; background: var(--preview_white, #FFFFFF); border: 1px solid #333;"></div>
+                <div style="aspect-ratio: 1; background: var(--preview_gray, #F5F5F5);"></div>
+            </div>
+        </div>
+        
+        <!-- SEO PANEL -->
+        <div id="panel-seo" class="panel">
+            <h2 class="section-title">SEO Settings</h2>
+            
+            <div class="form-group">
+                <label class="form-label">Meta Title</label>
+                <input type="text" class="form-input" id="seo_title" value="JOIS — Maison de Cuir Contemporáneo">
+            </div>
+            <div class="form-group">
+                <label class="form-label">Meta Description</label>
+                <textarea class="form-textarea" id="seo_description">JOIS - Maison de Cuir Contemporáneo. Cuero premium, diseño atemporal. Hombre y Mujer. Envío gratis en pedidos mayores a $5,000 MXN.</textarea>
+            </div>
+            <div class="form-group">
+                <label class="form-label">Keywords</label>
+                <input type="text" class="form-input" id="seo_keywords" value="cuero, leather, luxury, fashion, menswear, womenswear, mexico, jois">
+            </div>
+            
+            <h3 class="section-title" style="margin-top: 40px;">Social Media</h3>
+            <div class="form-row">
+                <div class="form-group">
+                    <label class="form-label">Instagram URL</label>
+                    <input type="text" class="form-input" id="social_instagram" value="https://instagram.com/leatherjois">
+                </div>
+                <div class="form-group">
+                    <label class="form-label">TikTok URL</label>
+                    <input type="text" class="form-input" id="social_tiktok" value="https://tiktok.com/@joisleather">
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="toast" id="toast">Cambios guardados</div>
+    
+    <script>
+        // ===== NAVIGATION =====
+        function showPanel(name) {
+            document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+            document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+            document.getElementById('panel-' + name).classList.add('active');
+            event.target.classList.add('active');
+        }
+        
+        // ===== TOAST =====
+        function showToast(message, isError = false) {
+            const toast = document.getElementById('toast');
+            toast.textContent = message;
+            toast.classList.toggle('error', isError);
+            toast.classList.add('show');
+            setTimeout(() => toast.classList.remove('show'), 3000);
+        }
+        
+        // ===== IMAGE UPLOADS =====
+        function handleImageUpload(input, previewId) {
+            const file = input.files[0];
+            if (!file) return;
+            
+            if (file.size > 10 * 1024 * 1024) {
+                showToast('La imagen es muy grande. Máx 10MB.', true);
+                return;
+            }
+            
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                const preview = document.getElementById(previewId);
+                preview.innerHTML = '<img src="' + e.target.result + '" alt="Preview">';
+                
+                // Save to localStorage
+                saveMediaFile(file, e.target.result);
+            };
+            reader.readAsDataURL(file);
+        }
+        
+        function handleProductImage(input, previewId, placeholderId) {
+            const file = input.files[0];
+            if (!file) return;
+            
+            if (file.size > 10 * 1024 * 1024) {
+                showToast('La imagen es muy grande. Máx 10MB.', true);
+                return;
+            }
+            
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                const preview = document.getElementById(previewId);
+                const placeholder = document.getElementById(placeholderId);
+                preview.src = e.target.result;
+                preview.style.display = 'block';
+                if (placeholder) placeholder.style.display = 'none';
+                
+                // Save reference
+                const productId = input.id.replace('Image', '');
+                saveProductImage(productId, e.target.result);
+            };
+            reader.readAsDataURL(file);
+        }
+        
+        // ===== VIDEO UPLOAD =====
+        function handleVideoUpload(input, previewId) {
+            const file = input.files[0];
+            if (!file) return;
+            
+            if (file.size > 50 * 1024 * 1024) {
+                showToast('El video es muy grande. Máx 50MB recomendado.', true);
+                return;
+            }
+            
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                const preview = document.getElementById(previewId);
+                preview.innerHTML = '<video src="' + e.target.result + '" controls style="width:100%;height:100%;object-fit:cover;"></video>';
+                showToast('Video cargado. Se usará en el hero.');
+                saveMediaFile(file, e.target.result, true);
+            };
+            reader.readAsDataURL(file);
+        }
+        
+        function removeVideo() {
+            if (confirm('¿Eliminar el video del hero?')) {
+                document.getElementById('heroVideoPreview').innerHTML = '<div style="text-align: center; color: #666;"><span style="font-size: 32px;">🎬</span><p style="font-size: 11px; margin-top: 10px;">Sin video configurado</p></div>';
+                localStorage.removeItem('jois_hero_video');
+            }
+        }
+        
+        // ===== DRAG & DROP =====
+        function handleDragOver(e) {
+            e.preventDefault();
+            document.getElementById('mediaUploadArea').classList.add('dragover');
+        }
+        
+        function handleDragLeave(e) {
+            e.preventDefault();
+            document.getElementById('mediaUploadArea').classList.remove('dragover');
+        }
+        
+        function handleDrop(e) {
+            e.preventDefault();
+            document.getElementById('mediaUploadArea').classList.remove('dragover');
+            const files = e.dataTransfer.files;
+            handleMediaUpload(files);
+        }
+        
+        // ===== MEDIA LIBRARY =====
+        function handleMediaUpload(files) {
+            const grid = document.getElementById('mediaGrid');
+            
+            Array.from(files).forEach(file => {
+                if (file.size > 10 * 1024 * 1024) {
+                    showToast(`Archivo muy grande: ${file.name}`, true);
+                    return;
+                }
+                
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    const isVideo = file.type.startsWith('video/');
+                    const mediaData = {
+                        name: file.name,
+                        type: isVideo ? 'video' : 'image',
+                        data: e.target.result,
+                        date: new Date().toISOString()
+                    };
+                    
+                    // Save to localStorage
+                    let mediaLibrary = JSON.parse(localStorage.getItem('jois_media_library') || '[]');
+                    mediaLibrary.push(mediaData);
+                    localStorage.setItem('jois_media_library', JSON.stringify(mediaLibrary));
+                    
+                    // Add to grid
+                    addMediaToGrid(mediaData, mediaLibrary.length - 1);
+                    showToast(`Archivo guardado: ${file.name}`);
+                };
+                reader.readAsDataURL(file);
+            });
+        }
+        
+        function addMediaToGrid(media, index) {
+            const grid = document.getElementById('mediaGrid');
+            const isVideo = media.type === 'video';
+            
+            const item = document.createElement('div');
+            item.className = 'media-item';
+            item.id = 'media-' + index;
+            item.innerHTML = `
+                <div class="media-item-preview">
+                    ${isVideo 
+                        ? '<video src="' + media.data + '" controls style="width:100%;height:100%;object-fit:cover;"></video>'
+                        : '<img src="' + media.data + '" alt="' + media.name + '">'
+                    }
+                </div>
+                <div class="media-item-name">${media.name}</div>
+                <div class="media-item-actions">
+                    <button onclick="copyMediaUrl('${media.data}', '${isVideo}')">📋 Copiar URL</button>
+                    <button class="delete" onclick="deleteMedia(${index})">🗑 Eliminar</button>
+                </div>
+            `;
+            grid.appendChild(item);
+        }
+        
+        function loadMediaLibrary() {
+            const grid = document.getElementById('mediaGrid');
+            grid.innerHTML = '';
+            const mediaLibrary = JSON.parse(localStorage.getItem('jois_media_library') || '[]');
+            mediaLibrary.forEach((media, index) => addMediaToGrid(media, index));
+        }
+        
+        function copyMediaUrl(dataUrl, isVideo) {
+            // Create a temporary input to copy the data URL
+            const input = document.createElement('input');
+            input.value = dataUrl;
+            document.body.appendChild(input);
+            input.select();
+            document.execCommand('copy');
+            document.body.removeChild(input);
+            showToast('URL copiada al portapapeles');
+        }
+        
+        function deleteMedia(index) {
+            if (!confirm('¿Eliminar este archivo?')) return;
+            
+            let mediaLibrary = JSON.parse(localStorage.getItem('jois_media_library') || '[]');
+            mediaLibrary.splice(index, 1);
+            localStorage.setItem('jois_media_library', JSON.stringify(mediaLibrary));
+            
+            document.getElementById('media-' + index)?.remove();
+            showToast('Archivo eliminado');
+        }
+        
+        // ===== SAVE / LOAD =====
+        function saveAllChanges() {
+            const data = {};
+            document.querySelectorAll('.form-input, .form-textarea, .form-select').forEach(input => {
+                data[input.id] = input.value;
+            });
+            
+            localStorage.setItem('jois_content_changes', JSON.stringify(data));
+            
+            // Save colors
+            const colors = {
+                primary: document.getElementById('color_primary')?.value || '#0A0A0A',
+                beige: document.getElementById('color_beige')?.value || '#C4A35A',
+                white: document.getElementById('color_white')?.value || '#FFFFFF',
+                gray: document.getElementById('color_gray')?.value || '#F5F5F5'
+            };
+            localStorage.setItem('jois_colors', JSON.stringify(colors));
+            
+            showToast('Todos los cambios guardados');
+        }
+        
+        function loadSavedChanges() {
+            const saved = localStorage.getItem('jois_content_changes');
+            if (saved) {
+                const data = JSON.parse(saved);
+                Object.keys(data).forEach(id => {
+                    const input = document.getElementById(id);
+                    if (input) input.value = data[id];
+                });
+            }
+            
+            // Load colors
+            const colors = JSON.parse(localStorage.getItem('jois_colors') || '{}');
+            if (colors.primary) {
+                document.getElementById('color_primary').value = colors.primary;
+                document.getElementById('color_primary_preview').value = colors.primary;
+                document.querySelector('[style*="--preview_primary"]')?.style.setProperty('--preview_primary', colors.primary);
+            }
+            if (colors.beige) {
+                document.getElementById('color_beige').value = colors.beige;
+                document.getElementById('color_beige_preview').value = colors.beige;
+            }
+        }
+        
+        function syncColorInput(id, value) {
+            document.getElementById(id).value = value;
+            document.getElementById(id + '_preview').value = value;
+        }
+        
+        function updateHeroImage() {
+            const url = document.getElementById('hero_image_url').value;
+            const preview = document.getElementById('heroImagePreview');
+            preview.innerHTML = '<img src="' + url + '" alt="Hero">';
+        }
+        
+        function previewSite() {
+            window.open('index-v2.html', '_blank');
+        }
+        
+        // ===== INIT =====
+        window.addEventListener('load', () => {
+            loadSavedChanges();
+            loadMediaLibrary();
+            
+            // Load hero video if exists
+            const heroVideo = localStorage.getItem('jois_hero_video');
+            if (heroVideo) {
+                document.getElementById('heroVideoPreview').innerHTML = '<video src="' + heroVideo + '" controls style="width:100%;height:100%;object-fit:cover;"></video>';
+            }
+        });
+        
+        // Auto-save on changes
+        let autoSaveTimer;
+        document.addEventListener('input', () => {
+            clearTimeout(autoSaveTimer);
+            autoSaveTimer = setTimeout(saveAllChanges, 2000);
+        });
+    </script>
+</body>
+</html>

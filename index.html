@@ -3,482 +3,1181 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JOIS — Maison de Cuir</title>
+    <title>JOIS — Maison de Cuir Contemporáneo</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles-home.css">
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="styles.css?v=10.0">
-    <link rel="stylesheet" href="styles-video.css?v=10.0">
     
     <!-- SEO -->
-    <meta name="description" content="JOIS Leather — Maison de cuir contemporain. Cuero artesanal premium desde Ciudad de México.">
-    <meta property="og:title" content="JOIS Leather — Maison de Cuir">
-    <meta property="og:description" content="Maison de cuir contemporain. Cuero artesanal premium desde Ciudad de México.">
-    <meta property="og:image" content="https://cryptovh0.github.io/jois-leather/assets/images/jacket-noir.png">
+    <meta name="description" content="JOIS - Maison de Cuir Contemporáneo. Cuero premium, diseño atemporal. Hombre y Mujer.">
+    <meta name="keywords" content="cuero, leather, luxury, fashion, menswear, womenswear, mexico">
+    <meta property="og:title" content="JOIS — Maison de Cuir Contemporáneo">
+    <meta property="og:description" content="Cuero premium, diseño atemporal.">
+    <meta property="og:type" content="website">
+    
+    <style>
+        /* ============================================
+           JOIS HOME - Editorial Luxury Design
+           ============================================ */
+        
+        :root {
+            --white: #FFFFFF;
+            --off-white: #FAFAFA;
+            --gray-light: #F5F5F5;
+            --gray: #E8E8E8;
+            --gray-dark: #999999;
+            --black: #0A0A0A;
+            --beige: #C4A35A;
+            --beige-dark: #A68B3D;
+            --beige-light: #D4C4A0;
+            --text-dark: #0A0A0A;
+            --text-muted: #6B6B6B;
+            --text-light: #999999;
+            
+            --font-display: 'Times New Roman', Georgia, serif;
+            --font-body: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            --font-mono: 'Menlo', 'Monaco', 'Courier New', monospace;
+            
+            --transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            --transition-fast: all 0.2s ease;
+        }
+        
+        /* Reset */
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: var(--font-body);
+            background: var(--white);
+            color: var(--text-dark);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+        }
+        
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+        
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        /* ============================================
+           TOP BAR
+           ============================================ */
+        .top-bar {
+            background: var(--black);
+            color: var(--white);
+            padding: 8px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 10px;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+        }
+        
+        .top-bar-left span,
+        .top-bar-right span {
+            color: rgba(255,255,255,0.5);
+        }
+        
+        /* ============================================
+           NAVIGATION
+           ============================================ */
+        .nav-main {
+            position: sticky;
+            top: 0;
+            background: var(--white);
+            z-index: 1000;
+            border-bottom: 1px solid var(--gray);
+        }
+        
+        .nav-inner {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 40px;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        .nav-icons {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+        }
+        
+        .nav-icon {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition-fast);
+        }
+        
+        .nav-icon:hover {
+            opacity: 0.5;
+        }
+        
+        .nav-icon svg {
+            width: 20px;
+            height: 20px;
+        }
+        
+        .logo {
+            font-family: var(--font-display);
+            font-size: 32px;
+            font-weight: 400;
+            letter-spacing: 0.4em;
+            color: var(--text-dark);
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 35px;
+        }
+        
+        .nav-link {
+            font-size: 11px;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--text-dark);
+            transition: var(--transition-fast);
+            position: relative;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: var(--beige);
+            transition: var(--transition);
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        /* ============================================
+           HERO SECTION
+           ============================================ */
+        .hero {
+            position: relative;
+            height: 85vh;
+            min-height: 600px;
+            background: var(--gray-light);
+            overflow: hidden;
+        }
+        
+        .hero-content {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+        }
+        
+        .hero-text {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 80px 60px;
+            z-index: 10;
+        }
+        
+        .hero-badge {
+            font-size: 10px;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            color: var(--beige);
+            margin-bottom: 25px;
+        }
+        
+        .hero-title {
+            font-family: var(--font-display);
+            font-size: clamp(60px, 10vw, 120px);
+            font-weight: 400;
+            letter-spacing: 0.1em;
+            line-height: 0.95;
+            margin-bottom: 30px;
+        }
+        
+        .hero-subtitle {
+            font-size: 13px;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            margin-bottom: 40px;
+        }
+        
+        .hero-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 15px;
+            padding: 16px 35px;
+            background: var(--black);
+            color: var(--white);
+            font-size: 11px;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            transition: var(--transition-fast);
+            width: fit-content;
+        }
+        
+        .hero-cta:hover {
+            background: var(--beige);
+        }
+        
+        .hero-image {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.3) 100%);
+        }
+        
+        /* ============================================
+           MARQUEE
+           ============================================ */
+        .marquee {
+            background: var(--beige);
+            padding: 15px 0;
+            overflow: hidden;
+        }
+        
+        .marquee-content {
+            display: flex;
+            animation: marquee 20s linear infinite;
+        }
+        
+        .marquee-item {
+            font-size: 11px;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            color: var(--black);
+            white-space: nowrap;
+            padding: 0 40px;
+        }
+        
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        
+        /* ============================================
+           READY TO WEAR SECTION
+           ============================================ */
+        .section {
+            padding: 100px 40px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: 60px;
+        }
+        
+        .section-title {
+            font-family: var(--font-display);
+            font-size: clamp(48px, 8vw, 96px);
+            font-weight: 400;
+            letter-spacing: 0.05em;
+            line-height: 1;
+        }
+        
+        .section-link {
+            font-size: 11px;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: var(--transition-fast);
+        }
+        
+        .section-link:hover {
+            color: var(--beige);
+        }
+        
+        .section-link svg {
+            width: 16px;
+            height: 16px;
+        }
+        
+        /* ============================================
+           PRODUCTS GRID
+           ============================================ */
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1px;
+            background: var(--gray);
+        }
+        
+        .product-card {
+            background: var(--white);
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .product-image {
+            position: relative;
+            aspect-ratio: 3/4;
+            overflow: hidden;
+            background: var(--gray-light);
+        }
+        
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+        
+        .product-card:hover .product-image img {
+            transform: scale(1.03);
+        }
+        
+        .product-badge {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            padding: 5px 12px;
+            font-size: 9px;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            background: var(--beige);
+            color: var(--black);
+        }
+        
+        .product-info {
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+        
+        .product-name {
+            font-size: 13px;
+            letter-spacing: 0.1em;
+            text-transform: lowercase;
+        }
+        
+        .product-price {
+            font-family: var(--font-mono);
+            font-size: 13px;
+        }
+        
+        /* ============================================
+           CATEGORIES SECTION
+           ============================================ */
+        .categories-section {
+            background: var(--black);
+            padding: 100px 40px;
+        }
+        
+        .categories-inner {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        .categories-header {
+            margin-bottom: 60px;
+        }
+        
+        .categories-title {
+            font-family: var(--font-display);
+            font-size: clamp(48px, 8vw, 96px);
+            font-weight: 400;
+            letter-spacing: 0.05em;
+            color: var(--white);
+        }
+        
+        .categories-list {
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .category-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 30px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            color: var(--white);
+            transition: var(--transition-fast);
+            cursor: pointer;
+        }
+        
+        .category-item:hover {
+            padding-left: 20px;
+        }
+        
+        .category-item:hover .category-name {
+            color: var(--beige);
+        }
+        
+        .category-name {
+            font-size: clamp(24px, 4vw, 48px);
+            font-weight: 400;
+            letter-spacing: 0.05em;
+            transition: var(--transition-fast);
+        }
+        
+        .category-arrow {
+            opacity: 0;
+            transform: translateX(-10px);
+            transition: var(--transition-fast);
+        }
+        
+        .category-item:hover .category-arrow {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        
+        .category-count {
+            font-size: 11px;
+            letter-spacing: 0.1em;
+            color: rgba(255,255,255,0.4);
+        }
+        
+        /* ============================================
+           EDITORIAL SECTION
+           ============================================ */
+        .editorial {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            min-height: 600px;
+        }
+        
+        .editorial-image {
+            overflow: hidden;
+        }
+        
+        .editorial-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .editorial-content {
+            background: var(--gray-light);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 80px 60px;
+        }
+        
+        .editorial-label {
+            font-size: 10px;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            color: var(--beige);
+            margin-bottom: 25px;
+        }
+        
+        .editorial-title {
+            font-family: var(--font-display);
+            font-size: clamp(32px, 4vw, 48px);
+            font-weight: 400;
+            line-height: 1.2;
+            margin-bottom: 30px;
+        }
+        
+        .editorial-text {
+            font-size: 14px;
+            line-height: 1.8;
+            color: var(--text-muted);
+            margin-bottom: 40px;
+        }
+        
+        .editorial-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 11px;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--text-dark);
+            border-bottom: 1px solid var(--text-dark);
+            padding-bottom: 5px;
+            width: fit-content;
+            transition: var(--transition-fast);
+        }
+        
+        .editorial-cta:hover {
+            color: var(--beige);
+            border-color: var(--beige);
+        }
+        
+        /* ============================================
+           FEATURED PRODUCTS
+           ============================================ */
+        .featured-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+        
+        .featured-card {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .featured-card img {
+            width: 100%;
+            aspect-ratio: 2/3;
+            object-fit: cover;
+        }
+        
+        .featured-card-content {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 40px 30px;
+            background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, transparent 100%);
+            color: var(--white);
+        }
+        
+        .featured-card h3 {
+            font-family: var(--font-display);
+            font-size: 24px;
+            font-weight: 400;
+            margin-bottom: 10px;
+        }
+        
+        .featured-card p {
+            font-size: 12px;
+            letter-spacing: 0.1em;
+            opacity: 0.7;
+        }
+        
+        /* ============================================
+           FOOTER
+           ============================================ */
+        .footer {
+            background: var(--white);
+            border-top: 1px solid var(--gray);
+            padding: 80px 40px 40px;
+        }
+        
+        .footer-inner {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        .footer-main {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 80px;
+            margin-bottom: 60px;
+            padding-bottom: 60px;
+            border-bottom: 1px solid var(--gray);
+        }
+        
+        .footer-brand .logo {
+            margin-bottom: 15px;
+        }
+        
+        .footer-tagline {
+            font-size: 12px;
+            color: var(--text-muted);
+            letter-spacing: 0.1em;
+        }
+        
+        .footer-socials {
+            display: flex;
+            gap: 20px;
+            margin-top: 25px;
+        }
+        
+        .footer-social-link {
+            font-size: 11px;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--text-dark);
+            border-bottom: 1px solid transparent;
+            padding-bottom: 3px;
+            transition: var(--transition-fast);
+        }
+        
+        .footer-social-link:hover {
+            border-color: var(--beige);
+        }
+        
+        .footer-nav {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+        }
+        
+        .footer-col h4 {
+            font-size: 10px;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            margin-bottom: 20px;
+        }
+        
+        .footer-col a {
+            display: block;
+            font-size: 13px;
+            color: var(--text-dark);
+            margin-bottom: 12px;
+            transition: var(--transition-fast);
+        }
+        
+        .footer-col a:hover {
+            color: var(--beige);
+        }
+        
+        .footer-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .footer-copyright {
+            font-size: 10px;
+            letter-spacing: 0.08em;
+            color: var(--text-muted);
+        }
+        
+        .footer-payments {
+            font-family: var(--font-mono);
+            font-size: 11px;
+            color: var(--text-muted);
+        }
+        
+        /* ============================================
+           RESPONSIVE
+           ============================================ */
+        @media (max-width: 1024px) {
+            .products-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .editorial {
+                grid-template-columns: 1fr;
+            }
+            
+            .featured-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .top-bar {
+                display: none;
+            }
+            
+            .nav-inner {
+                padding: 0 20px;
+                height: 70px;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .logo {
+                font-size: 24px;
+            }
+            
+            .hero-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero-image {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                z-index: -1;
+            }
+            
+            .hero-text {
+                background: rgba(255,255,255,0.9);
+                padding: 120px 30px 60px;
+            }
+            
+            .hero-title {
+                font-size: 50px;
+            }
+            
+            .section {
+                padding: 60px 20px;
+            }
+            
+            .section-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 20px;
+            }
+            
+            .products-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 1px;
+            }
+            
+            .categories-section {
+                padding: 60px 20px;
+            }
+            
+            .footer-main {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            
+            .footer-nav {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .footer-bottom {
+                flex-direction: column;
+                gap: 15px;
+                text-align: center;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .featured-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-nav {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
 <body>
-    <!-- Navigation -->
-    <nav class="navbar">
-        <div class="nav-left">
-            <a href="#tienda" class="nav-link">Tienda</a>
-            <a href="#hombre" class="nav-link">Hombre</a>
-            <a href="#mujer" class="nav-link">Mujer</a>
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <div class="top-bar-left">
+            <span>Ciudad de México</span>
         </div>
-        <a href="index.html" class="logo">JOIS</a>
-        <div class="nav-right">
-            <a href="#nosotros" class="nav-link">Nosotros</a>
-            <a href="#contacto" class="nav-link">Contacto</a>
-            <button class="nav-icon-btn" onclick="toggleCart()">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                    <path d="M6 6h15l-1.5 9h-12z"/>
-                    <circle cx="9" cy="20" r="1"/>
-                    <circle cx="18" cy="20" r="1"/>
-                    <path d="M6 6L5 3H2"/>
-                </svg>
-                <span class="bag-count" id="cartCount">0</span>
-            </button>
+        <div class="top-bar-center">
+            <span>ENVÍO GRATIS EN PEDIDOS MAYORES A $5,000 MXN</span>
+        </div>
+        <div class="top-bar-right">
+            <span>@joisleather</span>
+        </div>
+    </div>
+    
+    <!-- Navigation -->
+    <nav class="nav-main">
+        <div class="nav-inner">
+            <div class="nav-icons nav-left">
+                <a href="#" class="nav-icon" aria-label="Buscar">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <circle cx="11" cy="11" r="8"/>
+                        <path d="m21 21-4.35-4.35"/>
+                    </svg>
+                </a>
+            </div>
+            
+            <a href="index.html" class="logo">JOIS</a>
+            
+            <div class="nav-links">
+                <a href="#hombre" class="nav-link">Hombre</a>
+                <a href="#mujer" class="nav-link">Mujer</a>
+                <a href="#coleccion" class="nav-link">Colección</a>
+                <a href="#nosotros" class="nav-link">Nosotros</a>
+                <a href="#contacto" class="nav-link">Contacto</a>
+            </div>
+            
+            <div class="nav-icons nav-right">
+                <a href="#" class="nav-icon" aria-label="Usuario">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <circle cx="12" cy="8" r="4"/>
+                        <path d="M20 21a8 8 0 0 0-16 0"/>
+                    </svg>
+                </a>
+                <a href="#" class="nav-icon" aria-label="Favoritos">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+                    </svg>
+                </a>
+                <a href="#" class="nav-icon" onclick="toggleCart(); return false;" aria-label="Carrito">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/>
+                        <line x1="3" y1="6" x2="21" y2="6"/>
+                        <path d="M16 10a4 4 0 0 1-8 0"/>
+                    </svg>
+                    <span id="cartCount" class="bag-count" style="display:none;">0</span>
+                </a>
+            </div>
         </div>
     </nav>
-
+    
     <!-- Hero Section -->
-    <section class="hero-editorial">
-        <div class="hero-bg" style="background-image: url('assets/images/jacket-noir.png');"></div>
-        <div class="hero-overlay"></div>
+    <section class="hero">
         <div class="hero-content">
-            <div class="hero-text-block">
-                <span class="hero-season">Primavera — Verano 2024</span>
+            <div class="hero-text">
+                <span class="hero-badge">Nueva Colección</span>
                 <h1 class="hero-title">JOIS</h1>
                 <p class="hero-subtitle">Maison de Cuir Contemporáneo</p>
+                <a href="#coleccion" class="hero-cta">
+                    Ver Colección
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                </a>
             </div>
-            <a href="#tienda" class="hero-cta">
-                <span>Explorar Colección</span>
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M12 5v14M5 12l7 7 7-7"/>
+            <div class="hero-image">
+                <img src="https://images.unsplash.com/photo-1558171813-4c088753af8f?w=1200&q=80" alt="JOIS Leather Collection">
+                <div class="hero-overlay"></div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Marquee -->
+    <div class="marquee">
+        <div class="marquee-content">
+            <span class="marquee-item">Cuero Premium</span>
+            <span class="marquee-item">•</span>
+            <span class="marquee-item">Diseño Atemporal</span>
+            <span class="marquee-item">•</span>
+            <span class="marquee-item">Hecho en México</span>
+            <span class="marquee-item">•</span>
+            <span class="marquee-item">Envío Gratis +$5,000 MXN</span>
+            <span class="marquee-item">•</span>
+            <span class="marquee-item">Cuero Premium</span>
+            <span class="marquee-item">•</span>
+            <span class="marquee-item">Diseño Atemporal</span>
+            <span class="marquee-item">•</span>
+            <span class="marquee-item">Hecho en México</span>
+            <span class="marquee-item">•</span>
+            <span class="marquee-item">Envío Gratis +$5,000 MXN</span>
+            <span class="marquee-item">•</span>
+        </div>
+    </div>
+    
+    <!-- Ready to Wear - Hombre -->
+    <section class="section" id="hombre">
+        <div class="section-header">
+            <h2 class="section-title">Hombre</h2>
+            <a href="#" class="section-link">
+                Ver Todo
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M5 12h14M12 5l7 7-7 7"/>
+                </svg>
+            </a>
+        </div>
+        
+        <div class="products-grid">
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="assets/images/shirt-jacket-hombre.png" alt="Shirt Jacket Negro" onerror="this.src='https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=600&q=80'">
+                    <span class="product-badge">Nuevo</span>
+                </div>
+                <div class="product-info">
+                    <span class="product-name">shirt jacket</span>
+                    <span class="product-price">$380 USD</span>
+                </div>
+            </div>
+            
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="assets/images/bomber-hombre.png" alt="Bomber Cafe" onerror="this.src='https://images.unsplash.com/photo-1551028719-00167b16eac5?w=600&q=80'">
+                    <span class="product-badge">Limited</span>
+                </div>
+                <div class="product-info">
+                    <span class="product-name">bomber</span>
+                    <span class="product-price">$520 USD</span>
+                </div>
+            </div>
+            
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="assets/images/weekender-hombre.png" alt="Weekender Bag" onerror="this.src='https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=600&q=80'">
+                    <span class="product-badge">Nuevo</span>
+                </div>
+                <div class="product-info">
+                    <span class="product-name">weekender</span>
+                    <span class="product-price">$480 USD</span>
+                </div>
+            </div>
+            
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="assets/images/wallet-hombre.png" alt="Wallet Noir" onerror="this.src='https://images.unsplash.com/photo-1627123424574-724758594e93?w=600&q=80'">
+                    <span class="product-badge">Bestseller</span>
+                </div>
+                <div class="product-info">
+                    <span class="product-name">wallet</span>
+                    <span class="product-price">$180 USD</span>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Ready to Wear - Mujer -->
+    <section class="section" id="mujer">
+        <div class="section-header">
+            <h2 class="section-title">Mujer</h2>
+            <a href="#" class="section-link">
+                Ver Todo
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M5 12h14M12 5l7 7-7 7"/>
+                </svg>
+            </a>
+        </div>
+        
+        <div class="products-grid">
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="assets/images/bomber-mujer.png" alt="Bomber Negro" onerror="this.src='https://images.unsplash.com/photo-1539533018447-63fcce2678e3?w=600&q=80'">
+                    <span class="product-badge">Permanente</span>
+                </div>
+                <div class="product-info">
+                    <span class="product-name">bomber noir</span>
+                    <span class="product-price">$450 USD</span>
+                </div>
+            </div>
+            
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="assets/images/shirt-jacket-mujer.png" alt="Shirt Jacket" onerror="this.src='https://images.unsplash.com/photo-1594938298603-c8148c4dae35?w=600&q=80'">
+                    <span class="product-badge">Nuevo</span>
+                </div>
+                <div class="product-info">
+                    <span class="product-name">shirt jacket</span>
+                    <span class="product-price">$380 USD</span>
+                </div>
+            </div>
+            
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="assets/images/weekender-mujer.png" alt="Weekender" onerror="this.src='https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=600&q=80'">
+                    <span class="product-badge">Nuevo</span>
+                </div>
+                <div class="product-info">
+                    <span class="product-name">weekender</span>
+                    <span class="product-price">$480 USD</span>
+                </div>
+            </div>
+            
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="assets/images/wallet-mujer.png" alt="Wallet Matrix" onerror="this.src='https://images.unsplash.com/photo-1601924994987-69e26d50dc26?w=600&q=80'">
+                    <span class="product-badge">Limited</span>
+                </div>
+                <div class="product-info">
+                    <span class="product-name">wallet matrix</span>
+                    <span class="product-price">$200 USD</span>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Categories -->
+    <section class="categories-section" id="coleccion">
+        <div class="categories-inner">
+            <div class="categories-header">
+                <h2 class="categories-title">Colección</h2>
+            </div>
+            
+            <div class="categories-list">
+                <a href="#hombre" class="category-item">
+                    <span class="category-name">Hombre</span>
+                    <span class="category-count">8 piezas</span>
+                    <svg class="category-arrow" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                </a>
+                <a href="#mujer" class="category-item">
+                    <span class="category-name">Mujer</span>
+                    <span class="category-count">6 piezas</span>
+                    <svg class="category-arrow" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                </a>
+                <a href="#" class="category-item">
+                    <span class="category-name">Bolsos</span>
+                    <span class="category-count">4 piezas</span>
+                    <svg class="category-arrow" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                </a>
+                <a href="#" class="category-item">
+                    <span class="category-name">Accesorios</span>
+                    <span class="category-count">5 piezas</span>
+                    <svg class="category-arrow" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                </a>
+                <a href="nft.html" class="category-item">
+                    <span class="category-name">NFT Collection</span>
+                    <span class="category-count">digital</span>
+                    <svg class="category-arrow" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Editorial About -->
+    <section class="editorial" id="nosotros">
+        <div class="editorial-image">
+            <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=1000&q=80" alt="JOIS Craftsmanship">
+        </div>
+        <div class="editorial-content">
+            <span class="editorial-label">Notre Histoire</span>
+            <h2 class="editorial-title">La Artesanía del Mañana</h2>
+            <p class="editorial-text">
+                JOIS nace de una visión híbrida: honorar la tradición del cuero mientras abrazamos las posibilidades del código digital. Cada pieza es una declaración de identidad, diseñada para quienes buscan distinción sin renunciar a la modernidad.
+            </p>
+            <a href="#contacto" class="editorial-cta">
+                Conoce Nuestra Historia
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M5 12h14M12 5l7 7-7 7"/>
                 </svg>
             </a>
         </div>
     </section>
-
-    <!-- Brand Statement -->
-    <section class="brand-statement">
-        <div class="statement-content">
-            <span class="statement-number">Est. 2024 — Ciudad de México</span>
-            <h2 class="statement-title">Donde el arte<br>de la piel encuentra<br>el código del futuro</h2>
-        </div>
-    </section>
-
-    <!-- ======== SHOP / TIENDA ======== -->
-    <section id="tienda" class="section-shop">
+    
+    <!-- Featured -->
+    <section class="section">
         <div class="section-header">
-            <span class="section-label">Explore</span>
-            <h2 class="section-title">La Colección</h2>
+            <h2 class="section-title">Destacados</h2>
         </div>
         
-        <!-- Quick Categories -->
-        <div class="shop-categories">
-            <a href="#hombre" class="shop-category">
-                <div class="shop-category-image">
-                    <img src="assets/images/jacket-noir.png" alt="Hombre">
+        <div class="featured-grid">
+            <div class="featured-card">
+                <img src="https://images.unsplash.com/photo-1490114538077-0a7f8cb49891?w=800&q=80" alt="The Bomber">
+                <div class="featured-card-content">
+                    <h3>The Bomber</h3>
+                    <p>Edición Permanente</p>
                 </div>
-                <span class="shop-category-name">Hombre</span>
-            </a>
-            <a href="#mujer" class="shop-category">
-                <div class="shop-category-image">
-                    <img src="assets/images/bomber-cafe-mujer.png" alt="Mujer">
+            </div>
+            <div class="featured-card">
+                <img src="https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=800&q=80" alt="Weekender">
+                <div class="featured-card-content">
+                    <h3>Weekender</h3>
+                    <p>Nuevo</p>
                 </div>
-                <span class="shop-category-name">Mujer</span>
-            </a>
-        </div>
-    </section>
-
-    <!-- ======== HOMBRE ======== -->
-    <section id="hombre" class="section-gender">
-        <div class="gender-header">
-            <span class="gender-number">01</span>
-            <div class="gender-title-block">
-                <h2 class="gender-title">Hombre</h2>
-                <p class="gender-desc">Piezas definidas para el hombre moderno</p>
             </div>
-        </div>
-
-        <!-- Jacket Category -->
-        <div class="product-category-section">
-            <h3 class="category-title">Jacket</h3>
-            <div class="products-grid">
-                <article class="product-card" data-name="Chamarra Noir" data-price="450" data-weight="1.2">
-                    <div class="product-image">
-                        <img src="assets/images/jacket-noir.png" alt="Noir">
-                        <div class="product-badge">Permanente</div>
-                    </div>
-                    <div class="product-details">
-                        <h4 class="product-name">Noir</h4>
-                        <div class="product-pricing">
-                            <span class="price-main">$450 USD</span>
-                        </div>
-                        <button class="btn-add-cart" onclick="addToCart('Chamarra Noir', 450, 1.2)">
-                            Añadir a Bolsa
-                        </button>
-                    </div>
-                </article>
-
-                <article class="product-card" data-name="Chamarra Imperial" data-price="520" data-weight="1.3">
-                    <div class="product-image">
-                        <img src="assets/images/bomber-cafe-mujer.png" alt="Imperial">
-                        <div class="product-badge">Nuevo</div>
-                    </div>
-                    <div class="product-details">
-                        <h4 class="product-name">Imperial</h4>
-                        <div class="product-pricing">
-                            <span class="price-main">$520 USD</span>
-                        </div>
-                        <button class="btn-add-cart" onclick="addToCart('Chamarra Imperial', 520, 1.3)">
-                            Añadir a Bolsa
-                        </button>
-                    </div>
-                </article>
-
-                <article class="product-card" data-name="Chamarra Phantom" data-price="480" data-weight="1.2">
-                    <div class="product-image">
-                        <img src="assets/images/jacket-phantom.png" alt="Phantom">
-                        <div class="product-badge">Limited</div>
-                    </div>
-                    <div class="product-details">
-                        <h4 class="product-name">Phantom</h4>
-                        <div class="product-pricing">
-                            <span class="price-main">$480 USD</span>
-                        </div>
-                        <button class="btn-add-cart" onclick="addToCart('Chamarra Phantom', 480, 1.2)">
-                            Añadir a Bolsa
-                        </button>
-                    </div>
-                </article>
-
-                <article class="product-card" data-name="Shirt Jacket" data-price="380" data-weight="0.9">
-                    <div class="product-image">
-                        <img src="assets/images/shirt-jacket-mujer.png" alt="Shirt Jacket">
-                        <div class="product-badge">Nuevo</div>
-                    </div>
-                    <div class="product-details">
-                        <h4 class="product-name">Shirt Jacket</h4>
-                        <div class="product-pricing">
-                            <span class="price-main">$380 USD</span>
-                        </div>
-                        <button class="btn-add-cart" onclick="addToCart('Shirt Jacket', 380, 0.9)">
-                            Añadir a Bolsa
-                        </button>
-                    </div>
-                </article>
-            </div>
-        </div>
-
-        <!-- Wallet Category -->
-        <div class="product-category-section">
-            <h3 class="category-title">Wallet</h3>
-            <div class="products-grid">
-                <article class="product-card" data-name="Wallet Eclipse" data-price="180" data-weight="0.2">
-                    <div class="product-image">
-                        <img src="assets/images/wallet-eclipse.png" alt="Eclipse">
-                        <div class="product-badge">Bestseller</div>
-                    </div>
-                    <div class="product-details">
-                        <h4 class="product-name">Eclipse</h4>
-                        <div class="product-pricing">
-                            <span class="price-main">$180 USD</span>
-                        </div>
-                        <button class="btn-add-cart" onclick="addToCart('Wallet Eclipse', 180, 0.2)">
-                            Añadir a Bolsa
-                        </button>
-                    </div>
-                </article>
-
-                <article class="product-card" data-name="Wallet Sovereign" data-price="220" data-weight="0.25">
-                    <div class="product-image">
-                        <img src="assets/images/wallet-sovereign.png" alt="Sovereign">
-                        <div class="product-badge">Nuevo</div>
-                    </div>
-                    <div class="product-details">
-                        <h4 class="product-name">Sovereign</h4>
-                        <div class="product-pricing">
-                            <span class="price-main">$220 USD</span>
-                        </div>
-                        <button class="btn-add-cart" onclick="addToCart('Wallet Sovereign', 220, 0.25)">
-                            Añadir a Bolsa
-                        </button>
-                    </div>
-                </article>
-            </div>
-        </div>
-
-        <!-- Weekender Category -->
-        <div class="product-category-section">
-            <h3 class="category-title">Weekender</h3>
-            <div class="products-grid">
-                <article class="product-card" data-name="Weekender Bag" data-price="480" data-weight="1.8">
-                    <div class="product-image">
-                        <img src="assets/images/weekender-bags.png" alt="Weekender">
-                        <div class="product-badge">Nuevo</div>
-                    </div>
-                    <div class="product-details">
-                        <h4 class="product-name">Weekender</h4>
-                        <div class="product-pricing">
-                            <span class="price-main">$480 USD</span>
-                        </div>
-                        <button class="btn-add-cart" onclick="addToCart('Weekender Bag', 480, 1.8)">
-                            Añadir a Bolsa
-                        </button>
-                    </div>
-                </article>
-
-                <article class="product-card" data-name="Bolso Cipher" data-price="380" data-weight="1.5">
-                    <div class="product-image">
-                        <img src="assets/images/bag-cipher.png" alt="Cipher">
-                        <div class="product-badge">Permanente</div>
-                    </div>
-                    <div class="product-details">
-                        <h4 class="product-name">Cipher</h4>
-                        <div class="product-pricing">
-                            <span class="price-main">$380 USD</span>
-                        </div>
-                        <button class="btn-add-cart" onclick="addToCart('Bolso Cipher', 380, 1.5)">
-                            Añadir a Bolsa
-                        </button>
-                    </div>
-                </article>
-            </div>
-        </div>
-    </section>
-
-    <!-- Editorial Break -->
-    <section class="editorial-break">
-        <div class="editorial-break-content">
-            <blockquote>"El lujo no es lo que compramos,<br>es lo que somos."</blockquote>
-            <cite>— Fundador, JOIS</cite>
-        </div>
-    </section>
-
-    <!-- ======== MUJER ======== -->
-    <section id="mujer" class="section-gender">
-        <div class="gender-header">
-            <span class="gender-number">02</span>
-            <div class="gender-title-block">
-                <h2 class="gender-title">Mujer</h2>
-                <p class="gender-desc">Elegancia atemporal en cada detalle</p>
-            </div>
-        </div>
-
-        <!-- Jacket Category -->
-        <div class="product-category-section">
-            <h3 class="category-title">Jacket</h3>
-            <div class="products-grid">
-                <article class="product-card" data-name="Chamarra Noir" data-price="450" data-weight="1.1">
-                    <div class="product-image">
-                        <img src="assets/images/jacket-noir.png" alt="Noir">
-                        <div class="product-badge">Permanente</div>
-                    </div>
-                    <div class="product-details">
-                        <h4 class="product-name">Noir</h4>
-                        <div class="product-pricing">
-                            <span class="price-main">$450 USD</span>
-                        </div>
-                        <button class="btn-add-cart" onclick="addToCart('Chamarra Noir', 450, 1.1)">
-                            Añadir a Bolsa
-                        </button>
-                    </div>
-                </article>
-
-                <article class="product-card" data-name="Chamarra Imperial" data-price="520" data-weight="1.2">
-                    <div class="product-image">
-                        <img src="assets/images/bomber-cafe-mujer.png" alt="Imperial">
-                        <div class="product-badge">Nuevo</div>
-                    </div>
-                    <div class="product-details">
-                        <h4 class="product-name">Imperial</h4>
-                        <div class="product-pricing">
-                            <span class="price-main">$520 USD</span>
-                        </div>
-                        <button class="btn-add-cart" onclick="addToCart('Chamarra Imperial', 520, 1.2)">
-                            Añadir a Bolsa
-                        </button>
-                    </div>
-                </article>
-            </div>
-        </div>
-
-        <!-- Wallet Category -->
-        <div class="product-category-section">
-            <h3 class="category-title">Wallet</h3>
-            <div class="products-grid">
-                <article class="product-card" data-name="Wallet Eclipse" data-price="180" data-weight="0.18">
-                    <div class="product-image">
-                        <img src="assets/images/wallet-eclipse.png" alt="Eclipse">
-                        <div class="product-badge">Bestseller</div>
-                    </div>
-                    <div class="product-details">
-                        <h4 class="product-name">Eclipse</h4>
-                        <div class="product-pricing">
-                            <span class="price-main">$180 USD</span>
-                        </div>
-                        <button class="btn-add-cart" onclick="addToCart('Wallet Eclipse', 180, 0.18)">
-                            Añadir a Bolsa
-                        </button>
-                    </div>
-                </article>
-
-                <article class="product-card" data-name="Wallet Matrix" data-price="200" data-weight="0.2">
-                    <div class="product-image">
-                        <img src="assets/images/wallet-matrix.png" alt="Matrix">
-                        <div class="product-badge">Limited</div>
-                    </div>
-                    <div class="product-details">
-                        <h4 class="product-name">Matrix</h4>
-                        <div class="product-pricing">
-                            <span class="price-main">$200 USD</span>
-                        </div>
-                        <button class="btn-add-cart" onclick="addToCart('Wallet Matrix', 200, 0.2)">
-                            Añadir a Bolsa
-                        </button>
-                    </div>
-                </article>
-            </div>
-        </div>
-
-        <!-- Weekender Category -->
-        <div class="product-category-section">
-            <h3 class="category-title">Weekender</h3>
-            <div class="products-grid">
-                <article class="product-card" data-name="Weekender Bag" data-price="480" data-weight="1.6">
-                    <div class="product-image">
-                        <img src="assets/images/weekender-bags.png" alt="Weekender">
-                        <div class="product-badge">Nuevo</div>
-                    </div>
-                    <div class="product-details">
-                        <h4 class="product-name">Weekender</h4>
-                        <div class="product-pricing">
-                            <span class="price-main">$480 USD</span>
-                        </div>
-                        <button class="btn-add-cart" onclick="addToCart('Weekender Bag', 480, 1.6)">
-                            Añadir a Bolsa
-                        </button>
-                    </div>
-                </article>
-            </div>
-        </div>
-    </section>
-
-    <!-- ======== NOSOTROS ======== -->
-    <section id="nosotros" class="section-about">
-        <div class="about-media">
-            <img src="assets/images/jacket-noir.png" alt="JOIS Heritage">
-        </div>
-        <div class="about-content">
-            <span class="section-label">Notre Histoire</span>
-            <h2 class="about-title">La Artesanía<br>del Mañana</h2>
-            <p class="about-text">JOIS nace de una visión híbrida: honorar la tradición del cuero mientras abrazamos las posibilidades del código digital.</p>
-            <div class="about-values">
-                <div class="value-item">
-                    <span class="value-num">01</span>
-                    <span class="value-text">Selección de grano premium</span>
-                </div>
-                <div class="value-item">
-                    <span class="value-num">02</span>
-                    <span class="value-text">Diseño atemporal</span>
-                </div>
-                <div class="value-item">
-                    <span class="value-num">03</span>
-                    <span class="value-text">Construcción durable</span>
+            <div class="featured-card">
+                <img src="https://images.unsplash.com/photo-1627123424574-724758594e93?w=800&q=80" alt="Wallet Collection">
+                <div class="featured-card-content">
+                    <h3>Wallets</h3>
+                    <p>Bestsellers</p>
                 </div>
             </div>
         </div>
     </section>
-
-    <!-- NFT Section -->
-    <section class="section-nft">
-        <div class="nft-content">
-            <span class="section-label">Digital Collectibles</span>
-            <h2 class="nft-title">NFT Collection</h2>
-            <p class="nft-desc">Coleccionables digitales únicos en blockchain. El futuro del lujo.</p>
-            <a href="nft.html" class="btn-nft">Explorar NFT →</a>
-        </div>
-    </section>
-
-    <!-- Contacto -->
-    <section id="contacto" class="section-contact">
-        <div class="contact-grid">
-            <div class="contact-info">
-                <span class="section-label">Get in Touch</span>
-                <h2 class="contact-title">Contacto</h2>
-                <div class="contact-details">
-                    <div class="contact-item">
-                        <span class="contact-label">Email</span>
-                        <span class="contact-value">info@joisleather.io</span>
-                    </div>
-                    <div class="contact-item">
-                        <span class="contact-label">Ubicación</span>
-                        <span class="contact-value">Ciudad de México, México</span>
-                    </div>
-                </div>
-            </div>
-            <a href="mailto:info@joisleather.io" class="btn-contact">Escribirnos →</a>
-        </div>
-    </section>
-
+    
     <!-- Footer -->
-    <footer class="footer">
-        <div class="footer-main">
-            <div class="footer-brand">
-                <span class="footer-logo">JOIS</span>
-                <span class="footer-tagline">Maison de Cuir Contemporáneo</span>
-                <div class="footer-socials">
-                    <a href="https://www.tiktok.com/@joisleather" target="_blank">TikTok</a>
-                    <a href="https://www.instagram.com/leatherjois" target="_blank">Instagram</a>
+    <footer class="footer" id="contacto">
+        <div class="footer-inner">
+            <div class="footer-main">
+                <div class="footer-brand">
+                    <div class="logo">JOIS</div>
+                    <p class="footer-tagline">Maison de Cuir Contemporáneo</p>
+                    <div class="footer-socials">
+                        <a href="https://instagram.com/leatherjois" target="_blank" class="footer-social-link">Instagram</a>
+                        <a href="https://tiktok.com/@joisleather" target="_blank" class="footer-social-link">TikTok</a>
+                    </div>
+                </div>
+                
+                <div class="footer-nav">
+                    <div class="footer-col">
+                        <h4>Tienda</h4>
+                        <a href="#hombre">Hombre</a>
+                        <a href="#mujer">Mujer</a>
+                        <a href="#">Bolsos</a>
+                        <a href="#">Accesorios</a>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Información</h4>
+                        <a href="#nosotros">Nosotros</a>
+                        <a href="#">Envíos</a>
+                        <a href="#">Devoluciones</a>
+                        <a href="#">Contacto</a>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Legal</h4>
+                        <a href="legal/TERMINOS-Y-CONDICIONES.html">Términos</a>
+                        <a href="legal/PRIVACIDAD.html">Privacidad</a>
+                        <a href="legal/PROTECCION-FRAUDES.html">Protección Fraudes</a>
+                    </div>
                 </div>
             </div>
-            <div class="footer-nav">
-                <div class="footer-col">
-                    <h4>Tienda</h4>
-                    <a href="#hombre">Hombre</a>
-                    <a href="#mujer">Mujer</a>
-                    <a href="nft.html">NFT</a>
-                </div>
-                <div class="footer-col">
-                    <h4>Information</h4>
-                    <a href="#nosotros">Nosotros</a>
-                    <a href="#contacto">Contacto</a>
-                    <a href="legal/TERMINOS-Y-CONDICIONES.md">Términos</a>
-                </div>
-                <div class="footer-col">
-                    <h4>Aceptamos</h4>
-                    <span>USD</span>
-                    <span>BTC · USDT · ETH</span>
-                </div>
+            
+            <div class="footer-bottom">
+                <p class="footer-copyright">© 2024 JOIS Leather. Todos los derechos reservados.</p>
+                <p class="footer-payments">USD · BTC · USDT · ETH</p>
             </div>
-        </div>
-        <div class="footer-bottom">
-            <p>© 2024 JOIS Leather. Todos los derechos reservados.</p>
         </div>
     </footer>
-
+    
     <!-- Cart Drawer -->
-    <div id="cartDrawer" class="cart-drawer">
+    <div class="cart-overlay" onclick="toggleCart()"></div>
+    <div class="cart-drawer" id="cartDrawer">
         <div class="cart-header">
             <h2>Tu Bolsa</h2>
             <button class="cart-close" onclick="toggleCart()">×</button>
         </div>
-        <div id="cartItems" class="cart-items">
-            <div class="cart-empty"><span>Tu bolsa está vacía</span></div>
+        <div class="cart-items" id="cartItems">
+            <div class="cart-empty">
+                <span>Tu bolsa está vacía</span>
+            </div>
         </div>
         <div class="cart-footer">
             <div class="cart-total">
                 <span>Total</span>
-                <span id="cartTotal" class="font-mono">$0 USD</span>
+                <span class="total-usd" id="cartTotal">$0 USD</span>
             </div>
-            <button class="btn-checkout" onclick="checkoutStripe()">Pagar con Tarjeta</button>
-            <button class="btn-checkout-crypto" onclick="checkoutCrypto()">Pagar con Crypto</button>
+            <div class="cart-actions">
+                <button class="btn-checkout" onclick="checkoutStripe()">Pagar con Tarjeta</button>
+                <button class="btn-checkout-crypto" onclick="checkoutCrypto()">Pagar con Crypto</button>
+            </div>
         </div>
     </div>
-    <div class="cart-overlay" onclick="toggleCart()"></div>
-
-    <script src="shipping/shipping-calculator.js"></script>
-    <script src="app.js?v=10.0"></script>
+    
+    <script src="app.js"></script>
 </body>
 </html>
