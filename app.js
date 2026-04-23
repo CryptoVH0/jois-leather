@@ -209,13 +209,19 @@ function selectCryptoInCart(symbol) {
     selectedCrypto = symbol;
     
     // Update selector UI
-    document.querySelectorAll('.crypto-selector button, #cryptoSelector button').forEach(btn => {
-        if (btn.textContent.trim() === symbol) {
+    document.querySelectorAll('.crypto-btn').forEach(btn => {
+        if (btn.getAttribute('data-crypto') === symbol) {
             btn.classList.add('selected');
         } else {
             btn.classList.remove('selected');
         }
     });
+    
+    // Update button text
+    const btnText = document.getElementById('cryptoBtnText');
+    if (btnText) {
+        btnText.textContent = `Pagar con ${symbol}`;
+    }
     
     updateCartUI();
 }

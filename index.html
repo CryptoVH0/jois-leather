@@ -1202,42 +1202,44 @@
             </div>
             
             <!-- Crypto Selector -->
-            <div style="margin-bottom: 20px; padding: 15px; background: var(--gray-light);">
-                <span style="font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); display: block; margin-bottom: 10px;">Pagar con Crypto</span>
+            <div style="margin-bottom: 20px; padding: 20px; background: var(--black);">
+                <span style="font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--beige); display: block; margin-bottom: 12px;">Selecciona Crypto para Pagar</span>
                 <div id="cryptoSelector" style="display: flex; flex-wrap: wrap; gap: 8px;">
-                    <button class="crypto-btn" onclick="selectCryptoInCart('BTC')" data-crypto="BTC">BTC</button>
-                    <button class="crypto-btn" onclick="selectCryptoInCart('ETH')" data-crypto="ETH">ETH</button>
-                    <button class="crypto-btn" onclick="selectCryptoInCart('USDT')" data-crypto="USDT">USDT</button>
-                    <button class="crypto-btn" onclick="selectCryptoInCart('USDC')" data-crypto="USDC">USDC</button>
-                    <button class="crypto-btn" onclick="selectCryptoInCart('LTC')" data-crypto="LTC">LTC</button>
-                    <button class="crypto-btn" onclick="selectCryptoInCart('XRP')" data-crypto="XRP">XRP</button>
+                    <button class="crypto-btn selected" onclick="selectCryptoInCart('BTC')" data-crypto="BTC">BTC ₿</button>
+                    <button class="crypto-btn" onclick="selectCryptoInCart('ETH')" data-crypto="ETH">ETH Ξ</button>
+                    <button class="crypto-btn" onclick="selectCryptoInCart('USDT')" data-crypto="USDT">USDT ₮</button>
+                    <button class="crypto-btn" onclick="selectCryptoInCart('USDC')" data-crypto="USDC">USDC $</button>
+                    <button class="crypto-btn" onclick="selectCryptoInCart('LTC')" data-crypto="LTC">LTC Ł</button>
+                    <button class="crypto-btn" onclick="selectCryptoInCart('XRP')" data-crypto="XRP">XRP ✕</button>
                 </div>
             </div>
             
             <div class="cart-actions">
-                <button class="btn-checkout" onclick="checkoutStripe()">Pagar con Tarjeta</button>
-                <button class="btn-checkout-crypto" onclick="checkoutCrypto()">Pagar con <span id="cryptoBtnText">BTC</span></button>
+                <button class="btn-checkout-crypto" onclick="checkoutCrypto()" style="background: var(--beige); color: var(--black); font-size: 12px; padding: 20px;">
+                    <span id="cryptoBtnText">Pagar con BTC</span>
+                </button>
             </div>
         </div>
     </div>
     
     <style>
         .crypto-btn {
-            padding: 8px 14px;
+            padding: 10px 16px;
             font-size: 11px;
             font-family: var(--font-mono);
-            background: var(--white);
+            background: var(--gray-light);
             border: 1px solid var(--gray);
             cursor: pointer;
             transition: all 0.3s;
         }
         .crypto-btn:hover {
             border-color: var(--beige);
+            background: var(--white);
         }
         .crypto-btn.selected {
-            background: var(--black);
-            color: var(--white);
-            border-color: var(--black);
+            background: var(--beige);
+            color: var(--black);
+            border-color: var(--beige);
         }
     </style>
     
