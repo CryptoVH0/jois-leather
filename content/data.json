@@ -1,0 +1,77 @@
+{
+  "products": {
+    "hombre": [
+      {
+        "id": "shirt-jacket",
+        "name": "Shirt Jacket",
+        "price": 380,
+        "badge": "Nuevo",
+        "description": "Híbrido entre camisa y chamarra. Versatilidad premium para el hombre moderno.",
+        "image": "https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=600&q=80"
+      },
+      {
+        "id": "bomber",
+        "name": "Bomber",
+        "price": 520,
+        "badge": "Limited",
+        "description": "Cuero premium con acabados únicos. Diseño inspirado en el piloto clásico.",
+        "image": "https://images.unsplash.com/photo-1551028719-00167b16eac5?w=600&q=80"
+      },
+      {
+        "id": "weekender",
+        "name": "Weekender",
+        "price": 480,
+        "badge": "Nuevo",
+        "description": "Diseño para viajes cortos. Espacio funcional con estilo atemporal.",
+        "image": "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=600&q=80"
+      },
+      {
+        "id": "wallet",
+        "name": "Wallet",
+        "price": 180,
+        "badge": "Bestseller",
+        "description": "Cuero premium con interior organizado. Diseño slim y funcional.",
+        "image": "https://images.unsplash.com/photo-1627123424574-724758594e93?w=600&q=80"
+      }
+    ],
+    "mujer": [
+      {
+        "id": "bomber-noir",
+        "name": "Bomber Noir",
+        "price": 450,
+        "badge": "Permanente",
+        "description": "Cuero premium negro. Diseño minimalista con acabados discretos.",
+        "image": "https://images.unsplash.com/photo-1539533018447-63fcce2678e3?w=600&q=80"
+      },
+      {
+        "id": "shirt-jacket-m",
+        "name": "Shirt Jacket",
+        "price": 380,
+        "badge": "Nuevo",
+        "description": "Híbrido entre camisa y chamarra. Versatilidad premium.",
+        "image": "https://images.unsplash.com/photo-1594938298603-c8148c4dae35?w=600&q=80"
+      },
+      {
+        "id": "weekender-m",
+        "name": "Weekender",
+        "price": 480,
+        "badge": "Nuevo",
+        "description": "Diseño elegante para viajes cortos. Funcionalidad premium.",
+        "image": "https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=600&q=80"
+      },
+      {
+        "id": "wallet-matrix",
+        "name": "Wallet Matrix",
+        "price": 200,
+        "badge": "Limited",
+        "description": "Cuero tech-negro con interior organizado. Para la profesional moderna.",
+        "image": "https://images.unsplash.com/photo-1601924994987-69e26d50dc26?w=600&q=80"
+      }
+    ]
+  },
+  "brand": {
+    "name": "JOIS",
+    "tagline": "Maison de Cuir Contemporáneo",
+    "season": "Nueva Colección"
+  }
+}

@@ -932,7 +932,7 @@
         </div>
         
         <div class="products-grid">
-            <div class="product-card">
+            <div class="product-card" data-product="h1">
                 <a href="product.html" class="product-image">
                     <img src="assets/images/shirt-jacket-hombre.png" alt="Shirt Jacket" onerror="this.src='https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=600&q=80'">
                     <span class="product-badge">Nuevo</span>
@@ -944,7 +944,7 @@
                 </div>
             </div>
             
-            <div class="product-card">
+            <div class="product-card" data-product="h2">
                 <a href="product.html" class="product-image">
                     <img src="assets/images/bomber-hombre.png" alt="Bomber" onerror="this.src='https://images.unsplash.com/photo-1551028719-00167b16eac5?w=600&q=80'">
                     <span class="product-badge">Limited</span>
@@ -956,7 +956,7 @@
                 </div>
             </div>
             
-            <div class="product-card">
+            <div class="product-card" data-product="h3">
                 <a href="product.html" class="product-image">
                     <img src="assets/images/weekender-hombre.png" alt="Weekender" onerror="this.src='https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=600&q=80'">
                     <span class="product-badge">Nuevo</span>
@@ -968,7 +968,7 @@
                 </div>
             </div>
             
-            <div class="product-card">
+            <div class="product-card" data-product="h4">
                 <a href="product.html" class="product-image">
                     <img src="assets/images/wallet-hombre.png" alt="Wallet" onerror="this.src='https://images.unsplash.com/photo-1627123424574-724758594e93?w=600&q=80'">
                     <span class="product-badge">Bestseller</span>
@@ -995,7 +995,7 @@
         </div>
         
         <div class="products-grid">
-            <div class="product-card">
+            <div class="product-card" data-product="m1">
                 <a href="product.html" class="product-image">
                     <img src="assets/images/bomber-mujer.png" alt="Bomber" onerror="this.src='https://images.unsplash.com/photo-1539533018447-63fcce2678e3?w=600&q=80'">
                     <span class="product-badge">Permanente</span>
@@ -1007,7 +1007,7 @@
                 </div>
             </div>
             
-            <div class="product-card">
+            <div class="product-card" data-product="m2">
                 <a href="product.html" class="product-image">
                     <img src="assets/images/shirt-jacket-mujer.png" alt="Shirt Jacket" onerror="this.src='https://images.unsplash.com/photo-1594938298603-c8148c4dae35?w=600&q=80'">
                     <span class="product-badge">Nuevo</span>
@@ -1019,7 +1019,7 @@
                 </div>
             </div>
             
-            <div class="product-card">
+            <div class="product-card" data-product="m3">
                 <a href="product.html" class="product-image">
                     <img src="assets/images/weekender-mujer.png" alt="Weekender" onerror="this.src='https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=600&q=80'">
                     <span class="product-badge">Nuevo</span>
@@ -1031,7 +1031,7 @@
                 </div>
             </div>
             
-            <div class="product-card">
+            <div class="product-card" data-product="m4">
                 <a href="product.html" class="product-image">
                     <img src="assets/images/wallet-mujer.png" alt="Wallet" onerror="this.src='https://images.unsplash.com/photo-1601924994987-69e26d50dc26?w=600&q=80'">
                     <span class="product-badge">Limited</span>
@@ -1238,6 +1238,68 @@
         }
     </style>
     
-    <script src="app.js?v=26"></script>
+    <script src="app.js?v=27"></script>
+    
+    <!-- Load custom content from Content Manager -->
+    <script>
+        window.addEventListener('load', () => {
+            const savedData = localStorage.getItem('jois_content_data');
+            if (savedData) {
+                const data = JSON.parse(savedData);
+                
+                // Update Hombre products
+                if (data.h1_name) {
+                    document.querySelectorAll('[data-product="h1"] .product-name').forEach(el => el.textContent = data.h1_name.toLowerCase());
+                    document.querySelectorAll('[data-product="h1"] .product-price').forEach(el => el.textContent = '$' + data.h1_price + ' USD');
+                    document.querySelectorAll('[data-product="h1"] .btn-add-grid').forEach(el => el.setAttribute('onclick', "addToCart('" + data.h1_name + " - M', " + data.h1_price + ", '', 'M')"));
+                }
+                if (data.h2_name) {
+                    document.querySelectorAll('[data-product="h2"] .product-name').forEach(el => el.textContent = data.h2_name.toLowerCase());
+                    document.querySelectorAll('[data-product="h2"] .product-price').forEach(el => el.textContent = '$' + data.h2_price + ' USD');
+                    document.querySelectorAll('[data-product="h2"] .btn-add-grid').forEach(el => el.setAttribute('onclick', "addToCart('" + data.h2_name + " - M', " + data.h2_price + ", '', 'M')"));
+                }
+                if (data.h3_name) {
+                    document.querySelectorAll('[data-product="h3"] .product-name').forEach(el => el.textContent = data.h3_name.toLowerCase());
+                    document.querySelectorAll('[data-product="h3"] .product-price').forEach(el => el.textContent = '$' + data.h3_price + ' USD');
+                    document.querySelectorAll('[data-product="h3"] .btn-add-grid').forEach(el => el.setAttribute('onclick', "addToCart('" + data.h3_name + " - M', " + data.h3_price + ", '', 'M')"));
+                }
+                if (data.h4_name) {
+                    document.querySelectorAll('[data-product="h4"] .product-name').forEach(el => el.textContent = data.h4_name.toLowerCase());
+                    document.querySelectorAll('[data-product="h4"] .product-price').forEach(el => el.textContent = '$' + data.h4_price + ' USD');
+                    document.querySelectorAll('[data-product="h4"] .btn-add-grid').forEach(el => el.setAttribute('onclick', "addToCart('" + data.h4_name + " - M', " + data.h4_price + ", '', 'M')"));
+                }
+                
+                // Update Mujer products
+                if (data.m1_name) {
+                    document.querySelectorAll('[data-product="m1"] .product-name').forEach(el => el.textContent = data.m1_name.toLowerCase());
+                    document.querySelectorAll('[data-product="m1"] .product-price').forEach(el => el.textContent = '$' + data.m1_price + ' USD');
+                    document.querySelectorAll('[data-product="m1"] .btn-add-grid').forEach(el => el.setAttribute('onclick', "addToCart('" + data.m1_name + " - M', " + data.m1_price + ", '', 'M')"));
+                }
+                if (data.m2_name) {
+                    document.querySelectorAll('[data-product="m2"] .product-name').forEach(el => el.textContent = data.m2_name.toLowerCase());
+                    document.querySelectorAll('[data-product="m2"] .product-price').forEach(el => el.textContent = '$' + data.m2_price + ' USD');
+                    document.querySelectorAll('[data-product="m2"] .btn-add-grid').forEach(el => el.setAttribute('onclick', "addToCart('" + data.m2_name + " - M', " + data.m2_price + ", '', 'M')"));
+                }
+                if (data.m3_name) {
+                    document.querySelectorAll('[data-product="m3"] .product-name').forEach(el => el.textContent = data.m3_name.toLowerCase());
+                    document.querySelectorAll('[data-product="m3"] .product-price').forEach(el => el.textContent = '$' + data.m3_price + ' USD');
+                    document.querySelectorAll('[data-product="m3"] .btn-add-grid').forEach(el => el.setAttribute('onclick', "addToCart('" + data.m3_name + " - M', " + data.m3_price + ", '', 'M')"));
+                }
+                if (data.m4_name) {
+                    document.querySelectorAll('[data-product="m4"] .product-name').forEach(el => el.textContent = data.m4_name.toLowerCase());
+                    document.querySelectorAll('[data-product="m4"] .product-price').forEach(el => el.textContent = '$' + data.m4_price + ' USD');
+                    document.querySelectorAll('[data-product="m4"] .btn-add-grid').forEach(el => el.setAttribute('onclick', "addToCart('" + data.m4_name + " - M', " + data.m4_price + ", '', 'M')"));
+                }
+                
+                // Update brand info
+                if (data.brand_name) {
+                    document.querySelectorAll('.brand-name').forEach(el => el.textContent = data.brand_name);
+                }
+                if (data.brand_tagline) {
+                    document.querySelectorAll('.brand-tagline').forEach(el => el.textContent = data.brand_tagline);
+                }
+            }
+        });
+    </script>
 </body>
 </html>

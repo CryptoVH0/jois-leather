@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JOIS — Content Manager</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #0A0A0A;
+            color: #fff;
+            min-height: 100vh;
+        }
+        
+        .header {
+            background: #1a1a1a;
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #333;
+        }
+        .header-title {
+            font-family: 'Times New Roman', serif;
+            font-size: 20px;
+            letter-spacing: 0.2em;
+        }
+        .header-actions {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .btn {
+            padding: 10px 20px;
+            font-size: 10px;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            border: 1px solid #444;
+            background: transparent;
+            color: #888;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-family: inherit;
+        }
+        .btn:hover { border-color: #C4A35A; color: #C4A35A; }
+        .btn-primary { background: #C4A35A; border-color: #C4A35A; color: #0A0A0A; }
+        .btn-primary:hover { background: #a68b3d; }
+        
+        .tabs {
+            display: flex;
+            gap: 3px;
+            padding: 20px 40px;
+            background: #111;
+            overflow-x: auto;
+            border-bottom: 1px solid #222;
+        }
+        .tab {
+            padding: 12px 24px;
+            font-size: 10px;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            border: 1px solid #333;
+            background: transparent;
+            color: #666;
+            cursor: pointer;
+            transition: all 0.3s;
+            white-space: nowrap;
+        }
+        .tab.active { background: #C4A35A; border-color: #C4A35A; color: #0A0A0A; }
+        .tab:hover:not(.active) { border-color: #C4A35A; color: #C4A35A; }
+        
+        .panel-container {
+            padding: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .panel { display: none; }
+        .panel.active { display: block; }
+        
+        .form-group { margin-bottom: 20px; }
+        .form-label {
+            display: block;
+            font-size: 10px;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: #888;
+            margin-bottom: 8px;
+        }
+        .form-input, .form-textarea, .form-select {
+            width: 100%;
+            padding: 12px 15px;
+            font-size: 13px;
+            background: #1a1a1a;
+            border: 1px solid #333;
+            color: #fff;
+            font-family: inherit;
+        }
+        .form-input:focus, .form-textarea:focus { outline: none; border-color: #C4A35A; }
+        .form-textarea { min-height: 80px; resize: vertical; }
+        .form-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
+        
+        .section-title {
+            font-family: 'Times New Roman', serif;
+            font-size: 16px;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #333;
+            color: #C4A35A;
+        }
+        
+        .product-edit-card {
+            background: #1a1a1a;
+            border: 1px solid #333;
+            padding: 25px;
+            margin-bottom: 20px;
+        }
+        .product-edit-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #333;
+        }
+        .product-edit-name {
+            font-family: 'Times New Roman', serif;
+            font-size: 16px;
+            color: #C4A35A;
+        }
+        
+        .toast {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            padding: 15px 25px;
+            background: #C4A35A;
+            color: #0A0A0A;
+            font-size: 12px;
+            letter-spacing: 0.1em;
+            transform: translateY(100px);
+            opacity: 0;
+            transition: all 0.3s;
+            z-index: 9999;
+        }
+        .toast.show { transform: translateY(0); opacity: 1; }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1 class="header-title">JOIS — Content Manager</h1>
+        <div class="header-actions">
+            <button class="btn" onclick="previewSite()">👁 Ver Sitio</button>
+            <button class="btn btn-primary" onclick="saveAllChanges()">💾 Guardar Todo</button>
+        </div>
+    </div>
+    
+    <div class="tabs">
+        <button class="tab active" onclick="showPanel('brand')">Brand</button>
+        <button class="tab" onclick="showPanel('products-h')">Hombre</button>
+        <button class="tab" onclick="showPanel('products-m')">Mujer</button>
+    </div>
+    
+    <div class="panel-container">
+        <!-- BRAND -->
+        <div id="panel-brand" class="panel active">
+            <h2 class="section-title">Brand Settings</h2>
+            <div class="form-row">
+                <div class="form-group">
+                    <label class="form-label">Nombre de la Marca</label>
+                    <input type="text" class="form-input" id="brand_name" value="JOIS">
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Tagline</label>
+                    <input type="text" class="form-input" id="brand_tagline" value="Maison de Cuir Contemporáneo">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="form-label">Temporada / Colección</label>
+                <input type="text" class="form-input" id="brand_season" value="Nueva Colección">
+            </div>
+        </div>
+        
+        <!-- HOMBRE -->
+        <div id="panel-products-h" class="panel">
+            <h2 class="section-title">Productos Hombre</h2>
+            
+            <div class="product-edit-card">
+                <div class="product-edit-header">
+                    <span class="product-edit-name">Shirt Jacket — Hombre</span>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label class="form-label">Nombre</label>
+                        <input type="text" class="form-input" id="h1_name" value="Shirt Jacket">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Precio (USD)</label>
+                        <input type="number" class="form-input" id="h1_price" value="380">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Badge</label>
+                    <select class="form-select" id="h1_badge">
+                        <option value="Nuevo">Nuevo</option>
+                        <option value="Limited">Limited</option>
+                        <option value="Permanente">Permanente</option>
+                        <option value="Bestseller">Bestseller</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Descripción</label>
+                    <textarea class="form-textarea" id="h1_desc">Híbrido entre camisa y chamarra. Versatilidad premium para el hombre moderno.</textarea>
+                </div>
+            </div>
+            
+            <div class="product-edit-card">
+                <div class="product-edit-header">
+                    <span class="product-edit-name">Bomber — Hombre</span>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label class="form-label">Nombre</label>
+                        <input type="text" class="form-input" id="h2_name" value="Bomber">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Precio (USD)</label>
+                        <input type="number" class="form-input" id="h2_price" value="520">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Badge</label>
+                    <select class="form-select" id="h2_badge">
+                        <option value="Nuevo">Nuevo</option>
+                        <option value="Limited" selected>Limited</option>
+                        <option value="Permanente">Permanente</option>
+                        <option value="Bestseller">Bestseller</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Descripción</label>
+                    <textarea class="form-textarea" id="h2_desc">Cuero premium con acabados únicos. Diseño inspirado en el piloto clásico.</textarea>
+                </div>
+            </div>
+            
+            <div class="product-edit-card">
+                <div class="product-edit-header">
+                    <span class="product-edit-name">Weekender — Hombre</span>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label class="form-label">Nombre</label>
+                        <input type="text" class="form-input" id="h3_name" value="Weekender">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Precio (USD)</label>
+                        <input type="number" class="form-input" id="h3_price" value="480">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Badge</label>
+                    <select class="form-select" id="h3_badge">
+                        <option value="Nuevo" selected>Nuevo</option>
+                        <option value="Limited">Limited</option>
+                        <option value="Permanente">Permanente</option>
+                        <option value="Bestseller">Bestseller</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Descripción</label>
+                    <textarea class="form-textarea" id="h3_desc">Diseño para viajes cortos. Espacio funcional con estilo atemporal.</textarea>
+                </div>
+            </div>
+            
+            <div class="product-edit-card">
+                <div class="product-edit-header">
+                    <span class="product-edit-name">Wallet — Hombre</span>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label class="form-label">Nombre</label>
+                        <input type="text" class="form-input" id="h4_name" value="Wallet">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Precio (USD)</label>
+                        <input type="number" class="form-input" id="h4_price" value="180">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Badge</label>
+                    <select class="form-select" id="h4_badge">
+                        <option value="Nuevo">Nuevo</option>
+                        <option value="Limited">Limited</option>
+                        <option value="Permanente">Permanente</option>
+                        <option value="Bestseller" selected>Bestseller</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Descripción</label>
+                    <textarea class="form-textarea" id="h4_desc">Cuero premium con interior organizado. Diseño slim y funcional.</textarea>
+                </div>
+            </div>
+        </div>
+        
+        <!-- MUJER -->
+        <div id="panel-products-m" class="panel">
+            <h2 class="section-title">Productos Mujer</h2>
+            
+            <div class="product-edit-card">
+                <div class="product-edit-header">
+                    <span class="product-edit-name">Bomber Noir — Mujer</span>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label class="form-label">Nombre</label>
+                        <input type="text" class="form-input" id="m1_name" value="Bomber Noir">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Precio (USD)</label>
+                        <input type="number" class="form-input" id="m1_price" value="450">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Badge</label>
+                    <select class="form-select" id="m1_badge">
+                        <option value="Nuevo">Nuevo</option>
+                        <option value="Limited">Limited</option>
+                        <option value="Permanente" selected>Permanente</option>
+                        <option value="Bestseller">Bestseller</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Descripción</label>
+                    <textarea class="form-textarea" id="m1_desc">Cuero premium negro. Diseño minimalista con acabados discretos.</textarea>
+                </div>
+            </div>
+            
+            <div class="product-edit-card">
+                <div class="product-edit-header">
+                    <span class="product-edit-name">Shirt Jacket — Mujer</span>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label class="form-label">Nombre</label>
+                        <input type="text" class="form-input" id="m2_name" value="Shirt Jacket">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Precio (USD)</label>
+                        <input type="number" class="form-input" id="m2_price" value="380">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Badge</label>
+                    <select class="form-select" id="m2_badge">
+                        <option value="Nuevo" selected>Nuevo</option>
+                        <option value="Limited">Limited</option>
+                        <option value="Permanente">Permanente</option>
+                        <option value="Bestseller">Bestseller</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Descripción</label>
+                    <textarea class="form-textarea" id="m2_desc">Híbrido entre camisa y chamarra. Versatilidad premium.</textarea>
+                </div>
+            </div>
+            
+            <div class="product-edit-card">
+                <div class="product-edit-header">
+                    <span class="product-edit-name">Weekender — Mujer</span>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label class="form-label">Nombre</label>
+                        <input type="text" class="form-input" id="m3_name" value="Weekender">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Precio (USD)</label>
+                        <input type="number" class="form-input" id="m3_price" value="480">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Badge</label>
+                    <select class="form-select" id="m3_badge">
+                        <option value="Nuevo" selected>Nuevo</option>
+                        <option value="Limited">Limited</option>
+                        <option value="Permanente">Permanente</option>
+                        <option value="Bestseller">Bestseller</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Descripción</label>
+                    <textarea class="form-textarea" id="m3_desc">Diseño elegante para viajes cortos. Funcionalidad premium.</textarea>
+                </div>
+            </div>
+            
+            <div class="product-edit-card">
+                <div class="product-edit-header">
+                    <span class="product-edit-name">Wallet Matrix — Mujer</span>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label class="form-label">Nombre</label>
+                        <input type="text" class="form-input" id="m4_name" value="Wallet Matrix">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Precio (USD)</label>
+                        <input type="number" class="form-input" id="m4_price" value="200">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Badge</label>
+                    <select class="form-select" id="m4_badge">
+                        <option value="Nuevo">Nuevo</option>
+                        <option value="Limited" selected>Limited</option>
+                        <option value="Permanente">Permanente</option>
+                        <option value="Bestseller">Bestseller</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Descripción</label>
+                    <textarea class="form-textarea" id="m4_desc">Cuero tech-negro con interior organizado. Para la profesional moderna.</textarea>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="toast" id="toast">Cambios guardados</div>
+    
+    <script>
+        // Load saved data
+        window.addEventListener('load', () => {
+            const saved = localStorage.getItem('jois_content_data');
+            if (saved) {
+                const data = JSON.parse(saved);
+                Object.keys(data).forEach(id => {
+                    const el = document.getElementById(id);
+                    if (el) el.value = data[id];
+                });
+            }
+        });
+        
+        function showPanel(name) {
+            document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+            document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+            document.getElementById('panel-' + name).classList.add('active');
+            event.target.classList.add('active');
+        }
+        
+        function showToast(msg) {
+            const toast = document.getElementById('toast');
+            toast.textContent = msg;
+            toast.classList.add('show');
+            setTimeout(() => toast.classList.remove('show'), 3000);
+        }
+        
+        function saveAllChanges() {
+            const data = {};
+            document.querySelectorAll('.form-input, .form-textarea, .form-select').forEach(input => {
+                data[input.id] = input.value;
+            });
+            
+            // Save to localStorage
+            localStorage.setItem('jois_content_data', JSON.stringify(data));
+            
+            // Also save to JSON file for reference
+            localStorage.setItem('jois_products_json', JSON.stringify(buildProductsJSON(data)));
+            
+            showToast('¡Cambios guardados!');
+        }
+        
+        function buildProductsJSON(data) {
+            return {
+                brand: {
+                    name: data.brand_name || 'JOIS',
+                    tagline: data.brand_tagline || 'Maison de Cuir Contemporáneo',
+                    season: data.brand_season || 'Nueva Colección'
+                },
+                products: {
+                    hombre: [
+                        { id: 'h1', name: data.h1_name, price: data.h1_price, badge: data.h1_badge, description: data.h1_desc },
+                        { id: 'h2', name: data.h2_name, price: data.h2_price, badge: data.h2_badge, description: data.h2_desc },
+                        { id: 'h3', name: data.h3_name, price: data.h3_price, badge: data.h3_badge, description: data.h3_desc },
+                        { id: 'h4', name: data.h4_name, price: data.h4_price, badge: data.h4_badge, description: data.h4_desc }
+                    ],
+                    mujer: [
+                        { id: 'm1', name: data.m1_name, price: data.m1_price, badge: data.m1_badge, description: data.m1_desc },
+                        { id: 'm2', name: data.m2_name, price: data.m2_price, badge: data.m2_badge, description: data.m2_desc },
+                        { id: 'm3', name: data.m3_name, price: data.m3_price, badge: data.m3_badge, description: data.m3_desc },
+                        { id: 'm4', name: data.m4_name, price: data.m4_price, badge: data.m4_badge, description: data.m4_desc }
+                    ]
+                }
+            };
+        }
+        
+        function previewSite() {
+            window.open('../index.html', '_blank');
+        }
+        
+        // Auto-save on change
+        document.addEventListener('input', () => {
+            clearTimeout(window.autoSaveTimer);
+            window.autoSaveTimer = setTimeout(saveAllChanges, 2000);
+        });
+    </script>
+</body>
+</html>
