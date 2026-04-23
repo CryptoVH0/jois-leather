@@ -939,7 +939,7 @@
                 </a>
                 <div class="product-info">
                     <span class="product-name">shirt jacket</span>
-                    <span class="product-price">$380 USD</span>
+                    <span class="product-price">$6,650 MXN</span>
                     <button class="btn-add-grid" onclick="addToCart('Shirt Jacket - M', 380, 'https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=400&q=80', 'M')">+ Añadir</button>
                 </div>
             </div>
@@ -951,7 +951,7 @@
                 </a>
                 <div class="product-info">
                     <span class="product-name">bomber</span>
-                    <span class="product-price">$520 USD</span>
+                    <span class="product-price">$9,100 MXN</span>
                     <button class="btn-add-grid" onclick="addToCart('Bomber - M', 520, 'https://images.unsplash.com/photo-1551028719-00167b16eac5?w=400&q=80', 'M')">+ Añadir</button>
                 </div>
             </div>
@@ -963,7 +963,7 @@
                 </a>
                 <div class="product-info">
                     <span class="product-name">weekender</span>
-                    <span class="product-price">$480 USD</span>
+                    <span class="product-price">$8,400 MXN</span>
                     <button class="btn-add-grid" onclick="addToCart('Weekender - M', 480, 'https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=400&q=80', 'M')">+ Añadir</button>
                 </div>
             </div>
@@ -975,7 +975,7 @@
                 </a>
                 <div class="product-info">
                     <span class="product-name">wallet</span>
-                    <span class="product-price">$180 USD</span>
+                    <span class="product-price">$3,150 MXN</span>
                     <button class="btn-add-grid" onclick="addToCart('Wallet - M', 180, 'https://images.unsplash.com/photo-1627123424574-724758594e93?w=400&q=80', 'M')">+ Añadir</button>
                 </div>
             </div>
@@ -1002,7 +1002,7 @@
                 </a>
                 <div class="product-info">
                     <span class="product-name">bomber noir</span>
-                    <span class="product-price">$450 USD</span>
+                    <span class="product-price">$7,875 MXN</span>
                     <button class="btn-add-grid" onclick="addToCart('Bomber Noir - M', 450, 'https://images.unsplash.com/photo-1539533018447-63fcce2678e3?w=400&q=80', 'M')">+ Añadir</button>
                 </div>
             </div>
@@ -1014,7 +1014,7 @@
                 </a>
                 <div class="product-info">
                     <span class="product-name">shirt jacket</span>
-                    <span class="product-price">$380 USD</span>
+                    <span class="product-price">$6,650 MXN</span>
                     <button class="btn-add-grid" onclick="addToCart('Shirt Jacket - M', 380, 'https://images.unsplash.com/photo-1594938298603-c8148c4dae35?w=400&q=80', 'M')">+ Añadir</button>
                 </div>
             </div>
@@ -1026,7 +1026,7 @@
                 </a>
                 <div class="product-info">
                     <span class="product-name">weekender</span>
-                    <span class="product-price">$480 USD</span>
+                    <span class="product-price">$8,400 MXN</span>
                     <button class="btn-add-grid" onclick="addToCart('Weekender - M', 480, 'https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=400&q=80', 'M')">+ Añadir</button>
                 </div>
             </div>
@@ -1038,7 +1038,7 @@
                 </a>
                 <div class="product-info">
                     <span class="product-name">wallet matrix</span>
-                    <span class="product-price">$200 USD</span>
+                    <span class="product-price">$3,500 MXN</span>
                     <button class="btn-add-grid" onclick="addToCart('Wallet Matrix - M', 200, 'https://images.unsplash.com/photo-1601924994987-69e26d50dc26?w=400&q=80', 'M')">+ Añadir</button>
                 </div>
             </div>
@@ -1331,44 +1331,52 @@
                 // Update Hombre products
                 if (data.h1_name) {
                     document.querySelectorAll('[data-product="h1"] .product-name').forEach(el => el.textContent = data.h1_name.toLowerCase());
-                    document.querySelectorAll('[data-product="h1"] .product-price').forEach(el => el.textContent = '$' + data.h1_price + ' USD');
+                    const mxn1 = Math.round(data.h1_price * 17.50);
+                    document.querySelectorAll('[data-product="h1"] .product-price').forEach(el => el.textContent = '$' + mxn1.toLocaleString('es-MX') + ' MXN');
                     document.querySelectorAll('[data-product="h1"] .btn-add-grid').forEach(el => el.setAttribute('onclick', "addToCart('" + data.h1_name + " - M', " + data.h1_price + ", '', 'M')"));
                 }
                 if (data.h2_name) {
                     document.querySelectorAll('[data-product="h2"] .product-name').forEach(el => el.textContent = data.h2_name.toLowerCase());
-                    document.querySelectorAll('[data-product="h2"] .product-price').forEach(el => el.textContent = '$' + data.h2_price + ' USD');
+                    const mxn2 = Math.round(data.h2_price * 17.50);
+                    document.querySelectorAll('[data-product="h2"] .product-price').forEach(el => el.textContent = '$' + mxn2.toLocaleString('es-MX') + ' MXN');
                     document.querySelectorAll('[data-product="h2"] .btn-add-grid').forEach(el => el.setAttribute('onclick', "addToCart('" + data.h2_name + " - M', " + data.h2_price + ", '', 'M')"));
                 }
                 if (data.h3_name) {
                     document.querySelectorAll('[data-product="h3"] .product-name').forEach(el => el.textContent = data.h3_name.toLowerCase());
-                    document.querySelectorAll('[data-product="h3"] .product-price').forEach(el => el.textContent = '$' + data.h3_price + ' USD');
+                    const mxn3 = Math.round(data.h3_price * 17.50);
+                    document.querySelectorAll('[data-product="h3"] .product-price').forEach(el => el.textContent = '$' + mxn3.toLocaleString('es-MX') + ' MXN');
                     document.querySelectorAll('[data-product="h3"] .btn-add-grid').forEach(el => el.setAttribute('onclick', "addToCart('" + data.h3_name + " - M', " + data.h3_price + ", '', 'M')"));
                 }
                 if (data.h4_name) {
                     document.querySelectorAll('[data-product="h4"] .product-name').forEach(el => el.textContent = data.h4_name.toLowerCase());
-                    document.querySelectorAll('[data-product="h4"] .product-price').forEach(el => el.textContent = '$' + data.h4_price + ' USD');
+                    const mxn4 = Math.round(data.h4_price * 17.50);
+                    document.querySelectorAll('[data-product="h4"] .product-price').forEach(el => el.textContent = '$' + mxn4.toLocaleString('es-MX') + ' MXN');
                     document.querySelectorAll('[data-product="h4"] .btn-add-grid').forEach(el => el.setAttribute('onclick', "addToCart('" + data.h4_name + " - M', " + data.h4_price + ", '', 'M')"));
                 }
                 
                 // Update Mujer products
                 if (data.m1_name) {
                     document.querySelectorAll('[data-product="m1"] .product-name').forEach(el => el.textContent = data.m1_name.toLowerCase());
-                    document.querySelectorAll('[data-product="m1"] .product-price').forEach(el => el.textContent = '$' + data.m1_price + ' USD');
+                    const mnxm1 = Math.round(data.m1_price * 17.50);
+                    document.querySelectorAll('[data-product="m1"] .product-price').forEach(el => el.textContent = '$' + mnxm1.toLocaleString('es-MX') + ' MXN');
                     document.querySelectorAll('[data-product="m1"] .btn-add-grid').forEach(el => el.setAttribute('onclick', "addToCart('" + data.m1_name + " - M', " + data.m1_price + ", '', 'M')"));
                 }
                 if (data.m2_name) {
                     document.querySelectorAll('[data-product="m2"] .product-name').forEach(el => el.textContent = data.m2_name.toLowerCase());
-                    document.querySelectorAll('[data-product="m2"] .product-price').forEach(el => el.textContent = '$' + data.m2_price + ' USD');
+                    const mnxm2 = Math.round(data.m2_price * 17.50);
+                    document.querySelectorAll('[data-product="m2"] .product-price').forEach(el => el.textContent = '$' + mnxm2.toLocaleString('es-MX') + ' MXN');
                     document.querySelectorAll('[data-product="m2"] .btn-add-grid').forEach(el => el.setAttribute('onclick', "addToCart('" + data.m2_name + " - M', " + data.m2_price + ", '', 'M')"));
                 }
                 if (data.m3_name) {
                     document.querySelectorAll('[data-product="m3"] .product-name').forEach(el => el.textContent = data.m3_name.toLowerCase());
-                    document.querySelectorAll('[data-product="m3"] .product-price').forEach(el => el.textContent = '$' + data.m3_price + ' USD');
+                    const mnxm3 = Math.round(data.m3_price * 17.50);
+                    document.querySelectorAll('[data-product="m3"] .product-price').forEach(el => el.textContent = '$' + mnxm3.toLocaleString('es-MX') + ' MXN');
                     document.querySelectorAll('[data-product="m3"] .btn-add-grid').forEach(el => el.setAttribute('onclick', "addToCart('" + data.m3_name + " - M', " + data.m3_price + ", '', 'M')"));
                 }
                 if (data.m4_name) {
                     document.querySelectorAll('[data-product="m4"] .product-name').forEach(el => el.textContent = data.m4_name.toLowerCase());
-                    document.querySelectorAll('[data-product="m4"] .product-price').forEach(el => el.textContent = '$' + data.m4_price + ' USD');
+                    const mnxm4 = Math.round(data.m4_price * 17.50);
+                    document.querySelectorAll('[data-product="m4"] .product-price').forEach(el => el.textContent = '$' + mnxm4.toLocaleString('es-MX') + ' MXN');
                     document.querySelectorAll('[data-product="m4"] .btn-add-grid').forEach(el => el.setAttribute('onclick', "addToCart('" + data.m4_name + " - M', " + data.m4_price + ", '', 'M')"));
                 }
                 
