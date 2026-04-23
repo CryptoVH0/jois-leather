@@ -513,9 +513,10 @@
                 </div>
             </div>
             
-            <div class="cart-actions">
-                <button class="btn-checkout-crypto" id="btnCryptoCheckout" onclick="checkoutCrypto()" style="background: #C4A35A; color: #0A0A0A; font-size: 12px; padding: 20px; width: 100%;">
-                    <span id="cryptoBtnText">Pagar con BTC</span>
+            <div class="cart-actions" style="display: flex; flex-direction: column; gap: 12px;">
+                <button class="btn-checkout" onclick="checkoutStripe()">Pagar con Tarjeta</button>
+                <button class="btn-checkout-crypto" id="btnCryptoCheckout" onclick="checkoutCrypto()" style="background: #C4A35A; color: #0A0A0A; font-size: 12px; padding: 20px;">
+                    PAGAR CON CRYPTO
                 </button>
             </div>
         </div>
