@@ -13,10 +13,13 @@
     --gray: #E8E8E8;
     --gray-dark: #999999;
     --black: #0A0A0A;
-    --wine: #722F37;
-    --wine-dark: #4A1F24;
-    --wine-light: #8B3A42;
-    --gold: #B8860B;
+    --beige: #C4A35A;
+    --beige-dark: #A68B3D;
+    --beige-light: #D4C4A0;
+    --wine: #0A0A0A;
+    --wine-dark: #1A1A1A;
+    --wine-light: #3A3A3A;
+    --gold: #0A0A0A;
     --text-dark: #0A0A0A;
     --text-muted: #6B6B6B;
     --text-light: #999999;
@@ -116,7 +119,7 @@ button {
 }
 
 .nav-link:hover {
-    color: var(--wine);
+    color: var(--beige);
 }
 
 .nav-icon-btn {
@@ -139,7 +142,7 @@ button {
     right: 2px;
     width: 16px;
     height: 16px;
-    background: var(--wine);
+    background: var(--beige);
     color: var(--white);
     font-size: 9px;
     font-family: var(--font-mono);
@@ -206,7 +209,7 @@ button {
     font-size: 10px;
     letter-spacing: 0.4em;
     text-transform: uppercase;
-    color: var(--gold);
+    color: var(--black);
     display: block;
     margin-bottom: 25px;
 }
@@ -371,7 +374,7 @@ button {
     font-family: var(--font-display);
     font-size: 64px;
     font-weight: 400;
-    color: var(--wine);
+    color: var(--beige);
     opacity: 0.3;
     line-height: 1;
 }
@@ -454,7 +457,7 @@ button {
     font-size: 9px;
     letter-spacing: 0.15em;
     text-transform: uppercase;
-    background: var(--wine);
+    background: var(--beige);
     color: var(--white);
 }
 
@@ -587,7 +590,7 @@ button {
 .value-num {
     font-family: var(--font-mono);
     font-size: 11px;
-    color: var(--wine);
+    color: var(--beige);
 }
 
 .value-text {
@@ -633,7 +636,7 @@ button {
 }
 
 .btn-nft:hover {
-    background: var(--wine);
+    background: var(--beige);
     color: var(--white);
 }
 
@@ -691,8 +694,8 @@ button {
 }
 
 .btn-contact:hover {
-    color: var(--wine);
-    border-color: var(--wine);
+    color: var(--beige);
+    border-color: var(--beige);
 }
 
 /* ============================================
@@ -749,7 +752,7 @@ button {
 }
 
 .footer-socials a:hover {
-    border-color: var(--wine);
+    border-color: var(--beige);
 }
 
 .footer-nav {
@@ -775,7 +778,7 @@ button {
 }
 
 .footer-col a:hover {
-    color: var(--wine);
+    color: var(--beige);
 }
 
 .footer-col span {
@@ -845,7 +848,7 @@ button {
 }
 
 .cart-close:hover {
-    color: var(--wine);
+    color: var(--beige);
 }
 
 .cart-items {
@@ -909,7 +912,7 @@ button {
 }
 
 .cart-item-remove:hover {
-    color: var(--wine);
+    color: var(--beige);
 }
 
 .cart-footer {
@@ -954,7 +957,7 @@ button {
 }
 
 .btn-checkout:hover {
-    background: var(--wine);
+    background: var(--beige);
 }
 
 .btn-checkout-crypto {
