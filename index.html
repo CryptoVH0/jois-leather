@@ -388,8 +388,8 @@
         .product-info {
             padding: 20px;
             display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
+            flex-direction: column;
+            gap: 12px;
         }
         
         .product-name {
@@ -401,6 +401,24 @@
         .product-price {
             font-family: var(--font-mono);
             font-size: 13px;
+        }
+        
+        .btn-add-grid {
+            padding: 10px 15px;
+            font-size: 10px;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            background: var(--black);
+            color: var(--white);
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin-top: 5px;
+        }
+        
+        .btn-add-grid:hover {
+            background: var(--beige);
+            color: var(--black);
         }
         
         /* ============================================
@@ -908,46 +926,50 @@
         
         <div class="products-grid">
             <div class="product-card">
-                <div class="product-image">
-                    <img src="assets/images/shirt-jacket-hombre.png" alt="Shirt Jacket Negro" onerror="this.src='https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=600&q=80'">
+                <a href="product.html" class="product-image">
+                    <img src="assets/images/shirt-jacket-hombre.png" alt="Shirt Jacket" onerror="this.src='https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=600&q=80'">
                     <span class="product-badge">Nuevo</span>
-                </div>
+                </a>
                 <div class="product-info">
                     <span class="product-name">shirt jacket</span>
                     <span class="product-price">$380 USD</span>
+                    <button class="btn-add-grid" onclick="addToCart('Shirt Jacket - M', 380, 'https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=400&q=80', 'M')">+ Añadir</button>
                 </div>
             </div>
             
             <div class="product-card">
-                <div class="product-image">
-                    <img src="assets/images/bomber-hombre.png" alt="Bomber Cafe" onerror="this.src='https://images.unsplash.com/photo-1551028719-00167b16eac5?w=600&q=80'">
+                <a href="product.html" class="product-image">
+                    <img src="assets/images/bomber-hombre.png" alt="Bomber" onerror="this.src='https://images.unsplash.com/photo-1551028719-00167b16eac5?w=600&q=80'">
                     <span class="product-badge">Limited</span>
-                </div>
+                </a>
                 <div class="product-info">
                     <span class="product-name">bomber</span>
                     <span class="product-price">$520 USD</span>
+                    <button class="btn-add-grid" onclick="addToCart('Bomber - M', 520, 'https://images.unsplash.com/photo-1551028719-00167b16eac5?w=400&q=80', 'M')">+ Añadir</button>
                 </div>
             </div>
             
             <div class="product-card">
-                <div class="product-image">
-                    <img src="assets/images/weekender-hombre.png" alt="Weekender Bag" onerror="this.src='https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=600&q=80'">
+                <a href="product.html" class="product-image">
+                    <img src="assets/images/weekender-hombre.png" alt="Weekender" onerror="this.src='https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=600&q=80'">
                     <span class="product-badge">Nuevo</span>
-                </div>
+                </a>
                 <div class="product-info">
                     <span class="product-name">weekender</span>
                     <span class="product-price">$480 USD</span>
+                    <button class="btn-add-grid" onclick="addToCart('Weekender - M', 480, 'https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=400&q=80', 'M')">+ Añadir</button>
                 </div>
             </div>
             
             <div class="product-card">
-                <div class="product-image">
-                    <img src="assets/images/wallet-hombre.png" alt="Wallet Noir" onerror="this.src='https://images.unsplash.com/photo-1627123424574-724758594e93?w=600&q=80'">
+                <a href="product.html" class="product-image">
+                    <img src="assets/images/wallet-hombre.png" alt="Wallet" onerror="this.src='https://images.unsplash.com/photo-1627123424574-724758594e93?w=600&q=80'">
                     <span class="product-badge">Bestseller</span>
-                </div>
+                </a>
                 <div class="product-info">
                     <span class="product-name">wallet</span>
                     <span class="product-price">$180 USD</span>
+                    <button class="btn-add-grid" onclick="addToCart('Wallet - M', 180, 'https://images.unsplash.com/photo-1627123424574-724758594e93?w=400&q=80', 'M')">+ Añadir</button>
                 </div>
             </div>
         </div>
@@ -967,46 +989,50 @@
         
         <div class="products-grid">
             <div class="product-card">
-                <div class="product-image">
-                    <img src="assets/images/bomber-mujer.png" alt="Bomber Negro" onerror="this.src='https://images.unsplash.com/photo-1539533018447-63fcce2678e3?w=600&q=80'">
+                <a href="product.html" class="product-image">
+                    <img src="assets/images/bomber-mujer.png" alt="Bomber" onerror="this.src='https://images.unsplash.com/photo-1539533018447-63fcce2678e3?w=600&q=80'">
                     <span class="product-badge">Permanente</span>
-                </div>
+                </a>
                 <div class="product-info">
                     <span class="product-name">bomber noir</span>
                     <span class="product-price">$450 USD</span>
+                    <button class="btn-add-grid" onclick="addToCart('Bomber Noir - M', 450, 'https://images.unsplash.com/photo-1539533018447-63fcce2678e3?w=400&q=80', 'M')">+ Añadir</button>
                 </div>
             </div>
             
             <div class="product-card">
-                <div class="product-image">
+                <a href="product.html" class="product-image">
                     <img src="assets/images/shirt-jacket-mujer.png" alt="Shirt Jacket" onerror="this.src='https://images.unsplash.com/photo-1594938298603-c8148c4dae35?w=600&q=80'">
                     <span class="product-badge">Nuevo</span>
-                </div>
+                </a>
                 <div class="product-info">
                     <span class="product-name">shirt jacket</span>
                     <span class="product-price">$380 USD</span>
+                    <button class="btn-add-grid" onclick="addToCart('Shirt Jacket - M', 380, 'https://images.unsplash.com/photo-1594938298603-c8148c4dae35?w=400&q=80', 'M')">+ Añadir</button>
                 </div>
             </div>
             
             <div class="product-card">
-                <div class="product-image">
+                <a href="product.html" class="product-image">
                     <img src="assets/images/weekender-mujer.png" alt="Weekender" onerror="this.src='https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=600&q=80'">
                     <span class="product-badge">Nuevo</span>
-                </div>
+                </a>
                 <div class="product-info">
                     <span class="product-name">weekender</span>
                     <span class="product-price">$480 USD</span>
+                    <button class="btn-add-grid" onclick="addToCart('Weekender - M', 480, 'https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=400&q=80', 'M')">+ Añadir</button>
                 </div>
             </div>
             
             <div class="product-card">
-                <div class="product-image">
-                    <img src="assets/images/wallet-mujer.png" alt="Wallet Matrix" onerror="this.src='https://images.unsplash.com/photo-1601924994987-69e26d50dc26?w=600&q=80'">
+                <a href="product.html" class="product-image">
+                    <img src="assets/images/wallet-mujer.png" alt="Wallet" onerror="this.src='https://images.unsplash.com/photo-1601924994987-69e26d50dc26?w=600&q=80'">
                     <span class="product-badge">Limited</span>
-                </div>
+                </a>
                 <div class="product-info">
                     <span class="product-name">wallet matrix</span>
                     <span class="product-price">$200 USD</span>
+                    <button class="btn-add-grid" onclick="addToCart('Wallet Matrix - M', 200, 'https://images.unsplash.com/photo-1601924994987-69e26d50dc26?w=400&q=80', 'M')">+ Añadir</button>
                 </div>
             </div>
         </div>
@@ -1169,14 +1195,51 @@
         <div class="cart-footer">
             <div class="cart-total">
                 <span>Total</span>
-                <span class="total-usd" id="cartTotal">$0 USD</span>
+                <div>
+                    <span class="total-usd" id="cartTotal">$0 USD</span>
+                    <span class="total-crypto" id="cartTotalCrypto" style="display: block; font-size: 12px; color: var(--beige); margin-top: 4px;"></span>
+                </div>
             </div>
+            
+            <!-- Crypto Selector -->
+            <div style="margin-bottom: 20px; padding: 15px; background: var(--gray-light);">
+                <span style="font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); display: block; margin-bottom: 10px;">Pagar con Crypto</span>
+                <div id="cryptoSelector" style="display: flex; flex-wrap: wrap; gap: 8px;">
+                    <button class="crypto-btn" onclick="selectCryptoInCart('BTC')" data-crypto="BTC">BTC</button>
+                    <button class="crypto-btn" onclick="selectCryptoInCart('ETH')" data-crypto="ETH">ETH</button>
+                    <button class="crypto-btn" onclick="selectCryptoInCart('USDT')" data-crypto="USDT">USDT</button>
+                    <button class="crypto-btn" onclick="selectCryptoInCart('USDC')" data-crypto="USDC">USDC</button>
+                    <button class="crypto-btn" onclick="selectCryptoInCart('LTC')" data-crypto="LTC">LTC</button>
+                    <button class="crypto-btn" onclick="selectCryptoInCart('XRP')" data-crypto="XRP">XRP</button>
+                </div>
+            </div>
+            
             <div class="cart-actions">
                 <button class="btn-checkout" onclick="checkoutStripe()">Pagar con Tarjeta</button>
-                <button class="btn-checkout-crypto" onclick="checkoutCrypto()">Pagar con Crypto</button>
+                <button class="btn-checkout-crypto" onclick="checkoutCrypto()">Pagar con <span id="cryptoBtnText">BTC</span></button>
             </div>
         </div>
     </div>
+    
+    <style>
+        .crypto-btn {
+            padding: 8px 14px;
+            font-size: 11px;
+            font-family: var(--font-mono);
+            background: var(--white);
+            border: 1px solid var(--gray);
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        .crypto-btn:hover {
+            border-color: var(--beige);
+        }
+        .crypto-btn.selected {
+            background: var(--black);
+            color: var(--white);
+            border-color: var(--black);
+        }
+    </style>
     
     <script src="app.js"></script>
 </body>
