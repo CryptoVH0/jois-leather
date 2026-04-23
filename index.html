@@ -411,6 +411,7 @@
             background: var(--black);
             color: var(--white);
             border: none;
+            border-radius: 8px;
             cursor: pointer;
             transition: all 0.3s;
             margin-top: 5px;
@@ -1202,8 +1203,8 @@
             </div>
             
             <div class="cart-actions" style="display: flex; flex-direction: column; gap: 12px;">
-                <button class="btn-checkout" onclick="checkoutStripe()">Pagar con Tarjeta</button>
-                <button class="btn-checkout-crypto" onclick="checkoutCrypto()" style="background: var(--beige); color: var(--black); font-size: 12px; padding: 20px;">
+                <button class="btn-checkout" onclick="checkoutStripe()" style="border-radius: 8px;">Pagar con Tarjeta</button>
+                <button class="btn-checkout-crypto" onclick="checkoutCrypto()" style="background: var(--beige); color: var(--black); font-size: 12px; padding: 20px; border-radius: 8px;">
                     PAGAR CON CRYPTO
                 </button>
             </div>
