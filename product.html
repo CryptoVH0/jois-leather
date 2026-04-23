@@ -500,19 +500,6 @@
                 </div>
             </div>
             
-            <!-- Crypto Selector -->
-            <div style="margin-bottom: 20px; padding: 20px; background: #0A0A0A;">
-                <span style="font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; color: #C4A35A; display: block; margin-bottom: 12px;">Selecciona Crypto para Pagar</span>
-                <div id="cryptoSelector" style="display: flex; flex-wrap: wrap; gap: 8px;">
-                    <button class="crypto-btn selected" onclick="selectCryptoInCart('BTC')" data-crypto="BTC">BTC ₿</button>
-                    <button class="crypto-btn" onclick="selectCryptoInCart('ETH')" data-crypto="ETH">ETH Ξ</button>
-                    <button class="crypto-btn" onclick="selectCryptoInCart('USDT')" data-crypto="USDT">USDT ₮</button>
-                    <button class="crypto-btn" onclick="selectCryptoInCart('USDC')" data-crypto="USDC">USDC $</button>
-                    <button class="crypto-btn" onclick="selectCryptoInCart('LTC')" data-crypto="LTC">LTC Ł</button>
-                    <button class="crypto-btn" onclick="selectCryptoInCart('XRP')" data-crypto="XRP">XRP ✕</button>
-                </div>
-            </div>
-            
             <div class="cart-actions" style="display: flex; flex-direction: column; gap: 12px;">
                 <button class="btn-checkout" onclick="checkoutStripe()">Pagar con Tarjeta</button>
                 <button class="btn-checkout-crypto" id="btnCryptoCheckout" onclick="checkoutCrypto()" style="background: #C4A35A; color: #0A0A0A; font-size: 12px; padding: 20px;">
