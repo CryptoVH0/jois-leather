@@ -37,7 +37,7 @@
             --text-dark: #FFFFFF;
             --text-muted: #B0B0B0;
             --text-light: #B0B0B0;
-            --green-matrix: #00FF00;
+            --green-matrix: var(--gold);
             
             --font-display: 'Menlo', 'Monaco', 'Courier New', monospace;
             --font-body: 'Menlo', 'Monaco', 'Courier New', monospace;
@@ -462,7 +462,7 @@
             width: 100%;
             padding: 5px 20px;
             background: #0A0A0A;
-            color: var(--green-matrix);
+            color: var(--gold);
             font-family: var(--font-mono);
             font-size: 9px;
             letter-spacing: 2px;
@@ -479,11 +479,11 @@
             font-size: 10px;
             letter-spacing: 4px;
             text-transform: uppercase;
-            color: var(--green-matrix);
+            color: var(--gold);
             white-space: nowrap;
             padding: 0 50px;
             font-family: var(--font-mono);
-            text-shadow: 0 0 10px var(--green-matrix);
+            text-shadow: 0 0 10px var(--gold);
         }
         
         .marquee-item.gold {
@@ -835,8 +835,8 @@
             font-family: var(--font-mono);
             font-size: 9px;
             letter-spacing: 2px;
-            color: var(--green-matrix);
-            text-shadow: 0 0 10px var(--green-matrix);
+            color: var(--gold);
+            text-shadow: 0 0 10px var(--gold);
         }
         
         .editorial-label {
@@ -966,11 +966,11 @@
             display: block;
             padding: 15px 40px;
             background: #1A1A1A;
-            color: var(--green-matrix);
+            color: var(--gold);
             font-size: 10px;
             letter-spacing: 2px;
             border-bottom: 1px solid var(--cement);
-            text-shadow: 0 0 10px var(--green-matrix);
+            text-shadow: 0 0 10px var(--gold);
         }
         
         .footer-inner {
@@ -1054,10 +1054,10 @@
         
         .footer-col li::before {
             content: '→ ';
-            color: var(--green-matrix);
+            color: var(--gold);
             position: absolute;
             left: 0;
-            text-shadow: 0 0 10px var(--green-matrix);
+            text-shadow: 0 0 10px var(--gold);
         }
         
         .footer-col a {
@@ -1105,7 +1105,7 @@
             left: 0;
             width: 100%;
             height: 5px;
-            background: linear-gradient(90deg, var(--beige), var(--green-matrix), var(--beige));
+            background: linear-gradient(90deg, var(--beige), var(--gold), var(--beige));
             z-index: 9999;
             transform: scaleX(0);
             transform-origin: left;
