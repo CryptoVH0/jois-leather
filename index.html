@@ -17,25 +17,27 @@
     
     <style>
         /* ============================================
-           JOIS HOME - Editorial Luxury Design
+           JOIS HOME - Cyberpunk Fashion Aesthetic
            ============================================ */
         
         :root {
             --white: #FFFFFF;
             --off-white: #FAFAFA;
-            --gray-light: #F5F5F5;
-            --gray: #E8E8E8;
-            --gray-dark: #999999;
+            --gray-light: #4A4A4A;
+            --gray: #363636;
+            --gray-dark: #363636;
             --black: #0A0A0A;
+            --black-light: #1A1A1A;
             --beige: #C4A35A;
             --beige-dark: #A68B3D;
             --beige-light: #D4C4A0;
-            --text-dark: #0A0A0A;
-            --text-muted: #6B6B6B;
-            --text-light: #999999;
+            --cement: #363636;
+            --text-dark: #FFFFFF;
+            --text-muted: #B0B0B0;
+            --text-light: #B0B0B0;
             
-            --font-display: 'Times New Roman', Georgia, serif;
-            --font-body: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            --font-display: 'Menlo', 'Monaco', 'Courier New', monospace;
+            --font-body: 'Menlo', 'Monaco', 'Courier New', monospace;
             --font-mono: 'Menlo', 'Monaco', 'Courier New', monospace;
             
             --transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
@@ -55,7 +57,7 @@
         
         body {
             font-family: var(--font-body);
-            background: var(--white);
+            background: var(--black);
             color: var(--text-dark);
             line-height: 1.6;
             -webkit-font-smoothing: antialiased;
@@ -74,7 +76,7 @@
         }
         
         /* ============================================
-           TOP BAR
+           TOP BAR - CYBERPUNK
            ============================================ */
         .top-bar {
             background: var(--black);
@@ -86,6 +88,7 @@
             font-size: 10px;
             letter-spacing: 0.15em;
             text-transform: uppercase;
+            border-bottom: 1px solid var(--cement);
         }
         
         .top-bar-left span,
@@ -93,15 +96,21 @@
             color: rgba(255,255,255,0.5);
         }
         
+        .top-bar-center span {
+            color: var(--beige);
+            text-shadow: 0 0 10px rgba(196, 163, 90, 0.5);
+        }
+        
         /* ============================================
-           NAVIGATION
+           NAVIGATION - CYBERPUNK
            ============================================ */
         .nav-main {
             position: sticky;
             top: 0;
-            background: var(--white);
+            background: rgba(10, 10, 10, 0.98);
+            backdrop-filter: blur(20px);
             z-index: 1000;
-            border-bottom: 1px solid var(--gray);
+            border-bottom: 1px solid var(--cement);
         }
         
         .nav-inner {
@@ -127,10 +136,12 @@
             align-items: center;
             justify-content: center;
             transition: var(--transition-fast);
+            color: var(--text-muted);
         }
         
         .nav-icon:hover {
-            opacity: 0.5;
+            color: var(--beige);
+            text-shadow: 0 0 15px rgba(196, 163, 90, 0.5);
         }
         
         .nav-icon svg {
@@ -139,11 +150,11 @@
         }
         
         .logo {
-            font-family: var(--font-display);
+            font-family: var(--font-mono);
             font-size: 32px;
-            font-weight: 400;
+            font-weight: 700;
             letter-spacing: 0.4em;
-            color: var(--text-dark);
+            color: var(--white);
         }
         
         .nav-links {
@@ -155,9 +166,10 @@
             font-size: 11px;
             letter-spacing: 0.15em;
             text-transform: uppercase;
-            color: var(--text-dark);
+            color: var(--text-muted);
             transition: var(--transition-fast);
             position: relative;
+            font-family: var(--font-mono);
         }
         
         .nav-link::after {
@@ -168,7 +180,13 @@
             width: 0;
             height: 1px;
             background: var(--beige);
+            box-shadow: 0 0 10px rgba(196, 163, 90, 0.5);
             transition: var(--transition);
+        }
+        
+        .nav-link:hover {
+            color: var(--beige);
+            text-shadow: 0 0 10px rgba(196, 163, 90, 0.3);
         }
         
         .nav-link:hover::after {
@@ -176,14 +194,29 @@
         }
         
         /* ============================================
-           HERO SECTION
+           HERO SECTION - CYBERPUNK
            ============================================ */
         .hero {
             position: relative;
             height: 85vh;
             min-height: 600px;
-            background: var(--gray-light);
+            background: var(--black);
             overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(rgba(196, 163, 90, 0.02) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(196, 163, 90, 0.02) 1px, transparent 1px);
+            background-size: 80px 80px;
+            pointer-events: none;
+            z-index: 1;
         }
         
         .hero-content {
@@ -210,15 +243,20 @@
             text-transform: uppercase;
             color: var(--beige);
             margin-bottom: 25px;
+            font-family: var(--font-mono);
+            text-shadow: 0 0 20px rgba(196, 163, 90, 0.5);
         }
         
         .hero-title {
-            font-family: var(--font-display);
+            font-family: var(--font-mono);
             font-size: clamp(60px, 10vw, 120px);
-            font-weight: 400;
+            font-weight: 700;
             letter-spacing: 0.1em;
             line-height: 0.95;
             margin-bottom: 30px;
+            text-transform: uppercase;
+            color: var(--white);
+            text-shadow: 0 0 30px rgba(255, 255, 255, 0.2);
         }
         
         .hero-subtitle {
@@ -227,6 +265,7 @@
             text-transform: uppercase;
             color: var(--text-muted);
             margin-bottom: 40px;
+            font-family: var(--font-mono);
         }
         
         .hero-cta {
@@ -234,25 +273,31 @@
             align-items: center;
             gap: 15px;
             padding: 16px 35px;
-            background: var(--black);
+            background: transparent;
             color: var(--white);
             font-size: 11px;
             letter-spacing: 0.2em;
             text-transform: uppercase;
+            border: 1px solid var(--beige);
             transition: var(--transition-fast);
             width: fit-content;
+            font-family: var(--font-mono);
         }
         
         .hero-cta:hover {
             background: var(--beige);
+            color: var(--black);
+            box-shadow: 0 0 30px rgba(196, 163, 90, 0.5);
         }
         
         .hero-image {
             position: relative;
             overflow: hidden;
+            border-left: 1px solid var(--cement);
         }
         
-        .hero-image img {
+        .hero-image img,
+        .hero-image video {
             width: 100%;
             height: 100%;
             object-fit: cover;
@@ -264,7 +309,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.3) 100%);
+            background: linear-gradient(to right, rgba(10,10,10,0) 0%, rgba(10,10,10,0.5) 100%);
         }
         
         .video-control {
@@ -273,23 +318,24 @@
             right: 20px;
             width: 44px;
             height: 44px;
-            background: rgba(255,255,255,0.9);
-            border: none;
-            border-radius: 50%;
+            background: rgba(10, 10, 10, 0.9);
+            border: 1px solid var(--beige);
             cursor: pointer;
             display: flex;
             align-items: center;
             justify-content: center;
             transition: all 0.3s;
             z-index: 10;
+            color: var(--beige);
         }
+        
         .video-control:hover {
-            background: #fff;
-            transform: scale(1.1);
+            background: var(--beige);
+            color: var(--black);
         }
         
         /* ============================================
-           MARQUEE
+           MARQUEE - CYBERPUNK
            ============================================ */
         .marquee {
             background: var(--beige);
@@ -309,6 +355,8 @@
             color: var(--black);
             white-space: nowrap;
             padding: 0 40px;
+            font-family: var(--font-mono);
+            font-weight: 600;
         }
         
         @keyframes marquee {
@@ -317,12 +365,13 @@
         }
         
         /* ============================================
-           READY TO WEAR SECTION
+           READY TO WEAR SECTION - CYBERPUNK
            ============================================ */
         .section {
             padding: 100px 40px;
             max-width: 1400px;
             margin: 0 auto;
+            background: var(--black);
         }
         
         .section-header {
@@ -330,14 +379,18 @@
             justify-content: space-between;
             align-items: flex-end;
             margin-bottom: 60px;
+            padding-bottom: 30px;
+            border-bottom: 1px solid var(--cement);
         }
         
         .section-title {
-            font-family: var(--font-display);
+            font-family: var(--font-mono);
             font-size: clamp(48px, 8vw, 96px);
-            font-weight: 400;
+            font-weight: 700;
             letter-spacing: 0.05em;
             line-height: 1;
+            text-transform: uppercase;
+            color: var(--white);
         }
         
         .section-link {
@@ -350,13 +403,14 @@
             gap: 10px;
             transition: var(--transition-fast);
             padding: 10px 20px;
-            border: 1px solid var(--gray);
-            border-radius: 8px;
+            border: 1px solid var(--cement);
+            font-family: var(--font-mono);
         }
         
         .section-link:hover {
             color: var(--beige);
             border-color: var(--beige);
+            box-shadow: 0 0 15px rgba(196, 163, 90, 0.3);
         }
         
         .section-link svg {
@@ -365,27 +419,34 @@
         }
         
         /* ============================================
-           PRODUCTS GRID
+           PRODUCTS GRID - CYBERPUNK
            ============================================ */
         .products-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
             gap: 1px;
-            background: var(--gray);
+            background: var(--cement);
         }
         
         .product-card {
-            background: var(--white);
+            background: var(--black-light);
             display: flex;
             flex-direction: column;
+            transition: var(--transition);
+            border: 1px solid transparent;
+        }
+        
+        .product-card:hover {
+            border-color: var(--beige);
+            box-shadow: 0 0 30px rgba(196, 163, 90, 0.2);
         }
         
         .product-image {
             position: relative;
             aspect-ratio: 3/4;
             overflow: hidden;
-            background: var(--gray-light);
-            border-radius: 12px;
+            background: var(--black);
+            border-bottom: 1px solid var(--cement);
         }
         
         .product-image img {
@@ -393,11 +454,11 @@
             height: 100%;
             object-fit: cover;
             transition: var(--transition);
-            border-radius: 12px;
         }
         
         .product-card:hover .product-image img {
             transform: scale(1.03);
+            filter: brightness(1.1);
         }
         
         .product-badge {
@@ -410,6 +471,9 @@
             text-transform: uppercase;
             background: var(--beige);
             color: var(--black);
+            font-family: var(--font-mono);
+            font-weight: 700;
+            box-shadow: 0 0 15px rgba(196, 163, 90, 0.4);
         }
         
         .product-info {
@@ -423,11 +487,14 @@
             font-size: 13px;
             letter-spacing: 0.1em;
             text-transform: lowercase;
+            font-family: var(--font-mono);
+            color: var(--text-dark);
         }
         
         .product-price {
             font-family: var(--font-mono);
             font-size: 13px;
+            color: var(--beige);
         }
         
         .btn-add-grid {
@@ -435,26 +502,30 @@
             font-size: 10px;
             letter-spacing: 0.1em;
             text-transform: uppercase;
-            background: var(--black);
+            background: transparent;
             color: var(--white);
-            border: none;
-            border-radius: 8px;
+            border: 1px solid var(--cement);
             cursor: pointer;
             transition: all 0.3s;
             margin-top: 5px;
+            font-family: var(--font-mono);
         }
         
         .btn-add-grid:hover {
             background: var(--beige);
             color: var(--black);
+            border-color: var(--beige);
+            box-shadow: 0 0 20px rgba(196, 163, 90, 0.4);
         }
         
         /* ============================================
-           CATEGORIES SECTION
+           CATEGORIES SECTION - CYBERPUNK
            ============================================ */
         .categories-section {
             background: var(--black);
             padding: 100px 40px;
+            border-top: 1px solid var(--cement);
+            border-bottom: 1px solid var(--cement);
         }
         
         .categories-inner {
@@ -467,15 +538,16 @@
         }
         
         .categories-title {
-            font-family: var(--font-display);
+            font-family: var(--font-mono);
             font-size: clamp(48px, 8vw, 96px);
-            font-weight: 400;
+            font-weight: 700;
             letter-spacing: 0.05em;
             color: var(--white);
+            text-transform: uppercase;
         }
         
         .categories-list {
-            border-top: 1px solid rgba(255,255,255,0.1);
+            border-top: 1px solid var(--cement);
         }
         
         .category-item {
@@ -483,7 +555,7 @@
             justify-content: space-between;
             align-items: center;
             padding: 30px 0;
-            border-bottom: 1px solid rgba(255,255,255,0.1);
+            border-bottom: 1px solid var(--cement);
             color: var(--white);
             transition: var(--transition-fast);
             cursor: pointer;
@@ -491,23 +563,28 @@
         
         .category-item:hover {
             padding-left: 20px;
+            background: rgba(196, 163, 90, 0.05);
         }
         
         .category-item:hover .category-name {
             color: var(--beige);
+            text-shadow: 0 0 20px rgba(196, 163, 90, 0.5);
         }
         
         .category-name {
+            font-family: var(--font-mono);
             font-size: clamp(24px, 4vw, 48px);
-            font-weight: 400;
+            font-weight: 700;
             letter-spacing: 0.05em;
             transition: var(--transition-fast);
+            text-transform: uppercase;
         }
         
         .category-arrow {
             opacity: 0;
             transform: translateX(-10px);
             transition: var(--transition-fast);
+            color: var(--beige);
         }
         
         .category-item:hover .category-arrow {
@@ -518,11 +595,12 @@
         .category-count {
             font-size: 11px;
             letter-spacing: 0.1em;
-            color: rgba(255,255,255,0.4);
+            color: var(--text-muted);
+            font-family: var(--font-mono);
         }
         
         /* ============================================
-           EDITORIAL SECTION
+           EDITORIAL SECTION - CYBERPUNK
            ============================================ */
         .editorial {
             display: grid;
@@ -532,20 +610,23 @@
         
         .editorial-image {
             overflow: hidden;
+            border-right: 1px solid var(--cement);
         }
         
         .editorial-image img {
             width: 100%;
             height: 100%;
             object-fit: cover;
+            filter: grayscale(30%);
         }
         
         .editorial-content {
-            background: var(--gray-light);
+            background: var(--black-light);
             display: flex;
             flex-direction: column;
             justify-content: center;
             padding: 80px 60px;
+            border-left: 1px solid var(--cement);
         }
         
         .editorial-label {
@@ -554,14 +635,18 @@
             text-transform: uppercase;
             color: var(--beige);
             margin-bottom: 25px;
+            font-family: var(--font-mono);
+            text-shadow: 0 0 15px rgba(196, 163, 90, 0.5);
         }
         
         .editorial-title {
-            font-family: var(--font-display);
+            font-family: var(--font-mono);
             font-size: clamp(32px, 4vw, 48px);
-            font-weight: 400;
+            font-weight: 700;
             line-height: 1.2;
             margin-bottom: 30px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
         }
         
         .editorial-text {
@@ -578,20 +663,21 @@
             font-size: 11px;
             letter-spacing: 0.15em;
             text-transform: uppercase;
-            color: var(--text-dark);
-            border-bottom: 1px solid var(--text-dark);
+            color: var(--white);
+            border-bottom: 1px solid var(--beige);
             padding-bottom: 5px;
             width: fit-content;
             transition: var(--transition-fast);
+            font-family: var(--font-mono);
         }
         
         .editorial-cta:hover {
             color: var(--beige);
-            border-color: var(--beige);
+            text-shadow: 0 0 15px rgba(196, 163, 90, 0.5);
         }
         
         /* ============================================
-           FEATURED PRODUCTS
+           FEATURED PRODUCTS - CYBERPUNK
            ============================================ */
         .featured-grid {
             display: grid;
@@ -602,12 +688,21 @@
         .featured-card {
             position: relative;
             overflow: hidden;
+            border: 1px solid var(--cement);
+            background: var(--black-light);
         }
         
         .featured-card img {
             width: 100%;
             aspect-ratio: 2/3;
             object-fit: cover;
+            filter: grayscale(20%);
+            transition: var(--transition);
+        }
+        
+        .featured-card:hover img {
+            filter: grayscale(0%);
+            transform: scale(1.03);
         }
         
         .featured-card-content {
@@ -616,29 +711,34 @@
             left: 0;
             width: 100%;
             padding: 40px 30px;
-            background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, transparent 100%);
+            background: linear-gradient(to top, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.5) 100%);
             color: var(--white);
+            border-top: 1px solid var(--beige);
         }
         
         .featured-card h3 {
-            font-family: var(--font-display);
+            font-family: var(--font-mono);
             font-size: 24px;
-            font-weight: 400;
+            font-weight: 700;
             margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
         }
         
         .featured-card p {
             font-size: 12px;
             letter-spacing: 0.1em;
             opacity: 0.7;
+            font-family: var(--font-mono);
+            text-transform: uppercase;
         }
         
         /* ============================================
-           FOOTER
+           FOOTER - CYBERPUNK
            ============================================ */
         .footer {
-            background: var(--white);
-            border-top: 1px solid var(--gray);
+            background: #050505;
+            border-top: 1px solid var(--cement);
             padding: 80px 40px 40px;
         }
         
@@ -653,17 +753,20 @@
             gap: 80px;
             margin-bottom: 60px;
             padding-bottom: 60px;
-            border-bottom: 1px solid var(--gray);
+            border-bottom: 1px solid var(--cement);
         }
         
         .footer-brand .logo {
             margin-bottom: 15px;
+            font-family: var(--font-mono);
         }
         
         .footer-tagline {
             font-size: 12px;
             color: var(--text-muted);
             letter-spacing: 0.1em;
+            font-family: var(--font-mono);
+            text-transform: uppercase;
         }
         
         .footer-socials {
@@ -676,14 +779,17 @@
             font-size: 11px;
             letter-spacing: 0.1em;
             text-transform: uppercase;
-            color: var(--text-dark);
+            color: var(--text-muted);
             border-bottom: 1px solid transparent;
             padding-bottom: 3px;
             transition: var(--transition-fast);
+            font-family: var(--font-mono);
         }
         
         .footer-social-link:hover {
+            color: var(--beige);
             border-color: var(--beige);
+            text-shadow: 0 0 15px rgba(196, 163, 90, 0.5);
         }
         
         .footer-nav {
@@ -696,20 +802,23 @@
             font-size: 10px;
             letter-spacing: 0.2em;
             text-transform: uppercase;
-            color: var(--text-muted);
+            color: var(--beige);
             margin-bottom: 20px;
+            font-family: var(--font-mono);
         }
         
         .footer-col a {
             display: block;
             font-size: 13px;
-            color: var(--text-dark);
+            color: var(--text-muted);
             margin-bottom: 12px;
             transition: var(--transition-fast);
+            font-family: var(--font-mono);
         }
         
         .footer-col a:hover {
-            color: var(--beige);
+            color: var(--white);
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
         }
         
         .footer-bottom {
@@ -722,16 +831,18 @@
             font-size: 10px;
             letter-spacing: 0.08em;
             color: var(--text-muted);
+            font-family: var(--font-mono);
+            text-transform: uppercase;
         }
         
         .footer-payments {
             font-family: var(--font-mono);
             font-size: 11px;
-            color: var(--text-muted);
+            color: var(--beige);
         }
         
         /* ============================================
-           RESPONSIVE
+           RESPONSIVE - CYBERPUNK
            ============================================ */
         @media (max-width: 1024px) {
             .products-grid {
@@ -776,10 +887,11 @@
                 width: 100%;
                 height: 100%;
                 z-index: -1;
+                border-left: none;
             }
             
             .hero-text {
-                background: rgba(255,255,255,0.9);
+                background: rgba(10, 10, 10, 0.85);
                 padding: 120px 30px 60px;
             }
             

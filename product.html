@@ -4,14 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shirt Jacket — JOIS</title>
-    <link rel="stylesheet" href="styles.css?v=26">
+    <link rel="stylesheet" href="styles.css?v=34">
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background: #fff;
-            color: #0A0A0A;
+            font-family: 'Menlo', 'Monaco', 'Courier New', monospace;
+            background: #0A0A0A;
+            color: #FFFFFF;
         }
         
         .product-page {
@@ -27,21 +27,20 @@
             height: 100vh;
             display: flex;
             flex-direction: column;
+            background: #0A0A0A;
         }
         
         .gallery-main {
             flex: 1;
             position: relative;
             overflow: hidden;
-            background: #F5F5F5;
-            border-radius: 12px;
+            background: #1A1A1A;
         }
         
         .gallery-main img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            border-radius: 12px;
         }
         
         .gallery-thumbs {
@@ -49,7 +48,6 @@
             gap: 3px;
             padding: 3px;
             background: #0A0A0A;
-            border-radius: 8px;
         }
         
         .gallery-thumb {
@@ -60,20 +58,19 @@
             opacity: 0.6;
             transition: opacity 0.3s;
             border: 2px solid transparent;
-            border-radius: 8px;
         }
         
         .gallery-thumb:hover,
         .gallery-thumb.active {
             opacity: 1;
             border-color: #C4A35A;
+            box-shadow: 0 0 15px rgba(196, 163, 90, 0.3);
         }
         
         .gallery-thumb img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            border-radius: 8px;
         }
         
         /* Product Info */
@@ -81,12 +78,14 @@
             padding: 60px 80px;
             display: flex;
             flex-direction: column;
+            background: #0A0A0A;
+            border-left: 1px solid #363636;
         }
         
         .product-header {
             margin-bottom: 40px;
             padding-bottom: 30px;
-            border-bottom: 1px solid #E8E8E8;
+            border-bottom: 1px solid #363636;
         }
         
         .product-badge {
@@ -98,19 +97,24 @@
             background: #C4A35A;
             color: #0A0A0A;
             margin-bottom: 20px;
+            font-family: 'Menlo', monospace;
+            font-weight: 700;
+            box-shadow: 0 0 15px rgba(196, 163, 90, 0.4);
         }
         
         .product-title {
-            font-family: 'Times New Roman', serif;
+            font-family: 'Menlo', monospace;
             font-size: 36px;
-            letter-spacing: 0.05em;
+            letter-spacing: 0.1em;
             margin-bottom: 10px;
+            text-transform: uppercase;
         }
         
         .product-subtitle {
             font-size: 14px;
-            color: #6B6B6B;
+            color: #B0B0B0;
             letter-spacing: 0.05em;
+            font-family: 'Menlo', monospace;
         }
         
         /* Pricing */
@@ -122,6 +126,8 @@
             font-family: 'Menlo', monospace;
             font-size: 28px;
             margin-bottom: 15px;
+            color: #C4A35A;
+            text-shadow: 0 0 10px rgba(196, 163, 90, 0.3);
         }
         
         .price-crypto {
@@ -135,32 +141,30 @@
             align-items: center;
             gap: 8px;
             padding: 8px 14px;
-            background: #F5F5F5;
+            background: #1A1A1A;
             font-size: 12px;
             font-family: 'Menlo', monospace;
             cursor: pointer;
             transition: all 0.3s;
-            border: 1px solid transparent;
+            border: 1px solid #363636;
+            color: #B0B0B0;
         }
         
         .crypto-price:hover {
             border-color: #C4A35A;
+            color: #C4A35A;
+            box-shadow: 0 0 15px rgba(196, 163, 90, 0.2);
         }
         
         .crypto-price.selected {
-            background: #0A0A0A;
-            color: #fff;
-            border-color: #0A0A0A;
-        }
-        
-        .crypto-price img {
-            width: 16px;
-            height: 16px;
+            background: #C4A35A;
+            color: #0A0A0A;
+            border-color: #C4A35A;
         }
         
         .crypto-loading {
             font-size: 11px;
-            color: #999;
+            color: #B0B0B0;
         }
         
         /* Size */
@@ -172,9 +176,10 @@
             font-size: 10px;
             letter-spacing: 0.15em;
             text-transform: uppercase;
-            color: #6B6B6B;
+            color: #B0B0B0;
             margin-bottom: 15px;
             display: block;
+            font-family: 'Menlo', monospace;
         }
         
         .size-options {
@@ -189,26 +194,30 @@
             align-items: center;
             justify-content: center;
             font-size: 12px;
-            border: 1px solid #E8E8E8;
-            background: none;
+            border: 1px solid #363636;
+            background: transparent;
+            color: #FFFFFF;
             cursor: pointer;
             transition: all 0.3s;
+            font-family: 'Menlo', monospace;
         }
         
         .size-btn:hover,
         .size-btn.selected {
-            border-color: #0A0A0A;
-            background: #0A0A0A;
-            color: #fff;
+            border-color: #C4A35A;
+            background: #C4A35A;
+            color: #0A0A0A;
+            box-shadow: 0 0 15px rgba(196, 163, 90, 0.3);
         }
         
         .size-guide {
             display: inline-block;
             margin-top: 15px;
             font-size: 11px;
-            color: #6B6B6B;
+            color: #B0B0B0;
             text-decoration: underline;
             cursor: pointer;
+            font-family: 'Menlo', monospace;
         }
         
         /* Quantity */
@@ -221,7 +230,7 @@
             align-items: center;
             gap: 0;
             width: fit-content;
-            border: 1px solid #E8E8E8;
+            border: 1px solid #363636;
         }
         
         .qty-btn {
@@ -235,10 +244,12 @@
             border: none;
             cursor: pointer;
             transition: background 0.3s;
+            color: #FFFFFF;
         }
         
         .qty-btn:hover {
-            background: #F5F5F5;
+            background: #1A1A1A;
+            color: #C4A35A;
         }
         
         .qty-input {
@@ -248,8 +259,10 @@
             font-family: 'Menlo', monospace;
             font-size: 14px;
             border: none;
-            border-left: 1px solid #E8E8E8;
-            border-right: 1px solid #E8E8E8;
+            border-left: 1px solid #363636;
+            border-right: 1px solid #363636;
+            background: #0A0A0A;
+            color: #FFFFFF;
         }
         
         /* Add to Cart */
@@ -263,29 +276,32 @@
             font-size: 11px;
             letter-spacing: 0.2em;
             text-transform: uppercase;
-            background: #0A0A0A;
-            color: #fff;
-            border: none;
-            border-radius: 8px;
+            background: transparent;
+            color: #FFFFFF;
+            border: 1px solid #C4A35A;
             cursor: pointer;
             transition: all 0.3s;
             display: flex;
             align-items: center;
             justify-content: center;
             gap: 10px;
+            font-family: 'Menlo', monospace;
         }
         
         .btn-add-cart:hover {
             background: #C4A35A;
+            color: #0A0A0A;
+            box-shadow: 0 0 30px rgba(196, 163, 90, 0.5);
         }
         
         .btn-add-cart.added {
             background: #28a745;
+            border-color: #28a745;
         }
         
         /* Details */
         .product-details {
-            border-top: 1px solid #E8E8E8;
+            border-top: 1px solid #363636;
             padding-top: 30px;
         }
         
@@ -293,15 +309,17 @@
             font-size: 10px;
             letter-spacing: 0.15em;
             text-transform: uppercase;
-            color: #6B6B6B;
+            color: #C4A35A;
             margin-bottom: 20px;
+            font-family: 'Menlo', monospace;
         }
         
         .details-text {
             font-size: 13px;
             line-height: 1.8;
-            color: #6B6B6B;
+            color: #B0B0B0;
             margin-bottom: 20px;
+            font-family: 'Menlo', monospace;
         }
         
         .details-list {
@@ -310,22 +328,24 @@
         
         .details-list li {
             font-size: 13px;
-            color: #6B6B6B;
+            color: #B0B0B0;
             padding: 8px 0;
-            border-bottom: 1px solid #F5F5F5;
+            border-bottom: 1px solid #1A1A1A;
             display: flex;
             justify-content: space-between;
+            font-family: 'Menlo', monospace;
         }
         
         .details-list li span:first-child {
-            color: #0A0A0A;
+            color: #FFFFFF;
         }
         
         /* Shipping */
         .product-shipping {
             margin-top: 20px;
             padding: 20px;
-            background: #F5F5F5;
+            background: #1A1A1A;
+            border: 1px solid #363636;
         }
         
         .shipping-row {
@@ -333,8 +353,9 @@
             align-items: center;
             gap: 10px;
             font-size: 12px;
-            color: #6B6B6B;
+            color: #B0B0B0;
             margin-bottom: 10px;
+            font-family: 'Menlo', monospace;
         }
         
         .shipping-row:last-child {
@@ -364,17 +385,56 @@
             
             .product-info {
                 padding: 40px 30px;
+                border-left: none;
+                border-top: 1px solid #363636;
             }
+        }
+        
+        /* Nav Cyberpunk */
+        nav.nav-main {
+            position: sticky;
+            top: 0;
+            background: rgba(10, 10, 10, 0.98);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid #363636;
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+        }
+        
+        nav.nav-main a {
+            font-family: 'Menlo', monospace;
+            font-size: 11px;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: #B0B0B0;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        
+        nav.nav-main a:hover {
+            color: #C4A35A;
+            text-shadow: 0 0 15px rgba(196, 163, 90, 0.5);
+        }
+        
+        nav.nav-main .logo-nav {
+            font-family: 'Menlo', monospace;
+            font-size: 20px;
+            letter-spacing: 0.3em;
+            color: #FFFFFF;
+            text-transform: uppercase;
         }
     </style>
 </head>
 <body>
-    <nav class="nav-main" style="position: sticky; top: 0; background: #fff; border-bottom: 1px solid #E8E8E8; padding: 20px 40px; display: flex; justify-content: space-between; align-items: center;">
-        <a href="index.html" style="font-family: 'Times New Roman', serif; font-size: 20px; letter-spacing: 0.3em; color: #0A0A0A; text-decoration: none;">JOIS</a>
+    <nav class="nav-main">
+        <a href="index.html" class="logo-nav">JOIS</a>
         <div style="display: flex; gap: 30px;">
-            <a href="index.html" style="font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: #6B6B6B; text-decoration: none;">Hombre</a>
-            <a href="index.html#mujer" style="font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: #6B6B6B; text-decoration: none;">Mujer</a>
-            <a href="#" onclick="toggleCart(); return false;" style="font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: #6B6B6B; text-decoration: none;">Bolsa (<span id="cartCount2">0</span>)</a>
+            <a href="index.html">Hombre</a>
+            <a href="index.html#mujer">Mujer</a>
+            <a href="#" onclick="toggleCart(); return false;">Bolsa (<span id="cartCount2">0</span>)</a>
         </div>
     </nav>
     
@@ -507,8 +567,8 @@
             </div>
             
             <div class="cart-actions" style="display: flex; flex-direction: column; gap: 12px;">
-                <button class="btn-checkout" onclick="checkoutStripe()" style="border-radius: 8px;">Pagar con Tarjeta</button>
-                <button class="btn-checkout-crypto" id="btnCryptoCheckout" onclick="checkoutCrypto()" style="background: #C4A35A; color: #0A0A0A; font-size: 12px; padding: 20px; border-radius: 8px;">
+                <button class="btn-checkout" onclick="checkoutStripe()" style="border-radius: 0;">Pagar con Tarjeta</button>
+                <button class="btn-checkout-crypto" id="btnCryptoCheckout" onclick="checkoutCrypto()" style="background: #C4A35A; color: #0A0A0A; font-size: 12px; padding: 20px; border-radius: 0;">
                     PAGAR CON CRYPTO
                 </button>
             </div>
@@ -520,20 +580,211 @@
             padding: 10px 16px;
             font-size: 11px;
             font-family: 'Menlo', monospace;
-            background: #222;
-            border: 1px solid #333;
+            background: #1A1A1A;
+            border: 1px solid #363636;
             color: #fff;
             cursor: pointer;
             transition: all 0.3s;
         }
         .crypto-btn:hover {
             border-color: #C4A35A;
-            background: #333;
+            color: #C4A35A;
         }
         .crypto-btn.selected {
             background: #C4A35A;
             color: #0A0A0A;
             border-color: #C4A35A;
+        }
+        
+        /* Cart Cyberpunk */
+        .cart-drawer {
+            position: fixed;
+            top: 0;
+            right: -420px;
+            width: 420px;
+            height: 100vh;
+            background: #1A1A1A;
+            z-index: 2000;
+            display: flex;
+            flex-direction: column;
+            transition: right 0.4s ease;
+            box-shadow: -10px 0 60px rgba(0, 0, 0, 0.8);
+            border-left: 1px solid #363636;
+        }
+        
+        .cart-header {
+            padding: 30px 40px;
+            border-bottom: 1px solid #363636;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #0A0A0A;
+        }
+        
+        .cart-header h2 {
+            font-family: 'Menlo', monospace;
+            font-size: 14px;
+            font-weight: 700;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+        }
+        
+        .cart-close {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            color: #B0B0B0;
+            transition: 0.3s;
+        }
+        
+        .cart-close:hover {
+            color: #C4A35A;
+        }
+        
+        .cart-items {
+            flex: 1;
+            overflow-y: auto;
+            padding: 20px 40px;
+            background: #1A1A1A;
+        }
+        
+        .cart-empty {
+            text-align: center;
+            padding: 80px 0;
+        }
+        
+        .cart-empty span {
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: #B0B0B0;
+            font-family: 'Menlo', monospace;
+        }
+        
+        .cart-item {
+            display: grid;
+            grid-template-columns: 70px 1fr;
+            gap: 20px;
+            padding: 25px 0;
+            border-bottom: 1px solid #363636;
+        }
+        
+        .cart-item-image {
+            aspect-ratio: 3/4;
+            background: #0A0A0A;
+            overflow: hidden;
+            border: 1px solid #363636;
+        }
+        
+        .cart-item-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .cart-item-name {
+            font-size: 14px;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            margin-bottom: 5px;
+            font-family: 'Menlo', monospace;
+        }
+        
+        .cart-item-price {
+            font-family: 'Menlo', monospace;
+            font-size: 12px;
+            color: #C4A35A;
+        }
+        
+        .cart-item-remove {
+            font-size: 9px;
+            font-weight: 700;
+            color: #B0B0B0;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-top: 12px;
+            cursor: pointer;
+            transition: 0.3s;
+            font-family: 'Menlo', monospace;
+        }
+        
+        .cart-item-remove:hover {
+            color: #C4A35A;
+        }
+        
+        .cart-footer {
+            padding: 30px 40px;
+            border-top: 1px solid #363636;
+            background: #0A0A0A;
+        }
+        
+        .cart-total {
+            margin-bottom: 25px;
+        }
+        
+        .cart-total > span:first-child {
+            display: block;
+            font-size: 10px;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: #B0B0B0;
+            margin-bottom: 10px;
+            font-family: 'Menlo', monospace;
+        }
+        
+        .total-usd {
+            font-family: 'Menlo', monospace;
+            font-size: 18px;
+            color: #C4A35A;
+        }
+        
+        .btn-checkout, .btn-checkout-crypto {
+            width: 100%;
+            padding: 18px;
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            border: 1px solid #C4A35A;
+            cursor: pointer;
+            transition: 0.3s;
+            font-family: 'Menlo', monospace;
+        }
+        
+        .btn-checkout {
+            background: #C4A35A;
+            color: #0A0A0A;
+        }
+        
+        .btn-checkout:hover {
+            box-shadow: 0 0 30px rgba(196, 163, 90, 0.5);
+        }
+        
+        .btn-checkout-crypto:hover {
+            background: transparent;
+            color: #C4A35A;
+        }
+        
+        .cart-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 1999;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.4s ease;
+        }
+        
+        .cart-overlay.open {
+            opacity: 1;
+            visibility: visible;
         }
     </style>
     
@@ -603,7 +854,6 @@
                 };
                 
                 renderCryptoPrices();
-                renderCryptoSelector();
                 updateCartCryptoPrices();
             } catch (error) {
                 console.log('Error fetching crypto prices:', error);
@@ -645,7 +895,6 @@
                 image: images[0]
             };
             
-            // Check if exists
             const existing = cart.find(i => i.id === item.id && i.size === item.size);
             if (existing) {
                 existing.qty += qty;
@@ -656,7 +905,6 @@
             saveCart();
             updateCartUI();
             
-            // Button feedback
             const btn = document.getElementById('addToCartBtn');
             btn.classList.add('added');
             btn.innerHTML = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span>¡Añadido!</span>';
@@ -717,10 +965,8 @@
         function updateCartTotal() {
             const subtotal = cart.reduce((sum, item) => sum + (item.price * item.qty), 0);
             
-            // USD
             document.getElementById('cartTotal').textContent = `$${subtotal} USD`;
             
-            // Crypto
             const cryptoTotal = document.getElementById('cartTotalCrypto');
             if (cryptoPrices[selectedCrypto]) {
                 const converted = (subtotal / cryptoPrices[selectedCrypto]).toFixed(6);
@@ -729,24 +975,6 @@
         }
         
         function updateCartCryptoPrices() {
-            updateCartTotal();
-        }
-        
-        function renderCryptoSelector() {
-            const container = document.getElementById('cryptoSelector');
-            container.innerHTML = Object.entries(cryptoPrices).map(([symbol, price]) => `
-                <button class="crypto-price ${symbol === selectedCrypto ? 'selected' : ''}" 
-                        onclick="selectCryptoFromCart('${symbol}', ${price})"
-                        style="padding: 8px 12px; font-size: 11px;">
-                    ${symbol}
-                </button>
-            `).join('');
-        }
-        
-        function selectCryptoFromCart(symbol, price) {
-            selectedCrypto = symbol;
-            document.querySelectorAll('#cryptoSelector .crypto-price').forEach(el => el.classList.remove('selected'));
-            event.target.classList.add('selected');
             updateCartTotal();
         }
         

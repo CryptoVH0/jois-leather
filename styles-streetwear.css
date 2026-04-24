@@ -1,0 +1,334 @@
+/* ============================================
+   JOIS — Futuristic Streetwear Design System
+   Cyberpunk meets Luxury Streetwear
+   OFF-WHITE × COMME des GARÇONS × Blade Runner
+   ============================================ */
+
+/* ============================================
+   CSS VARIABLES - FUTURISTIC PALETTE
+   ============================================ */
+:root {
+    /* Core Colors */
+    --black: #0A0A0A;
+    --black-light: #141414;
+    --black-lighter: #1E1E1E;
+    --white: #FFFFFF;
+    --off-white: #E8E8E8;
+    
+    /* Gold Accent (kept from original) */
+    --gold: #C4A35A;
+    --gold-dark: #A68B3D;
+    --gold-light: #D4C4A0;
+    
+    /* Neon Accents */
+    --neon-cyan: #00F0FF;
+    --neon-cyan-dim: rgba(0, 240, 255, 0.3);
+    --neon-cyan-glow: 0 0 20px rgba(0, 240, 255, 0.5), 0 0 40px rgba(0, 240, 255, 0.3);
+    --electric-purple: #8B5CF6;
+    --electric-purple-dim: rgba(139, 92, 246, 0.3);
+    --electric-purple-glow: 0 0 20px rgba(139, 92, 246, 0.5), 0 0 40px rgba(139, 92, 246, 0.3);
+    --neon-green: #00FF88;
+    --neon-pink: #FF0080;
+    
+    /* Text Colors */
+    --text-primary: #FFFFFF;
+    --text-secondary: #B0B0B0;
+    --text-muted: #6B6B6B;
+    
+    /* Gradients */
+    --gradient-cyber: linear-gradient(135deg, var(--neon-cyan) 0%, var(--electric-purple) 100%);
+    --gradient-dark: linear-gradient(180deg, var(--black) 0%, var(--black-light) 100%);
+    
+    /* Typography */
+    --font-display: 'Inter', 'Roboto Condensed', -apple-system, sans-serif;
+    --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --font-mono: 'Menlo', 'Monaco', 'Courier New', monospace;
+    
+    /* Transitions */
+    --transition-fast: all 0.2s ease;
+    --transition: all 0.3s ease;
+    --transition-slow: all 0.5s ease;
+    
+    /* Borders */
+    --border-subtle: 1px solid rgba(255, 255, 255, 0.1);
+    --border-glow-cyan: 1px solid var(--neon-cyan);
+    --border-glow-purple: 1px solid var(--electric-purple);
+}
+
+/* ============================================
+   GLOW EFFECTS
+   ============================================ */
+.glow-cyan {
+    box-shadow: var(--neon-cyan-glow);
+}
+
+.glow-purple {
+    box-shadow: var(--electric-purple-glow);
+}
+
+.glow-gold {
+    box-shadow: 0 0 20px rgba(196, 163, 90, 0.5), 0 0 40px rgba(196, 163, 90, 0.3);
+}
+
+.text-glow-cyan {
+    text-shadow: 0 0 10px var(--neon-cyan-dim), 0 0 20px var(--neon-cyan-dim);
+}
+
+.text-glow-purple {
+    text-shadow: 0 0 10px var(--electric-purple-dim), 0 0 20px var(--electric-purple-dim);
+}
+
+/* ============================================
+   FUTURISTIC BUTTONS
+   ============================================ */
+.btn-futuristic {
+    position: relative;
+    padding: 14px 28px;
+    font-family: var(--font-body);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--white);
+    background: var(--black);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    cursor: pointer;
+    overflow: hidden;
+    transition: var(--transition);
+}
+
+.btn-futuristic::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(0, 240, 255, 0.3), transparent);
+    transition: left 0.5s ease;
+}
+
+.btn-futuristic:hover::before {
+    left: 100%;
+}
+
+.btn-futuristic:hover {
+    border-color: var(--neon-cyan);
+    box-shadow: var(--neon-cyan-glow);
+    color: var(--neon-cyan);
+}
+
+.btn-futuristic-primary {
+    background: linear-gradient(135deg, var(--neon-cyan) 0%, var(--electric-purple) 100%);
+    border: none;
+    color: var(--black);
+    font-weight: 700;
+}
+
+.btn-futuristic-primary:hover {
+    box-shadow: var(--neon-cyan-glow), var(--electric-purple-glow);
+    color: var(--black);
+    transform: translateY(-2px);
+}
+
+/* ============================================
+   FUTURISTIC CARDS
+   ============================================ */
+.card-futuristic {
+    background: var(--black-light);
+    border: var(--border-subtle);
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+}
+
+.card-futuristic::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: var(--gradient-cyber);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.card-futuristic:hover::before {
+    opacity: 1;
+}
+
+.card-futuristic:hover {
+    border-color: rgba(0, 240, 255, 0.3);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+}
+
+/* ============================================
+   GRID OVERLAY EFFECT
+   ============================================ */
+.grid-overlay {
+    position: relative;
+}
+
+.grid-overlay::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        linear-gradient(rgba(0, 240, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 240, 255, 0.03) 1px, transparent 1px);
+    background-size: 50px 50px;
+    pointer-events: none;
+}
+
+/* ============================================
+   SCANLINE TEXTURE
+   ============================================ */
+.scanlines {
+    position: relative;
+}
+
+.scanlines::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: repeating-linear-gradient(
+        0deg,
+        rgba(0, 0, 0, 0.15),
+        rgba(0, 0, 0, 0.15) 1px,
+        transparent 1px,
+        transparent 2px
+    );
+    pointer-events: none;
+    opacity: 0.3;
+}
+
+/* ============================================
+   CYBER BADGES
+   ============================================ */
+.badge-cyber {
+    display: inline-block;
+    padding: 4px 12px;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--black);
+    background: var(--neon-cyan);
+    position: relative;
+}
+
+.badge-cyber-purple {
+    background: var(--electric-purple);
+}
+
+.badge-cyber-gold {
+    background: var(--gold);
+}
+
+.badge-cyber::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: var(--neon-cyan);
+    z-index: -1;
+    opacity: 0.5;
+    filter: blur(4px);
+}
+
+/* ============================================
+   INPUT FIELDS - CYBER STYLE
+   ============================================ */
+.input-cyber {
+    width: 100%;
+    padding: 14px 18px;
+    font-family: var(--font-mono);
+    font-size: 13px;
+    color: var(--white);
+    background: var(--black-lighter);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    outline: none;
+    transition: var(--transition);
+}
+
+.input-cyber:focus {
+    border-color: var(--neon-cyan);
+    box-shadow: 0 0 10px rgba(0, 240, 255, 0.2), inset 0 0 10px rgba(0, 240, 255, 0.05);
+}
+
+.input-cyber::placeholder {
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 11px;
+}
+
+/* ============================================
+   LOADING ANIMATION
+   ============================================ */
+@keyframes pulse-glow {
+    0%, 100% {
+        opacity: 1;
+        box-shadow: 0 0 20px var(--neon-cyan-dim);
+    }
+    50% {
+        opacity: 0.8;
+        box-shadow: 0 0 40px var(--neon-cyan);
+    }
+}
+
+.loading-cyber {
+    animation: pulse-glow 2s ease-in-out infinite;
+}
+
+/* ============================================
+   GLITCH EFFECT
+   ============================================ */
+@keyframes glitch {
+    0% {
+        transform: translate(0);
+    }
+    20% {
+        transform: translate(-2px, 2px);
+    }
+    40% {
+        transform: translate(-2px, -2px);
+    }
+    60% {
+        transform: translate(2px, 2px);
+    }
+    80% {
+        transform: translate(2px, -2px);
+    }
+    100% {
+        transform: translate(0);
+    }
+}
+
+.glitch-hover:hover {
+    animation: glitch 0.3s ease-in-out;
+}
+
+/* ============================================
+   NEON LINE DECORATION
+   ============================================ */
+.neon-line {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--neon-cyan), transparent);
+    box-shadow: 0 0 10px var(--neon-cyan-dim);
+}
+
+.neon-line-vertical {
+    width: 1px;
+    background: linear-gradient(180deg, transparent, var(--neon-cyan), transparent);
+    box-shadow: 0 0 10px var(--neon-cyan-dim);
+}
