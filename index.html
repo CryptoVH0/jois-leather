@@ -4,10 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JOIS — Maison de Cuir Contemporáneo</title>
-    <link rel="stylesheet" href="styles.css?v=40">
-    <link rel="stylesheet" href="jois-premium.css?v=42">
-    <link rel="stylesheet" href="premium-styles.css?v=40">
-    <link rel="stylesheet" href="styles-home.css">
+    <link rel="stylesheet" href="styles-luxury.css">
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
     
     <!-- SEO -->
@@ -19,33 +16,29 @@
     
     <style>
         /* ============================================
-           JOIS HOME - Cyberpunk Fashion Aesthetic
-           v35 - Extravagant Deepweb Aesthetics
+           JOIS HOME - LUXURY STREETWEAR
+           Rick Owens / ALYX / Heliot Emil Aesthetic
            ============================================ */
         
         :root {
-            --white: #FFFFFF;
-            --off-white: #FAFAFA;
-            --gray-light: #4A4A4A;
-            --gray: #363636;
-            --gray-dark: #363636;
             --black: #0A0A0A;
+            --black-pure: #000000;
             --black-light: #1A1A1A;
+            --white: #F5F5F0;
+            --white-muted: rgba(245, 245, 240, 0.6);
+            --gray: #3A3A3A;
+            --gray-light: #4A4A4A;
             --beige: #C4A35A;
             --beige-dark: #A68B3D;
-            --beige-light: #D4C4A0;
-            --cement: #363636;
-            --text-dark: #FFFFFF;
-            --text-muted: #B0B0B0;
-            --text-light: #B0B0B0;
-            --green-matrix: var(--gold);
             
-            --font-display: 'Menlo', 'Monaco', 'Courier New', monospace;
-            --font-body: 'Menlo', 'Monaco', 'Courier New', monospace;
-            --font-mono: 'Menlo', 'Monaco', 'Courier New', monospace;
+            --font-display: 'Times New Roman MT', 'Times New Roman', Georgia, serif;
+            --font-brutal: 'Arial Black', Impact, sans-serif;
+            --font-body: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            --font-mono: 'Menlo', Monaco, 'Courier New', monospace;
             
-            --transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-            --transition-fast: all 0.2s ease;
+            --transition-slow: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+            --transition-medium: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+            --transition-fast: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
         }
         
         /* Reset */
@@ -53,6 +46,7 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            border-radius: 0 !important;
         }
         
         html {
@@ -61,8 +55,10 @@
         
         body {
             font-family: var(--font-body);
-            background: var(--black);
-            color: var(--text-dark);
+            background: var(--black-pure);
+            color: var(--white);
+            font-weight: 300;
+            letter-spacing: 0.02em;
             line-height: 1.6;
             -webkit-font-smoothing: antialiased;
             overflow-x: hidden;
@@ -79,452 +75,265 @@
             display: block;
         }
         
-        /* ============================================
-                /* ============================================
-           TECHWEAR BASE STYLES
-           ============================================ */
-        :root {
-            --tw-black: #000000;
-            --tw-charcoal: #111111;
-            --tw-dark-gray: #1A1A1A;
-            --tw-slate: #363636;
-            --tw-light-slate: #4A4A4A;
-            --tw-white: #FFFFFF;
-            --tw-gray-text: #888888;
-            --tw-gold: #C4A35A;
-            --tw-gold-dark: #A68B3D;
+        button {
+            font-family: inherit;
+            cursor: pointer;
+            border: none;
+            background: none;
         }
         
-        /* Film grain overlay */
-        body::before {
-            content: '';
+        /* ============================================
+           NAVIGATION - MINIMAL, EMERGES ON SCROLL
+           ============================================ */
+        .nav-main {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: 9998;
-            opacity: 0.04;
-            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
-        }
-        
-        * { border-radius: 0 !important; }
-
-/* ============================================
-           PREMIUM LOADER
-           ============================================ */
-        .techwear-loader {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: var(--tw-black);
-            z-index: 10000;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            animation: tw-loader-fade 1s ease 0.8s forwards;
-        }
-        
-        @keyframes tw-loader-fade {
-            to { opacity: 0; pointer-events: none; }
-        }
-        
-        .tw-loader-logo {
-            font-family: 'Times New Roman MT', serif;
-            font-size: 36px;
-            font-weight: 700;
-            letter-spacing: 0.5em;
-            color: var(--tw-white);
-            animation: tw-loader-pulse 1.5s ease infinite;
-        }
-        
-        @keyframes tw-loader-pulse {
-            0%, 100% { opacity: 0.4; }
-            50% { opacity: 1; }
-        }
-        
-        /* ============================================
-           NAVIGATION - TECHWEAR MINIMAL
-           ============================================ */
-        .jois-nav {
-            position: sticky;
-            top: 0;
-            background: rgba(0, 0, 0, 0.95);
-            backdrop-filter: blur(10px);
-            z-index: 1000;
-            border-bottom: 1px solid var(--tw-slate);
-            padding: 0 40px;
-            height: 60px;
+            height: 70px;
             display: flex;
             align-items: center;
             justify-content: space-between;
+            padding: 0 50px;
+            background: transparent;
+            z-index: 1000;
+            transition: var(--transition-slow);
+            border-bottom: 1px solid transparent;
         }
         
-        .jois-nav-actions {
-            display: flex;
-            align-items: center;
-            gap: 20px;
+        .nav-main.visible {
+            background: rgba(10, 10, 10, 0.95);
+            border-bottom-color: var(--gray);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
         }
         
-        .jois-nav-icon {
-            width: 40px;
-            height: 40px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.3s ease;
-            color: var(--tw-gray-text);
-        }
-        
-        .jois-nav-icon:hover {
-            color: var(--tw-white);
-        }
-        
-        .jois-nav-icon svg {
-            width: 18px;
-            height: 18px;
-            stroke-width: 1;
-        }
-        
-        .logo {
-            font-family: 'Times New Roman MT', serif;
-            font-size: 24px;
+        .nav-logo {
+            font-family: var(--font-display);
+            font-size: 22px;
             font-weight: 700;
             letter-spacing: 0.4em;
-            color: var(--tw-white);
             text-transform: uppercase;
+            color: var(--white);
         }
         
-        .jois-jois-nav-links {
+        .nav-links {
             display: flex;
-            gap: 40px;
+            gap: 50px;
         }
         
-        .jois-nav-link {
-            font-size: 10px;
-            letter-spacing: 0.25em;
-            text-transform: uppercase;
-            color: var(--tw-gray-text);
-            transition: all 0.3s ease;
-            font-family: -apple-system, BlinkMacSystemFont, sans-serif;
-        }
-        
-        .jois-nav-link:hover {
-            color: var(--tw-white);
-        }
-        
-        .jois-nav-actions-right {
-            display: flex;
-            align-items: center;
-            gap: 20px;
-        }
-        
-        .jois-cart-container {
-            position: relative;
-        }
-        
-        .jois-cart-count {
-            position: absolute;
-            top: -6px;
-            right: -8px;
-            background: var(--gold);
-            color: var(--black);
-            font-size: 9px;
-            font-weight: 700;
-            width: 18px;
-            height: 18px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-family: var(--font-mono);
-        }
-
-
-        /* ============================================
-           HERO - TECHWEAR ASYMMETRIC
-           ============================================ */
-        .jois-hero {
-            position: relative;
-            min-height: 100vh;
-            display: grid;
-            grid-template-columns: 1.2fr 0.8fr;
-            background: var(--tw-black);
-            overflow: hidden;
-        }
-        
-        .jois-hero-content {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            padding: 80px;
-            position: relative;
-            z-index: 10;
-        }
-        
-        .jois-hero-text {
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-        }
-        
-        .jois-hero-badge {
-            font-size: 9px;
-            letter-spacing: 0.3em;
-            text-transform: uppercase;
-            color: var(--tw-gold);
-            margin-bottom: 30px;
-            font-family: -apple-system, BlinkMacSystemFont, sans-serif;
-        }
-        
-        .jois-hero-title {
-            font-family: 'Arial Black', Impact, sans-serif;
-            font-size: clamp(60px, 10vw, 120px);
-            font-weight: 900;
-            letter-spacing: 0.05em;
-            line-height: 0.9;
-            margin-bottom: 30px;
-            text-transform: uppercase;
-            color: var(--tw-white);
-        }
-        
-        .jois-hero-subtitle {
-            font-size: 13px;
+        .nav-link {
+            font-size: 11px;
             letter-spacing: 0.2em;
             text-transform: uppercase;
-            color: var(--tw-gray-text);
-            font-family: -apple-system, BlinkMacSystemFont, sans-serif;
-            margin-bottom: 40px;
-            max-width: 350px;
+            color: var(--white-muted);
+            transition: var(--transition-fast);
         }
         
-        .jois-hero-cta {
-            display: inline-flex;
+        .nav-link:hover {
+            color: var(--white);
+        }
+        
+        .nav-right {
+            display: flex;
             align-items: center;
-            gap: 15px;
-            padding: 18px 36px;
-            background: transparent;
-            color: var(--tw-white);
+            gap: 30px;
+        }
+        
+        .nav-icon {
+            color: var(--white-muted);
+            transition: var(--transition-fast);
+            cursor: pointer;
+        }
+        
+        .nav-icon:hover {
+            color: var(--white);
+        }
+        
+        .nav-icon svg {
+            width: 20px;
+            height: 20px;
+        }
+        
+        /* ============================================
+           HERO - FULL BLACK, LOGO DOMINANT
+           ============================================ */
+        .hero {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: var(--black-pure);
+            overflow: hidden;
+        }
+        
+        /* Subtle grain texture */
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+            opacity: 0.03;
+            pointer-events: none;
+            z-index: 1;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 10;
+            text-align: center;
+            padding: 40px;
+        }
+        
+        .hero-title {
+            font-family: var(--font-display);
+            font-size: clamp(60px, 15vw, 200px);
+            font-weight: 700;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            color: var(--white);
+            line-height: 0.9;
+            margin-bottom: 30px;
+        }
+        
+        .hero-subtitle {
             font-size: 11px;
-            letter-spacing: 0.25em;
+            letter-spacing: 0.4em;
             text-transform: uppercase;
-            border: 1px solid var(--tw-white);
-            transition: all 0.3s ease;
-            width: fit-content;
-            font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+            color: var(--white-muted);
+            margin-bottom: 20px;
         }
         
-        .jois-hero-cta:hover {
-            background: var(--tw-white);
-            color: var(--tw-black);
-        }
-        
-        .jois-hero-image {
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .jois-hero-image img,
-        .jois-hero-image video {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            filter: contrast(1.1) brightness(0.9);
-        }
-        
-        .jois-hero-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(to right, rgba(0,0,0,0) 0%, rgba(0,0,0,0.4) 100%);
-        }
-        
-        .video-control {
-            position: absolute;
-            bottom: 20px;
-            right: 20px;
-            width: 44px;
-            height: 44px;
-            background: rgba(0, 0, 0, 0.8);
-            border: 1px solid var(--tw-slate);
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.3s ease;
-            z-index: 10;
-            color: var(--tw-white);
-        }
-        
-        .video-control:hover {
-            background: var(--tw-white);
-            color: var(--tw-black);
-        }
-        
-        .jois-hero-cta span {
-            position: relative;
-            z-index: 1;
-        }
-        
-        .jois-hero-cta svg {
-            position: relative;
-            z-index: 1;
-            transition: transform 0.3s ease;
-        }
-        
-        .jois-hero-cta:hover svg {
-            transform: translateX(5px);
-        }
-        
-        .jois-hero-image {
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .jois-hero-image img,
-        .jois-hero-image video {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            filter: drop-shadow(0 30px 60px rgba(0, 0, 0, 0.5));
-        }
-        
-        .jois-hero-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(to right, rgba(10,10,10,0) 0%, rgba(10,10,10,0.3) 100%);
-        }
-        
-        .video-control {
-            position: absolute;
-            bottom: 20px;
-            right: 20px;
-            width: 44px;
-            height: 44px;
-            background: rgba(26, 26, 26, 0.8);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(196, 163, 90, 0.3);
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.4s ease;
-            z-index: 10;
-            color: var(--gold);
-            border-radius: 50%;
-        }
-        
-        .video-control:hover {
-            background: var(--gold);
-            color: var(--black);
-            box-shadow: 0 0 30px rgba(196, 163, 90, 0.4);
+        .hero-statement {
+            font-size: 14px;
+            letter-spacing: 0.1em;
+            color: var(--white);
+            font-weight: 300;
+            max-width: 500px;
+            margin: 0 auto;
+            line-height: 1.8;
         }
         
         /* ============================================
-           PREMIUM MARQUEE
+           BREAK SECTIONS - QUOTES & STATEMENTS
            ============================================ */
-
-           MATRIX MARQUEE
+        .break-section {
+            padding: 120px 40px;
+            text-align: center;
+            background: var(--black-pure);
+        }
+        
+        .break-quote {
+            font-family: var(--font-display);
+            font-size: clamp(24px, 4vw, 48px);
+            font-weight: 400;
+            letter-spacing: 0.05em;
+            color: var(--white);
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.4;
+        }
+        
+        .break-author {
+            font-size: 11px;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            color: var(--white-muted);
+            margin-top: 30px;
+        }
+        
+        /* ============================================
+           PRODUCTS GRID - EDITORIAL, NO CARDS
            ============================================ */
-        .jois-marquee {
-            background: #1A1A1A;
-            border-top: 1px solid var(--cement);
-            border-bottom: 1px solid var(--cement);
-            padding: 15px 0;
-            overflow: hidden;
+        .products-editorial {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1px;
+            background: var(--gray);
+        }
+        
+        .product-editorial {
             position: relative;
+            background: var(--black-pure);
+            cursor: pointer;
         }
         
-        .jois-marquee::before {
-            content: '> MARQUEE_MODULE v1.0 // SCROLLING...';
-            position: absolute;
-            top: 0;
-            left: 0;
+        .product-editorial a {
+            display: block;
+        }
+        
+        .product-editorial img {
             width: 100%;
-            padding: 5px 20px;
-            background: #0A0A0A;
-            color: var(--gold);
+            height: 80vh;
+            object-fit: cover;
+            transition: var(--transition-slow);
+            filter: grayscale(10%);
+        }
+        
+        .product-editorial:hover img {
+            filter: grayscale(0%);
+        }
+        
+        .product-editorial-info {
+            padding: 30px 40px;
+        }
+        
+        .product-editorial-name {
+            font-family: var(--font-display);
+            font-size: 24px;
+            letter-spacing: 0.05em;
+            color: var(--white);
+            margin-bottom: 10px;
+        }
+        
+        .product-editorial-price {
             font-family: var(--font-mono);
-            font-size: 9px;
-            letter-spacing: 2px;
-            z-index: 2;
+            font-size: 14px;
+            color: var(--white-muted);
         }
         
-        .jois-marquee-track {
-            display: flex;
-            animation: matrix-scroll 30s linear infinite;
-            padding-top: 25px;
-        }
-        
-        .jois-jois-marquee-item {
+        .product-editorial-add {
+            display: inline-block;
+            margin-top: 15px;
             font-size: 10px;
-            letter-spacing: 4px;
+            letter-spacing: 0.15em;
             text-transform: uppercase;
-            color: var(--gold);
-            white-space: nowrap;
-            padding: 0 50px;
-            font-family: var(--font-mono);
-            text-shadow: 0 0 10px var(--gold);
+            color: var(--white-muted);
+            border-bottom: 1px solid var(--gray);
+            padding-bottom: 5px;
+            transition: var(--transition-fast);
         }
         
-        .jois-jois-marquee-item.gold {
-            color: var(--beige);
-            text-shadow: 0 0 10px rgba(196, 163, 90, 0.5);
-        }
-        
-        @keyframes matrix-scroll {
-            from { transform: translateX(0); }
-            to { transform: translateX(-50%); }
+        .product-editorial-add:hover {
+            color: var(--white);
+            border-color: var(--white);
         }
         
         /* ============================================
-           SCROLL REVEAL ANIMATIONS
+           SECTION - MASCULINE
            ============================================ */
-        .reveal-on-scroll {
-            opacity: 0;
-            transform: translateY(50px);
-            transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
-        }
-        
-        .reveal-on-scroll.revealed {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        
-        .reveal-on-scroll:nth-child(1) { transition-delay: 0.1s; }
-        .reveal-on-scroll:nth-child(2) { transition-delay: 0.2s; }
-        .reveal-on-scroll:nth-child(3) { transition-delay: 0.3s; }
-        .reveal-on-scroll:nth-child(4) { transition-delay: 0.4s; }
-        
-        /* ============================================
-        /* ============================================
-           PREMIUM PRODUCTS GRID
-           ============================================ */
-        .jois-section {
+        .section {
             padding: 100px 40px;
             max-width: 1400px;
             margin: 0 auto;
-            background: var(--black);
+            background: var(--black-pure);
         }
         
-        .jois-jois-section-header {
+        .section-header {
             display: flex;
             justify-content: space-between;
             align-items: flex-end;
-            margin-bottom: 50px;
+            margin-bottom: 60px;
             padding-bottom: 30px;
-            border-bottom: 1px solid var(--gray-dark);
+            border-bottom: 1px solid var(--gray);
         }
         
-        .jois-jois-section-title {
+        .section-title {
             font-family: var(--font-display);
             font-size: clamp(48px, 8vw, 80px);
             font-weight: 700;
@@ -534,1485 +343,604 @@
             color: var(--white);
         }
         
-        .jois-jois-section-link {
+        .section-link {
             font-size: 11px;
             letter-spacing: 0.15em;
             text-transform: uppercase;
-            color: var(--gray-light);
+            color: var(--white-muted);
             display: flex;
             align-items: center;
             gap: 10px;
-            transition: all 0.3s ease;
-            padding: 10px 20px;
-            border: 1px solid var(--gray-dark);
-            font-family: var(--font-body);
-            position: relative;
-            overflow: hidden;
+            transition: var(--transition-fast);
         }
         
-        .jois-jois-section-link:hover {
+        .section-link:hover {
             color: var(--white);
-            border-color: var(--gold);
         }
         
-        .jois-jois-section-link svg {
+        .section-link svg {
             width: 16px;
             height: 16px;
         }
         
-        .jois-products-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 24px;
-            background: transparent;
-        }
-        
-        .jois-product-card {
-            position: relative;
-            background: rgba(26, 26, 26, 0.6);
-            backdrop-filter: blur(30px);
-            -webkit-backdrop-filter: blur(30px);
-            border: 1px solid rgba(196, 163, 90, 0.15);
-            border-radius: 24px;
-            display: flex;
-            flex-direction: column;
-            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-            overflow: hidden;
-        }
-        
-        .jois-product-card:hover {
-            transform: translateY(-8px) scale(1.02);
-            border-color: rgba(196, 163, 90, 0.4);
-            box-shadow: 
-                0 30px 60px rgba(0, 0, 0, 0.4),
-                0 0 40px rgba(196, 163, 90, 0.15);
-        }
-        
-        .jois-product-image {
-            position: relative;
-            aspect-ratio: 3/4;
-            overflow: hidden;
-            background: var(--black);
-            border-radius: 20px;
-            margin: 12px;
-            width: calc(100% - 24px);
-        }
-        
-        .jois-product-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s ease, filter 0.5s ease;
-            filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.4));
-        }
-        
-        .jois-product-card:hover .jois-product-image img {
-            transform: scale(1.05);
-            filter: drop-shadow(0 30px 50px rgba(0, 0, 0, 0.5)) brightness(1.05);
-        }
-        
-        .jois-product-badge {
-            position: absolute;
-            top: 24px;
-            left: 24px;
-            padding: 8px 16px;
-            font-size: 9px;
-            letter-spacing: 0.15em;
-            text-transform: uppercase;
-            background: rgba(196, 163, 90, 0.9);
-            color: var(--black);
-            font-family: var(--font-mono);
-            font-weight: 700;
-            border-radius: 8px;
-            backdrop-filter: blur(10px);
-            box-shadow: 0 0 20px rgba(196, 163, 90, 0.3);
-            z-index: 2;
-        }
-        
-        .jois-product-info {
-            padding: 20px 24px 24px;
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-        }
-        
-        .jois-product-name {
-            font-size: 14px;
-            letter-spacing: 0.08em;
-            text-transform: uppercase;
-            font-family: var(--font-display);
-            color: var(--white);
-        }
-        
-        .jois-product-price {
-            font-family: var(--font-mono);
-            font-size: 16px;
-            color: var(--gold);
-        }
-        
-        .jois-product-quick-add {
-            padding: 12px 15px;
-            font-size: 10px;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-            background: transparent;
-            color: var(--white);
-            border: 1px solid var(--gray-dark);
-            cursor: pointer;
-            transition: all 0.4s ease;
-            margin-top: 8px;
-            font-family: var(--font-body);
-        }
-        
-        .jois-product-quick-add:hover {
-            background: var(--gold);
-            color: var(--black);
-            border-color: var(--gold);
-        }
-
-
         /* ============================================
-           PREMIUM CATEGORIES - GRAFFITI STYLE
+           MANIFESTO SECTION
            ============================================ */
-        .jois-categories {
-            background: var(--black);
-            padding: 100px 40px;
-            border-top: 1px solid var(--gray-dark);
-            border-bottom: 1px solid var(--gray-dark);
-        }
-        
-        .categories-inner {
-            max-width: 1400px;
+        .manifesto-section {
+            padding: 150px 60px;
+            background: var(--black-light);
+            max-width: 900px;
             margin: 0 auto;
+            text-align: center;
         }
         
-        .jois-categories-header {
-            margin-bottom: 60px;
-        }
-        
-        .jois-categories-title {
+        .manifesto-text {
             font-family: var(--font-display);
-            font-size: clamp(48px, 8vw, 80px);
-            font-weight: 700;
-            letter-spacing: 0.03em;
-            color: var(--white);
-            text-transform: uppercase;
-        }
-        
-        .jois-categories-list {
-            border-top: 1px solid var(--gray-dark);
-        }
-        
-        .jois-category-item {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 40px 0;
-            border-bottom: 1px solid var(--gray-dark);
-            color: var(--white);
-            transition: all 0.3s ease;
-            cursor: pointer;
-            position: relative;
-        }
-        
-        .jois-category-item:hover {
-            padding-left: 20px;
-        }
-        
-        .jois-category-item:hover .jois-jois-category-name {
-            color: var(--white);
-            text-shadow: 0 0 30px rgba(196, 163, 90, 0.5);
-        }
-        
-        .jois-category-name {
-            font-family: 'Arial Black', 'Impact', sans-serif;
-            font-size: clamp(60px, 10vw, 120px);
-            font-weight: 900;
-            letter-spacing: 0.05em;
-            transition: all 0.3s ease;
-            text-transform: uppercase;
-            position: relative;
-            z-index: 1;
-            transform: rotate(-2deg);
-            color: transparent;
-            -webkit-text-stroke: 2px var(--white);
-            text-shadow: 
-                4px 4px 0 rgba(196, 163, 90, 0.3),
-                -2px -2px 0 rgba(196, 163, 90, 0.2);
-        }
-        
-        .jois-category-item:hover .jois-jois-category-name {
-            -webkit-text-stroke: 2px var(--gold);
-            text-shadow: 
-                6px 6px 0 rgba(196, 163, 90, 0.4),
-                -3px -3px 0 rgba(196, 163, 90, 0.3);
-        }
-        
-        .jois-category-arrow {
-            opacity: 0;
-            transform: translateX(-10px);
-            transition: all 0.3s ease;
-            color: var(--gold);
-        }
-        
-        .jois-category-item:hover .jois-jois-category-arrow {
-            opacity: 1;
-            transform: translateX(0);
-        }
-        
-        .jois-category-count {
-            font-family: var(--font-mono);
-            font-size: 12px;
-            color: var(--gray-light);
-            letter-spacing: 0.1em;
-        }
-
-
-           EDITORIAL SECTION
-           ============================================ */
-        .jois-editorial {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            min-height: 600px;
-        }
-        
-        .jois-jois-editorial-image {
-            overflow: hidden;
-            border-right: 1px solid var(--cement);
-            position: relative;
-        }
-        
-        .jois-jois-editorial-image::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent 50%, rgba(10,10,10,0.5) 100%);
-            pointer-events: none;
-        }
-        
-        .jois-jois-editorial-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            filter: grayscale(30%) contrast(1.1);
-            transition: all 0.5s ease;
-        }
-        
-        .jois-jois-editorial-image:hover img {
-            filter: grayscale(0%) contrast(1);
-            transform: scale(1.03);
-        }
-        
-        .jois-jois-editorial-content {
-            background: var(--black-light);
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            padding: 80px 60px;
-            border-left: 1px solid var(--cement);
-            position: relative;
-        }
-        
-        .jois-jois-editorial-content::before {
-            content: '> EDITORIAL_MODULE';
-            position: absolute;
-            top: 20px;
-            left: 20px;
-            font-family: var(--font-mono);
-            font-size: 9px;
-            letter-spacing: 2px;
-            color: var(--gold);
-            text-shadow: 0 0 10px var(--gold);
-        }
-        
-        .jois-jois-editorial-label {
-            font-size: 10px;
-            letter-spacing: 0.3em;
-            text-transform: uppercase;
-            color: var(--beige);
-            margin-bottom: 25px;
-            font-family: var(--font-mono);
-            text-shadow: 0 0 15px rgba(196, 163, 90, 0.5);
-        }
-        
-        .jois-jois-editorial-title {
-            font-family: var(--font-mono);
-            font-size: clamp(32px, 4vw, 48px);
-            font-weight: 700;
-            line-height: 1.2;
-            margin-bottom: 30px;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-        }
-        
-        .jois-jois-editorial-text {
-            font-size: 14px;
+            font-size: clamp(18px, 2.5vw, 28px);
             line-height: 1.8;
-            color: var(--text-muted);
-            margin-bottom: 40px;
-        }
-        
-        .jois-jois-editorial-cta {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            font-size: 11px;
-            letter-spacing: 0.15em;
-            text-transform: uppercase;
             color: var(--white);
-            border-bottom: 1px solid var(--beige);
-            padding-bottom: 5px;
-            width: fit-content;
-            transition: all 0.3s ease;
-            font-family: var(--font-mono);
-        }
-        
-        .jois-jois-editorial-cta:hover {
-            color: var(--beige);
-            text-shadow: 0 0 15px rgba(196, 163, 90, 0.5);
-            gap: 15px;
+            letter-spacing: 0.02em;
         }
         
         /* ============================================
-           FEATURED GRID
-           ============================================ */
-        .featured-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
-        }
-        
-        .featured-card {
-            position: relative;
-            overflow: hidden;
-            border: 1px solid var(--cement);
-            background: var(--black-light);
-            transition: all 0.4s ease;
-        }
-        
-        .featured-card:hover {
-            border-color: var(--beige);
-            box-shadow: 0 0 30px rgba(196, 163, 90, 0.2);
-            transform: translateY(-5px);
-        }
-        
-        .featured-card img {
-            width: 100%;
-            aspect-ratio: 2/3;
-            object-fit: cover;
-            filter: grayscale(20%);
-            transition: all 0.5s ease;
-        }
-        
-        .featured-card:hover img {
-            filter: grayscale(0%);
-            transform: scale(1.05);
-        }
-        
-        .featured-card-content {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            padding: 40px 30px;
-            background: linear-gradient(to top, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.5) 100%);
-            color: var(--white);
-            border-top: 1px solid var(--beige);
-        }
-        
-        .featured-card h3 {
-            font-family: var(--font-mono);
-            font-size: 24px;
-            font-weight: 700;
-            margin-bottom: 10px;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-        }
-        
-        .featured-card p {
-            font-size: 12px;
-            letter-spacing: 0.1em;
-            opacity: 0.7;
-            font-family: var(--font-mono);
-            text-transform: uppercase;
-        }
-        
-        /* ============================================
-           TERMINAL FOOTER
+           FOOTER - MINIMAL
            ============================================ */
         .footer {
-            background: #0A0A0A;
-            border-top: 1px solid var(--cement);
-            padding: 0;
-            font-family: var(--font-mono);
-        }
-        
-        .footer::before {
-            content: '> FOOTER_MODULE v1.0 // CONNECTED';
-            display: block;
-            padding: 15px 40px;
-            background: #1A1A1A;
-            color: var(--gold);
-            font-size: 10px;
-            letter-spacing: 2px;
-            border-bottom: 1px solid var(--cement);
-            text-shadow: 0 0 10px var(--gold);
-        }
-        
-        .footer-inner {
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-        
-        .footer-main {
-            display: grid;
-            grid-template-columns: 1fr 2fr;
-            gap: 80px;
-            margin-bottom: 0;
             padding: 60px 40px;
-            border-bottom: 1px solid var(--cement);
+            text-align: center;
+            background: var(--black-pure);
+            border-top: 1px solid var(--gray);
         }
         
-        .footer-brand .logo {
-            margin-bottom: 15px;
-            font-family: var(--font-mono);
-            font-size: 32px;
-            font-weight: 700;
-            letter-spacing: 0.4em;
-            color: var(--white);
-        }
-        
-        .footer-tagline {
-            font-size: 12px;
-            color: var(--text-muted);
-            letter-spacing: 0.1em;
-            font-family: var(--font-mono);
-            text-transform: uppercase;
-        }
-        
-        .footer-socials {
-            display: flex;
-            gap: 20px;
-            margin-top: 25px;
-        }
-        
-        .footer-social-link {
+        .footer-text {
             font-size: 11px;
             letter-spacing: 0.1em;
-            text-transform: uppercase;
-            color: var(--text-muted);
-            border-bottom: 1px solid transparent;
-            padding-bottom: 3px;
-            transition: var(--transition-fast);
-            font-family: var(--font-mono);
+            color: var(--white-muted);
         }
         
-        .footer-social-link:hover {
-            color: var(--beige);
-            border-color: var(--beige);
-            text-shadow: 0 0 15px rgba(196, 163, 90, 0.5);
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 15px;
         }
         
-        .footer-nav {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 40px;
-        }
-        
-        .footer-col h4 {
-            color: var(--beige);
+        .footer-link {
             font-size: 10px;
-            letter-spacing: 3px;
-            margin-bottom: 20px;
-            font-family: var(--font-mono);
-            text-shadow: 0 0 10px rgba(196, 163, 90, 0.3);
-        }
-        
-        .footer-col ul {
-            list-style: none;
-        }
-        
-        .footer-col li {
-            margin-bottom: 12px;
-            position: relative;
-            padding-left: 15px;
-        }
-        
-        .footer-col li::before {
-            content: '→ ';
-            color: var(--gold);
-            position: absolute;
-            left: 0;
-            text-shadow: 0 0 10px var(--gold);
-        }
-        
-        .footer-col a {
-            display: block;
-            font-size: 13px;
-            color: var(--text-muted);
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--white-muted);
             transition: var(--transition-fast);
-            font-family: var(--font-mono);
         }
         
-        .footer-col a:hover {
+        .footer-link:hover {
             color: var(--white);
-            text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
         }
         
-        .footer-bottom {
+        /* ============================================
+           CART DRAWER - MINIMAL
+           ============================================ */
+        .cart-drawer {
+            position: fixed;
+            top: 0;
+            right: -450px;
+            width: 450px;
+            height: 100vh;
+            background: var(--black-pure);
+            z-index: 2000;
+            display: flex;
+            flex-direction: column;
+            transition: var(--transition-medium);
+            border-left: 1px solid var(--gray);
+        }
+        
+        .cart-drawer.open {
+            right: 0;
+        }
+        
+        .cart-header {
+            padding: 30px 40px;
+            border-bottom: 1px solid var(--gray);
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 30px 40px;
-            background: #050505;
         }
         
-        .footer-copyright {
-            font-size: 10px;
-            letter-spacing: 0.08em;
-            color: var(--text-muted);
-            font-family: var(--font-mono);
+        .cart-title {
+            font-family: var(--font-display);
+            font-size: 14px;
+            letter-spacing: 0.2em;
             text-transform: uppercase;
+            color: var(--white);
         }
         
-        .footer-payments {
-            font-family: var(--font-mono);
-            font-size: 11px;
-            color: var(--beige);
-            text-shadow: 0 0 10px rgba(196, 163, 90, 0.3);
+        .cart-close {
+            font-size: 24px;
+            color: var(--white-muted);
+            cursor: pointer;
+            transition: var(--transition-fast);
         }
         
-        /* ============================================
-           GLITCH TRANSITION BAR
-           ============================================ */
-        .glitch-transition {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 5px;
-            background: linear-gradient(90deg, var(--beige), var(--gold), var(--beige));
-            z-index: 9999;
-            transform: scaleX(0);
-            transform-origin: left;
+        .cart-close:hover {
+            color: var(--white);
         }
         
-        .glitch-transition.active {
-            animation: glitch-bar 0.3s ease forwards;
+        .cart-items {
+            flex: 1;
+            overflow-y: auto;
+            padding: 20px 40px;
         }
         
-        @keyframes glitch-bar {
-            0% { transform: scaleX(0) translateX(-100%); }
-            50% { transform: scaleX(1) translateX(0); }
-            100% { transform: scaleX(0) translateX(100%); }
+        .cart-empty {
+            text-align: center;
+            padding: 80px 0;
         }
         
-        /* ============================================
-           RESPONSIVE - CYBERPUNK
-           ============================================ */
-        @media (max-width: 1024px) {
-            .jois-products-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            
-            .jois-editorial {
-                grid-template-columns: 1fr;
-            }
-            
-            .featured-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
+        .cart-empty span {
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--white-muted);
         }
         
-        @media (max-width: 768px) {
-            .jois-topbar {
-                display: none;
-            }
-            
-            .jois-nav-inner {
-                padding: 0 20px;
-                height: 70px;
-            }
-            
-            .jois-jois-nav-links {
-                display: none;
-            }
-            
-            .logo {
-                font-size: 24px;
-            }
-            
-            .jois-hero-content {
-                grid-template-columns: 1fr;
-            }
-            
-            .jois-hero-image {
-                position: absolute;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100%;
-                z-index: -1;
-                border-left: none;
-            }
-            
-            .jois-hero-text {
-                background: rgba(10, 10, 10, 0.85);
-                padding: 120px 30px 60px;
-            }
-            
-            .jois-hero-title {
-                font-size: 50px;
-            }
-            
-            .jois-section {
-                padding: 60px 20px;
-            }
-            
-            .jois-jois-section-header {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 20px;
-            }
-            
-            .jois-products-grid {
-                grid-template-columns: 1fr 1fr;
-                gap: 1px;
-            }
-            
-            .jois-categories {
-                padding: 60px 20px;
-            }
-            
-            .footer-main {
-                grid-template-columns: 1fr;
-                gap: 40px;
-            }
-            
-            .footer-nav {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            
-            .footer-bottom {
-                flex-direction: column;
-                gap: 15px;
-                text-align: center;
-            }
-            
-            .crt-screen {
-                padding: 30px 20px;
-            }
-            
-            .ascii-art {
-                font-size: 6px;
-            }
-        }
-        
-        @media (max-width: 480px) {
-            .jois-products-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .featured-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .footer-nav {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
-</head>
-<body>
-    <!-- Premium Loading Screen -->
-    <div class="premium-loader" id="loader">
-        <div class="loader-content">
-            <div class="loader-logo">JOIS</div>
-            <div class="loader-bar">
-                <div class="loader-progress"></div>
-            </div>
-        </div>
-    </div>
-    
-    <!-- Top Bar -->
-    <div class="top-bar">
-        <div class="top-bar-left">
-            <span>Ciudad de México</span>
-        </div>
-        <div class="top-bar-center">
-            <span>ENVÍO GRATIS EN PEDIDOS MAYORES A $5,000 MXN</span>
-        </div>
-        <div class="top-bar-right">
-            <span>@joisleather</span>
-        </div>
-    </div>
-    
-    <!-- Navigation -->
-    <nav class="jois-nav">
-        <div class="jois-nav-inner">
-            <div class="jois-nav-actions nav-left">
-                <a href="#" class="jois-nav-icon" aria-label="Buscar">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                        <circle cx="11" cy="11" r="8"/>
-                        <path d="m21 21-4.35-4.35"/>
-                    </svg>
-                </a>
-            </div>
-            
-            <a href="index.html" class="logo">JOIS</a>
-            
-            <div class="jois-nav-links">
-                <a href="#hombre" class="jois-nav-link">Hombre</a>
-                <a href="#mujer" class="jois-nav-link">Mujer</a>
-                <a href="#coleccion" class="jois-nav-link">Colección</a>
-                <a href="#nosotros" class="jois-nav-link">Nosotros</a>
-                <a href="#contacto" class="jois-nav-link">Contacto</a>
-            </div>
-            
-            <div class="jois-nav-actions nav-right">
-                <a href="account/login.html" class="jois-nav-icon" aria-label="Mi Cuenta">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                        <circle cx="12" cy="8" r="4"/>
-                        <path d="M20 21a8 8 0 0 0-16 0"/>
-                    </svg>
-                </a>
-                <a href="#" class="jois-nav-icon" aria-label="Favoritos">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                        <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
-                    </svg>
-                </a>
-                <a href="#" class="jois-nav-icon" onclick="toggleCart(); return false;" aria-label="Carrito">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                        <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/>
-                        <line x1="3" y1="6" x2="21" y2="6"/>
-                        <path d="M16 10a4 4 0 0 1-8 0"/>
-                    </svg>
-                    <span id="cartCount" class="bag-count" style="display:none;">0</span>
-                </a>
-            </div>
-        </div>
-    </nav>
-    
-    <!-- Premium Hero - Glassmorphism 3D Style -->
-    <section class="premium-hero">
-        <!-- Background Text -->
-        <div class="hero-bg-text left">JOIS</div>
-        <div class="hero-bg-text right">LEATHER</div>
-        
-        <!-- Glass Card Container -->
-        <div class="hero-glass-card">
-            <!-- Navigation Bar -->
-            <div class="hero-nav">
-                <div class="hero-nav-links">
-                    <a href="index.html">Products</a>
-                    <a href="#hombre">Man</a>
-                    <a href="#mujer">Woman</a>
-                    <a href="#coleccion">Collection</a>
-                </div>
-                <div class="hero-social">
-                    <a href="https://tiktok.com/@joisleather" target="_blank">
-                        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/></svg>
-                    </a>
-                    <a href="https://instagram.com/leatherjois" target="_blank">
-                        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
-                    </a>
-                    <a href="#">
-                        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
-                    </a>
-                </div>
-            </div>
-            
-            <!-- Product Display -->
-            <div class="hero-product-area">
-                <div class="hero-product-wrapper">
-                    <span class="hero-product-badge">Premium Leather</span>
-                    <img class="hero-product-img" src="https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=600&q=90" alt="JOIS Product">
-                </div>
-                <div class="hero-product-nav">
-                    <button class="hero-nav-btn">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
-                    </button>
-                    <button class="hero-nav-btn">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
-                    </button>
-                </div>
-            </div>
-            
-            <!-- Product Details -->
-            <div class="hero-details-area">
-                <h1 class="hero-product-title">Shirt Jacket</h1>
-                <p class="hero-product-subtitle">Maison de Cuir</p>
-                
-                <div class="hero-price-section">
-                    <p class="hero-price-label">Select Currency</p>
-                    <div class="hero-price-options">
-                        <button class="hero-price-btn active" data-mxn="6650">$6,650 MXN</button>
-                        <button class="hero-price-btn" data-usd="380">$380 USD</button>
-                        <button class="hero-price-btn">₿ Crypto</button>
-                    </div>
-                </div>
-                
-                <div class="hero-size-section">
-                    <p class="hero-size-label">Select Size</p>
-                    <div class="hero-size-options">
-                        <button class="hero-size-btn">XS</button>
-                        <button class="hero-size-btn">S</button>
-                        <button class="hero-size-btn active">M</button>
-                        <button class="hero-size-btn">L</button>
-                        <button class="hero-size-btn">XL</button>
-                    </div>
-                </div>
-                
-                <button class="hero-buy-btn" onclick="addToCart('Shirt Jacket - M', 380, 'https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=400&q=80', 'M')">
-                    <span>Add to Bag — $6,650 MXN</span>
-                </button>
-            </div>
-            
-            <!-- Footer -->
-            <div class="hero-footer">
-                <span class="hero-footer-text">> JOIS_LEATHER_v2.0 // SECURE_CONNECTION</span>
-            </div>
-        </div>
-    </section>
-    
-    <!-- Matrix Marquee -->
-    <div class="marquee">
-        <div class="jois-marquee-track">
-            <span class="jois-marquee-item">Cuero Premium</span>
-            <span class="jois-marquee-item gold">◆</span>
-            <span class="jois-marquee-item">Diseño Atemporal</span>
-            <span class="jois-marquee-item gold">◆</span>
-            <span class="jois-marquee-item">Hecho en México</span>
-            <span class="jois-marquee-item gold">◆</span>
-            <span class="jois-marquee-item">Envío Gratis +$5,000 MXN</span>
-            <span class="jois-marquee-item gold">◆</span>
-            <span class="jois-marquee-item">NFT Collection</span>
-            <span class="jois-marquee-item gold">◆</span>
-            <span class="jois-marquee-item">Cuero Premium</span>
-            <span class="jois-marquee-item gold">◆</span>
-            <span class="jois-marquee-item">Diseño Atemporal</span>
-            <span class="jois-marquee-item gold">◆</span>
-            <span class="jois-marquee-item">Hecho en México</span>
-            <span class="jois-marquee-item gold">◆</span>
-            <span class="jois-marquee-item">Envío Gratis +$5,000 MXN</span>
-            <span class="jois-marquee-item gold">◆</span>
-            <span class="jois-marquee-item">NFT Collection</span>
-            <span class="jois-marquee-item gold">◆</span>
-        </div>
-    </div>
-    
-    <!-- Ready to Wear - Hombre -->
-    <section class="section reveal-on-scroll" id="hombre">
-        <div class="jois-section-header">
-            <h2 class="jois-section-title stencil-text" data-text="HOMBRE">HOMBRE</h2>
-            <a href="#" class="jois-section-link">
-                Ver Todo
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M5 12h14M12 5l7 7-7 7"/>
-                </svg>
-            </a>
-        </div>
-        
-        <div class="jois-products-grid">
-            <div class="product-card" data-product="h1">
-                <a href="product.html" class="jois-product-image">
-                    <img src="assets/images/shirt-jacket-hombre.png" alt="Shirt Jacket" onerror="this.src='https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=600&q=80'">
-                    <span class="jois-product-badge">Nuevo</span>
-                </a>
-                <div class="jois-product-info">
-                    <span class="jois-product-name">shirt jacket</span>
-                    <span class="jois-product-price">$6,650 MXN</span>
-                    <button class="btn-add-grid" onclick="addToCart('Shirt Jacket - M', 380, 'https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=400&q=80', 'M')"><span>+ Añadir</span></button>
-                </div>
-            </div>
-            
-            <div class="product-card" data-product="h2">
-                <a href="product.html" class="jois-product-image">
-                    <img src="assets/images/bomber-hombre.png" alt="Bomber" onerror="this.src='https://images.unsplash.com/photo-1551028719-00167b16eac5?w=600&q=80'">
-                    <span class="jois-product-badge">Limited</span>
-                </a>
-                <div class="jois-product-info">
-                    <span class="jois-product-name">bomber</span>
-                    <span class="jois-product-price">$9,100 MXN</span>
-                    <button class="btn-add-grid" onclick="addToCart('Bomber - M', 520, 'https://images.unsplash.com/photo-1551028719-00167b16eac5?w=400&q=80', 'M')"><span>+ Añadir</span></button>
-                </div>
-            </div>
-            
-            <div class="product-card" data-product="h3">
-                <a href="product.html" class="jois-product-image">
-                    <img src="assets/images/weekender-hombre.png" alt="Weekender" onerror="this.src='https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=600&q=80'">
-                    <span class="jois-product-badge">Nuevo</span>
-                </a>
-                <div class="jois-product-info">
-                    <span class="jois-product-name">weekender</span>
-                    <span class="jois-product-price">$8,400 MXN</span>
-                    <button class="btn-add-grid" onclick="addToCart('Weekender - M', 480, 'https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=400&q=80', 'M')"><span>+ Añadir</span></button>
-                </div>
-            </div>
-            
-            <div class="product-card" data-product="h4">
-                <a href="product.html" class="jois-product-image">
-                    <img src="assets/images/wallet-hombre.png" alt="Wallet" onerror="this.src='https://images.unsplash.com/photo-1627123424574-724758594e93?w=600&q=80'">
-                    <span class="jois-product-badge">Bestseller</span>
-                </a>
-                <div class="jois-product-info">
-                    <span class="jois-product-name">wallet</span>
-                    <span class="jois-product-price">$3,150 MXN</span>
-                    <button class="btn-add-grid" onclick="addToCart('Wallet - M', 180, 'https://images.unsplash.com/photo-1627123424574-724758594e93?w=400&q=80', 'M')"><span>+ Añadir</span></button>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    <!-- Ready to Wear - Mujer -->
-    <section class="section reveal-on-scroll" id="mujer">
-        <div class="jois-section-header">
-            <h2 class="jois-section-title stencil-text" data-text="MUJER">MUJER</h2>
-            <a href="#" class="jois-section-link">
-                Ver Todo
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M5 12h14M12 5l7 7-7 7"/>
-                </svg>
-            </a>
-        </div>
-        
-        <div class="jois-products-grid">
-            <div class="product-card" data-product="m1">
-                <a href="product.html" class="jois-product-image">
-                    <img src="assets/images/bomber-mujer.png" alt="Bomber" onerror="this.src='https://images.unsplash.com/photo-1539533018447-63fcce2678e3?w=600&q=80'">
-                    <span class="jois-product-badge">Permanente</span>
-                </a>
-                <div class="jois-product-info">
-                    <span class="jois-product-name">bomber noir</span>
-                    <span class="jois-product-price">$7,875 MXN</span>
-                    <button class="btn-add-grid" onclick="addToCart('Bomber Noir - M', 450, 'https://images.unsplash.com/photo-1539533018447-63fcce2678e3?w=400&q=80', 'M')"><span>+ Añadir</span></button>
-                </div>
-            </div>
-            
-            <div class="product-card" data-product="m2">
-                <a href="product.html" class="jois-product-image">
-                    <img src="assets/images/shirt-jacket-mujer.png" alt="Shirt Jacket" onerror="this.src='https://images.unsplash.com/photo-1594938298603-c8148c4dae35?w=600&q=80'">
-                    <span class="jois-product-badge">Nuevo</span>
-                </a>
-                <div class="jois-product-info">
-                    <span class="jois-product-name">shirt jacket</span>
-                    <span class="jois-product-price">$6,650 MXN</span>
-                    <button class="btn-add-grid" onclick="addToCart('Shirt Jacket - M', 380, 'https://images.unsplash.com/photo-1594938298603-c8148c4dae35?w=400&q=80', 'M')"><span>+ Añadir</span></button>
-                </div>
-            </div>
-            
-            <div class="product-card" data-product="m3">
-                <a href="product.html" class="jois-product-image">
-                    <img src="assets/images/weekender-mujer.png" alt="Weekender" onerror="this.src='https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=600&q=80'">
-                    <span class="jois-product-badge">Nuevo</span>
-                </a>
-                <div class="jois-product-info">
-                    <span class="jois-product-name">weekender</span>
-                    <span class="jois-product-price">$8,400 MXN</span>
-                    <button class="btn-add-grid" onclick="addToCart('Weekender - M', 480, 'https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=400&q=80', 'M')"><span>+ Añadir</span></button>
-                </div>
-            </div>
-            
-            <div class="product-card" data-product="m4">
-                <a href="product.html" class="jois-product-image">
-                    <img src="assets/images/wallet-mujer.png" alt="Wallet" onerror="this.src='https://images.unsplash.com/photo-1601924994987-69e26d50dc26?w=600&q=80'">
-                    <span class="jois-product-badge">Limited</span>
-                </a>
-                <div class="jois-product-info">
-                    <span class="jois-product-name">wallet matrix</span>
-                    <span class="jois-product-price">$3,500 MXN</span>
-                    <button class="btn-add-grid" onclick="addToCart('Wallet Matrix - M', 200, 'https://images.unsplash.com/photo-1601924994987-69e26d50dc26?w=400&q=80', 'M')"><span>+ Añadir</span></button>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    <!-- Categories -->
-    <section class="jois-categories reveal-on-scroll" id="coleccion">
-        <div class="categories-inner">
-            <div class="jois-categories-header">
-                <h2 class="jois-categories-title">Colección</h2>
-            </div>
-            
-            <div class="jois-categories-list">
-                <a href="#hombre" class="category-item">
-                    <span class="jois-category-name">Hombre</span>
-                    <span class="jois-category-count">8 piezas</span>
-                    <svg class="jois-category-arrow" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                        <path d="M5 12h14M12 5l7 7-7 7"/>
-                    </svg>
-                </a>
-                <a href="#mujer" class="category-item">
-                    <span class="jois-category-name">Mujer</span>
-                    <span class="jois-category-count">6 piezas</span>
-                    <svg class="jois-category-arrow" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                        <path d="M5 12h14M12 5l7 7-7 7"/>
-                    </svg>
-                </a>
-                <a href="#" class="category-item">
-                    <span class="jois-category-name">Bolsos</span>
-                    <span class="jois-category-count">4 piezas</span>
-                    <svg class="jois-category-arrow" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                        <path d="M5 12h14M12 5l7 7-7 7"/>
-                    </svg>
-                </a>
-                <a href="#" class="category-item">
-                    <span class="jois-category-name">Accesorios</span>
-                    <span class="jois-category-count">5 piezas</span>
-                    <svg class="jois-category-arrow" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                        <path d="M5 12h14M12 5l7 7-7 7"/>
-                    </svg>
-                </a>
-                <a href="nft.html" class="category-item">
-                    <span class="jois-category-name">NFT Collection</span>
-                    <span class="jois-category-count">digital</span>
-                    <svg class="jois-category-arrow" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                        <path d="M5 12h14M12 5l7 7-7 7"/>
-                    </svg>
-                </a>
-            </div>
-        </div>
-    </section>
-    
-    <!-- Editorial About -->
-    <section class="editorial reveal-on-scroll" id="nosotros">
-        <div class="jois-editorial-image">
-            <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=1000&q=80" alt="JOIS Craftsmanship">
-        </div>
-        <div class="jois-editorial-content">
-            <span class="jois-editorial-label">Notre Histoire</span>
-            <h2 class="jois-editorial-title">La Artesanía del Mañana</h2>
-            <p class="jois-editorial-text">
-                JOIS nace de una visión híbrida: honorar la tradición del cuero mientras abrazamos las posibilidades del código digital. Cada pieza es una declaración de identidad, diseñada para quienes buscan distinción sin renunciar a la modernidad.
-            </p>
-            <a href="#contacto" class="jois-editorial-cta">
-                Conoce Nuestra Historia
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M5 12h14M12 5l7 7-7 7"/>
-                </svg>
-            </a>
-        </div>
-    </section>
-    
-    <!-- Featured -->
-    <section class="section reveal-on-scroll">
-        <div class="jois-section-header">
-            <h2 class="jois-section-title">Destacados</h2>
-        </div>
-        
-        <div class="featured-grid">
-            <div class="featured-card">
-                <img src="https://images.unsplash.com/photo-1490114538077-0a7f8cb49891?w=800&q=80" alt="The Bomber">
-                <div class="featured-card-content">
-                    <h3>The Bomber</h3>
-                    <p>Edición Permanente</p>
-                </div>
-            </div>
-            <div class="featured-card">
-                <img src="https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=800&q=80" alt="Weekender">
-                <div class="featured-card-content">
-                    <h3>Weekender</h3>
-                    <p>Nuevo</p>
-                </div>
-            </div>
-            <div class="featured-card">
-                <img src="https://images.unsplash.com/photo-1627123424574-724758594e93?w=800&q=80" alt="Wallet Collection">
-                <div class="featured-card-content">
-                    <h3>Wallets</h3>
-                    <p>Bestsellers</p>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    <!-- Footer -->
-    <footer class="footer" id="contacto">
-        <div class="footer-inner">
-            <div class="footer-main">
-                <div class="footer-brand">
-                    <div class="logo">JOIS</div>
-                    <p class="footer-tagline">Maison de Cuir Contemporáneo</p>
-                    <div class="footer-socials">
-                        <a href="https://instagram.com/leatherjois" target="_blank" class="footer-social-link">Instagram</a>
-                        <a href="https://tiktok.com/@joisleather" target="_blank" class="footer-social-link">TikTok</a>
-                    </div>
-                </div>
-                
-                <div class="footer-nav">
-                    <div class="footer-col">
-                        <h4>> TIENDA</h4>
-                        <ul>
-                            <li><a href="#hombre">Hombre</a></li>
-                            <li><a href="#mujer">Mujer</a></li>
-                            <li><a href="#">Bolsos</a></li>
-                            <li><a href="#">Accesorios</a></li>
-                        </ul>
-                    </div>
-                    <div class="footer-col">
-                        <h4>> INFO</h4>
-                        <ul>
-                            <li><a href="#nosotros">Nosotros</a></li>
-                            <li><a href="#">Envíos</a></li>
-                            <li><a href="#">Devoluciones</a></li>
-                            <li><a href="#">Contacto</a></li>
-                        </ul>
-                    </div>
-                    <div class="footer-col">
-                        <h4>> LEGAL</h4>
-                        <ul>
-                            <li><a href="legal/TERMINOS-Y-CONDICIONES.html">Términos</a></li>
-                            <li><a href="legal/PRIVACIDAD.html">Privacidad</a></li>
-                            <li><a href="legal/PROTECCION-FRAUDES.html">Protección Fraudes</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="footer-bottom">
-                <p class="footer-copyright">© 2024 JOIS Leather. Todos los derechos reservados.</p>
-                <p class="footer-payments">USD · BTC · USDT · ETH</p>
-            </div>
-        </div>
-    </footer>
-    
-    <!-- Cart Drawer -->
-    <div class="cart-overlay" onclick="toggleCart()"></div>
-    <div class="cart-drawer" id="cartDrawer">
-        <div class="cart-header">
-            <h2>Tu Bolsa</h2>
-            <button class="cart-close" onclick="toggleCart()">×</button>
-        </div>
-        <div class="cart-items" id="cartItems">
-            <div class="cart-empty">
-                <span>Tu bolsa está vacía</span>
-            </div>
-        </div>
-        
-        <!-- Currency Selector -->
-        <div class="currency-selector">
-            <span class="currency-label">Ver precios en:</span>
-            <div class="currency-buttons">
-                <button class="currency-btn active" data-currency="MXN" onclick="switchCurrency('MXN')">MXN</button>
-                <button class="currency-btn" data-currency="USD" onclick="switchCurrency('USD')">USD</button>
-                <button class="currency-btn" data-currency="CRYPTO" onclick="switchCurrency('CRYPTO')">CRYPTO</button>
-            </div>
-        </div>
-        
-        <div class="cart-footer">
-            <div class="cart-total">
-                <span>Total</span>
-                <div class="total-prices">
-                    <span class="total-mxn" id="cartTotal">$0 MXN</span>
-                    <span class="total-secondary" id="cartTotalMXN">$0 USD</span>
-                    <span class="total-crypto" id="cartTotalCrypto"></span>
-                </div>
-            </div>
-            
-            <div class="payment-methods">
-                <button class="btn-pay card" onclick="checkoutStripe()">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
-                    Tarjeta
-                </button>
-                <button class="btn-pay crypto" onclick="checkoutCrypto()">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 6v12M9 9l3-3 3 3M9 15l3 3 3-3"/></svg>
-                    Crypto
-                </button>
-                <button class="btn-pay whatsapp" onclick="checkoutWhatsApp()">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-                    WhatsApp
-                </button>
-            </div>
-        </div>
-    </div>
-    
-    <style>
-        .currency-selector {
-            padding: 20px;
-            background: var(--gray-light);
+        .cart-item {
+            display: grid;
+            grid-template-columns: 80px 1fr;
+            gap: 20px;
+            padding: 25px 0;
             border-bottom: 1px solid var(--gray);
         }
+        
+        .cart-item-image {
+            width: 80px;
+            height: 100px;
+            object-fit: cover;
+            background: var(--black-light);
+        }
+        
+        .cart-item-name {
+            font-size: 14px;
+            color: var(--white);
+            margin-bottom: 5px;
+        }
+        
+        .cart-item-price {
+            font-family: var(--font-mono);
+            font-size: 13px;
+            color: var(--white-muted);
+        }
+        
+        .cart-item-remove {
+            font-size: 10px;
+            color: var(--white-muted);
+            cursor: pointer;
+            margin-top: 10px;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            transition: var(--transition-fast);
+        }
+        
+        .cart-item-remove:hover {
+            color: var(--white);
+        }
+        
+        .cart-footer {
+            padding: 30px 40px;
+            border-top: 1px solid var(--gray);
+        }
+        
+        .cart-total {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 25px;
+        }
+        
+        .cart-total-label {
+            font-size: 11px;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--white-muted);
+        }
+        
+        .cart-total-amount {
+            font-family: var(--font-mono);
+            font-size: 20px;
+            color: var(--white);
+        }
+        
+        .cart-total-secondary {
+            font-size: 12px;
+            color: var(--white-muted);
+            font-family: var(--font-mono);
+        }
+        
+        .cart-item-price { 
+            display: flex; 
+            flex-direction: column; 
+            gap: 2px; 
+        }
+        
+        .price-mxn { 
+            font-family: var(--font-mono); 
+            font-size: 15px; 
+        }
+        
+        .price-usd { 
+            font-size: 12px; 
+            color: var(--white-muted); 
+            font-family: var(--font-mono);
+        }
+        
+        /* Currency Selector */
+        .currency-selector {
+            padding: 20px;
+            background: var(--black-pure);
+            border-bottom: 1px solid var(--gray);
+        }
+        
         .currency-label {
             display: block;
             font-size: 10px;
             letter-spacing: 0.1em;
             text-transform: uppercase;
-            color: var(--text-muted);
+            color: var(--white-muted);
             margin-bottom: 12px;
         }
+        
         .currency-buttons {
             display: flex;
             gap: 8px;
         }
+        
         .currency-btn {
             flex: 1;
             padding: 10px 12px;
             font-size: 11px;
             font-weight: 500;
             letter-spacing: 0.05em;
-            background: var(--white);
+            background: var(--black-light);
             border: 1px solid var(--gray);
-            border-radius: 6px;
+            color: var(--white-muted);
             cursor: pointer;
-            transition: all 0.3s;
+            transition: var(--transition-fast);
+            font-family: var(--font-mono);
         }
-        .currency-btn:hover { border-color: var(--beige); }
-        .currency-btn.active {
-            background: var(--black);
+        
+        .currency-btn:hover { 
+            border-color: var(--white); 
             color: var(--white);
-            border-color: var(--black);
         }
-        .cart-total {
+        
+        .currency-btn.active {
+            background: var(--beige);
+            color: var(--black-pure);
+            border-color: var(--beige);
+        }
+        
+        /* WhatsApp Button */
+        .btn-whatsapp {
+            width: 100%;
             padding: 20px;
-            border-bottom: 1px solid var(--gray);
-        }
-        .cart-total > span:first-child {
-            display: block;
-            font-size: 10px;
+            font-size: 11px;
             letter-spacing: 0.15em;
             text-transform: uppercase;
-            color: var(--text-muted);
-            margin-bottom: 10px;
-        }
-        .total-prices { display: flex; flex-direction: column; gap: 5px; }
-        .total-mxn { font-family: var(--font-mono); font-size: 24px; font-weight: 600; }
-        .total-secondary { font-size: 13px; color: var(--text-muted); }
-        .total-crypto { display: flex; gap: 15px; margin-top: 5px; }
-        .crypto-total {
-            font-family: var(--font-mono);
-            font-size: 11px;
-            color: var(--beige);
-            background: rgba(196, 163, 90, 0.1);
-            padding: 4px 8px;
-            border-radius: 4px;
-        }
-        .cart-item-price { display: flex; flex-direction: column; gap: 2px; }
-        .price-mxn { font-family: var(--font-mono); font-size: 15px; }
-        .price-usd { font-size: 12px; color: var(--text-muted); }
-        .payment-methods { display: flex; gap: 12px; padding: 20px; }
-        .btn-pay {
-            flex: 1;
+            background: var(--black-pure);
+            color: var(--white);
+            border: 1px solid var(--gray);
+            cursor: pointer;
+            transition: var(--transition-slow);
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 10px;
-            padding: 16px;
-            font-size: 11px;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: all 0.3s;
+            gap: 12px;
         }
-        .btn-pay.card { background: var(--black); color: var(--white); }
-        .btn-pay.card:hover { background: var(--beige); color: var(--black); }
-        .btn-pay.crypto { background: var(--white); color: var(--black); border: 1px solid var(--black); }
-        .btn-pay.crypto:hover { background: var(--beige); border-color: var(--beige); }
-        .btn-pay.whatsapp { background: #25D366; color: var(--white); }
-        .btn-pay.whatsapp:hover { background: #128C7E; }
+        
+        .btn-whatsapp:hover {
+            background: var(--white);
+            color: var(--black-pure);
+        }
+        
+        .cart-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 1999;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition-medium);
+        }
+        
+        .cart-overlay.open {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        /* ============================================
+           RESPONSIVE
+           ============================================ */
+        @media (max-width: 1024px) {
+            .products-editorial {
+                grid-template-columns: 1fr;
+            }
+            
+            .product-editorial img {
+                height: 60vh;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .nav-main {
+                padding: 0 20px;
+            }
+            
+            .hero-title {
+                letter-spacing: 0.2em;
+            }
+            
+            .break-section {
+                padding: 80px 20px;
+            }
+            
+            .manifesto-section {
+                padding: 80px 30px;
+            }
+            
+            .section {
+                padding: 60px 20px;
+            }
+            
+            .products-editorial img {
+                height: 50vh;
+            }
+            
+            .cart-drawer {
+                width: 100%;
+                right: -100%;
+            }
+            
+            .section-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 20px;
+            }
+        }
     </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav-main" id="navMain">
+        <a href="index.html" class="nav-logo">JOIS</a>
+        <div class="nav-links">
+            <a href="#products" class="nav-link">Productos</a>
+            <a href="#hombre" class="nav-link">Hombre</a>
+            <a href="#mujer" class="nav-link">Mujer</a>
+            <a href="nft.html" class="nav-link">NFT</a>
+            <a href="#about" class="nav-link">About</a>
+        </div>
+        <div class="nav-right">
+            <span class="nav-icon" id="cartIcon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/>
+                    <line x1="3" y1="6" x2="21" y2="6"/>
+                    <path d="M16 10a4 4 0 0 1-8 0"/>
+                </svg>
+            </span>
+        </div>
+    </nav>
     
-    <script src="app-cart.js?v=30"></script>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">JOIS</h1>
+            <p class="hero-subtitle">Maison de Cuir Contemporain</p>
+            <p class="hero-statement">Cuero premium. Diseño atemporal. Artesanía mexicana.</p>
+        </div>
+    </section>
+    
+    <!-- Break Quote -->
+    <section class="break-section">
+        <p class="break-quote">"El lujo no es lo que ves, es lo que sientes cuando lo llevas."</p>
+        <p class="break-author">— JOIS</p>
+    </section>
+    
+    <!-- Products - Editorial Grid -->
+    <section id="products" class="products-editorial">
+        <div class="product-editorial" data-product="h1">
+            <a href="product.html">
+                <img src="https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=800&q=90" alt="Shirt Jacket">
+            </a>
+            <div class="product-editorial-info">
+                <h3 class="product-editorial-name">Shirt Jacket</h3>
+                <p class="product-editorial-price">$6,650 MXN</p>
+                <span class="product-editorial-add" onclick="addToCart('Shirt Jacket - M', 380, 'https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=400&q=80', 'M')">Añadir</span>
+            </div>
+        </div>
+        
+        <div class="product-editorial" data-product="h2">
+            <a href="product.html">
+                <img src="https://images.unsplash.com/photo-1551028719-00167b16eac5?w=800&q=90" alt="Bomber">
+            </a>
+            <div class="product-editorial-info">
+                <h3 class="product-editorial-name">Bomber</h3>
+                <p class="product-editorial-price">$9,100 MXN</p>
+                <span class="product-editorial-add" onclick="addToCart('Bomber - M', 520, 'https://images.unsplash.com/photo-1551028719-00167b16eac5?w=400&q=80', 'M')">Añadir</span>
+            </div>
+        </div>
+        
+        <div class="product-editorial" data-product="h3">
+            <a href="product.html">
+                <img src="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=800&q=90" alt="Weekender">
+            </a>
+            <div class="product-editorial-info">
+                <h3 class="product-editorial-name">Weekender</h3>
+                <p class="product-editorial-price">$8,400 MXN</p>
+                <span class="product-editorial-add" onclick="addToCart('Weekender - M', 480, 'https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=400&q=80', 'M')">Añadir</span>
+            </div>
+        </div>
+        
+        <div class="product-editorial" data-product="h4">
+            <a href="product.html">
+                <img src="https://images.unsplash.com/photo-1627123424574-724758594e93?w=800&q=90" alt="Wallet">
+            </a>
+            <div class="product-editorial-info">
+                <h3 class="product-editorial-name">Wallet</h3>
+                <p class="product-editorial-price">$3,150 MXN</p>
+                <span class="product-editorial-add" onclick="addToCart('Wallet - M', 180, 'https://images.unsplash.com/photo-1627123424574-724758594e93?w=400&q=80', 'M')">Añadir</span>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Manifesto Break -->
+    <section class="manifesto-section">
+        <p class="manifesto-text">Cada pieza JOIS es diseñada para trascender temporadas. Combina la robustez del cuero mexicano con líneas limpias que hablan de modernidad sin perder la esencia artesanal.</p>
+    </section>
+    
+    <!-- Hombre Section -->
+    <section id="hombre" class="section">
+        <div class="section-header">
+            <h2 class="section-title">Hombre</h2>
+            <a href="#" class="section-link">
+                Ver Colección
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M5 12h14M12 5l7 7-7 7"/>
+                </svg>
+            </a>
+        </div>
+        
+        <div class="products-editorial">
+            <div class="product-editorial" data-product="h1b">
+                <a href="product.html">
+                    <img src="https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=800&q=90" alt="Shirt Jacket">
+                </a>
+                <div class="product-editorial-info">
+                    <h3 class="product-editorial-name">Shirt Jacket</h3>
+                    <p class="product-editorial-price">$6,650 MXN</p>
+                    <span class="product-editorial-add" onclick="addToCart('Shirt Jacket - M', 380, 'https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=400&q=80', 'M')">Añadir</span>
+                </div>
+            </div>
+            
+            <div class="product-editorial" data-product="h2b">
+                <a href="product.html">
+                    <img src="https://images.unsplash.com/photo-1551028719-00167b16eac5?w=800&q=90" alt="Bomber">
+                </a>
+                <div class="product-editorial-info">
+                    <h3 class="product-editorial-name">Bomber</h3>
+                    <p class="product-editorial-price">$9,100 MXN</p>
+                    <span class="product-editorial-add" onclick="addToCart('Bomber - M', 520, 'https://images.unsplash.com/photo-1551028719-00167b16eac5?w=400&q=80', 'M')">Añadir</span>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Mujer Section -->
+    <section id="mujer" class="section">
+        <div class="section-header">
+            <h2 class="section-title">Mujer</h2>
+            <a href="#" class="section-link">
+                Ver Colección
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M5 12h14M12 5l7 7-7 7"/>
+                </svg>
+            </a>
+        </div>
+        
+        <div class="products-editorial">
+            <div class="product-editorial" data-product="m1">
+                <a href="product.html">
+                    <img src="https://images.unsplash.com/photo-1539533018447-63fcce2678e3?w=800&q=90" alt="Bomber Noir">
+                </a>
+                <div class="product-editorial-info">
+                    <h3 class="product-editorial-name">Bomber Noir</h3>
+                    <p class="product-editorial-price">$7,875 MXN</p>
+                    <span class="product-editorial-add" onclick="addToCart('Bomber Noir - M', 450, 'https://images.unsplash.com/photo-1539533018447-63fcce2678e3?w=400&q=80', 'M')">Añadir</span>
+                </div>
+            </div>
+            
+            <div class="product-editorial" data-product="m2">
+                <a href="product.html">
+                    <img src="https://images.unsplash.com/photo-1594938298603-c8148c4dae35?w=800&q=90" alt="Shirt Jacket">
+                </a>
+                <div class="product-editorial-info">
+                    <h3 class="product-editorial-name">Shirt Jacket</h3>
+                    <p class="product-editorial-price">$6,650 MXN</p>
+                    <span class="product-editorial-add" onclick="addToCart('Shirt Jacket - M', 380, 'https://images.unsplash.com/photo-1594938298603-c8148c4dae35?w=400&q=80', 'M')">Añadir</span>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="footer">
+        <p class="footer-text">© 2024 JOIS — Maison de Cuir Contemporain</p>
+        <div class="footer-links">
+            <a href="legal/index.html" class="footer-link">Legal</a>
+            <a href="#" class="footer-link">Contacto</a>
+        </div>
+    </footer>
+    
+    <!-- Cart Drawer -->
+    <div class="cart-overlay" id="cartOverlay"></div>
+    <div class="cart-drawer" id="cartDrawer">
+        <div class="cart-header">
+            <h2 class="cart-title">Carrito</h2>
+            <span class="cart-close" id="cartClose">×</span>
+        </div>
+        
+        <div class="currency-selector">
+            <span class="currency-label">Moneda</span>
+            <div class="currency-buttons">
+                <button class="currency-btn active" data-currency="mxn">MXN</button>
+                <button class="currency-btn" data-currency="usd">USD</button>
+            </div>
+        </div>
+        
+        <div class="cart-items" id="cartItems">
+            <div class="cart-empty">
+                <span>Tu carrito está vacío</span>
+            </div>
+        </div>
+        
+        <div class="cart-footer">
+            <div class="cart-total">
+                <span class="cart-total-label">Total</span>
+                <div>
+                    <span class="cart-total-amount" id="cartTotalMXN">$0 MXN</span>
+                    <span class="cart-total-secondary" id="cartTotalUSD">$0 USD</span>
+                </div>
+            </div>
+            <button class="btn-whatsapp" id="btnWhatsApp">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+                </svg>
+                Continuar via WhatsApp
+            </button>
+        </div>
+    </div>
+    
+    <script src="app-cart.js"></script>
     <script>
-        // ============================================
-        // MAGNETIC CURSOR EFFECT
-        // ============================================
-        document.addEventListener('mousemove', (e) => {
-            const cards = document.querySelectorAll('.jois-product-card');
-            cards.forEach(card => {
-                const rect = card.getBoundingClientRect();
-                const x = e.clientX - rect.left - rect.width / 2;
-                const y = e.clientY - rect.top - rect.height / 2;
-                
-                // Only apply if cursor is over card
-                if (e.clientX >= rect.left && e.clientX <= rect.right &&
-                    e.clientY >= rect.top && e.clientY <= rect.bottom) {
-                    card.style.transform = `perspective(1000px) rotateX(${y * 0.01}deg) rotateY(${x * 0.01}deg)`;
-                } else {
-                    card.style.transform = '';
-                }
-            });
-        });
-        
-        // ============================================
-        // SCROLL REVEAL OBSERVER
-        // ============================================
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('revealed');
-                }
-            });
-        }, { threshold: 0.1 });
-        
-        document.querySelectorAll('.reveal-on-scroll').forEach(el => observer.observe(el));
-        
-        // ============================================
-        // GLITCH TRANSITION ON SCROLL
-        // ============================================
-        let lastScroll = 0;
-        window.addEventListener('scroll', () => {
-            const currentScroll = window.pageYOffset;
-            const glitchBar = document.getElementById('glitchBar');
-            
-            if (Math.abs(currentScroll - lastScroll) > 100) {
-                glitchBar.classList.add('active');
-                setTimeout(() => glitchBar.classList.remove('active'), 300);
-            }
-            lastScroll = currentScroll;
-        });
-        
-        // Video Control
-        function toggleHeroVideo() {
-            const video = document.getElementById('heroVideo');
-            const playIcon = document.getElementById('playIcon');
-            const pauseIcon = document.getElementById('pauseIcon');
-            
-            if (video.paused) {
-                video.play();
-                playIcon.style.display = 'none';
-                pauseIcon.style.display = 'block';
+        // Navigation scroll behavior
+        window.addEventListener('scroll', function() {
+            const nav = document.getElementById('navMain');
+            if (window.scrollY > 100) {
+                nav.classList.add('visible');
             } else {
-                video.pause();
-                playIcon.style.display = 'block';
-                pauseIcon.style.display = 'none';
+                nav.classList.remove('visible');
             }
+        });
+        
+        // Initialize cart from storage
+        if (typeof initCart === 'function') {
+            initCart();
         }
-        
-        // Load custom content from Content Manager
-        window.addEventListener('load', () => {
-            const savedData = localStorage.getItem('jois_content_data');
-            if (savedData) {
-                const data = JSON.parse(savedData);
-                
-                // Update Hombre products
-                if (data.h1_name) {
-                    document.querySelectorAll('[data-product="h1"] .jois-product-name').forEach(el => el.textContent = data.h1_name.toLowerCase());
-                    const mxn1 = Math.round(data.h1_price * 17.50);
-                    document.querySelectorAll('[data-product="h1"] .jois-product-price').forEach(el => el.textContent = '$' + mxn1.toLocaleString('es-MX') + ' MXN');
-                    document.querySelectorAll('[data-product="h1"] .jois-product-quick-add').forEach(el => el.setAttribute('onclick', "addToCart('" + data.h1_name + " - M', " + data.h1_price + ", '', 'M')"));
-                }
-                if (data.h2_name) {
-                    document.querySelectorAll('[data-product="h2"] .jois-product-name').forEach(el => el.textContent = data.h2_name.toLowerCase());
-                    const mxn2 = Math.round(data.h2_price * 17.50);
-                    document.querySelectorAll('[data-product="h2"] .jois-product-price').forEach(el => el.textContent = '$' + mxn2.toLocaleString('es-MX') + ' MXN');
-                    document.querySelectorAll('[data-product="h2"] .jois-product-quick-add').forEach(el => el.setAttribute('onclick', "addToCart('" + data.h2_name + " - M', " + data.h2_price + ", '', 'M')"));
-                }
-                if (data.h3_name) {
-                    document.querySelectorAll('[data-product="h3"] .jois-product-name').forEach(el => el.textContent = data.h3_name.toLowerCase());
-                    const mxn3 = Math.round(data.h3_price * 17.50);
-                    document.querySelectorAll('[data-product="h3"] .jois-product-price').forEach(el => el.textContent = '$' + mxn3.toLocaleString('es-MX') + ' MXN');
-                    document.querySelectorAll('[data-product="h3"] .jois-product-quick-add').forEach(el => el.setAttribute('onclick', "addToCart('" + data.h3_name + " - M', " + data.h3_price + ", '', 'M')"));
-                }
-                if (data.h4_name) {
-                    document.querySelectorAll('[data-product="h4"] .jois-product-name').forEach(el => el.textContent = data.h4_name.toLowerCase());
-                    const mxn4 = Math.round(data.h4_price * 17.50);
-                    document.querySelectorAll('[data-product="h4"] .jois-product-price').forEach(el => el.textContent = '$' + mxn4.toLocaleString('es-MX') + ' MXN');
-                    document.querySelectorAll('[data-product="h4"] .jois-product-quick-add').forEach(el => el.setAttribute('onclick', "addToCart('" + data.h4_name + " - M', " + data.h4_price + ", '', 'M')"));
-                }
-                
-                // Update Mujer products
-                if (data.m1_name) {
-                    document.querySelectorAll('[data-product="m1"] .jois-product-name').forEach(el => el.textContent = data.m1_name.toLowerCase());
-                    const mnxm1 = Math.round(data.m1_price * 17.50);
-                    document.querySelectorAll('[data-product="m1"] .jois-product-price').forEach(el => el.textContent = '$' + mnxm1.toLocaleString('es-MX') + ' MXN');
-                    document.querySelectorAll('[data-product="m1"] .jois-product-quick-add').forEach(el => el.setAttribute('onclick', "addToCart('" + data.m1_name + " - M', " + data.m1_price + ", '', 'M')"));
-                }
-                if (data.m2_name) {
-                    document.querySelectorAll('[data-product="m2"] .jois-product-name').forEach(el => el.textContent = data.m2_name.toLowerCase());
-                    const mnxm2 = Math.round(data.m2_price * 17.50);
-                    document.querySelectorAll('[data-product="m2"] .jois-product-price').forEach(el => el.textContent = '$' + mnxm2.toLocaleString('es-MX') + ' MXN');
-                    document.querySelectorAll('[data-product="m2"] .jois-product-quick-add').forEach(el => el.setAttribute('onclick', "addToCart('" + data.m2_name + " - M', " + data.m2_price + ", '', 'M')"));
-                }
-                if (data.m3_name) {
-                    document.querySelectorAll('[data-product="m3"] .jois-product-name').forEach(el => el.textContent = data.m3_name.toLowerCase());
-                    const mnxm3 = Math.round(data.m3_price * 17.50);
-                    document.querySelectorAll('[data-product="m3"] .jois-product-price').forEach(el => el.textContent = '$' + mnxm3.toLocaleString('es-MX') + ' MXN');
-                    document.querySelectorAll('[data-product="m3"] .jois-product-quick-add').forEach(el => el.setAttribute('onclick', "addToCart('" + data.m3_name + " - M', " + data.m3_price + ", '', 'M')"));
-                }
-                if (data.m4_name) {
-                    document.querySelectorAll('[data-product="m4"] .jois-product-name').forEach(el => el.textContent = data.m4_name.toLowerCase());
-                    const mnxm4 = Math.round(data.m4_price * 17.50);
-                    document.querySelectorAll('[data-product="m4"] .jois-product-price').forEach(el => el.textContent = '$' + mnxm4.toLocaleString('es-MX') + ' MXN');
-                    document.querySelectorAll('[data-product="m4"] .jois-product-quick-add').forEach(el => el.setAttribute('onclick', "addToCart('" + data.m4_name + " - M', " + data.m4_price + ", '', 'M')"));
-                }
-                
-                // Update brand info
-                if (data.brand_name) {
-                    document.querySelectorAll('.brand-name').forEach(el => el.textContent = data.brand_name);
-                }
-                if (data.brand_tagline) {
-                    document.querySelectorAll('.brand-tagline').forEach(el => el.textContent = data.brand_tagline);
-                }
-            }
-        });
-        
-        // Premium Hero Interactive Elements
-        document.addEventListener('DOMContentLoaded', function() {
-            // Price selector
-            const priceBtns = document.querySelectorAll('.hero-price-btn');
-            priceBtns.forEach(btn => {
-                btn.addEventListener('click', function() {
-                    priceBtns.forEach(b => b.classList.remove('active'));
-                    this.classList.add('active');
-                    
-                    const mxn = this.dataset.mxn;
-                    const usd = this.dataset.usd;
-                    const buyBtn = document.querySelector('.hero-buy-btn span');
-                    
-                    if (mxn) {
-                        buyBtn.textContent = 'Add to Bag — $' + Number(mxn).toLocaleString('es-MX') + ' MXN';
-                    } else if (usd) {
-                        buyBtn.textContent = 'Add to Bag — $' + usd + ' USD';
-                    } else {
-                        buyBtn.textContent = 'Add to Bag — ₿ Pay with Crypto';
-                    }
-                });
-            });
-            
-            // Size selector
-            const sizeBtns = document.querySelectorAll('.hero-size-btn');
-            sizeBtns.forEach(btn => {
-                btn.addEventListener('click', function() {
-                    sizeBtns.forEach(b => b.classList.remove('active'));
-                    this.classList.add('active');
-                });
-            });
-            
-            // Hero product navigation
-            const heroProductImg = document.querySelector('.hero-product-img');
-            const heroNavBtns = document.querySelectorAll('.hero-nav-btn');
-            
-            // Product images for carousel
-            const productImages = [
-                'https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=600&q=90',
-                'https://images.unsplash.com/photo-1551028719-00167b16eac5?w=600&q=90',
-                'https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=600&q=90'
-            ];
-            let currentProduct = 0;
-            
-            heroNavBtns.forEach((btn, index) => {
-                btn.addEventListener('click', function() {
-                    if (index === 0) {
-                        // Previous
-                        currentProduct = (currentProduct - 1 + productImages.length) % productImages.length;
-                    } else {
-                        // Next
-                        currentProduct = (currentProduct + 1) % productImages.length;
-                    }
-                    if (heroProductImg) {
-                        heroProductImg.style.opacity = '0';
-                        setTimeout(() => {
-                            heroProductImg.src = productImages[currentProduct];
-                            heroProductImg.style.opacity = '1';
-                        }, 200);
-                    }
-                });
-            });
-        });
     </script>
 </body>
 </html>

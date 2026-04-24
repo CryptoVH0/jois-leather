@@ -1,0 +1,965 @@
+/*
+ * ============================================
+ * JOIS LUXURY STREETWEAR CSS
+ * Rick Owens / ALYX / Heliot Emil / Fear of God
+ * Dark Minimalism | Quiet Luxury | Brutalist Elegance
+ * ============================================
+ */
+
+/* 
+ * JOIS LUXURY STREETWEAR AESTHETIC
+ * 
+ * References:
+ * - Rick Owens: Dark, draped, architectural
+ * - 1017 ALYX 9SM: Industrial, functional, military-inspired
+ * - Heliot Emil: Modular, technical, minimal
+ * - Fear of God: Elevated basics, quiet luxury
+ * - Maison Margiela: Deconstructed, conceptual
+ * - Y-3: Adidas + Yohji Yamamoto, sport + avant-garde
+ * 
+ * Key feeling: Walking into a showroom in Milan or Tokyo
+ * Not: Shopping on Amazon
+ */
+
+/* ============================================
+   CSS VARIABLES - STRICT LUXURY PALETTE
+   ============================================ */
+:root {
+    /* Core Colors - STRICT */
+    --black: #0A0A0A;
+    --black-pure: #000000;
+    --black-light: #1A1A1A;
+    --white: #F5F5F0;
+    --white-muted: rgba(245, 245, 240, 0.6);
+    --gray: #3A3A3A;
+    --gray-light: #4A4A4A;
+    --beige: #C4A35A;
+    --beige-dark: #A68B3D;
+    
+    /* Transitions */
+    --transition-slow: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+    --transition-medium: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+    --transition-fast: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+    
+    /* Typography */
+    --font-display: 'Times New Roman MT', 'Times New Roman', Georgia, serif;
+    --font-brutal: 'Arial Black', Impact, sans-serif;
+    --font-body: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --font-mono: 'Menlo', Monaco, 'Courier New', monospace;
+}
+
+/* ============================================
+   RESET - NO BORDERS, NO RADIUS
+   ============================================ */
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    border-radius: 0 !important;
+}
+
+html {
+    scroll-behavior: smooth;
+    font-size: 16px;
+}
+
+body {
+    font-family: var(--font-body);
+    background: var(--black);
+    color: var(--white);
+    font-weight: 300;
+    letter-spacing: 0.02em;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+button {
+    font-family: inherit;
+    cursor: pointer;
+    border: none;
+    background: none;
+}
+
+/* ============================================
+   TYPOGRAPHY UTILITIES
+   ============================================ */
+.font-display {
+    font-family: var(--font-display) !important;
+}
+
+.font-brutal {
+    font-family: var(--font-brutal) !important;
+    text-transform: uppercase;
+}
+
+.font-mono {
+    font-family: var(--font-mono) !important;
+}
+
+.font-body {
+    font-family: var(--font-body) !important;
+}
+
+/* ============================================
+   NAVIGATION - MINIMAL, EMERGES ON SCROLL
+   ============================================ */
+.nav-main {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 50px;
+    background: transparent;
+    z-index: 1000;
+    transition: var(--transition-slow);
+    border-bottom: 1px solid transparent;
+}
+
+.nav-main.visible {
+    background: rgba(10, 10, 10, 0.95);
+    border-bottom-color: var(--gray);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+}
+
+.nav-logo {
+    font-family: var(--font-display);
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    color: var(--white);
+}
+
+.nav-links {
+    display: flex;
+    gap: 50px;
+}
+
+.nav-link {
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--white-muted);
+    transition: var(--transition-fast);
+}
+
+.nav-link:hover {
+    color: var(--white);
+}
+
+.nav-right {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.nav-icon {
+    color: var(--white-muted);
+    transition: var(--transition-fast);
+}
+
+.nav-icon:hover {
+    color: var(--white);
+}
+
+/* ============================================
+   HERO - FULL BLACK, LOGO DOMINANT
+   ============================================ */
+.hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: var(--black-pure);
+    overflow: hidden;
+}
+
+/* Subtle grain texture */
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+    opacity: 0.03;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 10;
+    text-align: center;
+    padding: 40px;
+}
+
+.hero-title {
+    font-family: var(--font-display);
+    font-size: clamp(60px, 15vw, 200px);
+    font-weight: 700;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--white);
+    line-height: 0.9;
+    margin-bottom: 30px;
+}
+
+.hero-subtitle {
+    font-size: 11px;
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    color: var(--white-muted);
+    margin-bottom: 20px;
+}
+
+.hero-statement {
+    font-size: 14px;
+    letter-spacing: 0.1em;
+    color: var(--white);
+    font-weight: 300;
+    max-width: 500px;
+    margin: 0 auto;
+    line-height: 1.8;
+}
+
+/* ============================================
+   BREAK SECTIONS - QUOTES & STATEMENTS
+   ============================================ */
+.break-section {
+    padding: 120px 40px;
+    text-align: center;
+    background: var(--black-pure);
+}
+
+.break-quote {
+    font-family: var(--font-display);
+    font-size: clamp(24px, 4vw, 48px);
+    font-weight: 400;
+    letter-spacing: 0.05em;
+    color: var(--white);
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.4;
+}
+
+.break-author {
+    font-size: 11px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--white-muted);
+    margin-top: 30px;
+}
+
+/* ============================================
+   PRODUCTS GRID - EDITORIAL, NOT CATALOG
+   ============================================ */
+.products-editorial {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1px;
+    background: var(--gray);
+}
+
+.product-editorial {
+    position: relative;
+    background: var(--black-pure);
+    cursor: pointer;
+}
+
+.product-editorial img {
+    width: 100%;
+    height: 80vh;
+    object-fit: cover;
+    transition: var(--transition-slow);
+    filter: grayscale(10%);
+}
+
+.product-editorial:hover img {
+    filter: grayscale(0%);
+}
+
+.product-editorial-info {
+    padding: 30px 40px;
+}
+
+.product-editorial-name {
+    font-family: var(--font-display);
+    font-size: 24px;
+    letter-spacing: 0.05em;
+    color: var(--white);
+    margin-bottom: 10px;
+}
+
+.product-editorial-price {
+    font-family: var(--font-mono);
+    font-size: 14px;
+    color: var(--white-muted);
+}
+
+/* ============================================
+   MANIFESTO SECTION
+   ============================================ */
+.manifesto-section {
+    padding: 150px 60px;
+    background: var(--black-light);
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.manifesto-text {
+    font-family: var(--font-display);
+    font-size: clamp(18px, 2.5vw, 28px);
+    line-height: 1.8;
+    color: var(--white);
+    letter-spacing: 0.02em;
+}
+
+/* ============================================
+   PRODUCT PAGE - SPLIT LAYOUT
+   ============================================ */
+.product-page {
+    display: grid;
+    grid-template-columns: 60% 40%;
+    min-height: 100vh;
+    background: var(--black);
+}
+
+.product-gallery {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    background: var(--black);
+    overflow: hidden;
+}
+
+.product-gallery img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.product-details {
+    padding: 80px 60px;
+    background: var(--black);
+    display: flex;
+    flex-direction: column;
+}
+
+.product-details-name {
+    font-family: var(--font-display);
+    font-size: 32px;
+    letter-spacing: 0.05em;
+    color: var(--white);
+    margin-bottom: 20px;
+    line-height: 1.2;
+}
+
+.product-details-description {
+    font-size: 14px;
+    line-height: 1.8;
+    color: var(--white-muted);
+    margin-bottom: 40px;
+    font-weight: 300;
+}
+
+.product-details-price {
+    font-family: var(--font-mono);
+    font-size: 18px;
+    color: var(--white);
+    margin-bottom: 40px;
+}
+
+/* Size Selector - Minimal */
+.size-selector {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 40px;
+}
+
+.size-btn {
+    padding: 15px 25px;
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--white-muted);
+    border: 1px solid var(--gray);
+    background: transparent;
+    cursor: pointer;
+    transition: var(--transition-fast);
+}
+
+.size-btn:hover,
+.size-btn.active {
+    color: var(--white);
+    border-color: var(--white);
+}
+
+/* Add to Bag - Full Width */
+.btn-add-bag {
+    width: 100%;
+    padding: 25px;
+    font-size: 12px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    background: var(--black-pure);
+    color: var(--white);
+    border: 1px solid var(--gray);
+    cursor: pointer;
+    transition: var(--transition-slow);
+}
+
+.btn-add-bag:hover {
+    background: var(--white);
+    color: var(--black);
+}
+
+/* ============================================
+   NFT PAGE - PIECES
+   ============================================ */
+.nft-page {
+    padding: 120px 60px;
+    background: var(--black-pure);
+}
+
+.nft-header {
+    text-align: center;
+    margin-bottom: 100px;
+}
+
+.nft-title {
+    font-family: var(--font-display);
+    font-size: clamp(40px, 8vw, 80px);
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--white);
+    margin-bottom: 20px;
+}
+
+.nft-subtitle {
+    font-size: 12px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--white-muted);
+}
+
+.nft-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--gray);
+}
+
+.nft-piece {
+    background: var(--black-pure);
+    cursor: pointer;
+}
+
+.nft-piece img {
+    width: 100%;
+    aspect-ratio: 3/4;
+    object-fit: cover;
+    filter: grayscale(20%);
+    transition: var(--transition-slow);
+}
+
+.nft-piece:hover img {
+    filter: grayscale(0%);
+}
+
+.nft-piece-info {
+    padding: 25px 30px;
+}
+
+.nft-piece-name {
+    font-family: var(--font-display);
+    font-size: 20px;
+    color: var(--white);
+    margin-bottom: 8px;
+}
+
+.nft-piece-price {
+    font-family: var(--font-mono);
+    font-size: 13px;
+    color: var(--white-muted);
+}
+
+/* ============================================
+   CHECKOUT - DARK, MINIMAL
+   ============================================ */
+.checkout-page {
+    min-height: 100vh;
+    background: var(--black-pure);
+    padding: 80px 40px;
+}
+
+.checkout-inner {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.checkout-logo {
+    font-family: var(--font-display);
+    font-size: 24px;
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    color: var(--white);
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.checkout-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 25px 0;
+    border-bottom: 1px solid var(--gray);
+}
+
+.checkout-item-name {
+    font-size: 14px;
+    letter-spacing: 0.05em;
+    color: var(--white);
+}
+
+.checkout-item-price {
+    font-family: var(--font-mono);
+    font-size: 14px;
+    color: var(--white-muted);
+}
+
+.checkout-total {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 0;
+    border-bottom: 1px solid var(--gray);
+    margin-bottom: 40px;
+}
+
+.checkout-total-label {
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--white-muted);
+}
+
+.checkout-total-amount {
+    font-family: var(--font-mono);
+    font-size: 24px;
+    color: var(--white);
+}
+
+/* WhatsApp CTA */
+.btn-whatsapp {
+    width: 100%;
+    padding: 25px;
+    font-size: 12px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    background: var(--black-pure);
+    color: var(--white);
+    border: 1px solid var(--gray);
+    cursor: pointer;
+    transition: var(--transition-slow);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+}
+
+.btn-whatsapp:hover {
+    background: var(--white);
+    color: var(--black);
+}
+
+/* ============================================
+   ADMIN PANEL - DARK, PREMIUM
+   ============================================ */
+.admin-container {
+    min-height: 100vh;
+    background: var(--black-pure);
+    padding: 40px;
+}
+
+.admin-header {
+    margin-bottom: 60px;
+    padding-bottom: 30px;
+    border-bottom: 1px solid var(--gray);
+}
+
+.admin-title {
+    font-family: var(--font-display);
+    font-size: 28px;
+    letter-spacing: 0.1em;
+    color: var(--white);
+}
+
+.admin-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.admin-table th {
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--white-muted);
+    text-align: left;
+    padding: 15px 20px;
+    border-bottom: 1px solid var(--gray);
+}
+
+.admin-table td {
+    padding: 20px;
+    border-bottom: 1px solid var(--gray);
+    color: var(--white);
+    font-size: 14px;
+}
+
+/* ============================================
+   DASHBOARD - PRIVATE MEMBERS CLUB
+   ============================================ */
+.dashboard-container {
+    min-height: 100vh;
+    background: var(--black-pure);
+    padding: 80px 40px;
+}
+
+.dashboard-header {
+    text-align: center;
+    margin-bottom: 80px;
+}
+
+.dashboard-logo {
+    font-family: var(--font-display);
+    font-size: 24px;
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    color: var(--white);
+    margin-bottom: 10px;
+}
+
+.dashboard-welcome {
+    font-size: 12px;
+    letter-spacing: 0.2em;
+    color: var(--white-muted);
+    text-transform: uppercase;
+}
+
+.dashboard-section {
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.dashboard-section-title {
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--white-muted);
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid var(--gray);
+}
+
+.dashboard-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
+    border-bottom: 1px solid var(--gray);
+}
+
+.dashboard-link {
+    font-size: 14px;
+    color: var(--white);
+    letter-spacing: 0.05em;
+    transition: var(--transition-fast);
+}
+
+.dashboard-link:hover {
+    color: var(--beige);
+}
+
+/* ============================================
+   FOOTER - MINIMAL
+   ============================================ */
+.footer {
+    padding: 60px 40px;
+    text-align: center;
+    background: var(--black-pure);
+    border-top: 1px solid var(--gray);
+}
+
+.footer-text {
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    color: var(--white-muted);
+}
+
+.footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 15px;
+}
+
+.footer-link {
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--white-muted);
+    transition: var(--transition-fast);
+}
+
+.footer-link:hover {
+    color: var(--white);
+}
+
+/* ============================================
+   CART DRAWER - MINIMAL
+   ============================================ */
+.cart-drawer {
+    position: fixed;
+    top: 0;
+    right: -450px;
+    width: 450px;
+    height: 100vh;
+    background: var(--black-pure);
+    z-index: 2000;
+    display: flex;
+    flex-direction: column;
+    transition: var(--transition-medium);
+    border-left: 1px solid var(--gray);
+}
+
+.cart-drawer.open {
+    right: 0;
+}
+
+.cart-header {
+    padding: 30px 40px;
+    border-bottom: 1px solid var(--gray);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.cart-title {
+    font-family: var(--font-display);
+    font-size: 14px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--white);
+}
+
+.cart-close {
+    font-size: 24px;
+    color: var(--white-muted);
+    cursor: pointer;
+    transition: var(--transition-fast);
+}
+
+.cart-close:hover {
+    color: var(--white);
+}
+
+.cart-items {
+    flex: 1;
+    overflow-y: auto;
+    padding: 20px 40px;
+}
+
+.cart-item {
+    display: grid;
+    grid-template-columns: 80px 1fr;
+    gap: 20px;
+    padding: 25px 0;
+    border-bottom: 1px solid var(--gray);
+}
+
+.cart-item-image {
+    width: 80px;
+    height: 100px;
+    object-fit: cover;
+    background: var(--black-light);
+}
+
+.cart-item-name {
+    font-size: 14px;
+    color: var(--white);
+    margin-bottom: 5px;
+}
+
+.cart-item-price {
+    font-family: var(--font-mono);
+    font-size: 13px;
+    color: var(--white-muted);
+}
+
+.cart-item-remove {
+    font-size: 10px;
+    color: var(--white-muted);
+    cursor: pointer;
+    margin-top: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    transition: var(--transition-fast);
+}
+
+.cart-item-remove:hover {
+    color: var(--white);
+}
+
+.cart-footer {
+    padding: 30px 40px;
+    border-top: 1px solid var(--gray);
+}
+
+.cart-total {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 25px;
+}
+
+.cart-total-label {
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--white-muted);
+}
+
+.cart-total-amount {
+    font-family: var(--font-mono);
+    font-size: 20px;
+    color: var(--white);
+}
+
+.cart-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    z-index: 1999;
+    opacity: 0;
+    visibility: hidden;
+    transition: var(--transition-medium);
+}
+
+.cart-overlay.open {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* ============================================
+   UTILITIES
+   ============================================ */
+.text-muted {
+    color: var(--white-muted);
+}
+
+.text-center {
+    text-align: center;
+}
+
+.mt-1 { margin-top: 10px; }
+.mt-2 { margin-top: 20px; }
+.mt-3 { margin-top: 40px; }
+.mt-4 { margin-top: 80px; }
+
+.mb-1 { margin-bottom: 10px; }
+.mb-2 { margin-bottom: 20px; }
+.mb-3 { margin-bottom: 40px; }
+.mb-4 { margin-bottom: 80px; }
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+@media (max-width: 1024px) {
+    .product-page {
+        grid-template-columns: 1fr;
+    }
+    
+    .product-gallery {
+        position: relative;
+        height: 60vh;
+    }
+    
+    .products-editorial {
+        grid-template-columns: 1fr;
+    }
+    
+    .nft-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+    }
+    
+    .nav-main {
+        padding: 0 20px;
+    }
+    
+    .hero-title {
+        letter-spacing: 0.2em;
+    }
+    
+    .break-section {
+        padding: 80px 20px;
+    }
+    
+    .products-editorial img {
+        height: 60vh;
+    }
+    
+    .manifesto-section {
+        padding: 80px 30px;
+    }
+    
+    .product-details {
+        padding: 40px 30px;
+    }
+    
+    .nft-page {
+        padding: 80px 20px;
+    }
+    
+    .nft-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .cart-drawer {
+        width: 100%;
+        right: -100%;
+    }
+    
+    .checkout-page {
+        padding: 40px 20px;
+    }
+}
