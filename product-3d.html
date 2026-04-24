@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JOIS — 3D Showcase</title>
+    <link rel="stylesheet" href="styles.css?v=36">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Times New Roman MT', 'Times New Roman', serif;
+            background: #0A0A0A;
+            color: #FFFFFF;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+        
+        /* ============================================
+           GLASSMORPHISM 3D SHOWCASE
+           ============================================ */
+        
+        .showcase-container {
+            min-height: 100vh;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px;
+            background: 
+                radial-gradient(ellipse at 30% 20%, rgba(196, 163, 90, 0.05) 0%, transparent 50%),
+                radial-gradient(ellipse at 70% 80%, rgba(196, 163, 90, 0.03) 0%, transparent 50%),
+                #0A0A0A;
+        }
+        
+        /* Large background text */
+        .bg-text-3d {
+            position: absolute;
+            font-family: 'Arial Black', 'Impact', sans-serif;
+            font-size: clamp(100px, 25vw, 300px);
+            font-weight: 900;
+            text-transform: uppercase;
+            color: transparent;
+            -webkit-text-stroke: 2px rgba(196, 163, 90, 0.08);
+            text-shadow: 
+                0 0 80px rgba(196, 163, 90, 0.1),
+                0 0 120px rgba(196, 163, 90, 0.05);
+            z-index: 1;
+            user-select: none;
+            letter-spacing: 0.1em;
+            white-space: nowrap;
+        }
+        
+        .bg-text-3d.left {
+            top: 10%;
+            left: -5%;
+        }
+        
+        .bg-text-3d.right {
+            bottom: 10%;
+            right: -5%;
+        }
+        
+        /* Glass Card */
+        .glass-card {
+            position: relative;
+            width: 100%;
+            max-width: 1000px;
+            background: rgba(26, 26, 26, 0.6);
+            backdrop-filter: blur(30px);
+            -webkit-backdrop-filter: blur(30px);
+            border: 1px solid rgba(196, 163, 90, 0.2);
+            border-radius: 24px;
+            overflow: hidden;
+            z-index: 10;
+            box-shadow: 
+                0 25px 50px rgba(0, 0, 0, 0.5),
+                0 0 100px rgba(196, 163, 90, 0.1),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1);
+        }
+        
+        .glass-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+        }
+        
+        /* Top Bar */
+        .card-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 30px;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+        
+        .card-nav {
+            display: flex;
+            gap: 20px;
+        }
+        
+        .card-nav a {
+            font-family: 'Menlo', monospace;
+            font-size: 11px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.5);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .card-nav a:hover {
+            color: #C4A35A;
+        }
+        
+        .card-social {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .card-social a {
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 50%;
+            color: rgba(255,255,255,0.5);
+            transition: all 0.3s;
+        }
+        
+        .card-social a:hover {
+            border-color: #C4A35A;
+            color: #C4A35A;
+            box-shadow: 0 0 15px rgba(196, 163, 90, 0.3);
+        }
+        
+        /* Main Content */
+        .card-content {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            min-height: 500px;
+        }
+        
+        /* 3D Product Display */
+        .product-3d-area {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px;
+            background: 
+                repeating-linear-gradient(
+                    0deg,
+                    transparent,
+                    transparent 50px,
+                    rgba(196, 163, 90, 0.02) 50px,
+                    rgba(196, 163, 90, 0.02) 51px
+                ),
+                repeating-linear-gradient(
+                    90deg,
+                    transparent,
+                    transparent 50px,
+                    rgba(196, 163, 90, 0.02) 50px,
+                    rgba(196, 163, 90, 0.02) 51px
+                );
+        }
+        
+        .product-3d-placeholder {
+            position: relative;
+            width: 100%;
+            max-width: 350px;
+            aspect-ratio: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .product-3d-placeholder img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            filter: drop-shadow(0 30px 60px rgba(0,0,0,0.5));
+            transition: transform 0.5s ease;
+        }
+        
+        .product-3d-placeholder:hover img {
+            transform: scale(1.05) rotateY(5deg);
+        }
+        
+        /* 3D Badge */
+        .badge-3d {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            padding: 8px 16px;
+            background: rgba(196, 163, 90, 0.9);
+            color: #0A0A0A;
+            font-family: 'Menlo', monospace;
+            font-size: 9px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            border-radius: 4px;
+        }
+        
+        /* Navigation Arrows */
+        .product-nav-arrows {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 15px;
+        }
+        
+        .nav-arrow {
+            width: 44px;
+            height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid rgba(196, 163, 90, 0.3);
+            border-radius: 50%;
+            color: #C4A35A;
+            cursor: pointer;
+            transition: all 0.3s;
+            background: rgba(26, 26, 26, 0.8);
+            backdrop-filter: blur(10px);
+        }
+        
+        .nav-arrow:hover {
+            background: #C4A35A;
+            color: #0A0A0A;
+            box-shadow: 0 0 20px rgba(196, 163, 90, 0.5);
+        }
+        
+        /* Product Details */
+        .product-details {
+            padding: 50px 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            border-left: 1px solid rgba(255,255,255,0.05);
+        }
+        
+        .product-title-3d {
+            font-family: 'Times New Roman MT', serif;
+            font-size: clamp(28px, 4vw, 42px);
+            font-weight: 400;
+            letter-spacing: 0.1em;
+            color: #FFFFFF;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+        
+        .product-subtitle {
+            font-family: 'Menlo', monospace;
+            font-size: 11px;
+            letter-spacing: 3px;
+            color: #C4A35A;
+            text-transform: uppercase;
+            margin-bottom: 30px;
+        }
+        
+        /* Price Selector */
+        .price-selector {
+            margin-bottom: 30px;
+        }
+        
+        .price-label {
+            font-family: 'Menlo', monospace;
+            font-size: 9px;
+            letter-spacing: 2px;
+            color: rgba(255,255,255,0.4);
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+        
+        .price-options {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .price-option {
+            padding: 12px 20px;
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 8px;
+            color: rgba(255,255,255,0.6);
+            font-family: 'Menlo', monospace;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .price-option:hover,
+        .price-option.active {
+            background: rgba(196, 163, 90, 0.1);
+            border-color: #C4A35A;
+            color: #FFFFFF;
+        }
+        
+        .price-option.active {
+            box-shadow: 0 0 20px rgba(196, 163, 90, 0.2);
+        }
+        
+        /* Size Selector */
+        .size-selector {
+            margin-bottom: 30px;
+        }
+        
+        .size-label {
+            font-family: 'Menlo', monospace;
+            font-size: 9px;
+            letter-spacing: 2px;
+            color: rgba(255,255,255,0.4);
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+        
+        .size-options {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .size-option {
+            width: 48px;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 8px;
+            color: rgba(255,255,255,0.6);
+            font-family: 'Menlo', monospace;
+            font-size: 13px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .size-option:hover,
+        .size-option.active {
+            background: rgba(196, 163, 90, 0.1);
+            border-color: #C4A35A;
+            color: #FFFFFF;
+        }
+        
+        .size-option.active {
+            box-shadow: 0 0 20px rgba(196, 163, 90, 0.2);
+        }
+        
+        /* Quantity */
+        .quantity-selector {
+            margin-bottom: 30px;
+        }
+        
+        .quantity-label {
+            font-family: 'Menlo', monospace;
+            font-size: 9px;
+            letter-spacing: 2px;
+            color: rgba(255,255,255,0.4);
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+        
+        .quantity-controls {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .qty-btn {
+            width: 44px;
+            height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 8px;
+            color: #FFFFFF;
+            font-size: 20px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .qty-btn:hover {
+            background: rgba(196, 163, 90, 0.1);
+            border-color: #C4A35A;
+        }
+        
+        .qty-display {
+            font-family: 'Menlo', monospace;
+            font-size: 18px;
+            color: #FFFFFF;
+            min-width: 40px;
+            text-align: center;
+        }
+        
+        /* Buy Button */
+        .btn-buy-3d {
+            width: 100%;
+            padding: 20px;
+            background: #C4A35A;
+            border: none;
+            border-radius: 12px;
+            color: #0A0A0A;
+            font-family: 'Times New Roman MT', serif;
+            font-size: 14px;
+            font-weight: 600;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .btn-buy-3d::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: rgba(255,255,255,0.3);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+        
+        .btn-buy-3d:hover {
+            box-shadow: 
+                0 10px 40px rgba(196, 163, 90, 0.4),
+                0 0 60px rgba(196, 163, 90, 0.2);
+            transform: translateY(-2px);
+        }
+        
+        .btn-buy-3d:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+        
+        /* ============================================
+           FOOTER
+           ============================================ */
+        .footer-3d {
+            padding: 40px;
+            text-align: center;
+            border-top: 1px solid rgba(255,255,255,0.05);
+        }
+        
+        .footer-3d p {
+            font-family: 'Menlo', monospace;
+            font-size: 10px;
+            letter-spacing: 2px;
+            color: rgba(255,255,255,0.3);
+        }
+        
+        /* ============================================
+           RESPONSIVE
+           ============================================ */
+        @media (max-width: 900px) {
+            .card-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .product-details {
+                border-left: none;
+                border-top: 1px solid rgba(255,255,255,0.05);
+            }
+            
+            .card-top {
+                flex-direction: column;
+                gap: 15px;
+            }
+        }
+        
+        @media (max-width: 600px) {
+            .showcase-container {
+                padding: 20px;
+            }
+            
+            .glass-card {
+                border-radius: 16px;
+            }
+            
+            .product-details {
+                padding: 30px 20px;
+            }
+            
+            .price-options,
+            .size-options {
+                flex-wrap: wrap;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="showcase-container">
+        <!-- Background 3D Text -->
+        <div class="bg-text-3d left">SHIRT</div>
+        <div class="bg-text-3d right">JACKET</div>
+        
+        <!-- Glass Card -->
+        <div class="glass-card">
+            <!-- Top Bar -->
+            <div class="card-top">
+                <div class="card-nav">
+                    <a href="index.html">← Products</a>
+                    <a href="#">Details</a>
+                    <a href="#">Contact</a>
+                </div>
+                <div class="card-social">
+                    <a href="https://tiktok.com/@joisleather" target="_blank">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/></svg>
+                    </a>
+                    <a href="https://instagram.com/leatherjois" target="_blank">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                    </a>
+                    <a href="#">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Main Content -->
+            <div class="card-content">
+                <!-- 3D Product Display -->
+                <div class="product-3d-area">
+                    <div class="product-3d-placeholder">
+                        <div class="badge-3d">Premium Leather</div>
+                        <img src="https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=600&q=90" alt="Shirt Jacket">
+                    </div>
+                    <div class="product-nav-arrows">
+                        <button class="nav-arrow">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+                        </button>
+                        <button class="nav-arrow">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Product Details -->
+                <div class="product-details">
+                    <h1 class="product-title-3d">Shirt Jacket</h1>
+                    <p class="product-subtitle">Maison de Cuir</p>
+                    
+                    <!-- Price -->
+                    <div class="price-selector">
+                        <p class="price-label">Select Currency</p>
+                        <div class="price-options">
+                            <button class="price-option active" data-price="6650">$6,650 MXN</button>
+                            <button class="price-option" data-price="380">$380 USD</button>
+                            <button class="price-option" data-crypto="BTC">₿ Crypto</button>
+                        </div>
+                    </div>
+                    
+                    <!-- Size -->
+                    <div class="size-selector">
+                        <p class="size-label">Select Size</p>
+                        <div class="size-options">
+                            <button class="size-option">XS</button>
+                            <button class="size-option active">S</button>
+                            <button class="size-option">M</button>
+                            <button class="size-option">L</button>
+                            <button class="size-option">XL</button>
+                        </div>
+                    </div>
+                    
+                    <!-- Quantity -->
+                    <div class="quantity-selector">
+                        <p class="quantity-label">Quantity</p>
+                        <div class="quantity-controls">
+                            <button class="qty-btn" onclick="updateQty(-1)">−</button>
+                            <span class="qty-display" id="qtyDisplay">1</span>
+                            <button class="qty-btn" onclick="updateQty(1)">+</button>
+                        </div>
+                    </div>
+                    
+                    <!-- Buy Button -->
+                    <button class="btn-buy-3d" onclick="addToCart('Shirt Jacket - S', 380, 'https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=400&q=80', 'S')">
+                        Add to Bag — $6,650 MXN
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Footer -->
+            <div class="footer-3d">
+                <p>> JOIS_LEATHER_v2.0 // SECURE_CONNECTION_ACTIVE</p>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        let qty = 1;
+        
+        function updateQty(change) {
+            qty = Math.max(1, qty + change);
+            document.getElementById('qtyDisplay').textContent = qty;
+        }
+        
+        // Price selector
+        document.querySelectorAll('.price-option').forEach(btn => {
+            btn.addEventListener('click', function() {
+                document.querySelectorAll('.price-option').forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+        
+        // Size selector
+        document.querySelectorAll('.size-option').forEach(btn => {
+            btn.addEventListener('click', function() {
+                document.querySelectorAll('.size-option').forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+        
+        // Nav arrows
+        document.querySelectorAll('.nav-arrow').forEach(arrow => {
+            arrow.addEventListener('click', function() {
+                // Placeholder for 3D model navigation
+                alert('3D Gallery: Add your 3D model navigation here');
+            });
+        });
+    </script>
+</body>
+</html>
