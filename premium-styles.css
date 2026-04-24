@@ -1,0 +1,680 @@
+/* ============================================
+   JOIS PREMIUM STYLES v38
+   Glassmorphism Dark Luxury
+   ============================================ */
+
+/* ============================================
+   PREMIUM TYPOGRAPHY SCALE
+   ============================================ */
+.premium-hero-title {
+    font-family: 'Times New Roman MT', 'Times New Roman', Georgia, serif !important;
+    font-size: clamp(80px, 12vw, 140px) !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.05em !important;
+    line-height: 0.9 !important;
+    text-transform: uppercase !important;
+    color: var(--white) !important;
+}
+
+.premium-section-title {
+    font-family: 'Times New Roman MT', 'Times New Roman', Georgia, serif !important;
+    font-size: clamp(48px, 8vw, 80px) !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.03em !important;
+    text-transform: uppercase !important;
+    color: var(--white) !important;
+}
+
+.premium-product-title {
+    font-family: 'Times New Roman MT', 'Times New Roman', Georgia, serif !important;
+    font-size: clamp(24px, 3vw, 32px) !important;
+    font-weight: 400 !important;
+    letter-spacing: 0.05em !important;
+    text-transform: uppercase !important;
+}
+
+.premium-price {
+    font-family: 'Menlo', 'Monaco', 'Courier New', monospace !important;
+    font-size: clamp(18px, 2vw, 24px) !important;
+    color: var(--gold) !important;
+    letter-spacing: 0.05em !important;
+}
+
+.premium-body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+    font-size: 14px !important;
+    line-height: 1.7 !important;
+    color: var(--gray-light) !important;
+}
+
+/* ============================================
+   GLASSMORPHISM UTILITIES
+   ============================================ */
+.glass-card {
+    background: rgba(26, 26, 26, 0.6) !important;
+    backdrop-filter: blur(30px) !important;
+    -webkit-backdrop-filter: blur(30px) !important;
+    border: 1px solid rgba(196, 163, 90, 0.2) !important;
+    border-radius: 24px !important;
+    box-shadow: 
+        0 25px 50px rgba(0, 0, 0, 0.5),
+        0 0 100px rgba(196, 163, 90, 0.1) !important;
+}
+
+.glass-card-light {
+    background: rgba(54, 54, 54, 0.4) !important;
+    backdrop-filter: blur(20px) !important;
+    -webkit-backdrop-filter: blur(20px) !important;
+    border: 1px solid rgba(196, 163, 90, 0.15) !important;
+    border-radius: 16px !important;
+}
+
+.glass-nav {
+    background: rgba(10, 10, 10, 0.85) !important;
+    backdrop-filter: blur(25px) saturate(180%) !important;
+    -webkit-backdrop-filter: blur(25px) saturate(180%) !important;
+    border-bottom: 1px solid rgba(196, 163, 90, 0.15) !important;
+}
+
+.glass-overlay {
+    background: rgba(10, 10, 10, 0.7) !important;
+    backdrop-filter: blur(10px) !important;
+    -webkit-backdrop-filter: blur(10px) !important;
+}
+
+/* ============================================
+   PREMIUM BUTTONS
+   ============================================ */
+.btn-premium {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 12px !important;
+    padding: 16px 32px !important;
+    font-family: 'Times New Roman MT', 'Times New Roman', Georgia, serif !important;
+    font-size: 12px !important;
+    letter-spacing: 0.15em !important;
+    text-transform: uppercase !important;
+    border: 1px solid var(--gold) !important;
+    background: transparent !important;
+    color: var(--white) !important;
+    cursor: pointer !important;
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
+    position: relative !important;
+    overflow: hidden !important;
+}
+
+.btn-premium::before {
+    content: '' !important;
+    position: absolute !important;
+    top: 0 !important;
+    left: -100% !important;
+    width: 100% !important;
+    height: 100% !important;
+    background: linear-gradient(90deg, transparent, rgba(196, 163, 90, 0.2), transparent) !important;
+    transition: left 0.5s ease !important;
+}
+
+.btn-premium:hover::before {
+    left: 100% !important;
+}
+
+.btn-premium:hover {
+    background: var(--gold) !important;
+    color: var(--black) !important;
+    box-shadow: 
+        0 10px 40px rgba(196, 163, 90, 0.3),
+        0 0 60px rgba(196, 163, 90, 0.2) !important;
+    transform: translateY(-2px) !important;
+}
+
+.btn-premium-solid {
+    background: var(--gold) !important;
+    color: var(--black) !important;
+}
+
+.btn-premium-solid:hover {
+    background: var(--gold-light) !important;
+}
+
+/* ============================================
+   PREMIUM PRODUCT CARDS
+   ============================================ */
+.premium-product-card {
+    position: relative !important;
+    background: rgba(26, 26, 26, 0.6) !important;
+    backdrop-filter: blur(30px) !important;
+    -webkit-backdrop-filter: blur(30px) !important;
+    border: 1px solid rgba(196, 163, 90, 0.15) !important;
+    border-radius: 24px !important;
+    overflow: hidden !important;
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
+}
+
+.premium-product-card:hover {
+    transform: translateY(-8px) scale(1.02) !important;
+    border-color: rgba(196, 163, 90, 0.4) !important;
+    box-shadow: 
+        0 30px 60px rgba(0, 0, 0, 0.4),
+        0 0 40px rgba(196, 163, 90, 0.15) !important;
+}
+
+.premium-product-card .product-image {
+    aspect-ratio: 3/4 !important;
+    overflow: hidden !important;
+    border-radius: 20px 20px 0 0 !important;
+    margin: 12px !important;
+    width: calc(100% - 24px) !important;
+}
+
+.premium-product-card .product-image img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    transition: transform 0.5s ease, filter 0.5s ease !important;
+    filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.4)) !important;
+}
+
+.premium-product-card:hover .product-image img {
+    transform: scale(1.05) !important;
+    filter: drop-shadow(0 30px 50px rgba(0, 0, 0, 0.5)) brightness(1.05) !important;
+}
+
+.premium-badge {
+    position: absolute !important;
+    top: 24px !important;
+    left: 24px !important;
+    padding: 8px 16px !important;
+    font-family: 'Menlo', monospace !important;
+    font-size: 9px !important;
+    letter-spacing: 0.15em !important;
+    text-transform: uppercase !important;
+    background: rgba(196, 163, 90, 0.9) !important;
+    color: var(--black) !important;
+    border-radius: 8px !important;
+    backdrop-filter: blur(10px) !important;
+    -webkit-backdrop-filter: blur(10px) !important;
+    box-shadow: 0 0 20px rgba(196, 163, 90, 0.3) !important;
+}
+
+.premium-product-info {
+    padding: 20px 24px 24px !important;
+}
+
+.premium-product-name {
+    font-family: 'Times New Roman MT', serif !important;
+    font-size: 18px !important;
+    letter-spacing: 0.08em !important;
+    text-transform: uppercase !important;
+    color: var(--white) !important;
+    margin-bottom: 8px !important;
+}
+
+.premium-product-price {
+    font-family: 'Menlo', monospace !important;
+    font-size: 16px !important;
+    color: var(--gold) !important;
+}
+
+/* ============================================
+   PREMIUM HERO SECTION
+   ============================================ */
+.premium-hero {
+    position: relative !important;
+    min-height: 100vh !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    overflow: hidden !important;
+    background: var(--black) !important;
+}
+
+.premium-hero-bg-text {
+    position: absolute !important;
+    top: 50% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%) !important;
+    font-family: 'Times New Roman MT', serif !important;
+    font-size: clamp(100px, 20vw, 300px) !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.1em !important;
+    text-transform: uppercase !important;
+    color: rgba(196, 163, 90, 0.03) !important;
+    white-space: nowrap !important;
+    pointer-events: none !important;
+    z-index: 1 !important;
+}
+
+.premium-hero-grid {
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    background-image: 
+        linear-gradient(rgba(196, 163, 90, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(196, 163, 90, 0.03) 1px, transparent 1px) !important;
+    background-size: 60px 60px !important;
+    pointer-events: none !important;
+}
+
+.premium-hero-content {
+    position: relative !important;
+    z-index: 10 !important;
+    text-align: center !important;
+    padding: 40px !important;
+    max-width: 900px !important;
+}
+
+.premium-hero-title {
+    margin-bottom: 24px !important;
+    text-shadow: 0 0 60px rgba(196, 163, 90, 0.2) !important;
+}
+
+.premium-hero-subtitle {
+    font-family: -apple-system, BlinkMacSystemFont, sans-serif !important;
+    font-size: 16px !important;
+    letter-spacing: 0.2em !important;
+    text-transform: uppercase !important;
+    color: var(--gray-light) !important;
+    margin-bottom: 40px !important;
+}
+
+.premium-hero-cta {
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 16px !important;
+    padding: 20px 48px !important;
+    font-family: 'Times New Roman MT', serif !important;
+    font-size: 13px !important;
+    letter-spacing: 0.2em !important;
+    text-transform: uppercase !important;
+    background: transparent !important;
+    color: var(--white) !important;
+    border: 1px solid var(--gold) !important;
+    cursor: pointer !important;
+    transition: all 0.4s ease !important;
+}
+
+.premium-hero-cta:hover {
+    background: var(--gold) !important;
+    color: var(--black) !important;
+    box-shadow: 
+        0 15px 50px rgba(196, 163, 90, 0.3),
+        0 0 80px rgba(196, 163, 90, 0.15) !important;
+    transform: translateY(-3px) !important;
+}
+
+/* ============================================
+   GRAFFITI SECTIONS (HOMBRE/MUJER)
+   ============================================ */
+.graffiti-title {
+    font-family: 'Arial Black', 'Impact', sans-serif !important;
+    font-size: clamp(60px, 15vw, 200px) !important;
+    font-weight: 900 !important;
+    text-transform: uppercase !important;
+    color: transparent !important;
+    -webkit-text-stroke: 2px var(--white) !important;
+    text-stroke: 2px var(--white) !important;
+    position: relative !important;
+    transform: rotate(-2deg) !important;
+    letter-spacing: 0.05em !important;
+    text-shadow: 
+        4px 4px 0 rgba(196, 163, 90, 0.3),
+        -2px -2px 0 rgba(196, 163, 90, 0.2) !important;
+    filter: drop-shadow(0 10px 30px rgba(0, 0, 0, 0.5)) !important;
+}
+
+.graffiti-title::before {
+    content: '' !important;
+    position: absolute !important;
+    top: -10% !important;
+    left: -5% !important;
+    width: 110% !important;
+    height: 120% !important;
+    background: radial-gradient(ellipse at center, rgba(196, 163, 90, 0.1) 0%, transparent 70%) !important;
+    pointer-events: none !important;
+    transform: rotate(2deg) !important;
+}
+
+/* ============================================
+   PREMIUM FOOTER - TERMINAL STYLE
+   ============================================ */
+.premium-footer {
+    background: var(--black) !important;
+    border-top: 1px solid var(--gray-dark) !important;
+    padding: 80px 40px 40px !important;
+}
+
+.premium-footer-inner {
+    max-width: 1400px !important;
+    margin: 0 auto !important;
+}
+
+.premium-footer-grid {
+    display: grid !important;
+    grid-template-columns: repeat(4, 1fr) !important;
+    gap: 40px !important;
+    margin-bottom: 60px !important;
+}
+
+.premium-footer-col h4 {
+    font-family: 'Menlo', monospace !important;
+    font-size: 11px !important;
+    letter-spacing: 0.15em !important;
+    text-transform: uppercase !important;
+    color: var(--gold) !important;
+    margin-bottom: 20px !important;
+}
+
+.premium-footer-col ul {
+    list-style: none !important;
+}
+
+.premium-footer-col li {
+    margin-bottom: 12px !important;
+}
+
+.premium-footer-col a {
+    font-family: -apple-system, BlinkMacSystemFont, sans-serif !important;
+    font-size: 14px !important;
+    color: var(--gray-light) !important;
+    transition: color 0.3s ease !important;
+}
+
+.premium-footer-col a:hover {
+    color: var(--white) !important;
+}
+
+.premium-footer-bottom {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    padding-top: 40px !important;
+    border-top: 1px solid var(--gray-dark) !important;
+}
+
+.premium-footer-copy {
+    font-family: 'Menlo', monospace !important;
+    font-size: 12px !important;
+    color: var(--gray-light) !important;
+}
+
+.premium-footer-copy span::before {
+    content: '> ' !important;
+    color: var(--gold) !important;
+}
+
+.premium-social-links {
+    display: flex !important;
+    gap: 20px !important;
+}
+
+.premium-social-links a {
+    width: 40px !important;
+    height: 40px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    border: 1px solid var(--gray-dark) !important;
+    border-radius: 50% !important;
+    color: var(--gray-light) !important;
+    transition: all 0.3s ease !important;
+}
+
+.premium-social-links a:hover {
+    border-color: var(--gold) !important;
+    color: var(--gold) !important;
+    box-shadow: 0 0 20px rgba(196, 163, 90, 0.3) !important;
+}
+
+/* ============================================
+   PREMIUM ANIMATIONS
+   ============================================ */
+@keyframes premium-fade-up {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes premium-glow {
+    0%, 100% {
+        box-shadow: 0 0 20px rgba(196, 163, 90, 0.2);
+    }
+    50% {
+        box-shadow: 0 0 40px rgba(196, 163, 90, 0.4);
+    }
+}
+
+@keyframes premium-float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+.premium-animate-fade-up {
+    animation: premium-fade-up 0.6s ease forwards;
+}
+
+.premium-animate-glow {
+    animation: premium-glow 2s ease infinite;
+}
+
+.premium-animate-float {
+    animation: premium-float 3s ease-in-out infinite;
+}
+
+/* Scroll reveal */
+.reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Stagger children */
+.stagger-children > * {
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.stagger-children.active > *:nth-child(1) { animation: premium-fade-up 0.5s ease 0.1s forwards; }
+.stagger-children.active > *:nth-child(2) { animation: premium-fade-up 0.5s ease 0.2s forwards; }
+.stagger-children.active > *:nth-child(3) { animation: premium-fade-up 0.5s ease 0.3s forwards; }
+.stagger-children.active > *:nth-child(4) { animation: premium-fade-up 0.5s ease 0.4s forwards; }
+.stagger-children.active > *:nth-child(5) { animation: premium-fade-up 0.5s ease 0.5s forwards; }
+.stagger-children.active > *:nth-child(6) { animation: premium-fade-up 0.5s ease 0.6s forwards; }
+.stagger-children.active > *:nth-child(7) { animation: premium-fade-up 0.5s ease 0.7s forwards; }
+.stagger-children.active > *:nth-child(8) { animation: premium-fade-up 0.5s ease 0.8s forwards; }
+
+/* ============================================
+   PREMIUM NAVIGATION
+   ============================================ */
+.premium-nav {
+    position: sticky !important;
+    top: 0 !important;
+    z-index: 1000 !important;
+    background: rgba(10, 10, 10, 0.85) !important;
+    backdrop-filter: blur(25px) saturate(180%) !important;
+    -webkit-backdrop-filter: blur(25px) saturate(180%) !important;
+    border-bottom: 1px solid rgba(196, 163, 90, 0.12) !important;
+    transition: all 0.3s ease !important;
+}
+
+.premium-nav.scrolled {
+    background: rgba(10, 10, 10, 0.95) !important;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3) !important;
+}
+
+.premium-nav-inner {
+    max-width: 1400px !important;
+    margin: 0 auto !important;
+    padding: 0 40px !important;
+    height: 70px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+}
+
+.premium-nav .logo {
+    font-family: 'Times New Roman MT', serif !important;
+    font-size: 28px !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.4em !important;
+    color: var(--white) !important;
+    text-transform: uppercase !important;
+}
+
+.premium-nav-links {
+    display: flex !important;
+    gap: 40px !important;
+}
+
+.premium-nav-links a {
+    font-family: -apple-system, BlinkMacSystemFont, sans-serif !important;
+    font-size: 11px !important;
+    letter-spacing: 0.15em !important;
+    text-transform: uppercase !important;
+    color: var(--gray-light) !important;
+    transition: color 0.3s ease !important;
+    position: relative !important;
+}
+
+.premium-nav-links a::after {
+    content: '' !important;
+    position: absolute !important;
+    bottom: -4px !important;
+    left: 0 !important;
+    width: 0 !important;
+    height: 1px !important;
+    background: var(--gold) !important;
+    transition: width 0.3s ease !important;
+}
+
+.premium-nav-links a:hover {
+    color: var(--white) !important;
+}
+
+.premium-nav-links a:hover::after {
+    width: 100% !important;
+}
+
+.premium-nav-icons {
+    display: flex !important;
+    align-items: center !important;
+    gap: 20px !important;
+}
+
+.premium-nav-icon {
+    width: 40px !important;
+    height: 40px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    color: var(--gray-light) !important;
+    transition: all 0.3s ease !important;
+    cursor: pointer !important;
+}
+
+.premium-nav-icon:hover {
+    color: var(--gold) !important;
+}
+
+.premium-nav-icon svg {
+    width: 20px !important;
+    height: 20px !important;
+}
+
+/* ============================================
+   PREMIUM PRODUCT GRID
+   ============================================ */
+.premium-products-grid {
+    display: grid !important;
+    grid-template-columns: repeat(4, 1fr) !important;
+    gap: 24px !important;
+}
+
+@media (max-width: 1200px) {
+    .premium-products-grid {
+        grid-template-columns: repeat(3, 1fr) !important;
+    }
+}
+
+@media (max-width: 900px) {
+    .premium-products-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
+}
+
+@media (max-width: 600px) {
+    .premium-products-grid {
+        grid-template-columns: 1fr !important;
+    }
+}
+
+/* ============================================
+   PREMIUM SECTION HEADERS
+   ============================================ */
+.premium-section-header {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: flex-end !important;
+    margin-bottom: 50px !important;
+    padding-bottom: 30px !important;
+    border-bottom: 1px solid var(--gray-dark) !important;
+}
+
+.premium-section-header h2 {
+    font-family: 'Times New Roman MT', serif !important;
+    font-size: clamp(36px, 6vw, 60px) !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.05em !important;
+    text-transform: uppercase !important;
+    color: var(--white) !important;
+}
+
+/* ============================================
+   RESPONSIVE UTILITIES
+   ============================================ */
+@media (max-width: 1024px) {
+    .premium-footer-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
+    
+    .premium-hero-title {
+        font-size: clamp(60px, 10vw, 100px) !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .premium-nav-links {
+        display: none !important;
+    }
+    
+    .premium-footer-grid {
+        grid-template-columns: 1fr !important;
+    }
+    
+    .premium-section-header {
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        gap: 20px !important;
+    }
+    
+    .premium-hero-cta {
+        padding: 16px 32px !important;
+        font-size: 11px !important;
+    }
+}

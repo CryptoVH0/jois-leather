@@ -1,11 +1,10 @@
 /* ============================================
-   JOIS — Cyberpunk Fashion Aesthetic v35
-   Graphite / Cemento / Noir / Beige / Matrix Typography
-   Extravagant Deepweb Aesthetics
+   JOIS PREMIUM v38
+   Glassmorphism Dark Luxury
    ============================================ */
 
 /* ============================================
-   CSS VARIABLES - CYBERPUNK PALETTE
+   CSS VARIABLES - PREMIUM PALETTE
    ============================================ */
 :root {
     /* Core Colors */
@@ -15,17 +14,16 @@
     --black-darkest: #050505;
     --white: #FFFFFF;
     --off-white: #E8E8E8;
+    
+    /* Gray Scale - NO GREEN */
     --gray-dark: #363636;
     --gray: #4A4A4A;
     --gray-light: #4A4A4A;
     
-    /* Beige/Gold Accent */
+    /* Beige/Gold Accent - NO GREEN */
     --gold: #C4A35A;
     --gold-dark: #A68B3D;
     --gold-light: #D4C4A0;
-    
-    /* Matrix Green */
-    --green-matrix: #4A4A4A;
     
     /* Cement Grays */
     --cement: #363636;
@@ -39,16 +37,18 @@
     /* Gradients */
     --gradient-cyber: linear-gradient(135deg, var(--gold) 0%, var(--gold-dark) 100%);
     --gradient-dark: linear-gradient(180deg, var(--black) 0%, var(--black-light) 100%);
+    --gradient-glass: linear-gradient(135deg, rgba(196, 163, 90, 0.1) 0%, rgba(196, 163, 90, 0.05) 100%);
     
-    /* Typography - MONOSPACE PRIMARY */
+    /* Typography - Times New Roman MT for Display, Menlo for Prices */
     --font-display: 'Times New Roman MT', 'Times New Roman', Georgia, serif;
-    --font-body: 'Times New Roman MT', 'Times New Roman', Georgia, serif;
-    --font-mono: 'Times New Roman MT', 'Times New Roman', Georgia, serif;
+    --font-body: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --font-mono: 'Menlo', 'Monaco', 'Courier New', monospace;
     
     /* Transitions */
     --transition-fast: all 0.2s ease;
     --transition: all 0.3s ease;
     --transition-slow: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    --transition-premium: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
 /* ============================================
@@ -73,6 +73,36 @@ body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     overflow-x: hidden;
+}
+
+/* Font utility classes */
+.font-display { font-family: var(--font-display) !important; }
+.font-mono { font-family: var(--font-mono) !important; }
+.font-body { font-family: var(--font-body) !important; }
+
+/* Glassmorphism utilities */
+.glass-card {
+    background: rgba(26, 26, 26, 0.6);
+    backdrop-filter: blur(30px);
+    -webkit-backdrop-filter: blur(30px);
+    border: 1px solid rgba(196, 163, 90, 0.2);
+    border-radius: 24px;
+    box-shadow: 
+        0 25px 50px rgba(0, 0, 0, 0.5),
+        0 0 100px rgba(196, 163, 90, 0.1);
+}
+
+.glass-nav {
+    background: rgba(10, 10, 10, 0.85);
+    backdrop-filter: blur(25px) saturate(180%);
+    -webkit-backdrop-filter: blur(25px) saturate(180%);
+    border-bottom: 1px solid rgba(196, 163, 90, 0.12);
+}
+
+.glass-overlay {
+    background: rgba(10, 10, 10, 0.7);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
 }
 
 a {
@@ -128,17 +158,24 @@ button {
 .nav-main {
     position: sticky;
     top: 0;
-    background: rgba(10, 10, 10, 0.98);
-    backdrop-filter: blur(20px);
+    background: rgba(10, 10, 10, 0.85);
+    backdrop-filter: blur(25px) saturate(180%);
+    -webkit-backdrop-filter: blur(25px) saturate(180%);
     z-index: 1000;
-    border-bottom: 1px solid var(--cement);
+    border-bottom: 1px solid rgba(196, 163, 90, 0.12);
+    transition: all 0.3s ease;
+}
+
+.nav-main.scrolled {
+    background: rgba(10, 10, 10, 0.95);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
 }
 
 .nav-inner {
     max-width: 1400px;
     margin: 0 auto;
     padding: 0 40px;
-    height: 80px;
+    height: 70px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -147,7 +184,7 @@ button {
 .nav-icons {
     display: flex;
     align-items: center;
-    gap: 25px;
+    gap: 20px;
 }
 
 .nav-icon {
@@ -156,8 +193,8 @@ button {
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: var(--transition-fast);
-    color: var(--text-secondary);
+    transition: var(--transition-premium);
+    color: var(--gray-light);
 }
 
 .nav-icon:hover {
@@ -171,8 +208,8 @@ button {
 }
 
 .logo {
-    font-family: var(--font-mono);
-    font-size: 32px;
+    font-family: var(--font-display);
+    font-size: 28px;
     font-weight: 700;
     letter-spacing: 0.4em;
     color: var(--text-primary);
@@ -181,17 +218,17 @@ button {
 
 .nav-links {
     display: flex;
-    gap: 35px;
+    gap: 40px;
 }
 
 .nav-link {
     font-size: 11px;
     letter-spacing: 0.15em;
     text-transform: uppercase;
-    color: var(--text-secondary);
-    transition: var(--transition-fast);
+    color: var(--gray-light);
+    transition: var(--transition-premium);
     position: relative;
-    font-family: var(--font-mono);
+    font-family: var(--font-body);
 }
 
 .nav-link::after {
@@ -202,13 +239,11 @@ button {
     width: 0;
     height: 1px;
     background: var(--gold);
-    box-shadow: 0 0 10px rgba(196, 163, 90, 0.5);
     transition: width 0.3s ease;
 }
 
 .nav-link:hover {
-    color: var(--gold);
-    text-shadow: 0 0 10px rgba(196, 163, 90, 0.3);
+    color: var(--white);
 }
 
 .nav-link:hover::after {
@@ -220,10 +255,12 @@ button {
    ============================================ */
 .hero {
     position: relative;
-    height: 85vh;
-    min-height: 600px;
-    background: var(--black);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     overflow: hidden;
+    background: var(--black);
 }
 
 .hero::before {
@@ -234,86 +271,101 @@ button {
     width: 100%;
     height: 100%;
     background-image: 
-        linear-gradient(rgba(196, 163, 90, 0.02) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(196, 163, 90, 0.02) 1px, transparent 1px);
-    background-size: 80px 80px;
+        linear-gradient(rgba(196, 163, 90, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(196, 163, 90, 0.03) 1px, transparent 1px);
+    background-size: 60px 60px;
     pointer-events: none;
 }
 
-.hero-content {
+.hero-bg-text {
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: var(--font-display);
+    font-size: clamp(100px, 20vw, 300px);
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(196, 163, 90, 0.03);
+    white-space: nowrap;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 10;
+    text-align: center;
+    padding: 40px;
+    max-width: 900px;
 }
 
 .hero-text {
     display: flex;
     flex-direction: column;
+    align-items: center;
     justify-content: center;
-    padding: 80px 60px;
-    z-index: 10;
 }
 
 .hero-badge {
-    font-size: 10px;
+    font-size: 11px;
     letter-spacing: 0.3em;
     text-transform: uppercase;
     color: var(--gold);
     margin-bottom: 25px;
-    font-family: var(--font-mono);
-    text-shadow: 0 0 20px rgba(196, 163, 90, 0.5);
+    font-family: var(--font-body);
 }
 
 .hero-title {
-    font-family: var(--font-mono);
-    font-size: clamp(60px, 10vw, 120px);
+    font-family: var(--font-display);
+    font-size: clamp(80px, 12vw, 140px);
     font-weight: 700;
-    letter-spacing: 0.1em;
-    line-height: 0.95;
-    margin-bottom: 30px;
+    letter-spacing: 0.05em;
+    line-height: 0.9;
+    margin-bottom: 24px;
     text-transform: uppercase;
     color: var(--white);
-    text-shadow: 0 0 30px rgba(255, 255, 255, 0.2);
+    text-shadow: 0 0 60px rgba(196, 163, 90, 0.2);
 }
 
 .hero-subtitle {
-    font-size: 13px;
+    font-size: 16px;
     letter-spacing: 0.2em;
     text-transform: uppercase;
-    color: var(--text-muted);
-    font-family: var(--font-mono);
+    color: var(--gray-light);
+    font-family: var(--font-body);
+    margin-bottom: 40px;
 }
 
 .hero-cta {
     display: inline-flex;
     align-items: center;
-    gap: 15px;
-    padding: 16px 35px;
+    gap: 16px;
+    padding: 20px 48px;
     background: transparent;
     color: var(--white);
-    font-size: 11px;
+    font-size: 13px;
     letter-spacing: 0.2em;
     text-transform: uppercase;
     border: 1px solid var(--gold);
-    transition: var(--transition-fast);
+    transition: var(--transition-premium);
     width: fit-content;
-    font-family: var(--font-mono);
+    font-family: var(--font-display);
 }
 
 .hero-cta:hover {
     background: var(--gold);
     color: var(--black);
-    box-shadow: 0 0 30px rgba(196, 163, 90, 0.5);
+    box-shadow: 
+        0 15px 50px rgba(196, 163, 90, 0.3),
+        0 0 80px rgba(196, 163, 90, 0.15);
+    transform: translateY(-3px);
 }
 
 .hero-image {
     position: relative;
     overflow: hidden;
-    border-left: 1px solid var(--cement);
 }
 
 .hero-image img,
@@ -321,6 +373,7 @@ button {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    filter: drop-shadow(0 30px 60px rgba(0, 0, 0, 0.5));
 }
 
 .hero-overlay {
@@ -329,7 +382,7 @@ button {
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(to right, rgba(10,10,10,0) 0%, rgba(10,10,10,0.5) 100%);
+    background: linear-gradient(to right, rgba(10,10,10,0) 0%, rgba(10,10,10,0.3) 100%);
 }
 
 .video-control {
@@ -338,20 +391,23 @@ button {
     right: 20px;
     width: 44px;
     height: 44px;
-    background: rgba(10, 10, 10, 0.9);
-    border: 1px solid var(--gold);
+    background: rgba(26, 26, 26, 0.8);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(196, 163, 90, 0.3);
     cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: all 0.3s;
+    transition: var(--transition-premium);
     z-index: 10;
     color: var(--gold);
+    border-radius: 50%;
 }
 
 .video-control:hover {
     background: var(--gold);
     color: var(--black);
+    box-shadow: 0 0 30px rgba(196, 163, 90, 0.4);
 }
 
 /* ============================================
@@ -404,10 +460,10 @@ button {
 }
 
 .section-title {
-    font-family: var(--font-mono);
-    font-size: clamp(48px, 8vw, 96px);
+    font-family: var(--font-display);
+    font-size: clamp(48px, 8vw, 80px);
     font-weight: 700;
-    letter-spacing: 0.05em;
+    letter-spacing: 0.03em;
     line-height: 1;
     text-transform: uppercase;
     color: var(--white);
@@ -444,21 +500,28 @@ button {
 .products-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 1px;
-    background: var(--cement);
+    gap: 24px;
+    background: transparent;
 }
 
 .product-card {
-    background: var(--black-light);
+    background: rgba(26, 26, 26, 0.6);
+    backdrop-filter: blur(30px);
+    -webkit-backdrop-filter: blur(30px);
+    border: 1px solid rgba(196, 163, 90, 0.15);
+    border-radius: 24px;
     display: flex;
     flex-direction: column;
-    transition: var(--transition);
-    border: 1px solid transparent;
+    transition: var(--transition-premium);
+    overflow: hidden;
 }
 
 .product-card:hover {
-    border-color: var(--gold);
-    box-shadow: 0 0 30px rgba(196, 163, 90, 0.2);
+    transform: translateY(-8px) scale(1.02);
+    border-color: rgba(196, 163, 90, 0.4);
+    box-shadow: 
+        0 30px 60px rgba(0, 0, 0, 0.4),
+        0 0 40px rgba(196, 163, 90, 0.15);
 }
 
 .product-image {
@@ -466,38 +529,43 @@ button {
     aspect-ratio: 3/4;
     overflow: hidden;
     background: var(--black);
-    border-bottom: 1px solid var(--cement);
+    border-radius: 20px;
+    margin: 12px;
+    width: calc(100% - 24px);
 }
 
 .product-image img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: var(--transition);
+    transition: transform 0.5s ease, filter 0.5s ease;
+    filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.4));
 }
 
 .product-card:hover .product-image img {
-    transform: scale(1.03);
-    filter: brightness(1.1);
+    transform: scale(1.05);
+    filter: drop-shadow(0 30px 50px rgba(0, 0, 0, 0.5)) brightness(1.05);
 }
 
 .product-badge {
     position: absolute;
-    top: 15px;
-    left: 15px;
-    padding: 5px 12px;
+    top: 24px;
+    left: 24px;
+    padding: 8px 16px;
     font-size: 9px;
-    letter-spacing: 0.1em;
+    letter-spacing: 0.15em;
     text-transform: uppercase;
-    background: var(--gold);
+    background: rgba(196, 163, 90, 0.9);
     color: var(--black);
     font-family: var(--font-mono);
     font-weight: 700;
-    box-shadow: 0 0 15px rgba(196, 163, 90, 0.4);
+    border-radius: 8px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 0 20px rgba(196, 163, 90, 0.3);
 }
 
 .product-info {
-    padding: 20px;
+    padding: 20px 24px 24px;
     display: flex;
     flex-direction: column;
     gap: 12px;
@@ -757,8 +825,8 @@ button {
    FOOTER - CYBERPUNK
    ============================================ */
 .footer {
-    background: var(--black-darkest);
-    border-top: 1px solid var(--cement);
+    background: var(--black);
+    border-top: 1px solid var(--gray-dark);
     padding: 80px 40px 40px;
 }
 
@@ -769,90 +837,107 @@ button {
 
 .footer-main {
     display: grid;
-    grid-template-columns: 1fr 2fr;
+    grid-template-columns: 1.5fr 2fr;
     gap: 80px;
     margin-bottom: 60px;
     padding-bottom: 60px;
-    border-bottom: 1px solid var(--cement);
+    border-bottom: 1px solid var(--gray-dark);
 }
 
 .footer-brand .logo {
     margin-bottom: 15px;
-    font-family: var(--font-mono);
+    font-family: var(--font-display);
 }
 
 .footer-tagline {
     font-size: 12px;
-    color: var(--text-muted);
+    color: var(--gray-light);
     letter-spacing: 0.1em;
-    font-family: var(--font-mono);
+    font-family: var(--font-body);
     text-transform: uppercase;
+}
+
+.footer-tagline::before {
+    content: '> ';
+    color: var(--gold);
 }
 
 .footer-socials {
     display: flex;
-    gap: 20px;
+    gap: 16px;
     margin-top: 25px;
 }
 
 .footer-social-link {
-    font-size: 11px;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--text-muted);
-    border-bottom: 1px solid transparent;
-    padding-bottom: 3px;
-    transition: var(--transition-fast);
-    font-family: var(--font-mono);
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--gray-dark);
+    border-radius: 50%;
+    color: var(--gray-light);
+    transition: var(--transition-premium);
 }
 
 .footer-social-link:hover {
-    color: var(--gold);
     border-color: var(--gold);
-    text-shadow: 0 0 15px rgba(196, 163, 90, 0.5);
+    color: var(--gold);
+    box-shadow: 0 0 20px rgba(196, 163, 90, 0.3);
 }
 
 .footer-nav {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     gap: 40px;
 }
 
 .footer-col h4 {
-    font-size: 10px;
-    letter-spacing: 0.2em;
+    font-size: 11px;
+    letter-spacing: 0.15em;
     text-transform: uppercase;
     color: var(--gold);
     margin-bottom: 20px;
     font-family: var(--font-mono);
 }
 
+.footer-col ul {
+    list-style: none;
+}
+
+.footer-col li {
+    margin-bottom: 12px;
+}
+
 .footer-col a {
     display: block;
-    font-size: 13px;
-    color: var(--text-muted);
-    margin-bottom: 12px;
-    transition: var(--transition-fast);
-    font-family: var(--font-mono);
+    font-size: 14px;
+    color: var(--gray-light);
+    transition: color 0.3s ease;
+    font-family: var(--font-body);
 }
 
 .footer-col a:hover {
     color: var(--white);
-    text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
 }
 
 .footer-bottom {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding-top: 40px;
+    border-top: 1px solid var(--gray-dark);
 }
 
 .footer-copyright {
-    font-size: 10px;
-    letter-spacing: 0.08em;
-    color: var(--text-muted);
+    font-size: 12px;
+    color: var(--gray-light);
     font-family: var(--font-mono);
-    text-transform: uppercase;
+}
+
+.footer-copyright::before {
+    content: '> ';
+    color: var(--gold);
 }
 
 .footer-payments {
