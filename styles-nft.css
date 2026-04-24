@@ -1,19 +1,23 @@
 /* ============================================
-   JOIS NFT — Minimalist Digital Collection
+   JOIS NFT — Cyberpunk Digital Collection
    Font: Menlo (system monospace)
-   Colors: Black, White, Gray, Wine/Burgundy
+   Colors: Black, Cement, Gold, Matrix Green
    ============================================ */
 
 :root {
-    --black: #000000;
+    --black: #0A0A0A;
+    --black-light: #1A1A1A;
     --white: #FFFFFF;
     --off-white: #F5F5F5;
-    --gray-light: #BDBDBD;
-    --gray: #828282;
+    --gray-light: #4A4A4A;
+    --gray: #363636;
     --gray-dark: #262626;
     --charcoal: #333333;
+    --gold: #C4A35A;
+    --gold-dark: #A68B3D;
     --wine: #7C120C;
     --wine-light: #E23C28;
+    --matrix-green: #00FF00;
 }
 
 * {
@@ -32,6 +36,210 @@ body {
     color: var(--white);
     overflow-x: hidden;
     font-size: 14px;
+}
+
+/* ============================================
+   BOOT SCREEN - CYBERPUNK TERMINAL
+   ============================================ */
+.boot-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #0A0A0A;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: boot-fadeout 0.5s ease 2.5s forwards;
+}
+
+.boot-content {
+    font-family: 'Menlo', 'Monaco', 'Courier New', monospace;
+    color: #00FF00;
+    text-align: left;
+    max-width: 500px;
+    padding: 40px;
+    border: 1px solid #363636;
+    background: rgba(0, 255, 0, 0.02);
+}
+
+.boot-line {
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    margin-bottom: 12px;
+    opacity: 0;
+    animation: boot-line-appear 0.3s ease forwards;
+}
+
+.boot-line:nth-child(1) { animation-delay: 0.2s; }
+.boot-line:nth-child(2) { animation-delay: 0.5s; }
+.boot-line:nth-child(3) { animation-delay: 0.8s; }
+.boot-line:nth-child(4) { animation-delay: 1.1s; }
+.boot-line:nth-child(5) { animation-delay: 1.4s; }
+
+.boot-line::before {
+    content: '> ';
+    color: #C4A35A;
+}
+
+.boot-complete {
+    color: #00FF00;
+    text-shadow: 0 0 10px #00FF00;
+    font-weight: 700;
+}
+
+.boot-complete::before {
+    content: '[✓] ';
+}
+
+@keyframes boot-line-appear {
+    from { opacity: 0; transform: translateX(-10px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes boot-fadeout {
+    to { opacity: 0; visibility: hidden; pointer-events: none; }
+}
+
+/* ============================================
+   GLITCH TEXT EFFECT
+   ============================================ */
+.glitch-text {
+    position: relative;
+    display: inline-block;
+}
+
+.glitch-text::before,
+.glitch-text::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.8;
+}
+
+.glitch-text::before {
+    color: #FF0000;
+    animation: glitch-1 2s infinite linear alternate-reverse;
+    clip-path: inset(0 0 80% 0);
+}
+
+.glitch-text::after {
+    color: #00FF00;
+    animation: glitch-2 2s infinite linear alternate-reverse;
+    clip-path: inset(80% 0 0 0);
+}
+
+@keyframes glitch-1 {
+    0%, 90%, 100% { transform: translate(0); }
+    92% { transform: translate(-2px, 1px); }
+    94% { transform: translate(2px, -1px); }
+    96% { transform: translate(-1px, 2px); }
+    98% { transform: translate(1px, -2px); }
+}
+
+@keyframes glitch-2 {
+    0%, 90%, 100% { transform: translate(0); }
+    91% { transform: translate(2px, 1px); }
+    93% { transform: translate(-2px, -1px); }
+    95% { transform: translate(1px, 2px); }
+    97% { transform: translate(-1px, -2px); }
+}
+
+/* ============================================
+   TYPOGRAPHY ANIMATIONS
+   ============================================ */
+.typing-effect {
+    overflow: hidden;
+    white-space: nowrap;
+    animation: typewriter 1.5s steps(20) 0.5s forwards;
+    width: 0;
+}
+
+@keyframes typewriter {
+    from { width: 0; }
+    to { width: 100%; }
+}
+
+.cursor-blink {
+    display: inline-block;
+    color: #00FF00;
+    animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+    0%, 50% { opacity: 1; }
+    51%, 100% { opacity: 0; }
+}
+
+/* ============================================
+   MATRIX TEXT
+   ============================================ */
+.matrix-text {
+    color: #00FF00;
+    text-shadow: 0 0 10px #00FF00;
+    font-family: 'Menlo', monospace;
+}
+
+/* ============================================
+   DEEPWEB BUTTON ANIMATIONS
+   ============================================ */
+.btn-deepweb {
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.btn-deepweb::before {
+    content: '> ACCESSING...';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 9px;
+    letter-spacing: 2px;
+    color: #00FF00;
+    opacity: 0;
+    white-space: nowrap;
+    z-index: 1;
+}
+
+.btn-deepweb:hover::before {
+    opacity: 1;
+    animation: terminal-access 0.6s steps(15) forwards;
+}
+
+.btn-deepweb:hover span,
+.btn-deepweb:focus span {
+    opacity: 0;
+}
+
+@keyframes terminal-access {
+    0% { width: 0; overflow: hidden; }
+    100% { width: 100%; }
+}
+
+/* ============================================
+   GLOW EFFECTS
+   ============================================ */
+.glow-gold {
+    box-shadow: 0 0 20px rgba(196, 163, 90, 0.4);
+}
+
+.glow-green {
+    box-shadow: 0 0 20px rgba(0, 255, 0, 0.4);
+}
+
+.text-glow-gold {
+    text-shadow: 0 0 20px rgba(196, 163, 90, 0.5);
+}
+
+.text-glow-green {
+    text-shadow: 0 0 20px rgba(0, 255, 0, 0.5);
 }
 
 /* Navigation */

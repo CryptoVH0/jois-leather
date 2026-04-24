@@ -950,6 +950,18 @@
     </style>
 </head>
 <body>
+    <!-- Boot Screen -->
+    <div class="boot-screen" id="bootScreen">
+        <div class="boot-content">
+            <p class="boot-line" style="font-size: 14px; font-weight: 700; margin-bottom: 20px; border-bottom: 1px solid #363636; padding-bottom: 15px;">JOIS SECURITY BOOT v2.0</p>
+            <p class="boot-line">loading modules...</p>
+            <p class="boot-line">verifying leather_protocol...</p>
+            <p class="boot-line">initializing dark_market_access...</p>
+            <p class="boot-line">establishing secure connection...</p>
+            <p class="boot-line boot-complete">SYSTEM READY</p>
+        </div>
+    </div>
+    
     <!-- Top Bar -->
     <div class="top-bar">
         <div class="top-bar-left">
@@ -1009,30 +1021,37 @@
         </div>
     </nav>
     
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="hero-content">
-            <div class="hero-text">
-                <span class="hero-badge">Nueva Colección</span>
-                <h1 class="hero-title">JOIS</h1>
-                <p class="hero-subtitle">Maison de Cuir Contemporáneo</p>
-                <a href="#coleccion" class="hero-cta">
-                    Ver Colección
+    <!-- Hero Section - Terminal Boot -->
+    <section class="hero terminal-screen matrix-rain">
+        <div class="terminal-header">
+            <span class="terminal-dot red"></span>
+            <span class="terminal-dot yellow"></span>
+            <span class="terminal-dot green"></span>
+            <span class="terminal-title">JOIS_BOOTSEQ v2.0</span>
+        </div>
+        <div class="terminal-body" style="padding-top: 60px;">
+            <p class="terminal-line">initializing JOIS.exe...</p>
+            <p class="terminal-line success">loading leather_data.pkg... [OK]</p>
+            <p class="terminal-line success">establishing secure connection... [OK]</p>
+            <p class="terminal-line success">rendering MAISON_DE_CUIRO... [OK]</p>
+            
+            <div class="terminal-output">
+                <h1 class="glitch-text typing-effect" data-text="JOIS" style="display: block; text-align: center;">JOIS</h1>
+                <p class="tagline matrix-text" style="text-align: center; margin-top: 15px;">MAISON DE CUIR CONTEMPORAIN</p>
+            </div>
+            
+            <p class="terminal-line success" style="text-align: center; margin-top: 30px;">access_granted</p>
+            <p style="text-align: center; font-family: 'Menlo', monospace; color: #00FF00; font-size: 14px; margin-top: 20px;">
+                <span class="cursor-blink">_</span>
+            </p>
+            
+            <div style="text-align: center; margin-top: 40px;">
+                <a href="#coleccion" class="hero-cta btn-deepweb" style="display: inline-flex; position: relative;">
+                    <span>Ver Colección</span>
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <path d="M5 12h14M12 5l7 7-7 7"/>
                     </svg>
                 </a>
-            </div>
-            <div class="hero-image">
-                <video id="heroVideo" autoplay muted loop playsinline style="width:100%;height:100%;object-fit:cover;">
-                    <source src="https://sample-videos.com/img/Sample-jpg-image-500kb.jpg" type="video/mp4">
-                    Tu navegador no soporta video.
-                </video>
-                <div class="hero-overlay"></div>
-                <button class="video-control" onclick="toggleHeroVideo()" id="videoControl">
-                    <svg id="pauseIcon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg>
-                    <svg id="playIcon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" style="display:none;"><polygon points="5 3 19 12 5 21 5 3"/></svg>
-                </button>
             </div>
         </div>
     </section>
