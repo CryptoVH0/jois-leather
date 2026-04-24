@@ -4,23 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JOIS — 3D Showcase</title>
-    <link rel="stylesheet" href="styles.css?v=36">
+    <link rel="stylesheet" href="styles-product.css">
+    <link rel="stylesheet" href="styles-luxury.css">
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    
     <style>
+        /* ============================================
+           3D SHOWCASE - PREMIUM PRODUCT PAGE
+           ============================================ */
+        
         * { margin: 0; padding: 0; box-sizing: border-box; }
         
         body {
-            font-family: 'Times New Roman MT', 'Times New Roman', serif;
+            font-family: -apple-system, BlinkMacSystemFont, sans-serif;
             background: #0A0A0A;
-            color: #FFFFFF;
+            color: #F5F5F0;
             min-height: 100vh;
             overflow-x: hidden;
         }
         
-        /* ============================================
-           GLASSMORPHISM 3D SHOWCASE
-           ============================================ */
-        
+        /* Showcase Container */
         .showcase-container {
             min-height: 100vh;
             position: relative;
@@ -34,7 +37,7 @@
                 #0A0A0A;
         }
         
-        /* Large background text */
+        /* Background Text */
         .bg-text-3d {
             position: absolute;
             font-family: 'Arial Black', 'Impact', sans-serif;
@@ -52,15 +55,8 @@
             white-space: nowrap;
         }
         
-        .bg-text-3d.left {
-            top: 10%;
-            left: -5%;
-        }
-        
-        .bg-text-3d.right {
-            bottom: 10%;
-            right: -5%;
-        }
+        .bg-text-3d.left { top: 10%; left: -5%; }
+        .bg-text-3d.right { bottom: 10%; right: -5%; }
         
         /* Glass Card */
         .glass-card {
@@ -114,9 +110,7 @@
             transition: color 0.3s;
         }
         
-        .card-nav a:hover {
-            color: #C4A35A;
-        }
+        .card-nav a:hover { color: #C4A35A; }
         
         .card-social {
             display: flex;
@@ -156,20 +150,8 @@
             justify-content: center;
             padding: 40px;
             background: 
-                repeating-linear-gradient(
-                    0deg,
-                    transparent,
-                    transparent 50px,
-                    rgba(196, 163, 90, 0.02) 50px,
-                    rgba(196, 163, 90, 0.02) 51px
-                ),
-                repeating-linear-gradient(
-                    90deg,
-                    transparent,
-                    transparent 50px,
-                    rgba(196, 163, 90, 0.02) 50px,
-                    rgba(196, 163, 90, 0.02) 51px
-                );
+                repeating-linear-gradient(0deg, transparent, transparent 50px, rgba(196, 163, 90, 0.02) 50px, rgba(196, 163, 90, 0.02) 51px),
+                repeating-linear-gradient(90deg, transparent, transparent 50px, rgba(196, 163, 90, 0.02) 50px, rgba(196, 163, 90, 0.02) 51px);
         }
         
         .product-3d-placeholder {
@@ -194,7 +176,7 @@
             transform: scale(1.05) rotateY(5deg);
         }
         
-        /* 3D Badge */
+        /* Badges */
         .badge-3d {
             position: absolute;
             top: 20px;
@@ -207,6 +189,29 @@
             letter-spacing: 2px;
             text-transform: uppercase;
             border-radius: 4px;
+        }
+        
+        .badge-nft {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            padding: 8px 16px;
+            background: rgba(196, 163, 90, 0.15);
+            border: 1px solid #C4A35A;
+            color: #C4A35A;
+            font-family: 'Menlo', monospace;
+            font-size: 9px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        
+        .badge-nft svg {
+            width: 12px;
+            height: 12px;
         }
         
         /* Navigation Arrows */
@@ -265,12 +270,12 @@
             letter-spacing: 3px;
             color: #C4A35A;
             text-transform: uppercase;
-            margin-bottom: 30px;
+            margin-bottom: 20px;
         }
         
-        /* Price Selector */
+        /* Price */
         .price-selector {
-            margin-bottom: 30px;
+            margin-bottom: 25px;
         }
         
         .price-label {
@@ -311,8 +316,8 @@
         }
         
         /* Size Selector */
-        .size-selector {
-            margin-bottom: 30px;
+        .size-selector-3d {
+            margin-bottom: 25px;
         }
         
         .size-label {
@@ -353,12 +358,14 @@
         }
         
         .size-option.active {
-            box-shadow: 0 0 20px rgba(196, 163, 90, 0.2);
+            background: #C4A35A;
+            color: #0A0A0A;
+            border-color: #C4A35A;
         }
         
         /* Quantity */
         .quantity-selector {
-            margin-bottom: 30px;
+            margin-bottom: 25px;
         }
         
         .quantity-label {
@@ -404,11 +411,11 @@
             text-align: center;
         }
         
-        /* Buy Button */
+        /* Premium CTA */
         .btn-buy-3d {
             width: 100%;
             padding: 20px;
-            background: #C4A35A;
+            background: #F5F5F0;
             border: none;
             border-radius: 12px;
             color: #0A0A0A;
@@ -421,6 +428,9 @@
             transition: all 0.4s ease;
             position: relative;
             overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
         }
         
         .btn-buy-3d::before {
@@ -430,16 +440,14 @@
             left: 50%;
             width: 0;
             height: 0;
-            background: rgba(255,255,255,0.3);
+            background: rgba(196, 163, 90, 0.3);
             border-radius: 50%;
             transform: translate(-50%, -50%);
             transition: width 0.6s, height 0.6s;
         }
         
         .btn-buy-3d:hover {
-            box-shadow: 
-                0 10px 40px rgba(196, 163, 90, 0.4),
-                0 0 60px rgba(196, 163, 90, 0.2);
+            box-shadow: 0 10px 40px rgba(196, 163, 90, 0.4), 0 0 60px rgba(196, 163, 90, 0.2);
             transform: translateY(-2px);
         }
         
@@ -448,9 +456,40 @@
             height: 300px;
         }
         
-        /* ============================================
-           FOOTER
-           ============================================ */
+        .btn-buy-3d span:last-child {
+            font-family: 'Menlo', monospace;
+        }
+        
+        /* Trust Elements */
+        .trust-row {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .trust-badge {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px;
+            background: rgba(196, 163, 90, 0.05);
+            border: 1px solid rgba(196, 163, 90, 0.2);
+            border-radius: 8px;
+            font-family: 'Menlo', monospace;
+            font-size: 9px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.5);
+        }
+        
+        .trust-badge svg {
+            width: 14px;
+            height: 14px;
+            color: #C4A35A;
+        }
+        
+        /* Footer */
         .footer-3d {
             padding: 40px;
             text-align: center;
@@ -464,9 +503,7 @@
             color: rgba(255,255,255,0.3);
         }
         
-        /* ============================================
-           RESPONSIVE
-           ============================================ */
+        /* Responsive */
         @media (max-width: 900px) {
             .card-content {
                 grid-template-columns: 1fr;
@@ -500,12 +537,16 @@
             .size-options {
                 flex-wrap: wrap;
             }
+            
+            .trust-row {
+                flex-direction: column;
+            }
         }
     </style>
 </head>
 <body>
     <div class="showcase-container">
-        <!-- Background 3D Text -->
+        <!-- Background Text -->
         <div class="bg-text-3d left">SHIRT</div>
         <div class="bg-text-3d right">JACKET</div>
         
@@ -515,7 +556,7 @@
             <div class="card-top">
                 <div class="card-nav">
                     <a href="index.html">← Products</a>
-                    <a href="#">Details</a>
+                    <a href="product.html">Details</a>
                     <a href="#">Contact</a>
                 </div>
                 <div class="card-social">
@@ -537,13 +578,19 @@
                 <div class="product-3d-area">
                     <div class="product-3d-placeholder">
                         <div class="badge-3d">Premium Leather</div>
+                        <div class="badge-nft">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="20 6 9 17 4 12"/>
+                            </svg>
+                            NFT Verified
+                        </div>
                         <img src="https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=600&q=90" alt="Shirt Jacket">
                     </div>
                     <div class="product-nav-arrows">
-                        <button class="nav-arrow">
+                        <button class="nav-arrow" onclick="prevProduct()">
                             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
                         </button>
-                        <button class="nav-arrow">
+                        <button class="nav-arrow" onclick="nextProduct()">
                             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
                         </button>
                     </div>
@@ -552,25 +599,25 @@
                 <!-- Product Details -->
                 <div class="product-details">
                     <h1 class="product-title-3d">Shirt Jacket</h1>
-                    <p class="product-subtitle">Maison de Cuir</p>
+                    <p class="product-subtitle">Maison de Cuir — Mexico City</p>
                     
                     <!-- Price -->
                     <div class="price-selector">
                         <p class="price-label">Select Currency</p>
                         <div class="price-options">
-                            <button class="price-option active" data-price="6650">$6,650 MXN</button>
-                            <button class="price-option" data-price="380">$380 USD</button>
-                            <button class="price-option" data-crypto="BTC">₿ Crypto</button>
+                            <button class="price-option active" data-price="6650" onclick="selectPrice(this)">$6,650 MXN</button>
+                            <button class="price-option" data-price="380" onclick="selectPrice(this)">$380 USD</button>
+                            <button class="price-option" data-crypto="BTC" onclick="selectPrice(this)">₿ Crypto</button>
                         </div>
                     </div>
                     
                     <!-- Size -->
-                    <div class="size-selector">
+                    <div class="size-selector-3d">
                         <p class="size-label">Select Size</p>
                         <div class="size-options">
                             <button class="size-option">XS</button>
-                            <button class="size-option active">S</button>
-                            <button class="size-option">M</button>
+                            <button class="size-option">S</button>
+                            <button class="size-option active">M</button>
                             <button class="size-option">L</button>
                             <button class="size-option">XL</button>
                         </div>
@@ -587,25 +634,56 @@
                     </div>
                     
                     <!-- Buy Button -->
-                    <button class="btn-buy-3d" onclick="addToCart('Shirt Jacket - S', 380, 'https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=400&q=80', 'S')">
-                        Add to Bag — $6,650 MXN
+                    <button class="btn-buy-3d" onclick="addToCart3D()">
+                        <span>Add to Collection</span>
+                        <span>$6,650 MXN</span>
                     </button>
+                    
+                    <!-- Trust Row -->
+                    <div class="trust-row">
+                        <div class="trust-badge">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                            </svg>
+                            Handcrafted
+                        </div>
+                        <div class="trust-badge">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+                                <path d="M7 11V7a5 5 0 0110 0v4"/>
+                            </svg>
+                            Limited Run
+                        </div>
+                    </div>
                 </div>
             </div>
             
             <!-- Footer -->
             <div class="footer-3d">
-                <p>> JOIS_LEATHER_v2.0 // SECURE_CONNECTION_ACTIVE</p>
+                <p>> JOIS_LEATHER // SECURE_CONNECTION_ACTIVE // NFT_VERIFIED</p>
             </div>
         </div>
     </div>
     
     <script>
         let qty = 1;
+        let currentPrice = 6650;
         
         function updateQty(change) {
             qty = Math.max(1, qty + change);
             document.getElementById('qtyDisplay').textContent = qty;
+        }
+        
+        function selectPrice(btn) {
+            document.querySelectorAll('.price-option').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            
+            const price = btn.dataset.price;
+            if (price) {
+                currentPrice = parseInt(price);
+                const symbol = btn.textContent.includes('MXN') ? '$' : '';
+                document.querySelector('.btn-buy-3d span:last-child').textContent = `${symbol}${parseInt(price).toLocaleString()} ${btn.textContent.includes('MXN') ? 'MXN' : 'USD'}`;
+            }
         }
         
         // Price selector
@@ -624,13 +702,35 @@
             });
         });
         
-        // Nav arrows
-        document.querySelectorAll('.nav-arrow').forEach(arrow => {
-            arrow.addEventListener('click', function() {
-                // Placeholder for 3D model navigation
-                alert('3D Gallery: Add your 3D model navigation here');
-            });
-        });
+        // Add to cart
+        function addToCart3D() {
+            const productName = 'Shirt Jacket - ' + document.querySelector('.size-option.active').textContent;
+            const image = 'https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=400&q=80';
+            
+            if (typeof addToCart === 'function') {
+                addToCart(productName, currentPrice, image, document.querySelector('.size-option.active').textContent);
+            }
+            
+            // Visual feedback
+            const btn = document.querySelector('.btn-buy-3d');
+            const originalText = btn.innerHTML;
+            btn.innerHTML = '<span>Added ✓</span><span>$6,650 MXN</span>';
+            btn.style.background = '#C4A35A';
+            
+            setTimeout(() => {
+                btn.innerHTML = originalText;
+                btn.style.background = '';
+            }, 2000);
+        }
+        
+        // Product navigation (placeholder)
+        function prevProduct() {
+            alert('Navigate to previous product');
+        }
+        
+        function nextProduct() {
+            alert('Navigate to next product');
+        }
     </script>
 </body>
 </html>

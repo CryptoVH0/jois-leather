@@ -3,409 +3,296 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shirt Jacket — JOIS</title>
-    <link rel="stylesheet" href="styles-animation.css">
-    <link rel="stylesheet" href="styles-luxury.css">
+    <title>Shirt Jacket — JOIS Leather</title>
+    <link rel="stylesheet" href="styles-product.css">
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
     
-    <style>
-        /* ============================================
-           JOIS PRODUCT PAGE - LUXURY SPLIT LAYOUT
-           ============================================ */
-        
-        * { margin: 0; padding: 0; box-sizing: border-box; border-radius: 0 !important; }
-        
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, sans-serif;
-            background: #000000;
-            color: #F5F5F0;
-            font-weight: 300;
-        }
-        
-        /* Product Page Layout */
-        .product-page {
-            display: grid;
-            grid-template-columns: 60% 40%;
-            min-height: 100vh;
-            background: #000000;
-        }
-        
-        /* Gallery */
-        .product-gallery {
-            position: sticky;
-            top: 0;
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            background: #0A0A0A;
-        }
-        
-        .gallery-main {
-            flex: 1;
-            position: relative;
-            overflow: hidden;
-            background: #1A1A1A;
-        }
-        
-        .gallery-main img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-        
-        .gallery-thumbs {
-            display: flex;
-            gap: 1px;
-            padding: 1px;
-            background: #3A3A3A;
-        }
-        
-        .gallery-thumb {
-            flex: 1;
-            aspect-ratio: 1;
-            overflow: hidden;
-            cursor: pointer;
-            opacity: 0.6;
-            transition: all 0.3s;
-            border: 2px solid transparent;
-            background: #0A0A0A;
-        }
-        
-        .gallery-thumb:hover,
-        .gallery-thumb.active {
-            opacity: 1;
-        }
-        
-        .gallery-thumb.active {
-            border-color: #C4A35A;
-        }
-        
-        .gallery-thumb img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-        
-        /* Product Info */
-        .product-info {
-            padding: 80px 60px;
-            display: flex;
-            flex-direction: column;
-            background: #0A0A0A;
-            border-left: 1px solid #3A3A3A;
-        }
-        
-        .product-header {
-            margin-bottom: 40px;
-            padding-bottom: 30px;
-            border-bottom: 1px solid #3A3A3A;
-        }
-        
-        .product-name {
-            font-family: 'Times New Roman MT', serif;
-            font-size: 32px;
-            letter-spacing: 0.05em;
-            color: #F5F5F0;
-            margin-bottom: 15px;
-            text-transform: lowercase;
-        }
-        
-        .product-price {
-            font-family: 'Menlo', monospace;
-            font-size: 18px;
-            color: rgba(245, 245, 240, 0.6);
-        }
-        
-        .product-description {
-            font-size: 14px;
-            line-height: 1.8;
-            color: rgba(245, 245, 240, 0.7);
-            margin-bottom: 40px;
-            font-weight: 300;
-        }
-        
-        /* Size Selector */
-        .size-selector {
-            margin-bottom: 40px;
-        }
-        
-        .size-label {
-            font-size: 11px;
-            letter-spacing: 0.15em;
-            text-transform: uppercase;
-            color: rgba(245, 245, 240, 0.5);
-            margin-bottom: 15px;
-            display: block;
-        }
-        
-        .size-options {
-            display: flex;
-            gap: 10px;
-        }
-        
-        .size-btn {
-            padding: 15px 25px;
-            font-size: 12px;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-            color: rgba(245, 245, 240, 0.6);
-            border: 1px solid #3A3A3A;
-            background: transparent;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-        
-        .size-btn:hover,
-        .size-btn.active {
-            color: #F5F5F0;
-            border-color: #F5F5F0;
-        }
-        
-        /* Add to Bag */
-        .btn-add-bag {
-            width: 100%;
-            padding: 25px;
-            font-size: 12px;
-            letter-spacing: 0.2em;
-            text-transform: uppercase;
-            background: #000000;
-            color: #F5F5F0;
-            border: 1px solid #3A3A3A;
-            cursor: pointer;
-            transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
-            margin-top: auto;
-        }
-        
-        .btn-add-bag:hover {
-            background: #F5F5F0;
-            color: #000000;
-        }
-        
-        /* Details Accordion */
-        .product-details-accordion {
-            margin-top: 40px;
-            border-top: 1px solid #3A3A3A;
-        }
-        
-        .accordion-item {
-            border-bottom: 1px solid #3A3A3A;
-        }
-        
-        .accordion-header {
-            padding: 20px 0;
-            font-size: 11px;
-            letter-spacing: 0.15em;
-            text-transform: uppercase;
-            color: rgba(245, 245, 240, 0.5);
-            cursor: pointer;
-            display: flex;
-            justify-content: space-between;
-            transition: all 0.3s;
-        }
-        
-        .accordion-header:hover {
-            color: #F5F5F0;
-        }
-        
-        .accordion-content {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.3s;
-        }
-        
-        .accordion-content p {
-            padding-bottom: 20px;
-            font-size: 13px;
-            line-height: 1.7;
-            color: rgba(245, 245, 240, 0.6);
-        }
-        
-        /* Navigation */
-        .nav-main {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 70px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 0 50px;
-            background: rgba(10, 10, 10, 0.95);
-            z-index: 1000;
-            border-bottom: 1px solid #3A3A3A;
-            backdrop-filter: blur(20px);
-        }
-        
-        .nav-logo {
-            font-family: 'Times New Roman MT', serif;
-            font-size: 22px;
-            font-weight: 700;
-            letter-spacing: 0.4em;
-            text-transform: uppercase;
-            color: #F5F5F0;
-        }
-        
-        .nav-back {
-            font-size: 11px;
-            letter-spacing: 0.15em;
-            text-transform: uppercase;
-            color: rgba(245, 245, 240, 0.5);
-            transition: color 0.3s;
-        }
-        
-        .nav-back:hover {
-            color: #F5F5F0;
-        }
-        
-        /* Responsive */
-        @media (max-width: 968px) {
-            .product-page {
-                grid-template-columns: 1fr;
-            }
-            
-            .product-gallery {
-                position: relative;
-                height: 60vh;
-            }
-            
-            .product-info {
-                padding: 40px 30px;
-                border-left: none;
-                border-top: 1px solid #3A3A3A;
-            }
-        }
-    </style>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 </head>
-<body class="scanlines">
-    <!-- Background Effects -->
-    <div class="bg-particles"></div>
-    <div class="bg-grid"></div>
-    <div class="ambient-glow"></div>
-    
+<body class="product-body">
     <!-- Navigation -->
     <nav class="nav-main">
         <a href="index.html" class="nav-logo">JOIS</a>
-        <a href="index.html" class="nav-back">← Volver</a>
+        <a href="index.html" class="nav-back">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M19 12H5M12 19l-7-7 7-7"/>
+            </svg>
+            Volver a Colección
+        </a>
     </nav>
     
     <!-- Product Page -->
     <div class="product-page">
         <!-- Gallery -->
-        <div class="product-gallery reveal-left">
+        <div class="product-gallery">
             <div class="gallery-main">
-                <img id="mainImage" src="https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=800&q=90" alt="Shirt Jacket">
+                <img id="mainImage" 
+                     src="https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=1400&q=95" 
+                     alt="Shirt Jacket - Premium Leather">
+                
+                <!-- Navigation Arrows -->
+                <button class="gallery-nav prev" aria-label="Previous image">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M15 18l-6-6 6-6"/>
+                    </svg>
+                </button>
+                <button class="gallery-nav next" aria-label="Next image">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M9 18l6-6-6-6"/>
+                    </svg>
+                </button>
+                
+                <!-- Zoom Hint -->
+                <div class="gallery-zoom-hint">Hover to explore</div>
+                
+                <!-- Dots Indicator -->
+                <div class="gallery-dots">
+                    <div class="gallery-dot active" data-index="0"></div>
+                    <div class="gallery-dot" data-index="1"></div>
+                    <div class="gallery-dot" data-index="2"></div>
+                    <div class="gallery-dot" data-index="3"></div>
+                </div>
             </div>
+            
+            <!-- Thumbnails -->
             <div class="gallery-thumbs">
-                <div class="gallery-thumb active" data-image="https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=800&q=90">
-                    <img src="https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=200&q=80" alt="">
+                <div class="gallery-thumb active" data-index="0">
+                    <img src="https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=200&q=80" alt="Front view">
                 </div>
-                <div class="gallery-thumb" data-image="https://images.unsplash.com/photo-1551028719-00167b16eac5?w=800&q=90">
-                    <img src="https://images.unsplash.com/photo-1551028719-00167b16eac5?w=200&q=80" alt="">
+                <div class="gallery-thumb" data-index="1">
+                    <img src="https://images.unsplash.com/photo-1551028719-00167b16eac5?w=200&q=80" alt="Side view">
                 </div>
-                <div class="gallery-thumb" data-image="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=800&q=90">
-                    <img src="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=200&q=80" alt="">
+                <div class="gallery-thumb" data-index="2">
+                    <img src="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=200&q=80" alt="Detail view">
+                </div>
+                <div class="gallery-thumb" data-index="3">
+                    <img src="https://images.unsplash.com/photo-1627123424574-724758594e93?w=200&q=80" alt="Back view">
                 </div>
             </div>
         </div>
         
         <!-- Product Info -->
-        <div class="product-info reveal-right">
+        <div class="product-info">
+            <!-- Header -->
             <div class="product-header">
                 <h1 class="product-name">shirt jacket</h1>
-                <p class="product-price">$6,650 MXN</p>
+                <div class="product-price">
+                    $6,650 MXN
+                    <span class="product-price-secondary">$380 USD</span>
+                </div>
+                
+                <!-- NFT Badge -->
+                <div class="nft-badge-container"></div>
             </div>
             
-            <p class="product-description">
-                Chaqueta de cuero premium con diseño atemporal. Perfecta para cualquier ocasión, combina robustez y elegancia en una sola pieza. Confeccionada con cuero mexicano de la más alta calidad.
-            </p>
+            <!-- Trust Elements -->
+            <div class="trust-elements"></div>
             
+            <!-- Scarcity Signal -->
+            <div class="scarcity-container"></div>
+            
+            <!-- Product Storytelling -->
+            <div class="product-story"></div>
+            
+            <!-- Size Selector -->
             <div class="size-selector">
-                <span class="size-label">Talla</span>
+                <span class="size-label">Selecciona tu talla</span>
                 <div class="size-options">
-                    <button class="size-btn">XS</button>
-                    <button class="size-btn">S</button>
-                    <button class="size-btn active">M</button>
-                    <button class="size-btn">L</button>
-                    <button class="size-btn">XL</button>
+                    <button class="size-btn" data-size="XS">XS</button>
+                    <button class="size-btn" data-size="S">S</button>
+                    <button class="size-btn active" data-size="M">M</button>
+                    <button class="size-btn" data-size="L">L</button>
+                    <button class="size-btn" data-size="XL">XL</button>
                 </div>
             </div>
             
-            <button class="btn-add-bag" onclick="addToCart('Shirt Jacket - M', 380, 'https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=400&q=80', 'M')">
-                Añadir al Carrito
+            <!-- Premium CTA -->
+            <button class="cta-premium" onclick="handleAddToCart()">
+                <span class="cta-label">Add to Collection</span>
+                <span class="cta-price">$6,650 MXN</span>
+                <span class="cta-arrow">→</span>
             </button>
             
+            <!-- Secondary CTA -->
+            <button class="cta-secondary">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/>
+                    <polyline points="7 10 12 15 17 10"/>
+                    <line x1="12" y1="15" x2="12" y2="3"/>
+                </svg>
+                Reserved for Later
+            </button>
+            
+            <!-- Details Accordion -->
             <div class="product-details-accordion">
-                <div class="accordion-item">
+                <div class="accordion-item" data-section="details">
                     <div class="accordion-header">
                         <span>Detalles del Producto</span>
-                        <span>+</span>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <line x1="12" y1="5" x2="12" y2="19"/>
+                            <line x1="5" y1="12" x2="19" y2="12"/>
+                        </svg>
                     </div>
                     <div class="accordion-content">
                         <p>Cuero genuino 100% mexicano. Forro interior de algodón premium. Cierre de cremallera YKK original. Costuras reforzadas. Made in Mexico.</p>
                     </div>
                 </div>
-                <div class="accordion-item">
+                <div class="accordion-item" data-section="shipping">
                     <div class="accordion-header">
                         <span>Envío y Entrega</span>
-                        <span>+</span>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <line x1="12" y1="5" x2="12" y2="19"/>
+                            <line x1="5" y1="12" x2="19" y2="12"/>
+                        </svg>
                     </div>
                     <div class="accordion-content">
-                        <p>Envío gratis en órdenes mayores a $5,000 MXN. Entrega en 3-5 días hábiles. Devoluciones aceptadas dentro de 14 días. Empaque de lujo incluido.</p>
+                        <p>Envío gratis en órdenes mayores a $5,000 MXN. Entrega en 3-5 días hábiles. Producción bajo pedido: 2-3 semanas. Devoluciones aceptadas dentro de 14 días. Empaque de lujo incluido.</p>
                     </div>
                 </div>
-                <div class="accordion-item">
+                <div class="accordion-item" data-section="care">
                     <div class="accordion-header">
                         <span>Cuidados</span>
-                        <span>+</span>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <line x1="12" y1="5" x2="12" y2="19"/>
+                            <line x1="5" y1="12" x2="19" y2="12"/>
+                        </svg>
                     </div>
                     <div class="accordion-content">
-                        <p>Limpiar con paño húmedo. No sumergir en agua. Almacenar en lugar ventilado. Evitar exposición directa al sol por períodos prolongados.</p>
+                        <p>Limpiar con paño húmedo. No sumergir en agua. Almacenar en lugar ventilado. Aplicar conditioner de cuero cada 3 meses. Evitar exposición directa al sol por períodos prolongados.</p>
+                    </div>
+                </div>
+                <div class="accordion-item" data-section="authenticity">
+                    <div class="accordion-header">
+                        <span>Autenticidad</span>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <line x1="12" y1="5" x2="12" y2="19"/>
+                            <line x1="5" y1="12" x2="19" y2="12"/>
+                        </svg>
+                    </div>
+                    <div class="accordion-content">
+                        <p>Cada pieza incluye certificado de autenticidad con número de serie único.NFT de verificación en blockchain. Registro verificable públicamente. Garantía de por vida contra defectos de manufacture.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Detail Gallery -->
+            <div class="product-detail-gallery">
+                <p class="detail-gallery-title">Detalles y Textura</p>
+                <div class="detail-images">
+                    <div class="detail-image">
+                        <img src="https://images.unsplash.com/photo-1594938298603-c8148c4dae35?w=600&q=90" alt="Leather texture detail">
+                    </div>
+                    <div class="detail-image">
+                        <img src="https://images.unsplash.com/photo-1558171813-4c088753af8f?w=600&q=90" alt="Stitching detail">
                     </div>
                 </div>
             </div>
         </div>
     </div>
     
-    <script src="app-cart.js"></script>
+    <!-- Mobile Sticky CTA -->
+    <div class="mobile-sticky-cta">
+        <div class="cta-price">$6,650 MXN</div>
+        <button class="cta-premium" onclick="handleAddToCart()">
+            <span class="cta-label">Add to Collection</span>
+            <span class="cta-arrow">→</span>
+        </button>
+    </div>
+    
+    <!-- Scripts -->
+    <script src="product-gallery.js"></script>
+    <script src="product-story.js"></script>
     <script>
-        // Gallery thumbnail click
-        document.querySelectorAll('.gallery-thumb').forEach(thumb => {
-            thumb.addEventListener('click', function() {
-                document.querySelectorAll('.gallery-thumb').forEach(t => t.classList.remove('active'));
-                this.classList.add('active');
-                document.getElementById('mainImage').src = this.dataset.image;
-            });
+        // Initialize on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            // Get product from URL or default
+            const urlParams = new URLSearchParams(window.location.search);
+            const productKey = urlParams.get('product') || 'shirt-jacket';
+            
+            // Initialize gallery
+            const gallery = new JOISGallery();
+            gallery.init(productKey);
+            
+            // Initialize storytelling
+            JOISStory.init(productKey);
+            
+            // Initialize accordion
+            initAccordion();
+            
+            // Initialize size selector
+            initSizeSelector();
         });
+        
+        // Accordion functionality
+        function initAccordion() {
+            document.querySelectorAll('.accordion-header').forEach(header => {
+                header.addEventListener('click', () => {
+                    const item = header.parentElement;
+                    const content = header.nextElementSibling;
+                    const isOpen = item.classList.contains('open');
+                    
+                    // Close all
+                    document.querySelectorAll('.accordion-item').forEach(i => {
+                        i.classList.remove('open');
+                        i.querySelector('.accordion-content').style.maxHeight = null;
+                    });
+                    
+                    // Toggle current
+                    if (!isOpen) {
+                        item.classList.add('open');
+                        content.style.maxHeight = content.scrollHeight + 'px';
+                    }
+                });
+            });
+        }
         
         // Size selector
-        document.querySelectorAll('.size-btn').forEach(btn => {
-            btn.addEventListener('click', function() {
-                document.querySelectorAll('.size-btn').forEach(b => b.classList.remove('active'));
-                this.classList.add('active');
+        function initSizeSelector() {
+            document.querySelectorAll('.size-btn').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    document.querySelectorAll('.size-btn').forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                });
             });
-        });
-        
-        // Accordion
-        document.querySelectorAll('.accordion-header').forEach(header => {
-            header.addEventListener('click', function() {
-                const content = this.nextElementSibling;
-                const isOpen = content.style.maxHeight;
-                
-                document.querySelectorAll('.accordion-content').forEach(c => c.style.maxHeight = null);
-                document.querySelectorAll('.accordion-header span:last-child').forEach(s => s.textContent = '+');
-                
-                if (!isOpen) {
-                    content.style.maxHeight = content.scrollHeight + 'px';
-                    this.querySelector('span:last-child').textContent = '−';
-                }
-            });
-        });
-        
-        // Initialize cart
-        if (typeof initCart === 'function') {
-            initCart();
         }
+        
+        // Add to cart handler
+        function handleAddToCart() {
+            const productName = document.querySelector('.product-name')?.textContent || 'Shirt Jacket';
+            const activeSize = document.querySelector('.size-btn.active')?.dataset.size || 'M';
+            const price = 380;
+            const image = 'https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=400&q=80';
+            
+            if (typeof addToCart === 'function') {
+                addToCart(productName + ' - ' + activeSize, price, image, activeSize);
+            }
+            
+            // Visual feedback
+            const cta = document.querySelector('.cta-premium');
+            if (cta) {
+                const originalContent = cta.innerHTML;
+                cta.innerHTML = `
+                    <span class="cta-label">Added to Collection ✓</span>
+                    <span class="cta-arrow">→</span>
+                `;
+                cta.style.background = '#C4A35A';
+                
+                setTimeout(() => {
+                    cta.innerHTML = originalContent;
+                    cta.style.background = '';
+                }, 2000);
+            }
+            
+            // Open cart drawer if available
+            if (typeof openCart === 'function') {
+                setTimeout(openCart, 500);
+            }
+        }
+        
+        // Currency conversion
+        window.currentProductPrice = 380;
     </script>
 </body>
 </html>
