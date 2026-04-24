@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shirt Jacket — JOIS</title>
+    <link rel="stylesheet" href="styles-animation.css">
     <link rel="stylesheet" href="styles-luxury.css">
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
     
@@ -276,7 +277,12 @@
         }
     </style>
 </head>
-<body>
+<body class="scanlines">
+    <!-- Background Effects -->
+    <div class="bg-particles"></div>
+    <div class="bg-grid"></div>
+    <div class="ambient-glow"></div>
+    
     <!-- Navigation -->
     <nav class="nav-main">
         <a href="index.html" class="nav-logo">JOIS</a>
@@ -286,7 +292,7 @@
     <!-- Product Page -->
     <div class="product-page">
         <!-- Gallery -->
-        <div class="product-gallery">
+        <div class="product-gallery reveal-left">
             <div class="gallery-main">
                 <img id="mainImage" src="https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=800&q=90" alt="Shirt Jacket">
             </div>
@@ -304,7 +310,7 @@
         </div>
         
         <!-- Product Info -->
-        <div class="product-info">
+        <div class="product-info reveal-right">
             <div class="product-header">
                 <h1 class="product-name">shirt jacket</h1>
                 <p class="product-price">$6,650 MXN</p>

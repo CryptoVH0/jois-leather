@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JOIS — Maison de Cuir Contemporáneo</title>
+    <link rel="stylesheet" href="styles-animation.css">
     <link rel="stylesheet" href="styles-luxury.css">
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
     
@@ -714,7 +715,13 @@
         }
     </style>
 </head>
-<body>
+<body class="scanlines">
+    <!-- Background Effects -->
+    <div class="bg-particles"></div>
+    <div class="bg-grid"></div>
+    <div class="ambient-glow"></div>
+    <div class="ambient-glow ambient-glow-2"></div>
+    
     <!-- Navigation -->
     <nav class="nav-main" id="navMain">
         <a href="index.html" class="nav-logo">JOIS</a>
@@ -738,6 +745,7 @@
     
     <!-- Hero Section -->
     <section class="hero">
+        <div class="hero-grid"></div>
         <div class="hero-content">
             <h1 class="hero-title">JOIS</h1>
             <p class="hero-subtitle">Maison de Cuir Contemporain</p>
@@ -746,13 +754,13 @@
     </section>
     
     <!-- Break Quote -->
-    <section class="break-section">
+    <section class="break-section reveal">
         <p class="break-quote">"El lujo no es lo que ves, es lo que sientes cuando lo llevas."</p>
         <p class="break-author">— JOIS</p>
     </section>
     
     <!-- Products - Editorial Grid -->
-    <section id="products" class="products-editorial">
+    <section id="products" class="products-editorial reveal-stagger">
         <div class="product-editorial" data-product="h1">
             <a href="product.html">
                 <img src="https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=800&q=90" alt="Shirt Jacket">
@@ -799,12 +807,12 @@
     </section>
     
     <!-- Manifesto Break -->
-    <section class="manifesto-section">
+    <section class="manifesto-section reveal">
         <p class="manifesto-text">Cada pieza JOIS es diseñada para trascender temporadas. Combina la robustez del cuero mexicano con líneas limpias que hablan de modernidad sin perder la esencia artesanal.</p>
     </section>
     
     <!-- Hombre Section -->
-    <section id="hombre" class="section">
+    <section id="hombre" class="section reveal">
         <div class="section-header">
             <h2 class="section-title">Hombre</h2>
             <a href="#" class="section-link">
@@ -841,7 +849,7 @@
     </section>
     
     <!-- Mujer Section -->
-    <section id="mujer" class="section">
+    <section id="mujer" class="section reveal">
         <div class="section-header">
             <h2 class="section-title">Mujer</h2>
             <a href="#" class="section-link">
@@ -941,6 +949,37 @@
         if (typeof initCart === 'function') {
             initCart();
         }
+        
+        // Scroll Reveal Animation
+        function initScrollReveal() {
+            const reveals = document.querySelectorAll('.reveal, .reveal-stagger');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                    }
+                });
+            }, {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            });
+            
+            reveals.forEach(el => observer.observe(el));
+        }
+        
+        // Initialize on load
+        document.addEventListener('DOMContentLoaded', initScrollReveal);
+    <!-- Scroll Reveal Script -->
+    <script>
+        // Parallax effect for hero
+        window.addEventListener('scroll', function() {
+            const scrolled = window.pageYOffset;
+            const heroGrid = document.querySelector('.hero-grid');
+            if (heroGrid) {
+                heroGrid.style.transform = 'translateY(' + (scrolled * 0.3) + 'px)';
+            }
+        });
     </script>
 </body>
 </html>
