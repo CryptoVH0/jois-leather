@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JOIS — Maison de Cuir Contemporáneo</title>
-    <link rel="stylesheet" href="styles.css?v=26">
+    <link rel="stylesheet" href="styles.css?v=35">
     <link rel="stylesheet" href="styles-home.css">
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
     
@@ -18,6 +18,7 @@
     <style>
         /* ============================================
            JOIS HOME - Cyberpunk Fashion Aesthetic
+           v35 - Extravagant Deepweb Aesthetics
            ============================================ */
         
         :root {
@@ -35,6 +36,7 @@
             --text-dark: #FFFFFF;
             --text-muted: #B0B0B0;
             --text-light: #B0B0B0;
+            --green-matrix: #00FF00;
             
             --font-display: 'Menlo', 'Monaco', 'Courier New', monospace;
             --font-body: 'Menlo', 'Monaco', 'Courier New', monospace;
@@ -76,41 +78,202 @@
         }
         
         /* ============================================
-           TOP BAR - CYBERPUNK
+           CRT BOOT SEQUENCE - EXTRAVAGANT
            ============================================ */
-        .top-bar {
+        .extravagant-boot {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
             background: var(--black);
-            color: var(--white);
-            padding: 8px 40px;
+            z-index: 10000;
             display: flex;
-            justify-content: space-between;
             align-items: center;
+            justify-content: center;
+            animation: boot-fade-out 0.5s ease 3.5s forwards;
+        }
+        
+        @keyframes boot-fade-out {
+            to { opacity: 0; pointer-events: none; }
+        }
+        
+        .crt-monitor {
+            position: relative;
+            width: 90%;
+            max-width: 800px;
+            padding: 40px;
+        }
+        
+        .crt-screen {
+            background: #0D0D0D;
+            border: 3px solid #2A2A2A;
+            border-radius: 20px;
+            padding: 50px;
+            position: relative;
+            box-shadow: 
+                0 0 0 6px #1A1A1A,
+                0 0 0 10px #0A0A0A,
+                inset 0 0 100px rgba(0, 255, 0, 0.05),
+                0 0 60px rgba(196, 163, 90, 0.2);
+        }
+        
+        /* CRT scanlines */
+        .crt-screen::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: repeating-linear-gradient(
+                0deg,
+                rgba(0, 0, 0, 0.2),
+                rgba(0, 0, 0, 0.2) 1px,
+                transparent 1px,
+                transparent 2px
+            );
+            pointer-events: none;
+            border-radius: 17px;
+            z-index: 5;
+        }
+        
+        /* CRT flicker */
+        .crt-screen::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(196, 163, 90, 0.03);
+            pointer-events: none;
+            border-radius: 17px;
+            animation: crt-flicker 0.1s infinite;
+        }
+        
+        @keyframes crt-flicker {
+            0%, 100% { opacity: 0.97; }
+            50% { opacity: 1; }
+        }
+        
+        .ascii-art {
+            font-family: var(--font-mono);
             font-size: 10px;
-            letter-spacing: 0.15em;
-            text-transform: uppercase;
-            border-bottom: 1px solid var(--cement);
-        }
-        
-        .top-bar-left span,
-        .top-bar-right span {
-            color: rgba(255,255,255,0.5);
-        }
-        
-        .top-bar-center span {
+            line-height: 1.2;
             color: var(--beige);
+            text-align: center;
+            margin-bottom: 30px;
             text-shadow: 0 0 10px rgba(196, 163, 90, 0.5);
+            opacity: 0;
+            animation: ascii-appear 0.5s ease 0.2s forwards;
+        }
+        
+        @keyframes ascii-appear {
+            to { opacity: 1; }
+        }
+        
+        .boot-sequence {
+            font-family: var(--font-mono);
+            font-size: 12px;
+            line-height: 2;
+        }
+        
+        .boot-line {
+            color: var(--green-matrix);
+            opacity: 0;
+            text-shadow: 0 0 10px var(--green-matrix);
+            margin: 0;
+        }
+        
+        .boot-line:nth-child(1) { animation: boot-line-appear 0.3s ease 0.5s forwards; }
+        .boot-line:nth-child(2) { animation: boot-line-appear 0.3s ease 0.7s forwards; }
+        .boot-line:nth-child(3) { animation: boot-line-appear 0.3s ease 0.9s forwards; }
+        .boot-line:nth-child(4) { animation: boot-line-appear 0.3s ease 1.1s forwards; }
+        .boot-line:nth-child(5) { animation: boot-line-appear 0.3s ease 1.3s forwards; }
+        
+        @keyframes boot-line-appear {
+            to { opacity: 1; }
+        }
+        
+        .access-granted {
+            color: var(--beige) !important;
+            text-shadow: 0 0 20px rgba(196, 163, 90, 0.8) !important;
+            font-size: 16px;
+            font-weight: bold;
+            animation: boot-line-appear 0.3s ease 1.7s forwards, access-pulse 1s ease infinite 1.7s;
+        }
+        
+        @keyframes access-pulse {
+            0%, 100% { text-shadow: 0 0 20px rgba(196, 163, 90, 0.8); }
+            50% { text-shadow: 0 0 40px rgba(196, 163, 90, 1), 0 0 60px rgba(196, 163, 90, 0.5); }
+        }
+        
+        /* Glitch wipe transition */
+        .glitch-wipe {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--beige);
+            box-shadow: 0 0 20px var(--beige), 0 0 40px var(--beige);
+            transform: scaleX(0);
+            opacity: 0;
+            animation: glitch-wipe-anim 0.4s ease 3.2s forwards;
+        }
+        
+        @keyframes glitch-wipe-anim {
+            0% { transform: scaleX(0) translateY(0); opacity: 1; }
+            50% { transform: scaleX(1) translateY(-100px); opacity: 1; }
+            100% { transform: scaleX(1) translateY(-200px); opacity: 0; }
+        }
+        
+        .crt-frame {
+            position: absolute;
+            bottom: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 8px;
+        }
+        
+        .crt-led {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--green-matrix);
+            box-shadow: 0 0 10px var(--green-matrix);
+            animation: led-blink 1s ease infinite;
+        }
+        
+        .crt-led:nth-child(2) { animation-delay: 0.3s; }
+        .crt-led:nth-child(3) { animation-delay: 0.6s; }
+        
+        @keyframes led-blink {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 1; }
         }
         
         /* ============================================
-           NAVIGATION - CYBERPUNK
+           HOLOGRAPHIC NAVIGATION
            ============================================ */
         .nav-main {
             position: sticky;
             top: 0;
-            background: rgba(10, 10, 10, 0.98);
-            backdrop-filter: blur(20px);
+            background: transparent;
+            backdrop-filter: blur(20px) saturate(180%);
+            border: 1px solid rgba(196, 163, 90, 0.2);
+            box-shadow: 
+                0 0 30px rgba(196, 163, 90, 0.1),
+                inset 0 0 60px rgba(0, 0, 0, 0.5);
             z-index: 1000;
-            border-bottom: 1px solid var(--cement);
+            transform: translateY(-100%);
+            animation: nav-reveal 0.8s cubic-bezier(0.23, 1, 0.32, 1) 3.6s forwards;
+        }
+        
+        @keyframes nav-reveal {
+            to { transform: translateY(0); }
         }
         
         .nav-inner {
@@ -137,6 +300,26 @@
             justify-content: center;
             transition: var(--transition-fast);
             color: var(--text-muted);
+            position: relative;
+        }
+        
+        .nav-icon::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--beige), transparent);
+            transform: translateX(-100%);
+        }
+        
+        .nav-icon:hover::after {
+            animation: scan-line 0.4s ease forwards;
+        }
+        
+        @keyframes scan-line {
+            to { transform: translateX(100%); }
         }
         
         .nav-icon:hover {
@@ -155,6 +338,12 @@
             font-weight: 700;
             letter-spacing: 0.4em;
             color: var(--white);
+            text-shadow: 0 0 20px rgba(196, 163, 90, 0.3);
+            transition: all 0.3s ease;
+        }
+        
+        .logo:hover {
+            text-shadow: 0 0 30px rgba(196, 163, 90, 0.8), 0 0 60px rgba(196, 163, 90, 0.4);
         }
         
         .nav-links {
@@ -170,18 +359,23 @@
             transition: var(--transition-fast);
             position: relative;
             font-family: var(--font-mono);
+            padding: 5px 0;
         }
         
-        .nav-link::after {
+        .nav-link::before {
             content: '';
             position: absolute;
-            bottom: -4px;
+            bottom: 0;
             left: 0;
-            width: 0;
-            height: 1px;
-            background: var(--beige);
-            box-shadow: 0 0 10px rgba(196, 163, 90, 0.5);
-            transition: var(--transition);
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--beige), transparent);
+            transform: translateX(-100%);
+            transition: transform 0.4s ease;
+        }
+        
+        .nav-link:hover::before {
+            animation: scan-line 0.4s ease forwards;
         }
         
         .nav-link:hover {
@@ -189,21 +383,26 @@
             text-shadow: 0 0 10px rgba(196, 163, 90, 0.3);
         }
         
-        .nav-link:hover::after {
-            width: 100%;
-        }
-        
         /* ============================================
-           HERO SECTION - CYBERPUNK
+           IMMERSIVE TERMINAL HERO
            ============================================ */
         .hero {
             position: relative;
-            height: 85vh;
+            height: 100vh;
             min-height: 600px;
-            background: var(--black);
+            background: 
+                radial-gradient(ellipse at center, rgba(26, 26, 26, 0.8) 0%, #0A0A0A 70%),
+                repeating-linear-gradient(
+                    0deg,
+                    transparent,
+                    transparent 2px,
+                    rgba(0, 255, 0, 0.03) 2px,
+                    rgba(0, 255, 0, 0.03) 4px
+                );
             overflow: hidden;
         }
         
+        /* Scanlines effect */
         .hero::before {
             content: '';
             position: absolute;
@@ -211,12 +410,51 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-image: 
-                linear-gradient(rgba(196, 163, 90, 0.02) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(196, 163, 90, 0.02) 1px, transparent 1px);
-            background-size: 80px 80px;
+            background: repeating-linear-gradient(
+                0deg,
+                rgba(0, 0, 0, 0.15),
+                rgba(0, 0, 0, 0.15) 1px,
+                transparent 1px,
+                transparent 2px
+            );
+            pointer-events: none;
+            z-index: 10;
+        }
+        
+        /* Matrix rain effect */
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                linear-gradient(180deg, rgba(0, 255, 0, 0) 0%, rgba(0, 255, 0, 0.02) 50%);
+            opacity: 0.4;
             pointer-events: none;
             z-index: 1;
+        }
+        
+        /* Grid pattern */
+        .hero-grid {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(rgba(196, 163, 90, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(196, 163, 90, 0.03) 1px, transparent 1px);
+            background-size: 60px 60px;
+            pointer-events: none;
+            z-index: 2;
+            animation: grid-pulse 4s ease-in-out infinite;
+        }
+        
+        @keyframes grid-pulse {
+            0%, 100% { opacity: 0.5; }
+            50% { opacity: 0.8; }
         }
         
         .hero-content {
@@ -227,6 +465,7 @@
             height: 100%;
             display: grid;
             grid-template-columns: 1fr 1fr;
+            z-index: 5;
         }
         
         .hero-text {
@@ -245,23 +484,63 @@
             margin-bottom: 25px;
             font-family: var(--font-mono);
             text-shadow: 0 0 20px rgba(196, 163, 90, 0.5);
+            animation: text-flicker 3s ease-in-out infinite;
+        }
+        
+        @keyframes text-flicker {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.8; }
         }
         
         .hero-title {
-            font-family: var(--font-mono);
-            font-size: clamp(60px, 10vw, 120px);
-            font-weight: 700;
-            letter-spacing: 0.1em;
-            line-height: 0.95;
+            font-family: 'Menlo', monospace;
+            font-size: clamp(80px, 15vw, 160px);
+            font-weight: 400;
+            letter-spacing: 0.5em;
+            line-height: 0.9;
             margin-bottom: 30px;
             text-transform: uppercase;
             color: var(--white);
-            text-shadow: 0 0 30px rgba(255, 255, 255, 0.2);
+            text-shadow: 
+                0 0 20px rgba(196, 163, 90, 0.5),
+                0 0 40px rgba(196, 163, 90, 0.3),
+                0 0 80px rgba(196, 163, 90, 0.1);
+            animation: text-glow 3s ease-in-out infinite alternate;
+        }
+        
+        @keyframes text-glow {
+            from {
+                text-shadow: 
+                    0 0 20px rgba(196, 163, 90, 0.5),
+                    0 0 40px rgba(196, 163, 90, 0.3),
+                    0 0 80px rgba(196, 163, 90, 0.1);
+            }
+            to {
+                text-shadow: 
+                    0 0 30px rgba(196, 163, 90, 0.8),
+                    0 0 60px rgba(196, 163, 90, 0.5),
+                    0 0 100px rgba(196, 163, 90, 0.3);
+            }
+        }
+        
+        .terminal-cursor {
+            display: inline-block;
+            width: 3px;
+            height: 0.8em;
+            background: var(--beige);
+            margin-left: 10px;
+            animation: cursor-blink 0.8s step-end infinite;
+            vertical-align: middle;
+        }
+        
+        @keyframes cursor-blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
         }
         
         .hero-subtitle {
             font-size: 13px;
-            letter-spacing: 0.2em;
+            letter-spacing: 0.3em;
             text-transform: uppercase;
             color: var(--text-muted);
             margin-bottom: 40px;
@@ -272,28 +551,76 @@
             display: inline-flex;
             align-items: center;
             gap: 15px;
-            padding: 16px 35px;
+            padding: 18px 40px;
             background: transparent;
             color: var(--white);
             font-size: 11px;
             letter-spacing: 0.2em;
             text-transform: uppercase;
             border: 1px solid var(--beige);
-            transition: var(--transition-fast);
+            transition: all 0.4s ease;
             width: fit-content;
             font-family: var(--font-mono);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-cta::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: var(--beige);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            transition: all 0.6s ease;
+        }
+        
+        .hero-cta:hover::before {
+            width: 300px;
+            height: 300px;
         }
         
         .hero-cta:hover {
-            background: var(--beige);
             color: var(--black);
-            box-shadow: 0 0 30px rgba(196, 163, 90, 0.5);
+            box-shadow: 
+                0 0 30px rgba(196, 163, 90, 0.5),
+                0 0 60px rgba(196, 163, 90, 0.3);
+        }
+        
+        .hero-cta span {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .hero-cta svg {
+            position: relative;
+            z-index: 1;
+            transition: transform 0.3s ease;
+        }
+        
+        .hero-cta:hover svg {
+            transform: translateX(5px);
         }
         
         .hero-image {
             position: relative;
             overflow: hidden;
-            border-left: 1px solid var(--cement);
+            border-left: 1px solid rgba(196, 163, 90, 0.2);
+        }
+        
+        .hero-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to right, rgba(10,10,10,0.3) 0%, transparent 30%);
+            z-index: 2;
+            pointer-events: none;
         }
         
         .hero-image img,
@@ -301,15 +628,7 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-        }
-        
-        .hero-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(to right, rgba(10,10,10,0) 0%, rgba(10,10,10,0.5) 100%);
+            filter: grayscale(20%) contrast(1.1);
         }
         
         .video-control {
@@ -327,45 +646,90 @@
             transition: all 0.3s;
             z-index: 10;
             color: var(--beige);
+            backdrop-filter: blur(10px);
         }
         
         .video-control:hover {
             background: var(--beige);
             color: var(--black);
+            box-shadow: 0 0 20px rgba(196, 163, 90, 0.5);
         }
         
         /* ============================================
-           MARQUEE - CYBERPUNK
+           MATRIX MARQUEE
            ============================================ */
         .marquee {
-            background: var(--beige);
+            background: #1A1A1A;
+            border-top: 1px solid var(--cement);
+            border-bottom: 1px solid var(--cement);
             padding: 15px 0;
             overflow: hidden;
+            position: relative;
+        }
+        
+        .marquee::before {
+            content: '> MARQUEE_MODULE v1.0 // SCROLLING...';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 5px 20px;
+            background: #0A0A0A;
+            color: var(--green-matrix);
+            font-family: var(--font-mono);
+            font-size: 9px;
+            letter-spacing: 2px;
+            z-index: 2;
         }
         
         .marquee-content {
             display: flex;
-            animation: marquee 20s linear infinite;
+            animation: matrix-scroll 30s linear infinite;
+            padding-top: 25px;
         }
         
         .marquee-item {
-            font-size: 11px;
-            letter-spacing: 0.3em;
+            font-size: 10px;
+            letter-spacing: 4px;
             text-transform: uppercase;
-            color: var(--black);
+            color: var(--green-matrix);
             white-space: nowrap;
-            padding: 0 40px;
+            padding: 0 50px;
             font-family: var(--font-mono);
-            font-weight: 600;
+            text-shadow: 0 0 10px var(--green-matrix);
         }
         
-        @keyframes marquee {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-50%); }
+        .marquee-item.gold {
+            color: var(--beige);
+            text-shadow: 0 0 10px rgba(196, 163, 90, 0.5);
+        }
+        
+        @keyframes matrix-scroll {
+            from { transform: translateX(0); }
+            to { transform: translateX(-50%); }
         }
         
         /* ============================================
-           READY TO WEAR SECTION - CYBERPUNK
+           SCROLL REVEAL ANIMATIONS
+           ============================================ */
+        .reveal-on-scroll {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+        
+        .reveal-on-scroll.revealed {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .reveal-on-scroll:nth-child(1) { transition-delay: 0.1s; }
+        .reveal-on-scroll:nth-child(2) { transition-delay: 0.2s; }
+        .reveal-on-scroll:nth-child(3) { transition-delay: 0.3s; }
+        .reveal-on-scroll:nth-child(4) { transition-delay: 0.4s; }
+        
+        /* ============================================
+           PRODUCTS GRID - HOLOGRAPHIC CARDS
            ============================================ */
         .section {
             padding: 100px 40px;
@@ -405,6 +769,23 @@
             padding: 10px 20px;
             border: 1px solid var(--cement);
             font-family: var(--font-mono);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .section-link::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(196, 163, 90, 0.2), transparent);
+            transition: left 0.5s ease;
+        }
+        
+        .section-link:hover::before {
+            left: 100%;
         }
         
         .section-link:hover {
@@ -418,9 +799,6 @@
             height: 16px;
         }
         
-        /* ============================================
-           PRODUCTS GRID - CYBERPUNK
-           ============================================ */
         .products-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
@@ -429,16 +807,47 @@
         }
         
         .product-card {
-            background: var(--black-light);
+            position: relative;
+            background: rgba(26, 26, 26, 0.6);
+            backdrop-filter: blur(10px);
             display: flex;
             flex-direction: column;
-            transition: var(--transition);
-            border: 1px solid transparent;
+            border: 1px solid rgba(196, 163, 90, 0.1);
+            transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+            overflow: hidden;
         }
         
+        /* Holographic edge effect */
+        .product-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                90deg,
+                transparent,
+                rgba(196, 163, 90, 0.1),
+                rgba(196, 163, 90, 0.2),
+                rgba(196, 163, 90, 0.1),
+                transparent
+            );
+            transition: left 0.8s ease;
+            pointer-events: none;
+        }
+        
+        .product-card:hover::before {
+            left: 100%;
+        }
+        
+        /* Lift and glow effect */
         .product-card:hover {
-            border-color: var(--beige);
-            box-shadow: 0 0 30px rgba(196, 163, 90, 0.2);
+            transform: translateY(-10px) scale(1.02);
+            border-color: rgba(196, 163, 90, 0.4);
+            box-shadow: 
+                0 20px 60px rgba(0, 0, 0, 0.5),
+                0 0 40px rgba(196, 163, 90, 0.15);
         }
         
         .product-image {
@@ -453,12 +862,22 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: var(--transition);
+            transition: all 0.5s ease;
         }
         
         .product-card:hover .product-image img {
-            transform: scale(1.03);
-            filter: brightness(1.1);
+            transform: scale(1.05);
+            filter: brightness(1.1) contrast(1.05);
+            animation: image-glitch 0.3s ease;
+        }
+        
+        @keyframes image-glitch {
+            0% { transform: translate(0); filter: hue-rotate(0deg); }
+            20% { transform: translate(-2px, 2px); filter: hue-rotate(90deg); }
+            40% { transform: translate(2px, -2px); filter: hue-rotate(180deg); }
+            60% { transform: translate(-2px, -2px); filter: hue-rotate(270deg); }
+            80% { transform: translate(2px, 2px); filter: hue-rotate(360deg); }
+            100% { transform: translate(0); filter: hue-rotate(0deg); }
         }
         
         .product-badge {
@@ -474,6 +893,7 @@
             font-family: var(--font-mono);
             font-weight: 700;
             box-shadow: 0 0 15px rgba(196, 163, 90, 0.4);
+            z-index: 2;
         }
         
         .product-info {
@@ -498,28 +918,52 @@
         }
         
         .btn-add-grid {
-            padding: 10px 15px;
+            padding: 12px 15px;
             font-size: 10px;
             letter-spacing: 0.1em;
             text-transform: uppercase;
             background: transparent;
             color: var(--white);
-            border: 1px solid var(--cement);
+            border: 1px solid rgba(196, 163, 90, 0.3);
             cursor: pointer;
-            transition: all 0.3s;
+            transition: all 0.4s ease;
             margin-top: 5px;
             font-family: var(--font-mono);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .btn-add-grid::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: var(--beige);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            transition: all 0.5s ease;
+        }
+        
+        .btn-add-grid:hover::before {
+            width: 250px;
+            height: 250px;
         }
         
         .btn-add-grid:hover {
-            background: var(--beige);
             color: var(--black);
             border-color: var(--beige);
             box-shadow: 0 0 20px rgba(196, 163, 90, 0.4);
         }
         
+        .btn-add-grid span {
+            position: relative;
+            z-index: 1;
+        }
+        
         /* ============================================
-           CATEGORIES SECTION - CYBERPUNK
+           CATEGORIES SECTION
            ============================================ */
         .categories-section {
             background: var(--black);
@@ -557,13 +1001,28 @@
             padding: 30px 0;
             border-bottom: 1px solid var(--cement);
             color: var(--white);
-            transition: var(--transition-fast);
+            transition: all 0.3s ease;
             cursor: pointer;
+            position: relative;
+        }
+        
+        .category-item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 0;
+            background: rgba(196, 163, 90, 0.05);
+            transition: width 0.4s ease;
+        }
+        
+        .category-item:hover::before {
+            width: 100%;
         }
         
         .category-item:hover {
             padding-left: 20px;
-            background: rgba(196, 163, 90, 0.05);
         }
         
         .category-item:hover .category-name {
@@ -576,15 +1035,19 @@
             font-size: clamp(24px, 4vw, 48px);
             font-weight: 700;
             letter-spacing: 0.05em;
-            transition: var(--transition-fast);
+            transition: all 0.3s ease;
             text-transform: uppercase;
+            position: relative;
+            z-index: 1;
         }
         
         .category-arrow {
             opacity: 0;
             transform: translateX(-10px);
-            transition: var(--transition-fast);
+            transition: all 0.3s ease;
             color: var(--beige);
+            position: relative;
+            z-index: 1;
         }
         
         .category-item:hover .category-arrow {
@@ -597,10 +1060,12 @@
             letter-spacing: 0.1em;
             color: var(--text-muted);
             font-family: var(--font-mono);
+            position: relative;
+            z-index: 1;
         }
         
         /* ============================================
-           EDITORIAL SECTION - CYBERPUNK
+           EDITORIAL SECTION
            ============================================ */
         .editorial {
             display: grid;
@@ -611,13 +1076,31 @@
         .editorial-image {
             overflow: hidden;
             border-right: 1px solid var(--cement);
+            position: relative;
+        }
+        
+        .editorial-image::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent 50%, rgba(10,10,10,0.5) 100%);
+            pointer-events: none;
         }
         
         .editorial-image img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            filter: grayscale(30%);
+            filter: grayscale(30%) contrast(1.1);
+            transition: all 0.5s ease;
+        }
+        
+        .editorial-image:hover img {
+            filter: grayscale(0%) contrast(1);
+            transform: scale(1.03);
         }
         
         .editorial-content {
@@ -627,6 +1110,19 @@
             justify-content: center;
             padding: 80px 60px;
             border-left: 1px solid var(--cement);
+            position: relative;
+        }
+        
+        .editorial-content::before {
+            content: '> EDITORIAL_MODULE';
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-family: var(--font-mono);
+            font-size: 9px;
+            letter-spacing: 2px;
+            color: var(--green-matrix);
+            text-shadow: 0 0 10px var(--green-matrix);
         }
         
         .editorial-label {
@@ -667,17 +1163,18 @@
             border-bottom: 1px solid var(--beige);
             padding-bottom: 5px;
             width: fit-content;
-            transition: var(--transition-fast);
+            transition: all 0.3s ease;
             font-family: var(--font-mono);
         }
         
         .editorial-cta:hover {
             color: var(--beige);
             text-shadow: 0 0 15px rgba(196, 163, 90, 0.5);
+            gap: 15px;
         }
         
         /* ============================================
-           FEATURED PRODUCTS - CYBERPUNK
+           FEATURED GRID
            ============================================ */
         .featured-grid {
             display: grid;
@@ -690,6 +1187,13 @@
             overflow: hidden;
             border: 1px solid var(--cement);
             background: var(--black-light);
+            transition: all 0.4s ease;
+        }
+        
+        .featured-card:hover {
+            border-color: var(--beige);
+            box-shadow: 0 0 30px rgba(196, 163, 90, 0.2);
+            transform: translateY(-5px);
         }
         
         .featured-card img {
@@ -697,12 +1201,12 @@
             aspect-ratio: 2/3;
             object-fit: cover;
             filter: grayscale(20%);
-            transition: var(--transition);
+            transition: all 0.5s ease;
         }
         
         .featured-card:hover img {
             filter: grayscale(0%);
-            transform: scale(1.03);
+            transform: scale(1.05);
         }
         
         .featured-card-content {
@@ -734,12 +1238,25 @@
         }
         
         /* ============================================
-           FOOTER - CYBERPUNK
+           TERMINAL FOOTER
            ============================================ */
         .footer {
-            background: #050505;
+            background: #0A0A0A;
             border-top: 1px solid var(--cement);
-            padding: 80px 40px 40px;
+            padding: 0;
+            font-family: var(--font-mono);
+        }
+        
+        .footer::before {
+            content: '> FOOTER_MODULE v1.0 // CONNECTED';
+            display: block;
+            padding: 15px 40px;
+            background: #1A1A1A;
+            color: var(--green-matrix);
+            font-size: 10px;
+            letter-spacing: 2px;
+            border-bottom: 1px solid var(--cement);
+            text-shadow: 0 0 10px var(--green-matrix);
         }
         
         .footer-inner {
@@ -751,14 +1268,18 @@
             display: grid;
             grid-template-columns: 1fr 2fr;
             gap: 80px;
-            margin-bottom: 60px;
-            padding-bottom: 60px;
+            margin-bottom: 0;
+            padding: 60px 40px;
             border-bottom: 1px solid var(--cement);
         }
         
         .footer-brand .logo {
             margin-bottom: 15px;
             font-family: var(--font-mono);
+            font-size: 32px;
+            font-weight: 700;
+            letter-spacing: 0.4em;
+            color: var(--white);
         }
         
         .footer-tagline {
@@ -799,19 +1320,36 @@
         }
         
         .footer-col h4 {
-            font-size: 10px;
-            letter-spacing: 0.2em;
-            text-transform: uppercase;
             color: var(--beige);
+            font-size: 10px;
+            letter-spacing: 3px;
             margin-bottom: 20px;
             font-family: var(--font-mono);
+            text-shadow: 0 0 10px rgba(196, 163, 90, 0.3);
+        }
+        
+        .footer-col ul {
+            list-style: none;
+        }
+        
+        .footer-col li {
+            margin-bottom: 12px;
+            position: relative;
+            padding-left: 15px;
+        }
+        
+        .footer-col li::before {
+            content: '→ ';
+            color: var(--green-matrix);
+            position: absolute;
+            left: 0;
+            text-shadow: 0 0 10px var(--green-matrix);
         }
         
         .footer-col a {
             display: block;
             font-size: 13px;
             color: var(--text-muted);
-            margin-bottom: 12px;
             transition: var(--transition-fast);
             font-family: var(--font-mono);
         }
@@ -825,6 +1363,8 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            padding: 30px 40px;
+            background: #050505;
         }
         
         .footer-copyright {
@@ -839,6 +1379,32 @@
             font-family: var(--font-mono);
             font-size: 11px;
             color: var(--beige);
+            text-shadow: 0 0 10px rgba(196, 163, 90, 0.3);
+        }
+        
+        /* ============================================
+           GLITCH TRANSITION BAR
+           ============================================ */
+        .glitch-transition {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--beige), var(--green-matrix), var(--beige));
+            z-index: 9999;
+            transform: scaleX(0);
+            transform-origin: left;
+        }
+        
+        .glitch-transition.active {
+            animation: glitch-bar 0.3s ease forwards;
+        }
+        
+        @keyframes glitch-bar {
+            0% { transform: scaleX(0) translateX(-100%); }
+            50% { transform: scaleX(1) translateX(0); }
+            100% { transform: scaleX(0) translateX(100%); }
         }
         
         /* ============================================
@@ -932,6 +1498,14 @@
                 gap: 15px;
                 text-align: center;
             }
+            
+            .crt-screen {
+                padding: 30px 20px;
+            }
+            
+            .ascii-art {
+                font-size: 6px;
+            }
         }
         
         @media (max-width: 480px) {
@@ -950,17 +1524,38 @@
     </style>
 </head>
 <body>
-    <!-- Boot Screen -->
-    <div class="boot-screen" id="bootScreen">
-        <div class="boot-content">
-            <p class="boot-line" style="font-size: 14px; font-weight: 700; margin-bottom: 20px; border-bottom: 1px solid #363636; padding-bottom: 15px;">JOIS SECURITY BOOT v2.0</p>
-            <p class="boot-line">loading modules...</p>
-            <p class="boot-line">verifying leather_protocol...</p>
-            <p class="boot-line">initializing dark_market_access...</p>
-            <p class="boot-line">establishing secure connection...</p>
-            <p class="boot-line boot-complete">SYSTEM READY</p>
+    <!-- CRT Boot Sequence -->
+    <div class="extravagant-boot" id="bootSeq">
+        <div class="crt-monitor">
+            <div class="crt-screen">
+                <pre class="ascii-art">
+██████╗██╗  ██╗ █████╗ ███╗   ██╗██╗  ██╗    ██████╗██╗██╗  ██╗███████╗██████╗ 
+██╔════╝██║  ██║██╔══██╗████╗  ██║██║ ██╔╝    ██╔════╝██║╚██╗██╔╝██╔════╝██╔══██╗
+██║     ███████║███████║██╔██╗ ██║█████╔╝     ██║     ██║ ╚███╔╝ █████╗  ██████╔╝
+██║     ██╔══██║██╔══██║██║╚██╗██║██╔═██╗     ██║     ██║ ██╔██╗ ██╔══╝  ██╔══██╗
+╚██████╗██║  ██║██║  ██║██║ ╚████║██║  ██╗    ╚██████╗██║██╔╝ ██╗███████╗██║  ██║
+ ╚═════╝╚═╝  ╚═╝╚═╝  ╚═╝╚═╝  ╚═══╝╚═╝  ╚═╝     ╚═════╝╚═╝╚═╝  ╚═╝╚══════╝╚═╝  ╚═╝
+                </pre>
+                <div class="boot-sequence">
+                    <p class="boot-line">> INITIALIZING JOIS PORTAL...</p>
+                    <p class="boot-line">> LOADING ENCRYPTED_LEATHER_DATA...</p>
+                    <p class="boot-line">> ESTABLISHING NEURAL_LINK...</p>
+                    <p class="boot-line">> DECRYPTING MAISON_DE_CUIRO...</p>
+                    <p class="boot-line">> SYNCHRONIZING WITH UNDERGROUND_FASHION_NET...</p>
+                    <p class="boot-line access-granted">> ██ ACCESS GRANTED ██</p>
+                </div>
+                <div class="glitch-wipe"></div>
+            </div>
+            <div class="crt-frame">
+                <div class="crt-led"></div>
+                <div class="crt-led"></div>
+                <div class="crt-led"></div>
+            </div>
         </div>
     </div>
+    
+    <!-- Glitch Transition Bar -->
+    <div class="glitch-transition" id="glitchBar"></div>
     
     <!-- Top Bar -->
     <div class="top-bar">
@@ -1021,65 +1616,62 @@
         </div>
     </nav>
     
-    <!-- Hero Section - Terminal Boot -->
-    <section class="hero terminal-screen matrix-rain">
-        <div class="terminal-header">
-            <span class="terminal-dot red"></span>
-            <span class="terminal-dot yellow"></span>
-            <span class="terminal-dot green"></span>
-            <span class="terminal-title">JOIS_BOOTSEQ v2.0</span>
-        </div>
-        <div class="terminal-body" style="padding-top: 60px;">
-            <p class="terminal-line">initializing JOIS.exe...</p>
-            <p class="terminal-line success">loading leather_data.pkg... [OK]</p>
-            <p class="terminal-line success">establishing secure connection... [OK]</p>
-            <p class="terminal-line success">rendering MAISON_DE_CUIRO... [OK]</p>
-            
-            <div class="terminal-output">
-                <h1 class="glitch-text typing-effect" data-text="JOIS" style="display: block; text-align: center;">JOIS</h1>
-                <p class="tagline matrix-text" style="text-align: center; margin-top: 15px;">MAISON DE CUIR CONTEMPORAIN</p>
-            </div>
-            
-            <p class="terminal-line success" style="text-align: center; margin-top: 30px;">access_granted</p>
-            <p style="text-align: center; font-family: 'Menlo', monospace; color: #00FF00; font-size: 14px; margin-top: 20px;">
-                <span class="cursor-blink">_</span>
-            </p>
-            
-            <div style="text-align: center; margin-top: 40px;">
-                <a href="#coleccion" class="hero-cta btn-deepweb" style="display: inline-flex; position: relative;">
+    <!-- Hero Section - Immersive Terminal -->
+    <section class="hero">
+        <div class="hero-grid"></div>
+        <div class="hero-content">
+            <div class="hero-text">
+                <span class="hero-badge">> NUEVA_COLECCION_2024</span>
+                <h1 class="hero-title">JOIS<span class="terminal-cursor"></span></h1>
+                <p class="hero-subtitle">Maison de Cuir Contemporáneo</p>
+                <a href="#coleccion" class="hero-cta">
                     <span>Ver Colección</span>
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <path d="M5 12h14M12 5l7 7-7 7"/>
                     </svg>
                 </a>
             </div>
+            <div class="hero-image">
+                <video id="heroVideo" autoplay muted loop playsinline style="width:100%;height:100%;object-fit:cover;">
+                    <source src="https://sample-videos.com/img/Sample-jpg-image-500kb.jpg" type="video/mp4">
+                    Tu navegador no soporta video.
+                </video>
+                <button class="video-control" onclick="toggleHeroVideo()" id="videoControl">
+                    <svg id="pauseIcon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg>
+                    <svg id="playIcon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" style="display:none;"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+                </button>
+            </div>
         </div>
     </section>
     
-    <!-- Marquee -->
+    <!-- Matrix Marquee -->
     <div class="marquee">
         <div class="marquee-content">
             <span class="marquee-item">Cuero Premium</span>
-            <span class="marquee-item">•</span>
+            <span class="marquee-item gold">◆</span>
             <span class="marquee-item">Diseño Atemporal</span>
-            <span class="marquee-item">•</span>
+            <span class="marquee-item gold">◆</span>
             <span class="marquee-item">Hecho en México</span>
-            <span class="marquee-item">•</span>
+            <span class="marquee-item gold">◆</span>
             <span class="marquee-item">Envío Gratis +$5,000 MXN</span>
-            <span class="marquee-item">•</span>
+            <span class="marquee-item gold">◆</span>
+            <span class="marquee-item">NFT Collection</span>
+            <span class="marquee-item gold">◆</span>
             <span class="marquee-item">Cuero Premium</span>
-            <span class="marquee-item">•</span>
+            <span class="marquee-item gold">◆</span>
             <span class="marquee-item">Diseño Atemporal</span>
-            <span class="marquee-item">•</span>
+            <span class="marquee-item gold">◆</span>
             <span class="marquee-item">Hecho en México</span>
-            <span class="marquee-item">•</span>
+            <span class="marquee-item gold">◆</span>
             <span class="marquee-item">Envío Gratis +$5,000 MXN</span>
-            <span class="marquee-item">•</span>
+            <span class="marquee-item gold">◆</span>
+            <span class="marquee-item">NFT Collection</span>
+            <span class="marquee-item gold">◆</span>
         </div>
     </div>
     
     <!-- Ready to Wear - Hombre -->
-    <section class="section" id="hombre">
+    <section class="section reveal-on-scroll" id="hombre">
         <div class="section-header">
             <h2 class="section-title">Hombre</h2>
             <a href="#" class="section-link">
@@ -1099,7 +1691,7 @@
                 <div class="product-info">
                     <span class="product-name">shirt jacket</span>
                     <span class="product-price">$6,650 MXN</span>
-                    <button class="btn-add-grid" onclick="addToCart('Shirt Jacket - M', 380, 'https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=400&q=80', 'M')">+ Añadir</button>
+                    <button class="btn-add-grid" onclick="addToCart('Shirt Jacket - M', 380, 'https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=400&q=80', 'M')"><span>+ Añadir</span></button>
                 </div>
             </div>
             
@@ -1111,7 +1703,7 @@
                 <div class="product-info">
                     <span class="product-name">bomber</span>
                     <span class="product-price">$9,100 MXN</span>
-                    <button class="btn-add-grid" onclick="addToCart('Bomber - M', 520, 'https://images.unsplash.com/photo-1551028719-00167b16eac5?w=400&q=80', 'M')">+ Añadir</button>
+                    <button class="btn-add-grid" onclick="addToCart('Bomber - M', 520, 'https://images.unsplash.com/photo-1551028719-00167b16eac5?w=400&q=80', 'M')"><span>+ Añadir</span></button>
                 </div>
             </div>
             
@@ -1123,7 +1715,7 @@
                 <div class="product-info">
                     <span class="product-name">weekender</span>
                     <span class="product-price">$8,400 MXN</span>
-                    <button class="btn-add-grid" onclick="addToCart('Weekender - M', 480, 'https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=400&q=80', 'M')">+ Añadir</button>
+                    <button class="btn-add-grid" onclick="addToCart('Weekender - M', 480, 'https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=400&q=80', 'M')"><span>+ Añadir</span></button>
                 </div>
             </div>
             
@@ -1135,14 +1727,14 @@
                 <div class="product-info">
                     <span class="product-name">wallet</span>
                     <span class="product-price">$3,150 MXN</span>
-                    <button class="btn-add-grid" onclick="addToCart('Wallet - M', 180, 'https://images.unsplash.com/photo-1627123424574-724758594e93?w=400&q=80', 'M')">+ Añadir</button>
+                    <button class="btn-add-grid" onclick="addToCart('Wallet - M', 180, 'https://images.unsplash.com/photo-1627123424574-724758594e93?w=400&q=80', 'M')"><span>+ Añadir</span></button>
                 </div>
             </div>
         </div>
     </section>
     
     <!-- Ready to Wear - Mujer -->
-    <section class="section" id="mujer">
+    <section class="section reveal-on-scroll" id="mujer">
         <div class="section-header">
             <h2 class="section-title">Mujer</h2>
             <a href="#" class="section-link">
@@ -1162,7 +1754,7 @@
                 <div class="product-info">
                     <span class="product-name">bomber noir</span>
                     <span class="product-price">$7,875 MXN</span>
-                    <button class="btn-add-grid" onclick="addToCart('Bomber Noir - M', 450, 'https://images.unsplash.com/photo-1539533018447-63fcce2678e3?w=400&q=80', 'M')">+ Añadir</button>
+                    <button class="btn-add-grid" onclick="addToCart('Bomber Noir - M', 450, 'https://images.unsplash.com/photo-1539533018447-63fcce2678e3?w=400&q=80', 'M')"><span>+ Añadir</span></button>
                 </div>
             </div>
             
@@ -1174,7 +1766,7 @@
                 <div class="product-info">
                     <span class="product-name">shirt jacket</span>
                     <span class="product-price">$6,650 MXN</span>
-                    <button class="btn-add-grid" onclick="addToCart('Shirt Jacket - M', 380, 'https://images.unsplash.com/photo-1594938298603-c8148c4dae35?w=400&q=80', 'M')">+ Añadir</button>
+                    <button class="btn-add-grid" onclick="addToCart('Shirt Jacket - M', 380, 'https://images.unsplash.com/photo-1594938298603-c8148c4dae35?w=400&q=80', 'M')"><span>+ Añadir</span></button>
                 </div>
             </div>
             
@@ -1186,7 +1778,7 @@
                 <div class="product-info">
                     <span class="product-name">weekender</span>
                     <span class="product-price">$8,400 MXN</span>
-                    <button class="btn-add-grid" onclick="addToCart('Weekender - M', 480, 'https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=400&q=80', 'M')">+ Añadir</button>
+                    <button class="btn-add-grid" onclick="addToCart('Weekender - M', 480, 'https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=400&q=80', 'M')"><span>+ Añadir</span></button>
                 </div>
             </div>
             
@@ -1198,14 +1790,14 @@
                 <div class="product-info">
                     <span class="product-name">wallet matrix</span>
                     <span class="product-price">$3,500 MXN</span>
-                    <button class="btn-add-grid" onclick="addToCart('Wallet Matrix - M', 200, 'https://images.unsplash.com/photo-1601924994987-69e26d50dc26?w=400&q=80', 'M')">+ Añadir</button>
+                    <button class="btn-add-grid" onclick="addToCart('Wallet Matrix - M', 200, 'https://images.unsplash.com/photo-1601924994987-69e26d50dc26?w=400&q=80', 'M')"><span>+ Añadir</span></button>
                 </div>
             </div>
         </div>
     </section>
     
     <!-- Categories -->
-    <section class="categories-section" id="coleccion">
+    <section class="categories-section reveal-on-scroll" id="coleccion">
         <div class="categories-inner">
             <div class="categories-header">
                 <h2 class="categories-title">Colección</h2>
@@ -1252,7 +1844,7 @@
     </section>
     
     <!-- Editorial About -->
-    <section class="editorial" id="nosotros">
+    <section class="editorial reveal-on-scroll" id="nosotros">
         <div class="editorial-image">
             <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=1000&q=80" alt="JOIS Craftsmanship">
         </div>
@@ -1272,7 +1864,7 @@
     </section>
     
     <!-- Featured -->
-    <section class="section">
+    <section class="section reveal-on-scroll">
         <div class="section-header">
             <h2 class="section-title">Destacados</h2>
         </div>
@@ -1317,24 +1909,30 @@
                 
                 <div class="footer-nav">
                     <div class="footer-col">
-                        <h4>Tienda</h4>
-                        <a href="#hombre">Hombre</a>
-                        <a href="#mujer">Mujer</a>
-                        <a href="#">Bolsos</a>
-                        <a href="#">Accesorios</a>
+                        <h4>> TIENDA</h4>
+                        <ul>
+                            <li><a href="#hombre">Hombre</a></li>
+                            <li><a href="#mujer">Mujer</a></li>
+                            <li><a href="#">Bolsos</a></li>
+                            <li><a href="#">Accesorios</a></li>
+                        </ul>
                     </div>
                     <div class="footer-col">
-                        <h4>Información</h4>
-                        <a href="#nosotros">Nosotros</a>
-                        <a href="#">Envíos</a>
-                        <a href="#">Devoluciones</a>
-                        <a href="#">Contacto</a>
+                        <h4>> INFO</h4>
+                        <ul>
+                            <li><a href="#nosotros">Nosotros</a></li>
+                            <li><a href="#">Envíos</a></li>
+                            <li><a href="#">Devoluciones</a></li>
+                            <li><a href="#">Contacto</a></li>
+                        </ul>
                     </div>
                     <div class="footer-col">
-                        <h4>Legal</h4>
-                        <a href="legal/TERMINOS-Y-CONDICIONES.html">Términos</a>
-                        <a href="legal/PRIVACIDAD.html">Privacidad</a>
-                        <a href="legal/PROTECCION-FRAUDES.html">Protección Fraudes</a>
+                        <h4>> LEGAL</h4>
+                        <ul>
+                            <li><a href="legal/TERMINOS-Y-CONDICIONES.html">Términos</a></li>
+                            <li><a href="legal/PRIVACIDAD.html">Privacidad</a></li>
+                            <li><a href="legal/PROTECCION-FRAUDES.html">Protección Fraudes</a></li>
+                        </ul>
                     </div>
                 </div>
             </div>
@@ -1346,8 +1944,6 @@
         </div>
     </footer>
     
-    <!-- Cart Drawer -->
-
     <!-- Cart Drawer -->
     <div class="cart-overlay" onclick="toggleCart()"></div>
     <div class="cart-drawer" id="cartDrawer">
@@ -1486,8 +2082,73 @@
     </style>
     
     <script src="app-cart.js?v=30"></script>
-    <!-- Load custom content from Content Manager -->
     <script>
+        // ============================================
+        // MAGNETIC CURSOR EFFECT
+        // ============================================
+        document.addEventListener('mousemove', (e) => {
+            const cards = document.querySelectorAll('.product-card');
+            cards.forEach(card => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left - rect.width / 2;
+                const y = e.clientY - rect.top - rect.height / 2;
+                
+                // Only apply if cursor is over card
+                if (e.clientX >= rect.left && e.clientX <= rect.right &&
+                    e.clientY >= rect.top && e.clientY <= rect.bottom) {
+                    card.style.transform = `perspective(1000px) rotateX(${y * 0.01}deg) rotateY(${x * 0.01}deg)`;
+                } else {
+                    card.style.transform = '';
+                }
+            });
+        });
+        
+        // ============================================
+        // SCROLL REVEAL OBSERVER
+        // ============================================
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('revealed');
+                }
+            });
+        }, { threshold: 0.1 });
+        
+        document.querySelectorAll('.reveal-on-scroll').forEach(el => observer.observe(el));
+        
+        // ============================================
+        // GLITCH TRANSITION ON SCROLL
+        // ============================================
+        let lastScroll = 0;
+        window.addEventListener('scroll', () => {
+            const currentScroll = window.pageYOffset;
+            const glitchBar = document.getElementById('glitchBar');
+            
+            if (Math.abs(currentScroll - lastScroll) > 100) {
+                glitchBar.classList.add('active');
+                setTimeout(() => glitchBar.classList.remove('active'), 300);
+            }
+            lastScroll = currentScroll;
+        });
+        
+        // Video Control
+        function toggleHeroVideo() {
+            const video = document.getElementById('heroVideo');
+            const playIcon = document.getElementById('playIcon');
+            const pauseIcon = document.getElementById('pauseIcon');
+            
+            if (video.paused) {
+                video.play();
+                playIcon.style.display = 'none';
+                pauseIcon.style.display = 'block';
+            } else {
+                video.pause();
+                playIcon.style.display = 'block';
+                pauseIcon.style.display = 'none';
+            }
+        }
+        
+        // Load custom content from Content Manager
         window.addEventListener('load', () => {
             const savedData = localStorage.getItem('jois_content_data');
             if (savedData) {
@@ -1554,23 +2215,6 @@
                 }
             }
         });
-        
-        // Video Control
-        function toggleHeroVideo() {
-            const video = document.getElementById('heroVideo');
-            const playIcon = document.getElementById('playIcon');
-            const pauseIcon = document.getElementById('pauseIcon');
-            
-            if (video.paused) {
-                video.play();
-                playIcon.style.display = 'none';
-                pauseIcon.style.display = 'block';
-            } else {
-                video.pause();
-                playIcon.style.display = 'block';
-                pauseIcon.style.display = 'none';
-            }
-        }
     </script>
 </body>
 </html>

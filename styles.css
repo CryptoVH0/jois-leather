@@ -1,6 +1,7 @@
 /* ============================================
-   JOIS — Cyberpunk Fashion Aesthetic v34
+   JOIS — Cyberpunk Fashion Aesthetic v35
    Graphite / Cemento / Noir / Beige / Matrix Typography
+   Extravagant Deepweb Aesthetics
    ============================================ */
 
 /* ============================================
@@ -22,6 +23,9 @@
     --gold: #C4A35A;
     --gold-dark: #A68B3D;
     --gold-light: #D4C4A0;
+    
+    /* Matrix Green */
+    --green-matrix: #00FF00;
     
     /* Cement Grays */
     --cement: #363636;
