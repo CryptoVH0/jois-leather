@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JOIS — Maison de Cuir Contemporáneo</title>
-    <link rel="stylesheet" href="styles.css?v=38">
-    <link rel="stylesheet" href="premium-styles.css?v=38">
+    <link rel="stylesheet" href="styles.css?v=39">
+    <link rel="stylesheet" href="techwear-styles.css?v=39">
     <link rel="stylesheet" href="styles-home.css">
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
     
@@ -79,85 +79,84 @@
         }
         
         /* ============================================
-        /* ============================================
-           PREMIUM LOADER
+                /* ============================================
+           TECHWEAR BASE STYLES
            ============================================ */
-        .premium-loader {
+        :root {
+            --tw-black: #000000;
+            --tw-charcoal: #111111;
+            --tw-dark-gray: #1A1A1A;
+            --tw-slate: #363636;
+            --tw-light-slate: #4A4A4A;
+            --tw-white: #FFFFFF;
+            --tw-gray-text: #888888;
+            --tw-gold: #C4A35A;
+            --tw-gold-dark: #A68B3D;
+        }
+        
+        /* Film grain overlay */
+        body::before {
+            content: '';
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: var(--black);
+            pointer-events: none;
+            z-index: 9998;
+            opacity: 0.04;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+        }
+        
+        * { border-radius: 0 !important; }
+
+/* ============================================
+           PREMIUM LOADER
+           ============================================ */
+        .techwear-loader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--tw-black);
             z-index: 10000;
             display: flex;
             align-items: center;
             justify-content: center;
-            animation: loader-fade-out 0.8s ease 1.5s forwards;
+            animation: tw-loader-fade 1s ease 0.8s forwards;
         }
         
-        @keyframes loader-fade-out {
+        @keyframes tw-loader-fade {
             to { opacity: 0; pointer-events: none; }
         }
         
-        .loader-content {
-            text-align: center;
-        }
-        
-        .loader-logo {
+        .tw-loader-logo {
             font-family: 'Times New Roman MT', serif;
-            font-size: 48px;
+            font-size: 36px;
             font-weight: 700;
-            letter-spacing: 0.4em;
-            color: var(--white);
-            margin-bottom: 30px;
-            animation: loader-logo-appear 0.6s ease forwards;
+            letter-spacing: 0.5em;
+            color: var(--tw-white);
+            animation: tw-loader-pulse 1.5s ease infinite;
         }
         
-        @keyframes loader-logo-appear {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        
-        .loader-bar {
-            width: 200px;
-            height: 2px;
-            background: var(--gray-dark);
-            margin: 0 auto;
-            overflow: hidden;
-            border-radius: 2px;
-        }
-        
-        .loader-progress {
-            height: 100%;
-            background: var(--gold);
-            width: 0%;
-            animation: loader-progress 1.5s ease forwards;
-            box-shadow: 0 0 10px var(--gold);
-        }
-        
-        @keyframes loader-progress {
-            to { width: 100%; }
+        @keyframes tw-loader-pulse {
+            0%, 100% { opacity: 0.4; }
+            50% { opacity: 1; }
         }
         
         /* ============================================
-           NAVIGATION
+           NAVIGATION - TECHWEAR MINIMAL
            ============================================ */
         .nav-main {
             position: sticky;
             top: 0;
-            background: rgba(10, 10, 10, 0.85);
-            backdrop-filter: blur(25px) saturate(180%);
-            -webkit-backdrop-filter: blur(25px) saturate(180%);
-            border-bottom: 1px solid rgba(196, 163, 90, 0.12);
+            background: rgba(0, 0, 0, 0.95);
+            backdrop-filter: blur(10px);
             z-index: 1000;
-        }
-        
-        .nav-inner {
-            max-width: 1400px;
-            margin: 0 auto;
+            border-bottom: 1px solid var(--tw-slate);
             padding: 0 40px;
-            height: 70px;
+            height: 60px;
             display: flex;
             align-items: center;
             justify-content: space-between;
@@ -175,31 +174,27 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            transition: var(--transition);
-            color: var(--gray-light);
+            transition: all 0.3s ease;
+            color: var(--tw-gray-text);
         }
         
         .nav-icon:hover {
-            color: var(--gold);
+            color: var(--tw-white);
         }
         
         .nav-icon svg {
-            width: 20px;
-            height: 20px;
+            width: 18px;
+            height: 18px;
+            stroke-width: 1;
         }
         
         .logo {
             font-family: 'Times New Roman MT', serif;
-            font-size: 28px;
+            font-size: 24px;
             font-weight: 700;
             letter-spacing: 0.4em;
-            color: var(--white);
+            color: var(--tw-white);
             text-transform: uppercase;
-            transition: all 0.3s ease;
-        }
-        
-        .logo:hover {
-            text-shadow: 0 0 30px rgba(196, 163, 90, 0.5);
         }
         
         .nav-links {
@@ -208,32 +203,16 @@
         }
         
         .nav-link {
-            font-size: 11px;
-            letter-spacing: 0.15em;
+            font-size: 10px;
+            letter-spacing: 0.25em;
             text-transform: uppercase;
-            color: var(--gray-light);
-            transition: var(--transition);
-            position: relative;
+            color: var(--tw-gray-text);
+            transition: all 0.3s ease;
             font-family: -apple-system, BlinkMacSystemFont, sans-serif;
         }
         
-        .nav-link::after {
-            content: '';
-            position: absolute;
-            bottom: -4px;
-            left: 0;
-            width: 0;
-            height: 1px;
-            background: var(--gold);
-            transition: width 0.3s ease;
-        }
-        
         .nav-link:hover {
-            color: var(--white);
-        }
-        
-        .nav-link:hover::after {
-            width: 100%;
+            color: var(--tw-white);
         }
         
         .nav-icons-right {
@@ -265,116 +244,125 @@
 
 
         /* ============================================
-           PREMIUM HERO
+           HERO - TECHWEAR ASYMMETRIC
            ============================================ */
         .hero {
             position: relative;
             min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            background: var(--tw-black);
             overflow: hidden;
-            background: var(--black);
-        }
-        
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: 
-                linear-gradient(rgba(196, 163, 90, 0.03) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(196, 163, 90, 0.03) 1px, transparent 1px);
-            background-size: 60px 60px;
-            pointer-events: none;
-        }
-        
-        .hero-bg-text {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            font-family: 'Times New Roman MT', serif;
-            font-size: clamp(100px, 20vw, 300px);
-            font-weight: 700;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-            color: rgba(196, 163, 90, 0.03);
-            white-space: nowrap;
-            pointer-events: none;
-            z-index: 1;
         }
         
         .hero-content {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 80px;
             position: relative;
             z-index: 10;
-            text-align: center;
-            padding: 40px;
-            max-width: 900px;
         }
         
         .hero-text {
             display: flex;
             flex-direction: column;
-            align-items: center;
-            justify-content: center;
+            align-items: flex-start;
         }
         
         .hero-badge {
-            font-size: 11px;
+            font-size: 9px;
             letter-spacing: 0.3em;
             text-transform: uppercase;
-            color: var(--gold);
-            margin-bottom: 25px;
-            font-family: var(--font-body);
+            color: var(--tw-gold);
+            margin-bottom: 30px;
+            font-family: -apple-system, BlinkMacSystemFont, sans-serif;
         }
         
         .hero-title {
-            font-family: 'Times New Roman MT', serif;
-            font-size: clamp(80px, 12vw, 140px);
-            font-weight: 700;
+            font-family: 'Arial Black', Impact, sans-serif;
+            font-size: clamp(60px, 10vw, 120px);
+            font-weight: 900;
             letter-spacing: 0.05em;
             line-height: 0.9;
-            margin-bottom: 24px;
+            margin-bottom: 30px;
             text-transform: uppercase;
-            color: var(--white);
-            text-shadow: 0 0 60px rgba(196, 163, 90, 0.2);
+            color: var(--tw-white);
         }
         
         .hero-subtitle {
-            font-size: 16px;
+            font-size: 13px;
             letter-spacing: 0.2em;
             text-transform: uppercase;
-            color: var(--gray-light);
-            font-family: var(--font-body);
+            color: var(--tw-gray-text);
+            font-family: -apple-system, BlinkMacSystemFont, sans-serif;
             margin-bottom: 40px;
+            max-width: 350px;
         }
         
         .hero-cta {
             display: inline-flex;
             align-items: center;
-            gap: 16px;
-            padding: 20px 48px;
+            gap: 15px;
+            padding: 18px 36px;
             background: transparent;
-            color: var(--white);
-            font-size: 13px;
-            letter-spacing: 0.2em;
+            color: var(--tw-white);
+            font-size: 11px;
+            letter-spacing: 0.25em;
             text-transform: uppercase;
-            border: 1px solid var(--gold);
-            transition: all 0.4s ease;
+            border: 1px solid var(--tw-white);
+            transition: all 0.3s ease;
             width: fit-content;
-            font-family: 'Times New Roman MT', serif;
+            font-family: -apple-system, BlinkMacSystemFont, sans-serif;
         }
         
         .hero-cta:hover {
-            background: var(--gold);
-            color: var(--black);
-            box-shadow: 
-                0 15px 50px rgba(196, 163, 90, 0.3),
-                0 0 80px rgba(196, 163, 90, 0.15);
-            transform: translateY(-3px);
+            background: var(--tw-white);
+            color: var(--tw-black);
+        }
+        
+        .hero-image {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-image img,
+        .hero-image video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: contrast(1.1) brightness(0.9);
+        }
+        
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to right, rgba(0,0,0,0) 0%, rgba(0,0,0,0.4) 100%);
+        }
+        
+        .video-control {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            width: 44px;
+            height: 44px;
+            background: rgba(0, 0, 0, 0.8);
+            border: 1px solid var(--tw-slate);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            z-index: 10;
+            color: var(--tw-white);
+        }
+        
+        .video-control:hover {
+            background: var(--tw-white);
+            color: var(--tw-black);
         }
         
         .hero-cta span {

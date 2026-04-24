@@ -1,0 +1,826 @@
+/* ============================================
+   JOIS TECHWEAR v39
+   Urban Futurist / Neo-Tokyo Aesthetic
+   ============================================ */
+
+/* ============================================
+   FILM GRAIN OVERLAY
+   ============================================ */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 9998;
+    opacity: 0.035;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+}
+
+/* ============================================
+   CSS VARIABLES - TECHWEAR PALETTE
+   ============================================ */
+.techwear-root {
+    /* Core blacks */
+    --tw-black: #000000;
+    --tw-charcoal: #111111;
+    --tw-dark-gray: #1A1A1A;
+    --tw-mid-gray: #2A2A2A;
+    --tw-slate: #363636;
+    --tw-light-slate: #4A4A4A;
+    
+    /* Accent - white only */
+    --tw-white: #FFFFFF;
+    --tw-off-white: #E8E8E8;
+    --tw-gray-text: #888888;
+    
+    /* Gold (leather craft reference) */
+    --tw-gold: #C4A35A;
+    --tw-gold-dark: #A68B3D;
+    
+    /* Typography */
+    --tw-font-display: 'Arial Black', 'Impact', sans-serif;
+    --tw-font-body: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    
+    /* Sharp edges only */
+    --tw-sharp: 0px;
+    --tw-transition: all 0.3s ease;
+}
+
+/* ============================================
+   RESET - SHARP EDGES
+   ============================================ */
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    border-radius: 0 !important;
+}
+
+body {
+    font-family: var(--tw-font-body);
+    background: var(--tw-black);
+    color: var(--tw-white);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* ============================================
+   THIN TOP BAR - MINIMALIST
+   ============================================ */
+.tw-top-bar {
+    background: var(--tw-black);
+    padding: 10px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    border-bottom: 1px solid var(--tw-slate);
+    font-family: var(--tw-font-body);
+}
+
+.tw-top-bar span {
+    color: var(--tw-gray-text);
+}
+
+/* ============================================
+   NAVIGATION - MINIMALIST THIN
+   ============================================ */
+.tw-nav {
+    position: sticky;
+    top: 0;
+    background: rgba(0, 0, 0, 0.95);
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+    border-bottom: 1px solid var(--tw-slate);
+    padding: 0 40px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.tw-nav-logo {
+    font-family: 'Times New Roman MT', serif;
+    font-size: 24px;
+    font-weight: 700;
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    color: var(--tw-white);
+}
+
+.tw-nav-links {
+    display: flex;
+    gap: 40px;
+}
+
+.tw-nav-link {
+    font-size: 10px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--tw-gray-text);
+    transition: var(--tw-transition);
+    font-family: var(--tw-font-body);
+}
+
+.tw-nav-link:hover {
+    color: var(--tw-white);
+}
+
+.tw-nav-icons {
+    display: flex;
+    gap: 20px;
+}
+
+.tw-nav-icon {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--tw-gray-text);
+    transition: var(--tw-transition);
+    cursor: pointer;
+}
+
+.tw-nav-icon:hover {
+    color: var(--tw-white);
+}
+
+.tw-nav-icon svg {
+    width: 18px;
+    height: 18px;
+    stroke-width: 1;
+}
+
+/* ============================================
+   HERO - ASYMMETRIC / BROKEN GRID
+   ============================================ */
+.tw-hero {
+    position: relative;
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    background: var(--tw-black);
+    overflow: hidden;
+}
+
+.tw-hero-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 80px;
+    position: relative;
+    z-index: 10;
+}
+
+.tw-hero-image {
+    position: relative;
+    overflow: hidden;
+}
+
+.tw-hero-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: contrast(1.1) brightness(0.9);
+}
+
+.tw-hero-vertical-text {
+    position: absolute;
+    left: 40px;
+    top: 50%;
+    transform: translateY(-50%) rotate(-90deg);
+    font-family: var(--tw-font-display);
+    font-size: 11px;
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.15);
+    white-space: nowrap;
+}
+
+.tw-hero-badge {
+    font-size: 9px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--tw-gold);
+    margin-bottom: 30px;
+    font-family: var(--tw-font-body);
+}
+
+.tw-hero-title {
+    font-family: var(--tw-font-display);
+    font-size: clamp(60px, 10vw, 120px);
+    font-weight: 900;
+    letter-spacing: 0.05em;
+    line-height: 0.9;
+    text-transform: uppercase;
+    margin-bottom: 40px;
+    color: var(--tw-white);
+}
+
+.tw-hero-subtitle {
+    font-size: 13px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--tw-gray-text);
+    font-family: var(--tw-font-body);
+    margin-bottom: 50px;
+    max-width: 400px;
+}
+
+/* Ghost Button */
+.tw-btn-ghost {
+    display: inline-flex;
+    align-items: center;
+    gap: 15px;
+    padding: 18px 36px;
+    background: transparent;
+    color: var(--tw-white);
+    font-size: 11px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    border: 1px solid var(--tw-white);
+    cursor: pointer;
+    transition: var(--tw-transition);
+    font-family: var(--tw-font-body);
+    width: fit-content;
+}
+
+.tw-btn-ghost:hover {
+    background: var(--tw-white);
+    color: var(--tw-black);
+}
+
+.tw-btn-ghost svg {
+    width: 16px;
+    height: 16px;
+    stroke-width: 1.5;
+}
+
+/* ============================================
+   KANJI/OVERLAY GRAPHICS
+   ============================================ */
+.tw-kanji-overlay {
+    position: absolute;
+    font-size: 400px;
+    color: rgba(196, 163, 90, 0.03);
+    font-family: serif;
+    pointer-events: none;
+    z-index: 1;
+    line-height: 1;
+}
+
+/* ============================================
+   PRODUCTS GRID - ASYMMETRIC/STAGGERED
+   ============================================ */
+.tw-section {
+    padding: 120px 40px;
+    background: var(--tw-black);
+}
+
+.tw-section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 80px;
+    padding-bottom: 30px;
+    border-bottom: 1px solid var(--tw-slate);
+}
+
+.tw-section-title {
+    font-family: var(--tw-font-display);
+    font-size: clamp(36px, 6vw, 72px);
+    font-weight: 900;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--tw-white);
+}
+
+.tw-section-link {
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--tw-gray-text);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: var(--tw-transition);
+    font-family: var(--tw-font-body);
+    border: 1px solid var(--tw-slate);
+    padding: 12px 24px;
+}
+
+.tw-section-link:hover {
+    border-color: var(--tw-white);
+    color: var(--tw-white);
+}
+
+/* Asymmetric grid - staggered rows */
+.tw-products-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2px;
+}
+
+.tw-product-card {
+    position: relative;
+    background: var(--tw-charcoal);
+    overflow: hidden;
+    transition: var(--tw-transition);
+}
+
+.tw-product-card:nth-child(1) { grid-row: span 2; }
+.tw-product-card:nth-child(4) { grid-row: span 2; }
+
+/* Quick-add circle */
+.tw-product-quick-add {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    width: 40px;
+    height: 40px;
+    background: var(--tw-white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transform: scale(0.8);
+    transition: var(--tw-transition);
+    cursor: pointer;
+    z-index: 10;
+}
+
+.tw-product-quick-add::before {
+    content: '+';
+    font-size: 20px;
+    color: var(--tw-black);
+    font-weight: 300;
+}
+
+.tw-product-card:hover .tw-product-quick-add {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.tw-product-image {
+    aspect-ratio: 3/4;
+    overflow: hidden;
+    position: relative;
+}
+
+.tw-product-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: var(--tw-transition);
+    filter: contrast(1.05) brightness(0.95);
+}
+
+.tw-product-card:hover .tw-product-image img {
+    transform: scale(1.03);
+    filter: contrast(1.1) brightness(0.9);
+}
+
+.tw-product-badge {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    padding: 6px 12px;
+    font-size: 8px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    background: var(--tw-gold);
+    color: var(--tw-black);
+    font-family: var(--tw-font-body);
+    font-weight: 600;
+}
+
+.tw-product-info {
+    padding: 20px;
+}
+
+.tw-product-name {
+    font-family: var(--tw-font-display);
+    font-size: 14px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--tw-white);
+    margin-bottom: 8px;
+}
+
+.tw-product-price {
+    font-family: 'Menlo', monospace;
+    font-size: 14px;
+    color: var(--tw-gold);
+}
+
+/* ============================================
+   CATEGORIES - GRAFFITI + VERTICAL TEXT
+   ============================================ */
+.tw-categories {
+    padding: 120px 40px;
+    background: var(--tw-charcoal);
+    border-top: 1px solid var(--tw-slate);
+    border-bottom: 1px solid var(--tw-slate);
+}
+
+.tw-categories-header {
+    margin-bottom: 60px;
+}
+
+.tw-categories-title {
+    font-family: var(--tw-font-display);
+    font-size: clamp(48px, 8vw, 96px);
+    font-weight: 900;
+    text-transform: uppercase;
+    color: var(--tw-white);
+}
+
+.tw-categories-list {
+    border-top: 1px solid var(--tw-slate);
+}
+
+.tw-category-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 40px 0;
+    border-bottom: 1px solid var(--tw-slate);
+    color: var(--tw-white);
+    transition: var(--tw-transition);
+    cursor: pointer;
+}
+
+.tw-category-item:hover {
+    padding-left: 30px;
+    background: rgba(255, 255, 255, 0.02);
+}
+
+.tw-category-name {
+    font-family: 'Arial Black', Impact, sans-serif;
+    font-size: clamp(48px, 8vw, 96px);
+    font-weight: 900;
+    text-transform: uppercase;
+    transform: rotate(-2deg);
+    color: transparent;
+    -webkit-text-stroke: 2px var(--tw-white);
+    transition: var(--tw-transition);
+}
+
+.tw-category-item:hover .tw-category-name {
+    -webkit-text-stroke: 2px var(--tw-gold);
+}
+
+.tw-category-arrow {
+    color: var(--tw-gold);
+    opacity: 0;
+    transform: translateX(-10px);
+    transition: var(--tw-transition);
+}
+
+.tw-category-item:hover .tw-category-arrow {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.tw-category-count {
+    font-family: 'Menlo', monospace;
+    font-size: 11px;
+    color: var(--tw-gray-text);
+    letter-spacing: 0.1em;
+}
+
+/* Vertical text element */
+.tw-vertical-text {
+    position: absolute;
+    right: 40px;
+    top: 50%;
+    transform: translateY(-50%) rotate(90deg);
+    font-family: var(--tw-font-display);
+    font-size: 10px;
+    letter-spacing: 0.5em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.1);
+    white-space: nowrap;
+}
+
+/* ============================================
+   EDITORIAL - LOW-KEY CINEMATIC
+   ============================================ */
+.tw-editorial {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: 80vh;
+}
+
+.tw-editorial-image {
+    position: relative;
+    overflow: hidden;
+}
+
+.tw-editorial-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: grayscale(30%) contrast(1.1);
+}
+
+.tw-editorial-image::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(0,0,0,0.3) 0%, transparent 50%);
+}
+
+.tw-editorial-content {
+    background: var(--tw-charcoal);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 80px;
+    border-left: 1px solid var(--tw-slate);
+}
+
+.tw-editorial-label {
+    font-size: 9px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--tw-gold);
+    margin-bottom: 30px;
+    font-family: var(--tw-font-body);
+}
+
+.tw-editorial-title {
+    font-family: var(--tw-font-display);
+    font-size: clamp(32px, 4vw, 48px);
+    font-weight: 900;
+    text-transform: uppercase;
+    margin-bottom: 30px;
+    letter-spacing: 0.05em;
+}
+
+.tw-editorial-text {
+    font-size: 14px;
+    line-height: 1.8;
+    color: var(--tw-gray-text);
+    margin-bottom: 40px;
+    max-width: 400px;
+}
+
+/* ============================================
+   NEWSLETTER - RAZOR THIN
+   ============================================ */
+.tw-newsletter {
+    padding: 100px 40px;
+    background: var(--tw-black);
+    border-top: 1px solid var(--tw-slate);
+    text-align: center;
+}
+
+.tw-newsletter-title {
+    font-family: var(--tw-font-display);
+    font-size: clamp(24px, 4vw, 36px);
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 20px;
+}
+
+.tw-newsletter-text {
+    font-size: 13px;
+    color: var(--tw-gray-text);
+    margin-bottom: 40px;
+    letter-spacing: 0.05em;
+}
+
+.tw-newsletter-form {
+    display: flex;
+    max-width: 500px;
+    margin: 0 auto;
+    border-bottom: 1px solid var(--tw-slate);
+}
+
+.tw-newsletter-input {
+    flex: 1;
+    background: transparent;
+    border: none;
+    padding: 15px 0;
+    font-size: 13px;
+    color: var(--tw-white);
+    letter-spacing: 0.05em;
+    font-family: var(--tw-font-body);
+}
+
+.tw-newsletter-input::placeholder {
+    color: var(--tw-gray-text);
+}
+
+.tw-newsletter-btn {
+    background: transparent;
+    border: none;
+    color: var(--tw-white);
+    cursor: pointer;
+    padding: 15px;
+    transition: var(--tw-transition);
+}
+
+.tw-newsletter-btn:hover {
+    color: var(--tw-gold);
+}
+
+.tw-newsletter-btn svg {
+    width: 20px;
+    height: 20px;
+    stroke-width: 1.5;
+}
+
+/* ============================================
+   FOOTER - MINIMAL TERMINAL
+   ============================================ */
+.tw-footer {
+    background: var(--tw-black);
+    border-top: 1px solid var(--tw-slate);
+    padding: 80px 40px 40px;
+}
+
+.tw-footer-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 40px;
+    margin-bottom: 60px;
+}
+
+.tw-footer-col h4 {
+    font-family: 'Menlo', monospace;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--tw-gold);
+    margin-bottom: 25px;
+}
+
+.tw-footer-col ul {
+    list-style: none;
+}
+
+.tw-footer-col li {
+    margin-bottom: 12px;
+}
+
+.tw-footer-col a {
+    font-family: var(--tw-font-body);
+    font-size: 13px;
+    color: var(--tw-gray-text);
+    transition: var(--tw-transition);
+}
+
+.tw-footer-col a:hover {
+    color: var(--tw-white);
+}
+
+.tw-footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 40px;
+    border-top: 1px solid var(--tw-slate);
+}
+
+.tw-footer-copy {
+    font-family: 'Menlo', monospace;
+    font-size: 11px;
+    color: var(--tw-gray-text);
+}
+
+.tw-footer-copy::before {
+    content: '> ';
+    color: var(--tw-gold);
+}
+
+.tw-social-links {
+    display: flex;
+    gap: 15px;
+}
+
+.tw-social-link {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--tw-slate);
+    color: var(--tw-gray-text);
+    transition: var(--tw-transition);
+}
+
+.tw-social-link:hover {
+    border-color: var(--tw-white);
+    color: var(--tw-white);
+}
+
+/* ============================================
+   SCROLL REVEAL
+   ============================================ */
+.tw-reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.tw-reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.tw-reveal-stagger > * {
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.tw-reveal-stagger.active > *:nth-child(1) { animation: tw-fade-up 0.6s ease 0.1s forwards; }
+.tw-reveal-stagger.active > *:nth-child(2) { animation: tw-fade-up 0.6s ease 0.2s forwards; }
+.tw-reveal-stagger.active > *:nth-child(3) { animation: tw-fade-up 0.6s ease 0.3s forwards; }
+.tw-reveal-stagger.active > *:nth-child(4) { animation: tw-fade-up 0.6s ease 0.4s forwards; }
+
+@keyframes tw-fade-up {
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+@media (max-width: 1024px) {
+    .tw-hero {
+        grid-template-columns: 1fr;
+    }
+    
+    .tw-hero-image {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 0;
+    }
+    
+    .tw-hero-content {
+        position: relative;
+        z-index: 10;
+        background: rgba(0, 0, 0, 0.6);
+    }
+    
+    .tw-products-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .tw-product-card:nth-child(1),
+    .tw-product-card:nth-child(4) {
+        grid-row: span 1;
+    }
+    
+    .tw-editorial {
+        grid-template-columns: 1fr;
+    }
+    
+    .tw-footer-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .tw-nav-links {
+        display: none;
+    }
+    
+    .tw-hero-content {
+        padding: 60px 30px;
+    }
+    
+    .tw-section {
+        padding: 80px 30px;
+    }
+    
+    .tw-footer-grid {
+        grid-template-columns: 1fr;
+    }
+}
