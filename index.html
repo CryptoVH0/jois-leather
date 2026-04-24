@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JOIS — Maison de Cuir Contemporáneo</title>
     <link rel="stylesheet" href="styles.css?v=39">
-    <link rel="stylesheet" href="techwear-styles.css?v=39">
+    <link rel="stylesheet" href="jois-worldclass.css?v=40">
     <link rel="stylesheet" href="styles-home.css">
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
     
@@ -148,7 +148,7 @@
         /* ============================================
            NAVIGATION - TECHWEAR MINIMAL
            ============================================ */
-        .nav-main {
+        .jois-nav {
             position: sticky;
             top: 0;
             background: rgba(0, 0, 0, 0.95);
@@ -162,13 +162,13 @@
             justify-content: space-between;
         }
         
-        .nav-icons {
+        .jois-nav-actions {
             display: flex;
             align-items: center;
             gap: 20px;
         }
         
-        .nav-icon {
+        .jois-nav-icon {
             width: 40px;
             height: 40px;
             display: flex;
@@ -178,11 +178,11 @@
             color: var(--tw-gray-text);
         }
         
-        .nav-icon:hover {
+        .jois-nav-icon:hover {
             color: var(--tw-white);
         }
         
-        .nav-icon svg {
+        .jois-nav-icon svg {
             width: 18px;
             height: 18px;
             stroke-width: 1;
@@ -197,12 +197,12 @@
             text-transform: uppercase;
         }
         
-        .nav-links {
+        .jois-jois-nav-links {
             display: flex;
             gap: 40px;
         }
         
-        .nav-link {
+        .jois-nav-link {
             font-size: 10px;
             letter-spacing: 0.25em;
             text-transform: uppercase;
@@ -211,21 +211,21 @@
             font-family: -apple-system, BlinkMacSystemFont, sans-serif;
         }
         
-        .nav-link:hover {
+        .jois-nav-link:hover {
             color: var(--tw-white);
         }
         
-        .nav-icons-right {
+        .jois-nav-actions-right {
             display: flex;
             align-items: center;
             gap: 20px;
         }
         
-        .cart-icon-container {
+        .jois-cart-container {
             position: relative;
         }
         
-        .cart-count {
+        .jois-cart-count {
             position: absolute;
             top: -6px;
             right: -8px;
@@ -246,7 +246,7 @@
         /* ============================================
            HERO - TECHWEAR ASYMMETRIC
            ============================================ */
-        .hero {
+        .jois-hero {
             position: relative;
             min-height: 100vh;
             display: grid;
@@ -255,7 +255,7 @@
             overflow: hidden;
         }
         
-        .hero-content {
+        .jois-hero-content {
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -264,13 +264,13 @@
             z-index: 10;
         }
         
-        .hero-text {
+        .jois-hero-text {
             display: flex;
             flex-direction: column;
             align-items: flex-start;
         }
         
-        .hero-badge {
+        .jois-hero-badge {
             font-size: 9px;
             letter-spacing: 0.3em;
             text-transform: uppercase;
@@ -279,7 +279,7 @@
             font-family: -apple-system, BlinkMacSystemFont, sans-serif;
         }
         
-        .hero-title {
+        .jois-hero-title {
             font-family: 'Arial Black', Impact, sans-serif;
             font-size: clamp(60px, 10vw, 120px);
             font-weight: 900;
@@ -290,7 +290,7 @@
             color: var(--tw-white);
         }
         
-        .hero-subtitle {
+        .jois-hero-subtitle {
             font-size: 13px;
             letter-spacing: 0.2em;
             text-transform: uppercase;
@@ -300,7 +300,7 @@
             max-width: 350px;
         }
         
-        .hero-cta {
+        .jois-hero-cta {
             display: inline-flex;
             align-items: center;
             gap: 15px;
@@ -316,25 +316,25 @@
             font-family: -apple-system, BlinkMacSystemFont, sans-serif;
         }
         
-        .hero-cta:hover {
+        .jois-hero-cta:hover {
             background: var(--tw-white);
             color: var(--tw-black);
         }
         
-        .hero-image {
+        .jois-hero-image {
             position: relative;
             overflow: hidden;
         }
         
-        .hero-image img,
-        .hero-image video {
+        .jois-hero-image img,
+        .jois-hero-image video {
             width: 100%;
             height: 100%;
             object-fit: cover;
             filter: contrast(1.1) brightness(0.9);
         }
         
-        .hero-overlay {
+        .jois-hero-overlay {
             position: absolute;
             top: 0;
             left: 0;
@@ -365,35 +365,35 @@
             color: var(--tw-black);
         }
         
-        .hero-cta span {
+        .jois-hero-cta span {
             position: relative;
             z-index: 1;
         }
         
-        .hero-cta svg {
+        .jois-hero-cta svg {
             position: relative;
             z-index: 1;
             transition: transform 0.3s ease;
         }
         
-        .hero-cta:hover svg {
+        .jois-hero-cta:hover svg {
             transform: translateX(5px);
         }
         
-        .hero-image {
+        .jois-hero-image {
             position: relative;
             overflow: hidden;
         }
         
-        .hero-image img,
-        .hero-image video {
+        .jois-hero-image img,
+        .jois-hero-image video {
             width: 100%;
             height: 100%;
             object-fit: cover;
             filter: drop-shadow(0 30px 60px rgba(0, 0, 0, 0.5));
         }
         
-        .hero-overlay {
+        .jois-hero-overlay {
             position: absolute;
             top: 0;
             left: 0;
@@ -433,7 +433,7 @@
 
            MATRIX MARQUEE
            ============================================ */
-        .marquee {
+        .jois-marquee {
             background: #1A1A1A;
             border-top: 1px solid var(--cement);
             border-bottom: 1px solid var(--cement);
@@ -442,7 +442,7 @@
             position: relative;
         }
         
-        .marquee::before {
+        .jois-marquee::before {
             content: '> MARQUEE_MODULE v1.0 // SCROLLING...';
             position: absolute;
             top: 0;
@@ -457,13 +457,13 @@
             z-index: 2;
         }
         
-        .marquee-content {
+        .jois-marquee-track {
             display: flex;
             animation: matrix-scroll 30s linear infinite;
             padding-top: 25px;
         }
         
-        .marquee-item {
+        .jois-jois-marquee-item {
             font-size: 10px;
             letter-spacing: 4px;
             text-transform: uppercase;
@@ -474,7 +474,7 @@
             text-shadow: 0 0 10px var(--gold);
         }
         
-        .marquee-item.gold {
+        .jois-jois-marquee-item.gold {
             color: var(--beige);
             text-shadow: 0 0 10px rgba(196, 163, 90, 0.5);
         }
@@ -507,14 +507,14 @@
         /* ============================================
            PREMIUM PRODUCTS GRID
            ============================================ */
-        .section {
+        .jois-section {
             padding: 100px 40px;
             max-width: 1400px;
             margin: 0 auto;
             background: var(--black);
         }
         
-        .section-header {
+        .jois-jois-section-header {
             display: flex;
             justify-content: space-between;
             align-items: flex-end;
@@ -523,7 +523,7 @@
             border-bottom: 1px solid var(--gray-dark);
         }
         
-        .section-title {
+        .jois-jois-section-title {
             font-family: var(--font-display);
             font-size: clamp(48px, 8vw, 80px);
             font-weight: 700;
@@ -533,7 +533,7 @@
             color: var(--white);
         }
         
-        .section-link {
+        .jois-jois-section-link {
             font-size: 11px;
             letter-spacing: 0.15em;
             text-transform: uppercase;
@@ -549,24 +549,24 @@
             overflow: hidden;
         }
         
-        .section-link:hover {
+        .jois-jois-section-link:hover {
             color: var(--white);
             border-color: var(--gold);
         }
         
-        .section-link svg {
+        .jois-jois-section-link svg {
             width: 16px;
             height: 16px;
         }
         
-        .products-grid {
+        .jois-products-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
             gap: 24px;
             background: transparent;
         }
         
-        .product-card {
+        .jois-product-card {
             position: relative;
             background: rgba(26, 26, 26, 0.6);
             backdrop-filter: blur(30px);
@@ -579,7 +579,7 @@
             overflow: hidden;
         }
         
-        .product-card:hover {
+        .jois-product-card:hover {
             transform: translateY(-8px) scale(1.02);
             border-color: rgba(196, 163, 90, 0.4);
             box-shadow: 
@@ -587,7 +587,7 @@
                 0 0 40px rgba(196, 163, 90, 0.15);
         }
         
-        .product-image {
+        .jois-product-image {
             position: relative;
             aspect-ratio: 3/4;
             overflow: hidden;
@@ -597,7 +597,7 @@
             width: calc(100% - 24px);
         }
         
-        .product-image img {
+        .jois-product-image img {
             width: 100%;
             height: 100%;
             object-fit: cover;
@@ -605,12 +605,12 @@
             filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.4));
         }
         
-        .product-card:hover .product-image img {
+        .jois-product-card:hover .jois-product-image img {
             transform: scale(1.05);
             filter: drop-shadow(0 30px 50px rgba(0, 0, 0, 0.5)) brightness(1.05);
         }
         
-        .product-badge {
+        .jois-product-badge {
             position: absolute;
             top: 24px;
             left: 24px;
@@ -628,14 +628,14 @@
             z-index: 2;
         }
         
-        .product-info {
+        .jois-product-info {
             padding: 20px 24px 24px;
             display: flex;
             flex-direction: column;
             gap: 8px;
         }
         
-        .product-name {
+        .jois-product-name {
             font-size: 14px;
             letter-spacing: 0.08em;
             text-transform: uppercase;
@@ -643,13 +643,13 @@
             color: var(--white);
         }
         
-        .product-price {
+        .jois-product-price {
             font-family: var(--font-mono);
             font-size: 16px;
             color: var(--gold);
         }
         
-        .btn-add-grid {
+        .jois-product-quick-add {
             padding: 12px 15px;
             font-size: 10px;
             letter-spacing: 0.1em;
@@ -663,7 +663,7 @@
             font-family: var(--font-body);
         }
         
-        .btn-add-grid:hover {
+        .jois-product-quick-add:hover {
             background: var(--gold);
             color: var(--black);
             border-color: var(--gold);
@@ -673,7 +673,7 @@
         /* ============================================
            PREMIUM CATEGORIES - GRAFFITI STYLE
            ============================================ */
-        .categories-section {
+        .jois-categories {
             background: var(--black);
             padding: 100px 40px;
             border-top: 1px solid var(--gray-dark);
@@ -685,11 +685,11 @@
             margin: 0 auto;
         }
         
-        .categories-header {
+        .jois-categories-header {
             margin-bottom: 60px;
         }
         
-        .categories-title {
+        .jois-categories-title {
             font-family: var(--font-display);
             font-size: clamp(48px, 8vw, 80px);
             font-weight: 700;
@@ -698,11 +698,11 @@
             text-transform: uppercase;
         }
         
-        .categories-list {
+        .jois-categories-list {
             border-top: 1px solid var(--gray-dark);
         }
         
-        .category-item {
+        .jois-category-item {
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -714,16 +714,16 @@
             position: relative;
         }
         
-        .category-item:hover {
+        .jois-category-item:hover {
             padding-left: 20px;
         }
         
-        .category-item:hover .category-name {
+        .jois-category-item:hover .jois-jois-category-name {
             color: var(--white);
             text-shadow: 0 0 30px rgba(196, 163, 90, 0.5);
         }
         
-        .category-name {
+        .jois-category-name {
             font-family: 'Arial Black', 'Impact', sans-serif;
             font-size: clamp(60px, 10vw, 120px);
             font-weight: 900;
@@ -740,26 +740,26 @@
                 -2px -2px 0 rgba(196, 163, 90, 0.2);
         }
         
-        .category-item:hover .category-name {
+        .jois-category-item:hover .jois-jois-category-name {
             -webkit-text-stroke: 2px var(--gold);
             text-shadow: 
                 6px 6px 0 rgba(196, 163, 90, 0.4),
                 -3px -3px 0 rgba(196, 163, 90, 0.3);
         }
         
-        .category-arrow {
+        .jois-category-arrow {
             opacity: 0;
             transform: translateX(-10px);
             transition: all 0.3s ease;
             color: var(--gold);
         }
         
-        .category-item:hover .category-arrow {
+        .jois-category-item:hover .jois-jois-category-arrow {
             opacity: 1;
             transform: translateX(0);
         }
         
-        .category-count {
+        .jois-category-count {
             font-family: var(--font-mono);
             font-size: 12px;
             color: var(--gray-light);
@@ -769,19 +769,19 @@
 
            EDITORIAL SECTION
            ============================================ */
-        .editorial {
+        .jois-editorial {
             display: grid;
             grid-template-columns: 1fr 1fr;
             min-height: 600px;
         }
         
-        .editorial-image {
+        .jois-jois-editorial-image {
             overflow: hidden;
             border-right: 1px solid var(--cement);
             position: relative;
         }
         
-        .editorial-image::after {
+        .jois-jois-editorial-image::after {
             content: '';
             position: absolute;
             top: 0;
@@ -792,7 +792,7 @@
             pointer-events: none;
         }
         
-        .editorial-image img {
+        .jois-jois-editorial-image img {
             width: 100%;
             height: 100%;
             object-fit: cover;
@@ -800,12 +800,12 @@
             transition: all 0.5s ease;
         }
         
-        .editorial-image:hover img {
+        .jois-jois-editorial-image:hover img {
             filter: grayscale(0%) contrast(1);
             transform: scale(1.03);
         }
         
-        .editorial-content {
+        .jois-jois-editorial-content {
             background: var(--black-light);
             display: flex;
             flex-direction: column;
@@ -815,7 +815,7 @@
             position: relative;
         }
         
-        .editorial-content::before {
+        .jois-jois-editorial-content::before {
             content: '> EDITORIAL_MODULE';
             position: absolute;
             top: 20px;
@@ -827,7 +827,7 @@
             text-shadow: 0 0 10px var(--gold);
         }
         
-        .editorial-label {
+        .jois-jois-editorial-label {
             font-size: 10px;
             letter-spacing: 0.3em;
             text-transform: uppercase;
@@ -837,7 +837,7 @@
             text-shadow: 0 0 15px rgba(196, 163, 90, 0.5);
         }
         
-        .editorial-title {
+        .jois-jois-editorial-title {
             font-family: var(--font-mono);
             font-size: clamp(32px, 4vw, 48px);
             font-weight: 700;
@@ -847,14 +847,14 @@
             letter-spacing: 0.05em;
         }
         
-        .editorial-text {
+        .jois-jois-editorial-text {
             font-size: 14px;
             line-height: 1.8;
             color: var(--text-muted);
             margin-bottom: 40px;
         }
         
-        .editorial-cta {
+        .jois-jois-editorial-cta {
             display: inline-flex;
             align-items: center;
             gap: 10px;
@@ -869,7 +869,7 @@
             font-family: var(--font-mono);
         }
         
-        .editorial-cta:hover {
+        .jois-jois-editorial-cta:hover {
             color: var(--beige);
             text-shadow: 0 0 15px rgba(196, 163, 90, 0.5);
             gap: 15px;
@@ -1113,11 +1113,11 @@
            RESPONSIVE - CYBERPUNK
            ============================================ */
         @media (max-width: 1024px) {
-            .products-grid {
+            .jois-products-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
             
-            .editorial {
+            .jois-editorial {
                 grid-template-columns: 1fr;
             }
             
@@ -1127,16 +1127,16 @@
         }
         
         @media (max-width: 768px) {
-            .top-bar {
+            .jois-topbar {
                 display: none;
             }
             
-            .nav-inner {
+            .jois-nav-inner {
                 padding: 0 20px;
                 height: 70px;
             }
             
-            .nav-links {
+            .jois-jois-nav-links {
                 display: none;
             }
             
@@ -1144,11 +1144,11 @@
                 font-size: 24px;
             }
             
-            .hero-content {
+            .jois-hero-content {
                 grid-template-columns: 1fr;
             }
             
-            .hero-image {
+            .jois-hero-image {
                 position: absolute;
                 top: 0;
                 left: 0;
@@ -1158,31 +1158,31 @@
                 border-left: none;
             }
             
-            .hero-text {
+            .jois-hero-text {
                 background: rgba(10, 10, 10, 0.85);
                 padding: 120px 30px 60px;
             }
             
-            .hero-title {
+            .jois-hero-title {
                 font-size: 50px;
             }
             
-            .section {
+            .jois-section {
                 padding: 60px 20px;
             }
             
-            .section-header {
+            .jois-jois-section-header {
                 flex-direction: column;
                 align-items: flex-start;
                 gap: 20px;
             }
             
-            .products-grid {
+            .jois-products-grid {
                 grid-template-columns: 1fr 1fr;
                 gap: 1px;
             }
             
-            .categories-section {
+            .jois-categories {
                 padding: 60px 20px;
             }
             
@@ -1211,7 +1211,7 @@
         }
         
         @media (max-width: 480px) {
-            .products-grid {
+            .jois-products-grid {
                 grid-template-columns: 1fr;
             }
             
@@ -1250,10 +1250,10 @@
     </div>
     
     <!-- Navigation -->
-    <nav class="nav-main">
-        <div class="nav-inner">
-            <div class="nav-icons nav-left">
-                <a href="#" class="nav-icon" aria-label="Buscar">
+    <nav class="jois-nav">
+        <div class="jois-nav-inner">
+            <div class="jois-nav-actions nav-left">
+                <a href="#" class="jois-nav-icon" aria-label="Buscar">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
                         <circle cx="11" cy="11" r="8"/>
                         <path d="m21 21-4.35-4.35"/>
@@ -1263,27 +1263,27 @@
             
             <a href="index.html" class="logo">JOIS</a>
             
-            <div class="nav-links">
-                <a href="#hombre" class="nav-link">Hombre</a>
-                <a href="#mujer" class="nav-link">Mujer</a>
-                <a href="#coleccion" class="nav-link">Colección</a>
-                <a href="#nosotros" class="nav-link">Nosotros</a>
-                <a href="#contacto" class="nav-link">Contacto</a>
+            <div class="jois-jois-nav-links">
+                <a href="#hombre" class="jois-nav-link">Hombre</a>
+                <a href="#mujer" class="jois-nav-link">Mujer</a>
+                <a href="#coleccion" class="jois-nav-link">Colección</a>
+                <a href="#nosotros" class="jois-nav-link">Nosotros</a>
+                <a href="#contacto" class="jois-nav-link">Contacto</a>
             </div>
             
-            <div class="nav-icons nav-right">
-                <a href="account/login.html" class="nav-icon" aria-label="Mi Cuenta">
+            <div class="jois-nav-actions nav-right">
+                <a href="account/login.html" class="jois-nav-icon" aria-label="Mi Cuenta">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
                         <circle cx="12" cy="8" r="4"/>
                         <path d="M20 21a8 8 0 0 0-16 0"/>
                     </svg>
                 </a>
-                <a href="#" class="nav-icon" aria-label="Favoritos">
+                <a href="#" class="jois-nav-icon" aria-label="Favoritos">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
                         <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
                     </svg>
                 </a>
-                <a href="#" class="nav-icon" onclick="toggleCart(); return false;" aria-label="Carrito">
+                <a href="#" class="jois-nav-icon" onclick="toggleCart(); return false;" aria-label="Carrito">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
                         <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/>
                         <line x1="3" y1="6" x2="21" y2="6"/>
@@ -1325,35 +1325,35 @@
     
     <!-- Matrix Marquee -->
     <div class="marquee">
-        <div class="marquee-content">
-            <span class="marquee-item">Cuero Premium</span>
-            <span class="marquee-item gold">◆</span>
-            <span class="marquee-item">Diseño Atemporal</span>
-            <span class="marquee-item gold">◆</span>
-            <span class="marquee-item">Hecho en México</span>
-            <span class="marquee-item gold">◆</span>
-            <span class="marquee-item">Envío Gratis +$5,000 MXN</span>
-            <span class="marquee-item gold">◆</span>
-            <span class="marquee-item">NFT Collection</span>
-            <span class="marquee-item gold">◆</span>
-            <span class="marquee-item">Cuero Premium</span>
-            <span class="marquee-item gold">◆</span>
-            <span class="marquee-item">Diseño Atemporal</span>
-            <span class="marquee-item gold">◆</span>
-            <span class="marquee-item">Hecho en México</span>
-            <span class="marquee-item gold">◆</span>
-            <span class="marquee-item">Envío Gratis +$5,000 MXN</span>
-            <span class="marquee-item gold">◆</span>
-            <span class="marquee-item">NFT Collection</span>
-            <span class="marquee-item gold">◆</span>
+        <div class="jois-marquee-track">
+            <span class="jois-marquee-item">Cuero Premium</span>
+            <span class="jois-marquee-item gold">◆</span>
+            <span class="jois-marquee-item">Diseño Atemporal</span>
+            <span class="jois-marquee-item gold">◆</span>
+            <span class="jois-marquee-item">Hecho en México</span>
+            <span class="jois-marquee-item gold">◆</span>
+            <span class="jois-marquee-item">Envío Gratis +$5,000 MXN</span>
+            <span class="jois-marquee-item gold">◆</span>
+            <span class="jois-marquee-item">NFT Collection</span>
+            <span class="jois-marquee-item gold">◆</span>
+            <span class="jois-marquee-item">Cuero Premium</span>
+            <span class="jois-marquee-item gold">◆</span>
+            <span class="jois-marquee-item">Diseño Atemporal</span>
+            <span class="jois-marquee-item gold">◆</span>
+            <span class="jois-marquee-item">Hecho en México</span>
+            <span class="jois-marquee-item gold">◆</span>
+            <span class="jois-marquee-item">Envío Gratis +$5,000 MXN</span>
+            <span class="jois-marquee-item gold">◆</span>
+            <span class="jois-marquee-item">NFT Collection</span>
+            <span class="jois-marquee-item gold">◆</span>
         </div>
     </div>
     
     <!-- Ready to Wear - Hombre -->
     <section class="section reveal-on-scroll" id="hombre">
-        <div class="section-header">
-            <h2 class="section-title stencil-text" data-text="HOMBRE">HOMBRE</h2>
-            <a href="#" class="section-link">
+        <div class="jois-section-header">
+            <h2 class="jois-section-title stencil-text" data-text="HOMBRE">HOMBRE</h2>
+            <a href="#" class="jois-section-link">
                 Ver Todo
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                     <path d="M5 12h14M12 5l7 7-7 7"/>
@@ -1361,51 +1361,51 @@
             </a>
         </div>
         
-        <div class="products-grid">
+        <div class="jois-products-grid">
             <div class="product-card" data-product="h1">
-                <a href="product.html" class="product-image">
+                <a href="product.html" class="jois-product-image">
                     <img src="assets/images/shirt-jacket-hombre.png" alt="Shirt Jacket" onerror="this.src='https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=600&q=80'">
-                    <span class="product-badge">Nuevo</span>
+                    <span class="jois-product-badge">Nuevo</span>
                 </a>
-                <div class="product-info">
-                    <span class="product-name">shirt jacket</span>
-                    <span class="product-price">$6,650 MXN</span>
+                <div class="jois-product-info">
+                    <span class="jois-product-name">shirt jacket</span>
+                    <span class="jois-product-price">$6,650 MXN</span>
                     <button class="btn-add-grid" onclick="addToCart('Shirt Jacket - M', 380, 'https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=400&q=80', 'M')"><span>+ Añadir</span></button>
                 </div>
             </div>
             
             <div class="product-card" data-product="h2">
-                <a href="product.html" class="product-image">
+                <a href="product.html" class="jois-product-image">
                     <img src="assets/images/bomber-hombre.png" alt="Bomber" onerror="this.src='https://images.unsplash.com/photo-1551028719-00167b16eac5?w=600&q=80'">
-                    <span class="product-badge">Limited</span>
+                    <span class="jois-product-badge">Limited</span>
                 </a>
-                <div class="product-info">
-                    <span class="product-name">bomber</span>
-                    <span class="product-price">$9,100 MXN</span>
+                <div class="jois-product-info">
+                    <span class="jois-product-name">bomber</span>
+                    <span class="jois-product-price">$9,100 MXN</span>
                     <button class="btn-add-grid" onclick="addToCart('Bomber - M', 520, 'https://images.unsplash.com/photo-1551028719-00167b16eac5?w=400&q=80', 'M')"><span>+ Añadir</span></button>
                 </div>
             </div>
             
             <div class="product-card" data-product="h3">
-                <a href="product.html" class="product-image">
+                <a href="product.html" class="jois-product-image">
                     <img src="assets/images/weekender-hombre.png" alt="Weekender" onerror="this.src='https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=600&q=80'">
-                    <span class="product-badge">Nuevo</span>
+                    <span class="jois-product-badge">Nuevo</span>
                 </a>
-                <div class="product-info">
-                    <span class="product-name">weekender</span>
-                    <span class="product-price">$8,400 MXN</span>
+                <div class="jois-product-info">
+                    <span class="jois-product-name">weekender</span>
+                    <span class="jois-product-price">$8,400 MXN</span>
                     <button class="btn-add-grid" onclick="addToCart('Weekender - M', 480, 'https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=400&q=80', 'M')"><span>+ Añadir</span></button>
                 </div>
             </div>
             
             <div class="product-card" data-product="h4">
-                <a href="product.html" class="product-image">
+                <a href="product.html" class="jois-product-image">
                     <img src="assets/images/wallet-hombre.png" alt="Wallet" onerror="this.src='https://images.unsplash.com/photo-1627123424574-724758594e93?w=600&q=80'">
-                    <span class="product-badge">Bestseller</span>
+                    <span class="jois-product-badge">Bestseller</span>
                 </a>
-                <div class="product-info">
-                    <span class="product-name">wallet</span>
-                    <span class="product-price">$3,150 MXN</span>
+                <div class="jois-product-info">
+                    <span class="jois-product-name">wallet</span>
+                    <span class="jois-product-price">$3,150 MXN</span>
                     <button class="btn-add-grid" onclick="addToCart('Wallet - M', 180, 'https://images.unsplash.com/photo-1627123424574-724758594e93?w=400&q=80', 'M')"><span>+ Añadir</span></button>
                 </div>
             </div>
@@ -1414,9 +1414,9 @@
     
     <!-- Ready to Wear - Mujer -->
     <section class="section reveal-on-scroll" id="mujer">
-        <div class="section-header">
-            <h2 class="section-title stencil-text" data-text="MUJER">MUJER</h2>
-            <a href="#" class="section-link">
+        <div class="jois-section-header">
+            <h2 class="jois-section-title stencil-text" data-text="MUJER">MUJER</h2>
+            <a href="#" class="jois-section-link">
                 Ver Todo
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                     <path d="M5 12h14M12 5l7 7-7 7"/>
@@ -1424,51 +1424,51 @@
             </a>
         </div>
         
-        <div class="products-grid">
+        <div class="jois-products-grid">
             <div class="product-card" data-product="m1">
-                <a href="product.html" class="product-image">
+                <a href="product.html" class="jois-product-image">
                     <img src="assets/images/bomber-mujer.png" alt="Bomber" onerror="this.src='https://images.unsplash.com/photo-1539533018447-63fcce2678e3?w=600&q=80'">
-                    <span class="product-badge">Permanente</span>
+                    <span class="jois-product-badge">Permanente</span>
                 </a>
-                <div class="product-info">
-                    <span class="product-name">bomber noir</span>
-                    <span class="product-price">$7,875 MXN</span>
+                <div class="jois-product-info">
+                    <span class="jois-product-name">bomber noir</span>
+                    <span class="jois-product-price">$7,875 MXN</span>
                     <button class="btn-add-grid" onclick="addToCart('Bomber Noir - M', 450, 'https://images.unsplash.com/photo-1539533018447-63fcce2678e3?w=400&q=80', 'M')"><span>+ Añadir</span></button>
                 </div>
             </div>
             
             <div class="product-card" data-product="m2">
-                <a href="product.html" class="product-image">
+                <a href="product.html" class="jois-product-image">
                     <img src="assets/images/shirt-jacket-mujer.png" alt="Shirt Jacket" onerror="this.src='https://images.unsplash.com/photo-1594938298603-c8148c4dae35?w=600&q=80'">
-                    <span class="product-badge">Nuevo</span>
+                    <span class="jois-product-badge">Nuevo</span>
                 </a>
-                <div class="product-info">
-                    <span class="product-name">shirt jacket</span>
-                    <span class="product-price">$6,650 MXN</span>
+                <div class="jois-product-info">
+                    <span class="jois-product-name">shirt jacket</span>
+                    <span class="jois-product-price">$6,650 MXN</span>
                     <button class="btn-add-grid" onclick="addToCart('Shirt Jacket - M', 380, 'https://images.unsplash.com/photo-1594938298603-c8148c4dae35?w=400&q=80', 'M')"><span>+ Añadir</span></button>
                 </div>
             </div>
             
             <div class="product-card" data-product="m3">
-                <a href="product.html" class="product-image">
+                <a href="product.html" class="jois-product-image">
                     <img src="assets/images/weekender-mujer.png" alt="Weekender" onerror="this.src='https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=600&q=80'">
-                    <span class="product-badge">Nuevo</span>
+                    <span class="jois-product-badge">Nuevo</span>
                 </a>
-                <div class="product-info">
-                    <span class="product-name">weekender</span>
-                    <span class="product-price">$8,400 MXN</span>
+                <div class="jois-product-info">
+                    <span class="jois-product-name">weekender</span>
+                    <span class="jois-product-price">$8,400 MXN</span>
                     <button class="btn-add-grid" onclick="addToCart('Weekender - M', 480, 'https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=400&q=80', 'M')"><span>+ Añadir</span></button>
                 </div>
             </div>
             
             <div class="product-card" data-product="m4">
-                <a href="product.html" class="product-image">
+                <a href="product.html" class="jois-product-image">
                     <img src="assets/images/wallet-mujer.png" alt="Wallet" onerror="this.src='https://images.unsplash.com/photo-1601924994987-69e26d50dc26?w=600&q=80'">
-                    <span class="product-badge">Limited</span>
+                    <span class="jois-product-badge">Limited</span>
                 </a>
-                <div class="product-info">
-                    <span class="product-name">wallet matrix</span>
-                    <span class="product-price">$3,500 MXN</span>
+                <div class="jois-product-info">
+                    <span class="jois-product-name">wallet matrix</span>
+                    <span class="jois-product-price">$3,500 MXN</span>
                     <button class="btn-add-grid" onclick="addToCart('Wallet Matrix - M', 200, 'https://images.unsplash.com/photo-1601924994987-69e26d50dc26?w=400&q=80', 'M')"><span>+ Añadir</span></button>
                 </div>
             </div>
@@ -1476,45 +1476,45 @@
     </section>
     
     <!-- Categories -->
-    <section class="categories-section reveal-on-scroll" id="coleccion">
+    <section class="jois-categories reveal-on-scroll" id="coleccion">
         <div class="categories-inner">
-            <div class="categories-header">
-                <h2 class="categories-title">Colección</h2>
+            <div class="jois-categories-header">
+                <h2 class="jois-categories-title">Colección</h2>
             </div>
             
-            <div class="categories-list">
+            <div class="jois-categories-list">
                 <a href="#hombre" class="category-item">
-                    <span class="category-name">Hombre</span>
-                    <span class="category-count">8 piezas</span>
-                    <svg class="category-arrow" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <span class="jois-category-name">Hombre</span>
+                    <span class="jois-category-count">8 piezas</span>
+                    <svg class="jois-category-arrow" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
                         <path d="M5 12h14M12 5l7 7-7 7"/>
                     </svg>
                 </a>
                 <a href="#mujer" class="category-item">
-                    <span class="category-name">Mujer</span>
-                    <span class="category-count">6 piezas</span>
-                    <svg class="category-arrow" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <span class="jois-category-name">Mujer</span>
+                    <span class="jois-category-count">6 piezas</span>
+                    <svg class="jois-category-arrow" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
                         <path d="M5 12h14M12 5l7 7-7 7"/>
                     </svg>
                 </a>
                 <a href="#" class="category-item">
-                    <span class="category-name">Bolsos</span>
-                    <span class="category-count">4 piezas</span>
-                    <svg class="category-arrow" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <span class="jois-category-name">Bolsos</span>
+                    <span class="jois-category-count">4 piezas</span>
+                    <svg class="jois-category-arrow" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
                         <path d="M5 12h14M12 5l7 7-7 7"/>
                     </svg>
                 </a>
                 <a href="#" class="category-item">
-                    <span class="category-name">Accesorios</span>
-                    <span class="category-count">5 piezas</span>
-                    <svg class="category-arrow" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <span class="jois-category-name">Accesorios</span>
+                    <span class="jois-category-count">5 piezas</span>
+                    <svg class="jois-category-arrow" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
                         <path d="M5 12h14M12 5l7 7-7 7"/>
                     </svg>
                 </a>
                 <a href="nft.html" class="category-item">
-                    <span class="category-name">NFT Collection</span>
-                    <span class="category-count">digital</span>
-                    <svg class="category-arrow" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <span class="jois-category-name">NFT Collection</span>
+                    <span class="jois-category-count">digital</span>
+                    <svg class="jois-category-arrow" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
                         <path d="M5 12h14M12 5l7 7-7 7"/>
                     </svg>
                 </a>
@@ -1524,16 +1524,16 @@
     
     <!-- Editorial About -->
     <section class="editorial reveal-on-scroll" id="nosotros">
-        <div class="editorial-image">
+        <div class="jois-editorial-image">
             <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=1000&q=80" alt="JOIS Craftsmanship">
         </div>
-        <div class="editorial-content">
-            <span class="editorial-label">Notre Histoire</span>
-            <h2 class="editorial-title">La Artesanía del Mañana</h2>
-            <p class="editorial-text">
+        <div class="jois-editorial-content">
+            <span class="jois-editorial-label">Notre Histoire</span>
+            <h2 class="jois-editorial-title">La Artesanía del Mañana</h2>
+            <p class="jois-editorial-text">
                 JOIS nace de una visión híbrida: honorar la tradición del cuero mientras abrazamos las posibilidades del código digital. Cada pieza es una declaración de identidad, diseñada para quienes buscan distinción sin renunciar a la modernidad.
             </p>
-            <a href="#contacto" class="editorial-cta">
+            <a href="#contacto" class="jois-editorial-cta">
                 Conoce Nuestra Historia
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                     <path d="M5 12h14M12 5l7 7-7 7"/>
@@ -1544,8 +1544,8 @@
     
     <!-- Featured -->
     <section class="section reveal-on-scroll">
-        <div class="section-header">
-            <h2 class="section-title">Destacados</h2>
+        <div class="jois-section-header">
+            <h2 class="jois-section-title">Destacados</h2>
         </div>
         
         <div class="featured-grid">
@@ -1766,7 +1766,7 @@
         // MAGNETIC CURSOR EFFECT
         // ============================================
         document.addEventListener('mousemove', (e) => {
-            const cards = document.querySelectorAll('.product-card');
+            const cards = document.querySelectorAll('.jois-product-card');
             cards.forEach(card => {
                 const rect = card.getBoundingClientRect();
                 const x = e.clientX - rect.left - rect.width / 2;
@@ -1835,54 +1835,54 @@
                 
                 // Update Hombre products
                 if (data.h1_name) {
-                    document.querySelectorAll('[data-product="h1"] .product-name').forEach(el => el.textContent = data.h1_name.toLowerCase());
+                    document.querySelectorAll('[data-product="h1"] .jois-product-name').forEach(el => el.textContent = data.h1_name.toLowerCase());
                     const mxn1 = Math.round(data.h1_price * 17.50);
-                    document.querySelectorAll('[data-product="h1"] .product-price').forEach(el => el.textContent = '$' + mxn1.toLocaleString('es-MX') + ' MXN');
-                    document.querySelectorAll('[data-product="h1"] .btn-add-grid').forEach(el => el.setAttribute('onclick', "addToCart('" + data.h1_name + " - M', " + data.h1_price + ", '', 'M')"));
+                    document.querySelectorAll('[data-product="h1"] .jois-product-price').forEach(el => el.textContent = '$' + mxn1.toLocaleString('es-MX') + ' MXN');
+                    document.querySelectorAll('[data-product="h1"] .jois-product-quick-add').forEach(el => el.setAttribute('onclick', "addToCart('" + data.h1_name + " - M', " + data.h1_price + ", '', 'M')"));
                 }
                 if (data.h2_name) {
-                    document.querySelectorAll('[data-product="h2"] .product-name').forEach(el => el.textContent = data.h2_name.toLowerCase());
+                    document.querySelectorAll('[data-product="h2"] .jois-product-name').forEach(el => el.textContent = data.h2_name.toLowerCase());
                     const mxn2 = Math.round(data.h2_price * 17.50);
-                    document.querySelectorAll('[data-product="h2"] .product-price').forEach(el => el.textContent = '$' + mxn2.toLocaleString('es-MX') + ' MXN');
-                    document.querySelectorAll('[data-product="h2"] .btn-add-grid').forEach(el => el.setAttribute('onclick', "addToCart('" + data.h2_name + " - M', " + data.h2_price + ", '', 'M')"));
+                    document.querySelectorAll('[data-product="h2"] .jois-product-price').forEach(el => el.textContent = '$' + mxn2.toLocaleString('es-MX') + ' MXN');
+                    document.querySelectorAll('[data-product="h2"] .jois-product-quick-add').forEach(el => el.setAttribute('onclick', "addToCart('" + data.h2_name + " - M', " + data.h2_price + ", '', 'M')"));
                 }
                 if (data.h3_name) {
-                    document.querySelectorAll('[data-product="h3"] .product-name').forEach(el => el.textContent = data.h3_name.toLowerCase());
+                    document.querySelectorAll('[data-product="h3"] .jois-product-name').forEach(el => el.textContent = data.h3_name.toLowerCase());
                     const mxn3 = Math.round(data.h3_price * 17.50);
-                    document.querySelectorAll('[data-product="h3"] .product-price').forEach(el => el.textContent = '$' + mxn3.toLocaleString('es-MX') + ' MXN');
-                    document.querySelectorAll('[data-product="h3"] .btn-add-grid').forEach(el => el.setAttribute('onclick', "addToCart('" + data.h3_name + " - M', " + data.h3_price + ", '', 'M')"));
+                    document.querySelectorAll('[data-product="h3"] .jois-product-price').forEach(el => el.textContent = '$' + mxn3.toLocaleString('es-MX') + ' MXN');
+                    document.querySelectorAll('[data-product="h3"] .jois-product-quick-add').forEach(el => el.setAttribute('onclick', "addToCart('" + data.h3_name + " - M', " + data.h3_price + ", '', 'M')"));
                 }
                 if (data.h4_name) {
-                    document.querySelectorAll('[data-product="h4"] .product-name').forEach(el => el.textContent = data.h4_name.toLowerCase());
+                    document.querySelectorAll('[data-product="h4"] .jois-product-name').forEach(el => el.textContent = data.h4_name.toLowerCase());
                     const mxn4 = Math.round(data.h4_price * 17.50);
-                    document.querySelectorAll('[data-product="h4"] .product-price').forEach(el => el.textContent = '$' + mxn4.toLocaleString('es-MX') + ' MXN');
-                    document.querySelectorAll('[data-product="h4"] .btn-add-grid').forEach(el => el.setAttribute('onclick', "addToCart('" + data.h4_name + " - M', " + data.h4_price + ", '', 'M')"));
+                    document.querySelectorAll('[data-product="h4"] .jois-product-price').forEach(el => el.textContent = '$' + mxn4.toLocaleString('es-MX') + ' MXN');
+                    document.querySelectorAll('[data-product="h4"] .jois-product-quick-add').forEach(el => el.setAttribute('onclick', "addToCart('" + data.h4_name + " - M', " + data.h4_price + ", '', 'M')"));
                 }
                 
                 // Update Mujer products
                 if (data.m1_name) {
-                    document.querySelectorAll('[data-product="m1"] .product-name').forEach(el => el.textContent = data.m1_name.toLowerCase());
+                    document.querySelectorAll('[data-product="m1"] .jois-product-name').forEach(el => el.textContent = data.m1_name.toLowerCase());
                     const mnxm1 = Math.round(data.m1_price * 17.50);
-                    document.querySelectorAll('[data-product="m1"] .product-price').forEach(el => el.textContent = '$' + mnxm1.toLocaleString('es-MX') + ' MXN');
-                    document.querySelectorAll('[data-product="m1"] .btn-add-grid').forEach(el => el.setAttribute('onclick', "addToCart('" + data.m1_name + " - M', " + data.m1_price + ", '', 'M')"));
+                    document.querySelectorAll('[data-product="m1"] .jois-product-price').forEach(el => el.textContent = '$' + mnxm1.toLocaleString('es-MX') + ' MXN');
+                    document.querySelectorAll('[data-product="m1"] .jois-product-quick-add').forEach(el => el.setAttribute('onclick', "addToCart('" + data.m1_name + " - M', " + data.m1_price + ", '', 'M')"));
                 }
                 if (data.m2_name) {
-                    document.querySelectorAll('[data-product="m2"] .product-name').forEach(el => el.textContent = data.m2_name.toLowerCase());
+                    document.querySelectorAll('[data-product="m2"] .jois-product-name').forEach(el => el.textContent = data.m2_name.toLowerCase());
                     const mnxm2 = Math.round(data.m2_price * 17.50);
-                    document.querySelectorAll('[data-product="m2"] .product-price').forEach(el => el.textContent = '$' + mnxm2.toLocaleString('es-MX') + ' MXN');
-                    document.querySelectorAll('[data-product="m2"] .btn-add-grid').forEach(el => el.setAttribute('onclick', "addToCart('" + data.m2_name + " - M', " + data.m2_price + ", '', 'M')"));
+                    document.querySelectorAll('[data-product="m2"] .jois-product-price').forEach(el => el.textContent = '$' + mnxm2.toLocaleString('es-MX') + ' MXN');
+                    document.querySelectorAll('[data-product="m2"] .jois-product-quick-add').forEach(el => el.setAttribute('onclick', "addToCart('" + data.m2_name + " - M', " + data.m2_price + ", '', 'M')"));
                 }
                 if (data.m3_name) {
-                    document.querySelectorAll('[data-product="m3"] .product-name').forEach(el => el.textContent = data.m3_name.toLowerCase());
+                    document.querySelectorAll('[data-product="m3"] .jois-product-name').forEach(el => el.textContent = data.m3_name.toLowerCase());
                     const mnxm3 = Math.round(data.m3_price * 17.50);
-                    document.querySelectorAll('[data-product="m3"] .product-price').forEach(el => el.textContent = '$' + mnxm3.toLocaleString('es-MX') + ' MXN');
-                    document.querySelectorAll('[data-product="m3"] .btn-add-grid').forEach(el => el.setAttribute('onclick', "addToCart('" + data.m3_name + " - M', " + data.m3_price + ", '', 'M')"));
+                    document.querySelectorAll('[data-product="m3"] .jois-product-price').forEach(el => el.textContent = '$' + mnxm3.toLocaleString('es-MX') + ' MXN');
+                    document.querySelectorAll('[data-product="m3"] .jois-product-quick-add').forEach(el => el.setAttribute('onclick', "addToCart('" + data.m3_name + " - M', " + data.m3_price + ", '', 'M')"));
                 }
                 if (data.m4_name) {
-                    document.querySelectorAll('[data-product="m4"] .product-name').forEach(el => el.textContent = data.m4_name.toLowerCase());
+                    document.querySelectorAll('[data-product="m4"] .jois-product-name').forEach(el => el.textContent = data.m4_name.toLowerCase());
                     const mnxm4 = Math.round(data.m4_price * 17.50);
-                    document.querySelectorAll('[data-product="m4"] .product-price').forEach(el => el.textContent = '$' + mnxm4.toLocaleString('es-MX') + ' MXN');
-                    document.querySelectorAll('[data-product="m4"] .btn-add-grid').forEach(el => el.setAttribute('onclick', "addToCart('" + data.m4_name + " - M', " + data.m4_price + ", '', 'M')"));
+                    document.querySelectorAll('[data-product="m4"] .jois-product-price').forEach(el => el.textContent = '$' + mnxm4.toLocaleString('es-MX') + ' MXN');
+                    document.querySelectorAll('[data-product="m4"] .jois-product-quick-add').forEach(el => el.setAttribute('onclick', "addToCart('" + data.m4_name + " - M', " + data.m4_price + ", '', 'M')"));
                 }
                 
                 // Update brand info
