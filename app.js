@@ -286,3 +286,28 @@ style.textContent = `
     }
 `;
 document.head.appendChild(style);
+// Mobile Menu Toggle
+const navToggle = document.getElementById('navToggle');
+const navLinks = document.querySelector('.nav-links');
+
+if (navToggle && navLinks) {
+    navToggle.addEventListener('click', () => {
+        navToggle.classList.toggle('active');
+        navLinks.classList.toggle('active');
+        
+        // Create overlay if not exists
+        if (!document.querySelector('.nav-overlay')) {
+            const overlay = document.createElement('div');
+            overlay.className = 'nav-overlay';
+            document.body.appendChild(overlay);
+            overlay.addEventListener('click', () => {
+                navToggle.classList.remove('active');
+                navLinks.classList.remove('active');
+                overlay.classList.remove('active');
+            });
+        }
+        
+        const overlay = document.querySelector('.nav-overlay');
+        if (overlay) overlay.classList.toggle('active');
+    });
+}
