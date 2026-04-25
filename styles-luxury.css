@@ -1269,3 +1269,371 @@ button {
     background: var(--beige);
     border-radius: 50%;
 }
+
+/* ============================================
+   MOBILE PREMIUM - ANDROID & IOS
+   ============================================ */
+
+/* Base Mobile */
+@media only screen and (max-width: 768px) {
+    /* Root Variables Mobile */
+    :root {
+        --font-size-base: 14px;
+        --spacing-unit: 16px;
+    }
+    
+    /* Body Mobile */
+    body {
+        font-size: var(--font-size-base);
+        line-height: 1.5;
+        overflow-x: hidden;
+    }
+    
+    /* Navigation Mobile */
+    .nav-main {
+        padding: 15px 20px;
+        height: 60px;
+        background: rgba(10, 10, 10, 0.95);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+    }
+    
+    .nav-logo {
+        font-size: 18px !important;
+        letter-spacing: 0.3em !important;
+    }
+    
+    .nav-right {
+        gap: 15px;
+    }
+    
+    .nav-icon svg {
+        width: 20px;
+        height: 20px;
+    }
+    
+    /* Hide desktop nav links */
+    .nav-links {
+        display: none !important;
+    }
+    
+    /* Fixed Hamburger - Bottom Left */
+    .nav-toggle-fixed {
+        width: 50px;
+        height: 50px;
+        bottom: 20px;
+        left: 20px;
+        background: rgba(10, 10, 10, 0.9);
+        border: 1px solid rgba(196, 163, 90, 0.4);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+    }
+    
+    .nav-toggle-fixed::before {
+        font-size: 8px;
+    }
+    
+    /* Nav Drawer Mobile */
+    .nav-drawer {
+        width: 85%;
+        padding: 60px 30px;
+    }
+    
+    .nav-drawer-logo {
+        font-size: 28px;
+        margin-bottom: 40px;
+    }
+    
+    .nav-drawer-links {
+        gap: 20px;
+    }
+    
+    .nav-drawer-links a {
+        font-size: 13px;
+        padding: 12px 0;
+    }
+    
+    /* Hero Mobile */
+    .hero {
+        min-height: 80vh;
+        padding: 80px 20px 60px;
+    }
+    
+    .hero-title {
+        font-size: clamp(50px, 18vw, 80px) !important;
+        letter-spacing: 0.2em !important;
+    }
+    
+    .hero-subtitle {
+        font-size: 10px !important;
+        letter-spacing: 0.3em !important;
+    }
+    
+    .hero-statement {
+        font-size: 12px !important;
+        padding: 0 20px;
+    }
+    
+    /* Break Section Mobile */
+    .break-section {
+        padding: 60px 20px;
+    }
+    
+    .break-quote {
+        font-size: 18px !important;
+        line-height: 1.5 !important;
+    }
+    
+    /* Products Grid Mobile */
+    .products-editorial {
+        grid-template-columns: 1fr !important;
+        gap: 0 !important;
+        padding: 0 !important;
+    }
+    
+    .product-editorial {
+        margin-bottom: 0;
+    }
+    
+    .product-editorial img {
+        height: 70vh !important;
+    }
+    
+    .product-editorial-info {
+        padding: 25px 20px !important;
+        background: var(--black-pure);
+    }
+    
+    .product-editorial-name {
+        font-size: 16px !important;
+        letter-spacing: 0.15em;
+    }
+    
+    .product-editorial-price {
+        font-size: 14px !important;
+        margin: 10px 0;
+    }
+    
+    .product-editorial-add {
+        padding: 12px 30px !important;
+        font-size: 10px !important;
+    }
+    
+    /* Sections Mobile */
+    .section {
+        padding: 60px 20px;
+    }
+    
+    .section-title {
+        font-size: 24px !important;
+    }
+    
+    /* Footer Mobile */
+    .footer {
+        padding: 40px 20px;
+    }
+    
+    .footer-text {
+        font-size: 11px;
+    }
+    
+    .footer-links {
+        gap: 20px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    .footer-link {
+        font-size: 10px;
+    }
+    
+    /* Cart Drawer Mobile */
+    .cart-drawer {
+        width: 100%;
+        max-width: none;
+    }
+    
+    /* Product Page Mobile */
+    .product-page {
+        flex-direction: column;
+    }
+    
+    .product-gallery {
+        width: 100%;
+    }
+    
+    .gallery-main {
+        height: 50vh;
+    }
+    
+    .product-info {
+        padding: 30px 20px;
+    }
+    
+    /* About Page Mobile */
+    .about-hero {
+        padding: 100px 20px 60px;
+    }
+    
+    .about-hero h1 {
+        font-size: clamp(36px, 12vw, 60px) !important;
+    }
+    
+    .about-grid {
+        grid-template-columns: 1fr !important;
+        gap: 40px !important;
+    }
+    
+    /* Account Pages Mobile */
+    .account-container {
+        padding: 100px 20px 40px;
+    }
+    
+    .account-form {
+        padding: 30px 20px;
+    }
+    
+    /* CTA Buttons Mobile */
+    .cta-premium {
+        flex-direction: column;
+        gap: 15px;
+        padding: 20px !important;
+    }
+    
+    .cta-label {
+        font-size: 12px !important;
+    }
+    
+    .cta-price {
+        font-size: 18px !important;
+    }
+    
+    /* Matrix Rain Mobile - Hide for performance */
+    .matrix-rain {
+        display: none;
+    }
+    
+    /* Background effects reduce on mobile */
+    .bg-particles {
+        opacity: 0.1 !important;
+    }
+    
+    .bg-grid {
+        opacity: 0.2 !important;
+    }
+}
+
+/* Extra Small Devices */
+@media only screen and (max-width: 380px) {
+    .hero-title {
+        font-size: 40px !important;
+    }
+    
+    .product-editorial img {
+        height: 60vh !important;
+    }
+    
+    .nav-toggle-fixed {
+        width: 45px;
+        height: 45px;
+        bottom: 15px;
+        left: 15px;
+    }
+}
+
+/* Touch Optimization */
+@media (hover: none) and (pointer: coarse) {
+    /* Remove hover effects on touch devices */
+    .product-editorial:hover img {
+        filter: grayscale(10%);
+    }
+    
+    /* Larger touch targets */
+    .nav-toggle-fixed {
+        width: 56px;
+        height: 56px;
+    }
+    
+    .product-editorial-add,
+    .cta-premium,
+    .btn-luxury {
+        min-height: 48px;
+        min-width: 48px;
+    }
+    
+    /* Active states for touch */
+    .product-editorial:active {
+        opacity: 0.9;
+    }
+}
+
+/* iOS-specific fixes */
+@supports (-webkit-touch-callout: none) {
+    .nav-main,
+    .nav-toggle-fixed,
+    .nav-drawer {
+        -webkit-backdrop-filter: blur(10px);
+    }
+    
+    .product-editorial img {
+        -webkit-transform: translateZ(0);
+    }
+}
+
+/* Landscape mobile */
+@media only screen and (max-height: 500px) and (orientation: landscape) {
+    .hero {
+        min-height: auto;
+        padding: 60px 20px;
+    }
+    
+    .hero-title {
+        font-size: 40px !important;
+    }
+    
+    .product-editorial img {
+        height: 50vh;
+    }
+}
+
+/* ============================================
+   TOUCH ICONS & APPLE TOUCH ICON
+   ============================================ */
+   
+/* Apple Touch Icon */
+<link rel="apple-touch-icon" href="favicon.svg">
+
+/* Touch icon sizing in head */
+@media only screen and (max-width: 768px) {
+    /* Ensure tap highlight is disabled */
+    * {
+        -webkit-tap-highlight-color: transparent;
+    }
+    
+    /* Smooth scrolling */
+    html {
+        scroll-behavior: smooth;
+        -webkit-overflow-scrolling: touch;
+    }
+}
+
+/* PWA-ready meta tags (add to HTML head) */
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="theme-color" content="#0A0A0A">
+
+/* Safe area for iPhone X+ */
+@supports (padding: env(safe-area-inset)) {
+    .nav-main {
+        padding-top: env(safe-area-inset-top);
+        padding-bottom: env(safe-area-inset-bottom);
+        padding-left: env(safe-area-inset-left);
+        padding-right: env(safe-area-inset-right);
+    }
+    
+    .nav-toggle-fixed {
+        bottom: calc(20px + env(safe-area-inset-bottom));
+        left: calc(20px + env(safe-area-inset-left));
+    }
+}
