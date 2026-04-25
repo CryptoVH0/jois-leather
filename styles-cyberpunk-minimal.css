@@ -1,0 +1,609 @@
+/* ============================================
+   JOIS CYBERPUNK MINIMAL
+   Supreme x Stussy x Matrix
+   Neuro Sales + Immersive Experience
+   ============================================ */
+
+:root {
+    --black: #0A0A0A;
+    --white: #FFFFFF;
+    --gray: #1A1A1A;
+    --gray-light: #2A2A2A;
+    --beige: #C4A35A;
+    --text: #F5F5F0;
+    --text-muted: #888888;
+    
+    /* Bold Typography */
+    --font-display: 'Impact', 'Arial Black', sans-serif;
+    --font-brutal: 'Arial Black', Impact, sans-serif;
+    --font-mono: 'Courier New', Courier, monospace;
+    --font-body: 'Helvetica Neue', Arial, sans-serif;
+}
+
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    border-radius: 0 !important;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-body);
+    background: var(--black);
+    color: var(--text);
+    font-weight: 400;
+    line-height: 1.5;
+    overflow-x: hidden;
+}
+
+/* ============================================
+   ENTRY ANIMATION - MATRIX IMMERSION
+   ============================================ */
+.loader-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: var(--black);
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 0.8s ease, visibility 0.8s ease;
+}
+
+.loader-screen.hidden {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.loader-logo {
+    font-family: var(--font-display);
+    font-size: clamp(60px, 15vw, 120px);
+    letter-spacing: 0.1em;
+    color: var(--white);
+    animation: glitch-text 2s infinite;
+}
+
+.loader-bar {
+    width: 200px;
+    height: 2px;
+    background: var(--gray-light);
+    margin-top: 40px;
+    position: relative;
+    overflow: hidden;
+}
+
+.loader-progress {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 0%;
+    background: var(--beige);
+    animation: load-bar 2s ease forwards;
+}
+
+@keyframes load-bar {
+    0% { width: 0%; }
+    100% { width: 100%; }
+}
+
+@keyframes glitch-text {
+    0%, 100% { transform: translate(0); }
+    20% { transform: translate(-2px, 2px); }
+    40% { transform: translate(2px, -2px); }
+    60% { transform: translate(-2px, -2px); }
+    80% { transform: translate(2px, 2px); }
+}
+
+.loader-sub {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: 0.3em;
+    color: var(--beige);
+    margin-top: 20px;
+    text-transform: uppercase;
+}
+
+/* Matrix Rain Background */
+.matrix-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+    overflow: hidden;
+    opacity: 0.15;
+}
+
+.matrix-col {
+    position: absolute;
+    top: -100%;
+    font-family: var(--font-mono);
+    font-size: 12px;
+    color: var(--beige);
+    writing-mode: vertical-rl;
+    animation: matrix-fall linear infinite;
+}
+
+/* ============================================
+   NAVIGATION - BOLD SUPREME STYLE
+   ============================================ */
+.nav-main {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    background: rgba(10, 10, 10, 0.95);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--gray);
+}
+
+.nav-inner {
+    max-width: 1600px;
+    margin: 0 auto;
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-logo {
+    font-family: var(--font-brutal);
+    font-size: 28px;
+    letter-spacing: 0.05em;
+    color: var(--white);
+    text-decoration: none;
+}
+
+.nav-links {
+    display: flex;
+    gap: 40px;
+}
+
+.nav-links a {
+    font-family: var(--font-body);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    color: var(--white);
+}
+
+.nav-right {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.nav-icon {
+    color: var(--text-muted);
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.nav-icon:hover {
+    color: var(--white);
+}
+
+/* ============================================
+   HERO - BOLD STATEMENT
+   ============================================ */
+.hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    padding: 120px 30px;
+}
+
+.hero-title {
+    font-family: var(--font-brutal);
+    font-size: clamp(80px, 20vw, 200px);
+    font-weight: 900;
+    letter-spacing: -0.02em;
+    line-height: 0.9;
+    color: var(--white);
+    text-transform: uppercase;
+}
+
+.hero-sub {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.5em;
+    color: var(--beige);
+    margin-top: 30px;
+    text-transform: uppercase;
+}
+
+.hero-scroll {
+    position: absolute;
+    bottom: 40px;
+    font-family: var(--font-mono);
+    font-size: 9px;
+    letter-spacing: 0.3em;
+    color: var(--text-muted);
+    text-transform: uppercase;
+}
+
+/* ============================================
+   SECTION - BOLD HEADERS
+   ============================================ */
+.section {
+    padding: 100px 30px;
+}
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 60px;
+    max-width: 1600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.section-title {
+    font-family: var(--font-brutal);
+    font-size: clamp(40px, 8vw, 72px);
+    font-weight: 900;
+    letter-spacing: -0.01em;
+    text-transform: uppercase;
+    color: var(--white);
+}
+
+.section-link {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    color: var(--text-muted);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-transform: uppercase;
+    transition: color 0.2s;
+}
+
+.section-link:hover {
+    color: var(--beige);
+}
+
+/* ============================================
+   PRODUCTS - SUPREME GRID
+   ============================================ */
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    max-width: 1600px;
+    margin: 0 auto;
+}
+
+.product-card {
+    position: relative;
+    background: var(--gray);
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.product-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--black);
+    opacity: 0;
+    transition: opacity 0.3s;
+    z-index: 1;
+}
+
+.product-card:hover::before {
+    opacity: 0.3;
+}
+
+.product-img {
+    width: 100%;
+    aspect-ratio: 1/1.2;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.product-card:hover .product-img {
+    transform: scale(1.05);
+}
+
+.product-info {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px;
+    z-index: 2;
+    background: linear-gradient(transparent, rgba(0,0,0,0.9));
+}
+
+.product-name {
+    font-family: var(--font-brutal);
+    font-size: 14px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--white);
+}
+
+.product-price {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    color: var(--beige);
+    margin-top: 5px;
+}
+
+.product-tag {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    background: var(--beige);
+    color: var(--black);
+    font-family: var(--font-mono);
+    font-size: 8px;
+    letter-spacing: 0.1em;
+    padding: 5px 10px;
+    text-transform: uppercase;
+    z-index: 2;
+}
+
+/* ============================================
+   NFT/TECH SECTION
+   ============================================ */
+.tech-section {
+    background: var(--gray);
+    padding: 100px 30px;
+}
+
+.tech-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    max-width: 1600px;
+    margin: 0 auto;
+}
+
+.tech-card {
+    background: var(--black);
+    padding: 40px;
+    text-align: center;
+    border: 1px solid var(--gray-light);
+    transition: border-color 0.3s;
+}
+
+.tech-card:hover {
+    border-color: var(--beige);
+}
+
+.tech-icon {
+    font-size: 48px;
+    margin-bottom: 20px;
+}
+
+.tech-title {
+    font-family: var(--font-brutal);
+    font-size: 18px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--white);
+    margin-bottom: 15px;
+}
+
+.tech-desc {
+    font-size: 13px;
+    color: var(--text-muted);
+    line-height: 1.7;
+}
+
+/* ============================================
+   ABOUT EDITORIAL
+   ============================================ */
+.editorial {
+    padding: 100px 30px;
+    background: var(--black);
+}
+
+.editorial-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    max-width: 1400px;
+    margin: 0 auto;
+    align-items: center;
+}
+
+.editorial-img {
+    width: 100%;
+    aspect-ratio: 4/5;
+    object-fit: cover;
+}
+
+.editorial-content h2 {
+    font-family: var(--font-brutal);
+    font-size: clamp(32px, 5vw, 48px);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--white);
+    margin-bottom: 30px;
+}
+
+.editorial-content p {
+    font-size: 14px;
+    line-height: 1.8;
+    color: var(--text-muted);
+    margin-bottom: 20px;
+}
+
+/* ============================================
+   FOOTER - MINIMAL
+   ============================================ */
+.footer {
+    padding: 60px 30px;
+    border-top: 1px solid var(--gray);
+    text-align: center;
+}
+
+.footer-text {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    color: var(--text-muted);
+    text-transform: uppercase;
+}
+
+.footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 20px;
+}
+
+.footer-link {
+    font-family: var(--font-mono);
+    font-size: 9px;
+    letter-spacing: 0.15em;
+    color: var(--text-muted);
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: color 0.2s;
+}
+
+.footer-link:hover {
+    color: var(--beige);
+}
+
+/* ============================================
+   CART DRAWER
+   ============================================ */
+.cart-drawer {
+    position: fixed;
+    right: -400px;
+    top: 0;
+    width: 400px;
+    height: 100vh;
+    background: var(--black);
+    border-left: 1px solid var(--gray);
+    z-index: 2000;
+    transition: right 0.4s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.cart-drawer.active {
+    right: 0;
+}
+
+.cart-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.8);
+    opacity: 0;
+    visibility: hidden;
+    z-index: 1999;
+    transition: all 0.3s;
+}
+
+.cart-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.cart-header {
+    padding: 25px;
+    border-bottom: 1px solid var(--gray);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.cart-title {
+    font-family: var(--font-brutal);
+    font-size: 14px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+}
+
+.cart-close {
+    font-size: 20px;
+    cursor: pointer;
+    color: var(--text-muted);
+}
+
+/* ============================================
+   MOBILE RESPONSIVE
+   ============================================ */
+@media only screen and (max-width: 1024px) {
+    .products-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .tech-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .nav-links {
+        display: none;
+    }
+    
+    .hero-title {
+        font-size: clamp(50px, 15vw, 80px);
+    }
+    
+    .section-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+    }
+    
+    .products-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .tech-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .editorial-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+    
+    .cart-drawer {
+        width: 100%;
+        right: -100%;
+    }
+}
