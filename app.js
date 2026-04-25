@@ -311,3 +311,49 @@ if (navToggle && navLinks) {
         if (overlay) overlay.classList.toggle('active');
     });
 }
+
+// Fixed Hamburger Menu - Bottom Left
+const navToggleFixed = document.getElementById('navToggleFixed');
+const navOverlay = document.getElementById('navOverlay');
+const navDrawer = document.getElementById('navDrawer');
+
+if (navToggleFixed && navDrawer) {
+    navToggleFixed.addEventListener('click', () => {
+        navToggleFixed.classList.toggle('active');
+        navDrawer.classList.toggle('active');
+        if (navOverlay) navOverlay.classList.toggle('active');
+        document.body.style.overflow = navDrawer.classList.contains('active') ? 'hidden' : '';
+    });
+    
+    // Close on overlay click
+    if (navOverlay) {
+        navOverlay.addEventListener('click', () => {
+            navToggleFixed.classList.remove('active');
+            navDrawer.classList.remove('active');
+            navOverlay.classList.remove('active');
+            document.body.style.overflow = '';
+        });
+    }
+    
+    // Close on link click
+    navDrawer.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+            navToggleFixed.classList.remove('active');
+            navDrawer.classList.remove('active');
+            if (navOverlay) navOverlay.classList.remove('active');
+            document.body.style.overflow = '';
+        });
+    });
+}
+
+// Nav scroll effect
+window.addEventListener('scroll', () => {
+    const navMain = document.getElementById('navMain');
+    if (navMain) {
+        if (window.scrollY > 100) {
+            navMain.style.opacity = '1';
+        } else {
+            navMain.style.opacity = '0.3';
+        }
+    }
+});

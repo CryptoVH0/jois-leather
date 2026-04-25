@@ -1074,3 +1074,162 @@ button {
     gap: 30px;
     align-items: center;
 }
+
+/* ============================================
+   FIXED HAMBURGER BUTTON - BOTTOM LEFT
+   Estilizado como botón premium fijo
+   ============================================ */
+.nav-toggle-fixed {
+    position: fixed;
+    bottom: 30px;
+    left: 30px;
+    width: 56px;
+    height: 56px;
+    background: var(--black-pure);
+    border: 1px solid rgba(196, 163, 90, 0.3);
+    border-radius: 0 !important;
+    cursor: pointer;
+    z-index: 1002;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    transition: all 0.4s ease;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+}
+
+.nav-toggle-fixed::before {
+    content: 'MENU';
+    position: absolute;
+    bottom: -25px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 9px;
+    letter-spacing: 0.2em;
+    color: var(--beige);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.nav-toggle-fixed:hover::before {
+    opacity: 1;
+}
+
+.nav-toggle-fixed:hover {
+    background: var(--black-light);
+    border-color: var(--beige);
+    transform: scale(1.05);
+}
+
+.nav-toggle-fixed span {
+    display: block;
+    width: 22px;
+    height: 1.5px;
+    background: var(--white);
+    transition: all 0.4s ease;
+}
+
+.nav-toggle-fixed.active span:nth-child(1) {
+    transform: rotate(45deg) translate(4px, 4px);
+}
+
+.nav-toggle-fixed.active span:nth-child(2) {
+    opacity: 0;
+    transform: translateX(-10px);
+}
+
+.nav-toggle-fixed.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(4px, -4px);
+}
+
+/* Nav Overlay */
+.nav-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.85);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.4s ease;
+    z-index: 1001;
+}
+
+.nav-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Nav Drawer - Lateral */
+.nav-drawer {
+    position: fixed;
+    top: 0;
+    left: -80%;
+    width: 80%;
+    max-width: 400px;
+    height: 100vh;
+    background: var(--black-pure);
+    border-right: 1px solid rgba(196, 163, 90, 0.2);
+    z-index: 1003;
+    transition: left 0.4s ease;
+    display: flex;
+    flex-direction: column;
+    padding: 80px 40px;
+}
+
+.nav-drawer.active {
+    left: 0;
+}
+
+.nav-drawer-logo {
+    font-family: 'Times New Roman MT', serif;
+    font-size: 36px;
+    letter-spacing: 0.3em;
+    color: var(--white);
+    margin-bottom: 60px;
+}
+
+.nav-drawer-links {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.nav-drawer-links a {
+    font-size: 14px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(245, 245, 240, 0.8);
+    text-decoration: none;
+    transition: color 0.3s ease;
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(196, 163, 90, 0.1);
+}
+
+.nav-drawer-links a:hover {
+    color: var(--beige);
+}
+
+.nav-drawer-social {
+    margin-top: auto;
+    display: flex;
+    gap: 20px;
+}
+
+.nav-drawer-social a {
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    color: rgba(245, 245, 240, 0.5);
+    text-decoration: none;
+}
+
+.nav-drawer-social a:hover {
+    color: var(--beige);
+}
+
+/* Hide original inline hamburger */
+.nav-toggle {
+    display: none !important;
+}

@@ -716,6 +716,32 @@
     </style>
 </head>
 <body class="scanlines">
+    <!-- Fixed Hamburger Menu Button - Bottom Left -->
+    <button class="nav-toggle-fixed" id="navToggleFixed" aria-label="Menu">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+    
+    <!-- Navigation Overlay -->
+    <div class="nav-overlay" id="navOverlay"></div>
+    
+    <!-- Navigation Drawer -->
+    <nav class="nav-drawer" id="navDrawer">
+        <a href="index.html" class="nav-drawer-logo">JOIS</a>
+        <div class="nav-drawer-links">
+            <a href="#products" class="nav-drawer-link">Productos</a>
+            <a href="#hombre" class="nav-drawer-link">Hombre</a>
+            <a href="#mujer" class="nav-drawer-link">Mujer</a>
+            <a href="nft.html" class="nav-drawer-link">NFT</a>
+            <a href="about.html" class="nav-drawer-link">About</a>
+            <a href="account/login.html" class="nav-drawer-link">Sign In</a>
+        </div>
+        <div class="nav-drawer-social">
+            <a href="https://www.tiktok.com/@joisleather" target="_blank">TikTok</a>
+            <a href="https://www.instagram.com/leatherjois" target="_blank">Instagram</a>
+        </div>
+    </nav>
     <!-- Background Effects -->
     <div class="bg-particles"></div>
     <div class="bg-grid"></div>
@@ -737,7 +763,8 @@
     </div>
     
     <!-- Navigation -->
-    <nav class="nav-main" id="navMain">
+    <nav class="nav-main" id="navMain" style="opacity: 0.3;">
+    <!-- Fixed Hamburger Button - Bottom Left -->
         <a href="index.html" class="nav-logo">JOIS</a>
         <button class="nav-toggle" id="navToggle" aria-label="Menu">
             <span></span>
