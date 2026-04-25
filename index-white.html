@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JOIS — Maison de Cuir Contemporáneo</title>
+    <link rel="stylesheet" href="styles-premium-white.css">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    
+    <!-- SEO -->
+    <meta name="description" content="JOIS - Maison de Cuir Contemporáneo. Cuero premium, diseño atemporal. Hombre y Mujer.">
+    <meta name="keywords" content="cuero, leather, luxury, fashion, menswear, womenswear, mexico">
+    <meta property="og:title" content="JOIS — Maison de Cuir Contemporáneo">
+    <meta property="og:description" content="Cuero premium, diseño atemporal.">
+    <meta property="og:type" content="website">
+    
+    <style>
+        /* JOIS Premium White - Specific overrides */
+        .hero {
+            position: relative;
+        }
+        
+        .hero::before {
+            content: 'JOIS';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-family: var(--font-display);
+            font-size: clamp(200px, 40vw, 400px);
+            color: var(--gray-light);
+            z-index: 0;
+            letter-spacing: 0.3em;
+            white-space: nowrap;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav-main">
+        <div class="nav-inner">
+            <a href="index-white.html" class="nav-logo">JOIS</a>
+            <div class="nav-links">
+                <a href="#hombre">Hombre</a>
+                <a href="#mujer">Mujer</a>
+                <a href="#coleccion">Colección</a>
+                <a href="about.html">Nosotros</a>
+                <a href="nft.html">NFT</a>
+            </div>
+            <div class="nav-right">
+                <a href="account/login.html" class="nav-icon" title="Mi Cuenta">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                        <circle cx="12" cy="7" r="4"/>
+                    </svg>
+                </a>
+                <span class="nav-icon" id="cartIcon">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/>
+                        <line x1="3" y1="6" x2="21" y2="6"/>
+                        <path d="M16 10a4 4 0 0 1-8 0"/>
+                    </svg>
+                </span>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">JOIS</h1>
+            <p class="hero-subtitle">Maison de Cuir Contemporain</p>
+            <p class="hero-statement">Cuero premium. Diseño atemporal. Artesanía mexicana.</p>
+        </div>
+    </section>
+    
+    <!-- Break Quote -->
+    <section class="break-section">
+        <p class="break-quote">"El lujo no es lo que ves, es lo que sientes cuando lo llevas."</p>
+        <p class="break-author">— JOIS</p>
+    </section>
+    
+    <!-- Hombre Section -->
+    <section class="section" id="hombre">
+        <div class="section-header">
+            <h2 class="section-title">Hombre</h2>
+            <a href="#" class="section-link">
+                Ver Colección
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M5 12h14M12 5l7 7-7 7"/>
+                </svg>
+            </a>
+        </div>
+        <div class="products-editorial">
+            <div class="product-editorial">
+                <img src="https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=600&q=90" alt="Shirt Jacket">
+                <div class="product-editorial-info">
+                    <h3 class="product-editorial-name">Shirt Jacket</h3>
+                    <p class="product-editorial-price">$6,650 MXN</p>
+                    <span class="product-editorial-add">Añadir</span>
+                </div>
+            </div>
+            <div class="product-editorial">
+                <img src="https://images.unsplash.com/photo-1551028719-00167b16eac5?w=600&q=90" alt="Bomber">
+                <div class="product-editorial-info">
+                    <h3 class="product-editorial-name">Bomber</h3>
+                    <p class="product-editorial-price">$9,100 MXN</p>
+                    <span class="product-editorial-add">Añadir</span>
+                </div>
+            </div>
+            <div class="product-editorial">
+                <img src="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=600&q=90" alt="Weekender">
+                <div class="product-editorial-info">
+                    <h3 class="product-editorial-name">Weekender</h3>
+                    <p class="product-editorial-price">$8,400 MXN</p>
+                    <span class="product-editorial-add">Añadir</span>
+                </div>
+            </div>
+            <div class="product-editorial">
+                <img src="https://images.unsplash.com/photo-1627123424574-724758594e93?w=600&q=90" alt="Wallet">
+                <div class="product-editorial-info">
+                    <h3 class="product-editorial-name">Wallet</h3>
+                    <p class="product-editorial-price">$3,150 MXN</p>
+                    <span class="product-editorial-add">Añadir</span>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Mujer Section -->
+    <section class="section" id="mujer">
+        <div class="section-header">
+            <h2 class="section-title">Mujer</h2>
+            <a href="#" class="section-link">
+                Ver Colección
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M5 12h14M12 5l7 7-7 7"/>
+                </svg>
+            </a>
+        </div>
+        <div class="products-editorial">
+            <div class="product-editorial">
+                <img src="https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=600&q=90" alt="Shirt Jacket">
+                <div class="product-editorial-info">
+                    <h3 class="product-editorial-name">Shirt Jacket</h3>
+                    <p class="product-editorial-price">$6,650 MXN</p>
+                    <span class="product-editorial-add">Añadir</span>
+                </div>
+            </div>
+            <div class="product-editorial">
+                <img src="https://images.unsplash.com/photo-1551028719-00167b16eac5?w=600&q=90" alt="Bomber">
+                <div class="product-editorial-info">
+                    <h3 class="product-editorial-name">Bomber</h3>
+                    <p class="product-editorial-price">$9,100 MXN</p>
+                    <span class="product-editorial-add">Añadir</span>
+                </div>
+            </div>
+            <div class="product-editorial">
+                <img src="https://images.unsplash.com/photo-1551488831-00ddcb6c6bd3?w=600&q=90" alt="Bomber Noir">
+                <div class="product-editorial-info">
+                    <h3 class="product-editorial-name">Bomber Noir</h3>
+                    <p class="product-editorial-price">$7,875 MXN</p>
+                    <span class="product-editorial-add">Añadir</span>
+                </div>
+            </div>
+            <div class="product-editorial">
+                <img src="https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=600&q=90" alt="Shirt Jacket">
+                <div class="product-editorial-info">
+                    <h3 class="product-editorial-name">Shirt Jacket</h3>
+                    <p class="product-editorial-price">$6,650 MXN</p>
+                    <span class="product-editorial-add">Añadir</span>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- About Editorial -->
+    <section class="editorial" id="nosotros">
+        <div class="editorial-inner">
+            <img class="editorial-image" src="https://images.unsplash.com/photo-1539533018447-63fcce2678e3?w=800&q=90" alt="JOIS Craftsmanship">
+            <div class="editorial-content">
+                <h2>Artesanía Mexicana</h2>
+                <p>Cada pieza JOIS es diseñada y construida en nuestro atelier de la Ciudad de México. Respetamos las técnicas tradicionales de trabajo de cuero mientras incorporamos diseño contemporáneo.</p>
+                <p>El cuero que usamos proviene de León, Guanajuato — centro mundial del cuero premium desde 1576. Cada pieza es una declaración de intención.</p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="footer">
+        <p class="footer-text">© 2024 JOIS — Maison de Cuir Contemporain</p>
+        <div class="footer-links">
+            <a href="legal/index.html" class="footer-link">Legal</a>
+            <a href="#" class="footer-link">Contacto</a>
+            <a href="https://www.tiktok.com/@joisleather" class="footer-link">TikTok</a>
+            <a href="https://www.instagram.com/leatherjois" class="footer-link">Instagram</a>
+        </div>
+    </footer>
+    
+    <!-- Cart Drawer -->
+    <div class="cart-overlay" id="cartOverlay"></div>
+    <div class="cart-drawer" id="cartDrawer">
+        <div class="cart-header">
+            <h2 class="cart-title">Carrito</h2>
+            <span class="cart-close" id="cartClose">×</span>
+        </div>
+        <div class="cart-content" id="cartContent">
+            <!-- Cart items will be loaded here -->
+        </div>
+    </div>
+    
+    <!-- Scripts -->
+    <script src="app-cart.js"></script>
+</body>
+</html>
+<script>
+// Cart functionality
+const cartDrawer = document.getElementById('cartDrawer');
+const cartOverlay = document.getElementById('cartOverlay');
+const cartClose = document.getElementById('cartClose');
+const cartIcon = document.getElementById('cartIcon');
+
+if (cartIcon) {
+    cartIcon.addEventListener('click', () => {
+        cartDrawer.classList.add('active');
+        cartOverlay.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    });
+}
+
+if (cartClose) {
+    cartClose.addEventListener('click', closeCart);
+}
+
+if (cartOverlay) {
+    cartOverlay.addEventListener('click', closeCart);
+}
+
+function closeCart() {
+    cartDrawer.classList.remove('active');
+    cartOverlay.classList.remove('active');
+    document.body.style.overflow = '';
+}
+
+// Add to cart
+let cart = JSON.parse(localStorage.getItem('jois_cart')) || [];
+
+function addToCart(name, price, image, size) {
+    const item = { name, price, image, size, id: Date.now() };
+    cart.push(item);
+    localStorage.setItem('jois_cart', JSON.stringify(cart));
+    updateCart();
+    openCart();
+}
+
+function updateCart() {
+    const cartContent = document.getElementById('cartContent');
+    if (!cartContent) return;
+    
+    if (cart.length === 0) {
+        cartContent.innerHTML = '<p style="padding: 30px; text-align: center; color: #999;">Tu carrito está vacío</p>';
+    } else {
+        let total = 0;
+        let html = '<div style="padding: 20px; overflow-y: auto; flex: 1;">';
+        cart.forEach((item, index) => {
+            total += item.price;
+            html += `
+                <div style="display: flex; gap: 15px; padding: 15px 0; border-bottom: 1px solid #E8E8E8;">
+                    <img src="${item.image}" style="width: 60px; height: 80px; object-fit: cover;">
+                    <div style="flex: 1;">
+                        <p style="font-size: 12px; letter-spacing: 0.1em;">${item.name}</p>
+                        <p style="font-size: 11px; color: #999; margin-top: 5px;">${item.size}</p>
+                        <p style="font-family: Menlo, monospace; font-size: 12px; margin-top: 10px;">$${item.price.toLocaleString()} MXN</p>
+                    </div>
+                    <button onclick="removeFromCart(${index})" style="background: none; border: none; cursor: pointer; font-size: 18px; color: #999;">×</button>
+                </div>
+            `;
+        });
+        html += '</div>';
+        html += `
+            <div style="padding: 20px; border-top: 1px solid #E8E8E8;">
+                <p style="text-align: center; font-size: 14px; margin-bottom: 15px;">Total: <strong style="font-family: Menlo, monospace;">$${total.toLocaleString()} MXN</strong></p>
+                <a href="checkout.html" class="product-editorial-add" style="display: block; text-align: center; text-decoration: none;">Proceder al Pago</a>
+            </div>
+        `;
+        cartContent.innerHTML = html;
+    }
+}
+
+function removeFromCart(index) {
+    cart.splice(index, 1);
+    localStorage.setItem('jois_cart', JSON.stringify(cart));
+    updateCart();
+}
+
+function openCart() {
+    cartDrawer.classList.add('active');
+    cartOverlay.classList.add('active');
+    document.body.style.overflow = 'hidden';
+}
+
+function closeCart() {
+    cartDrawer.classList.remove('active');
+    cartOverlay.classList.remove('active');
+    document.body.style.overflow = '';
+}
+
+// Add click handlers to "Añadir" buttons
+document.querySelectorAll('.product-editorial-add').forEach((btn, index) => {
+    btn.addEventListener('click', () => {
+        const products = document.querySelectorAll('.product-editorial');
+        const product = products[index];
+        const name = product.querySelector('.product-editorial-name').textContent;
+        const priceText = product.querySelector('.product-editorial-price').textContent.replace(/[^0-9]/g, '');
+        const price = parseInt(priceText);
+        const image = product.querySelector('img').src;
+        addToCart(name, price, image, 'M');
+    });
+});
+
+// Initialize
+updateCart();
+</script>
