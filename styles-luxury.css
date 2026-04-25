@@ -1233,3 +1233,39 @@ button {
 .nav-toggle {
     display: none !important;
 }
+
+/* ============================================
+   USER ACCOUNT ICON - NAV RIGHT
+   ============================================ */
+.nav-user {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--white-muted);
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.nav-user:hover {
+    color: var(--beige);
+}
+
+.nav-user svg {
+    transition: transform 0.3s ease;
+}
+
+.nav-user:hover svg {
+    transform: scale(1.1);
+}
+
+/* User logged in state */
+.nav-user.logged-in::after {
+    content: '';
+    position: absolute;
+    top: -2px;
+    right: -2px;
+    width: 8px;
+    height: 8px;
+    background: var(--beige);
+    border-radius: 50%;
+}
