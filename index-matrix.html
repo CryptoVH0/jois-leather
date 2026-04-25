@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JOIS — Maison de Cuir</title>
+    <link rel="stylesheet" href="styles-matrix-minimal.css">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    
+    <meta name="description" content="JOIS — Maison de Cuir Contemporáneo. Cuero premium. Artesanía mexicana.">
+    <meta property="og:title" content="JOIS — Maison de Cuir">
+    <meta property="og:description" content="Cuero premium. Diseño atemporal. Artesanía mexicana.">
+</head>
+<body>
+    <!-- Matrix Background -->
+    <div class="matrix-bg" id="matrixBg"></div>
+
+    <!-- Loader -->
+    <div class="loader" id="loader">
+        <div class="loader-text">JOIS</div>
+        <div class="loader-line">
+            <div class="loader-progress"></div>
+        </div>
+        <div class="loader-status">Initializing system...</div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="nav">
+        <a href="index-matrix.html" class="nav-logo">JOIS</a>
+        <div class="nav-links">
+            <a href="#drops">DROPS</a>
+            <a href="#hombre">HOMBRE</a>
+            <a href="#mujer">MUJER</a>
+            <a href="#tech">TECH</a>
+            <a href="#nft">NFT</a>
+            <a href="about.html">INFO</a>
+        </div>
+        <div class="nav-right">
+            <a href="account/login.html" class="nav-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                    <circle cx="12" cy="7" r="4"/>
+                </svg>
+            </a>
+            <span class="nav-icon" id="cartIcon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/>
+                    <line x1="3" y1="6" x2="21" y2="6"/>
+                    <path d="M16 10a4 4 0 0 1-8 0"/>
+                </svg>
+            </span>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero">
+        <h1 class="hero-title">JOIS</h1>
+        <p class="hero-sub">Maison de Cuir</p>
+        <p class="hero-tagline">Cuero premium. León, México. Desde 1576.</p>
+    </section>
+
+    <!-- Drops -->
+    <section class="section" id="drops">
+        <div class="section-header">
+            <h2 class="section-title">New Drops</h2>
+            <a href="#" class="section-link">View Collection →</a>
+        </div>
+        <div class="products">
+            <div class="product" data-name="SHIRT JACKET" data-price="6650" data-img="https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=600&q=90">
+                <span class="product-tag">New</span>
+                <img src="https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=600&q=90" alt="Shirt Jacket">
+                <div class="product-info">
+                    <h3 class="product-name">SHIRT JACKET</h3>
+                    <p class="product-price">$6,650 MXN</p>
+                </div>
+            </div>
+            <div class="product" data-name="BOMBER" data-price="9100" data-img="https://images.unsplash.com/photo-1551028719-00167b16eac5?w=600&q=90">
+                <span class="product-tag">Limited</span>
+                <img src="https://images.unsplash.com/photo-1551028719-00167b16eac5?w=600&q=90" alt="Bomber">
+                <div class="product-info">
+                    <h3 class="product-name">BOMBER</h3>
+                    <p class="product-price">$9,100 MXN</p>
+                </div>
+            </div>
+            <div class="product" data-name="WEEKENDER" data-price="8400" data-img="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=600&q=90">
+                <img src="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=600&q=90" alt="Weekender">
+                <div class="product-info">
+                    <h3 class="product-name">WEEKENDER</h3>
+                    <p class="product-price">$8,400 MXN</p>
+                </div>
+            </div>
+            <div class="product" data-name="WALLET" data-price="3150" data-img="https://images.unsplash.com/photo-1627123424574-724758594e93?w=600&q=90">
+                <span class="product-tag">NFT</span>
+                <img src="https://images.unsplash.com/photo-1627123424574-724758594e93?w=600&q=90" alt="Wallet">
+                <div class="product-info">
+                    <h3 class="product-name">WALLET</h3>
+                    <p class="product-price">$3,150 MXN</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Hombre -->
+    <section class="section" id="hombre">
+        <div class="section-header">
+            <h2 class="section-title">Hombre</h2>
+            <a href="#" class="section-link">Ver Colección →</a>
+        </div>
+        <div class="products">
+            <div class="product" data-name="SHIRT JACKET" data-price="6650" data-img="https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=600&q=90">
+                <img src="https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=600&q=90" alt="Shirt Jacket">
+                <div class="product-info">
+                    <h3 class="product-name">SHIRT JACKET</h3>
+                    <p class="product-price">$6,650 MXN</p>
+                </div>
+            </div>
+            <div class="product" data-name="BOMBER" data-price="9100" data-img="https://images.unsplash.com/photo-1551028719-00167b16eac5?w=600&q=90">
+                <img src="https://images.unsplash.com/photo-1551028719-00167b16eac5?w=600&q=90" alt="Bomber">
+                <div class="product-info">
+                    <h3 class="product-name">BOMBER</h3>
+                    <p class="product-price">$9,100 MXN</p>
+                </div>
+            </div>
+            <div class="product" data-name="WEEKENDER" data-price="8400" data-img="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=600&q=90">
+                <img src="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=600&q=90" alt="Weekender">
+                <div class="product-info">
+                    <h3 class="product-name">WEEKENDER</h3>
+                    <p class="product-price">$8,400 MXN</p>
+                </div>
+            </div>
+            <div class="product" data-name="WALLET" data-price="3150" data-img="https://images.unsplash.com/photo-1627123424574-724758594e93?w=600&q=90">
+                <img src="https://images.unsplash.com/photo-1627123424574-724758594e93?w=600&q=90" alt="Wallet">
+                <div class="product-info">
+                    <h3 class="product-name">WALLET</h3>
+                    <p class="product-price">$3,150 MXN</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mujer -->
+    <section class="section" id="mujer">
+        <div class="section-header">
+            <h2 class="section-title">Mujer</h2>
+            <a href="#" class="section-link">Ver Colección →</a>
+        </div>
+        <div class="products">
+            <div class="product" data-name="SHIRT JACKET" data-price="6650" data-img="https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=600&q=90">
+                <img src="https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=600&q=90" alt="Shirt Jacket">
+                <div class="product-info">
+                    <h3 class="product-name">SHIRT JACKET</h3>
+                    <p class="product-price">$6,650 MXN</p>
+                </div>
+            </div>
+            <div class="product" data-name="BOMBER" data-price="9100" data-img="https://images.unsplash.com/photo-1551028719-00167b16eac5?w=600&q=90">
+                <img src="https://images.unsplash.com/photo-1551028719-00167b16eac5?w=600&q=90" alt="Bomber">
+                <div class="product-info">
+                    <h3 class="product-name">BOMBER</h3>
+                    <p class="product-price">$9,100 MXN</p>
+                </div>
+            </div>
+            <div class="product" data-name="BOMBER NOIR" data-price="7875" data-img="https://images.unsplash.com/photo-1551488831-00ddcb6c6bd3?w=600&q=90">
+                <img src="https://images.unsplash.com/photo-1551488831-00ddcb6c6bd3?w=600&q=90" alt="Bomber Noir">
+                <div class="product-info">
+                    <h3 class="product-name">BOMBER NOIR</h3>
+                    <p class="product-price">$7,875 MXN</p>
+                </div>
+            </div>
+            <div class="product" data-name="SHIRT JACKET" data-price="6650" data-img="https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=600&q=90">
+                <img src="https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=600&q=90" alt="Shirt Jacket">
+                <div class="product-info">
+                    <h3 class="product-name">SHIRT JACKET</h3>
+                    <p class="product-price">$6,650 MXN</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tech -->
+    <section class="section" id="tech" style="background: var(--gray);">
+        <div class="section-header">
+            <h2 class="section-title">Tech</h2>
+            <a href="nft.html" class="section-link">View NFT →</a>
+        </div>
+        <div class="tech-grid">
+            <div class="tech-card">
+                <div class="tech-icon">◇</div>
+                <h3 class="tech-title">BLOCKCHAIN</h3>
+                <p class="tech-desc">Certificado digital único. Verificación de autenticidad on-chain.</p>
+            </div>
+            <div class="tech-card">
+                <div class="tech-icon">◈</div>
+                <h3 class="tech-title">NFT PASS</h3>
+                <p class="tech-desc">Drops exclusivos. Contenido premium. Experiencias únicas.</p>
+            </div>
+            <div class="tech-card">
+                <div class="tech-icon">○</div>
+                <h3 class="tech-title">VERIFY</h3>
+                <p class="tech-desc">Ownership verificable. Tu pieza trasciende lo físico.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- NFT -->
+    <section class="section" id="nft">
+        <div class="section-header">
+            <h2 class="section-title">NFT Collection</h2>
+            <a href="nft.html" class="section-link">View All →</a>
+        </div>
+        <div class="products">
+            <div class="product" data-name="GENESIS PASS" data-price="5000" data-img="https://images.unsplash.com/photo-1634973357973-f2ed2657db3c?w=600&q=90">
+                <span class="product-tag">1/1</span>
+                <img src="https://images.unsplash.com/photo-1634973357973-f2ed2657db3c?w=600&q=90" alt="Genesis Pass">
+                <div class="product-info">
+                    <h3 class="product-name">GENESIS PASS</h3>
+                    <p class="product-price">0.5 ETH</p>
+                </div>
+            </div>
+            <div class="product" data-name="CRAFT TOKEN" data-price="3000" data-img="https://images.unsplash.com/photo-1646463276616-2f7f8a6f5c0d?w=600&q=90">
+                <span class="product-tag">1/1</span>
+                <img src="https://images.unsplash.com/photo-1646463276616-2f7f8a6f5c0d?w=600&q=90" alt="Craft Token">
+                <div class="product-info">
+                    <h3 class="product-name">CRAFT TOKEN</h3>
+                    <p class="product-price">0.3 ETH</p>
+                </div>
+            </div>
+            <div class="product" data-name="ARTISAN SERIES" data-price="1500" data-img="https://images.unsplash.com/photo-1620321023374-d1a68fbc720f?w=600&q=90">
+                <span class="product-tag">EDITION</span>
+                <img src="https://images.unsplash.com/photo-1620321023374-d1a68fbc720f?w=600&q=90" alt="Artisan Series">
+                <div class="product-info">
+                    <h3 class="product-name">ARTISAN SERIES</h3>
+                    <p class="product-price">0.15 ETH</p>
+                </div>
+            </div>
+            <div class="product" data-name="FOUNDER NFT" data-price="1000" data-img="https://images.unsplash.com/photo-1618005198919-d3d4b5c92dbc?w=600&q=90">
+                <span class="product-tag">WHITELIST</span>
+                <img src="https://images.unsplash.com/photo-1618005198919-d3d4b5c92dbc?w=600&q=90" alt="Founder NFT">
+                <div class="product-info">
+                    <h3 class="product-name">FOUNDER NFT</h3>
+                    <p class="product-price">MINT PRICE</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About -->
+    <section class="editorial">
+        <img class="editorial-img" src="https://images.unsplash.com/photo-1539533018447-63fcce2678e3?w=800&q=90" alt="JOIS Craftsmanship">
+        <div class="editorial-content">
+            <h2 class="editorial-title">León, México. 1576.</h2>
+            <p class="editorial-text">El cuero premium tiene memoria. Cada pieza JOIS es construida a mano en nuestro atelier. Cada puntada es una decisión. Cada borde es burnished a la perfección.</p>
+            <p class="editorial-text">Esto no es moda. Es craft.</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p class="footer-text">© 2024 JOIS — Maison de Cuir</p>
+        <div class="footer-links">
+            <a href="legal/index.html" class="footer-link">Legal</a>
+            <a href="#" class="footer-link">Contacto</a>
+            <a href="https://www.tiktok.com/@joisleather" class="footer-link">TikTok</a>
+            <a href="https://www.instagram.com/leatherjois" class="footer-link">Instagram</a>
+        </div>
+    </footer>
+
+    <!-- Cart -->
+    <div class="cart-overlay" id="cartOverlay"></div>
+    <div class="cart-drawer" id="cartDrawer">
+        <div class="cart-header">
+            <h2 class="cart-title">Cart</h2>
+            <span class="cart-close" id="cartClose">×</span>
+        </div>
+        <div class="cart-content" id="cartContent">
+            <p style="padding: 40px; text-align: center; color: #666; font-family: var(--font-display); font-size: 10px; letter-spacing: 0.2em;">EMPTY CART</p>
+        </div>
+    </div>
+
+    <script>
+        // Matrix Rain
+        function createMatrixRain() {
+            const bg = document.getElementById('matrixBg');
+            const chars = 'JOIS0123456789';
+            const cols = Math.floor(window.innerWidth / 25);
+            
+            for (let i = 0; i < cols; i++) {
+                const col = document.createElement('div');
+                col.className = 'matrix-column';
+                col.style.left = (i * 25) + 'px';
+                col.style.animationDuration = (Math.random() * 15 + 15) + 's';
+                col.style.animationDelay = (Math.random() * 10) + 's';
+                
+                let text = '';
+                for (let j = 0; j < 40; j++) {
+                    text += chars.charAt(Math.floor(Math.random() * chars.length)) + '<br>';
+                }
+                col.innerHTML = text;
+                bg.appendChild(col);
+            }
+        }
+
+        // Loader
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                document.getElementById('loader').classList.add('hidden');
+            }, 1800);
+            createMatrixRain();
+        });
+
+        // Cart
+        let cart = JSON.parse(localStorage.getItem('jois_cart')) || [];
+        
+        const cartDrawer = document.getElementById('cartDrawer');
+        const cartOverlay = document.getElementById('cartOverlay');
+        const cartClose = document.getElementById('cartClose');
+        
+        document.getElementById('cartIcon').addEventListener('click', () => {
+            cartDrawer.classList.add('active');
+            cartOverlay.classList.add('active');
+        });
+        
+        cartClose.addEventListener('click', () => {
+            cartDrawer.classList.remove('active');
+            cartOverlay.classList.remove('active');
+        });
+        
+        cartOverlay.addEventListener('click', () => {
+            cartDrawer.classList.remove('active');
+            cartOverlay.classList.remove('active');
+        });
+
+        function updateCart() {
+            const content = document.getElementById('cartContent');
+            if (cart.length === 0) {
+                content.innerHTML = '<p style="padding: 40px; text-align: center; color: #666; font-family: var(--font-display); font-size: 10px; letter-spacing: 0.2em;">EMPTY CART</p>';
+            } else {
+                let total = 0;
+                let html = '<div style="padding: 20px; overflow-y: auto;">';
+                cart.forEach((item, i) => {
+                    total += item.price;
+                    html += `<div style="display: flex; gap: 15px; padding: 15px 0; border-bottom: 1px solid #2A2A2A;">
+                        <img src="${item.image}" style="width: 60px; height: 80px; object-fit: cover;">
+                        <div style="flex: 1;">
+                            <p style="font-family: var(--font-display); font-size: 10px; letter-spacing: 0.15em;">${item.name}</p>
+                            <p style="font-family: var(--font-display); font-size: 11px; color: #C4A35A; margin-top: 5px;">$${item.price.toLocaleString()} MXN</p>
+                        </div>
+                        <button onclick="removeFromCart(${i})" style="background: none; border: none; color: #666; cursor: pointer; font-size: 18px;">×</button>
+                    </div>`;
+                });
+                html += '</div>';
+                html += `<div style="padding: 20px; border-top: 1px solid #2A2A2A;">
+                    <p style="text-align: center; font-family: var(--font-display); font-size: 12px;">TOTAL: <strong style="color: #C4A35A;">$${total.toLocaleString()} MXN</strong></p>
+                    <a href="checkout.html" style="display: block; text-align: center; padding: 15px; background: #C4A35A; color: #0A0A0A; font-family: var(--font-display); font-size: 10px; letter-spacing: 0.15em; text-decoration: none; margin-top: 15px;">CHECKOUT</a>
+                </div>`;
+                content.innerHTML = html;
+            }
+        }
+
+        function removeFromCart(index) {
+            cart.splice(index, 1);
+            localStorage.setItem('jois_cart', JSON.stringify(cart));
+            updateCart();
+        }
+
+        // Add to cart on product click
+        document.querySelectorAll('.product').forEach(product => {
+            product.addEventListener('click', () => {
+                const name = product.dataset.name;
+                const price = parseInt(product.dataset.price);
+                const image = product.dataset.img;
+                cart.push({ name, price, image, id: Date.now() });
+                localStorage.setItem('jois_cart', JSON.stringify(cart));
+                updateCart();
+                cartDrawer.classList.add('active');
+                cartOverlay.classList.add('active');
+            });
+        });
+
+        updateCart();
+    </script>
+</body>
+</html>

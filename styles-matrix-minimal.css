@@ -1,0 +1,592 @@
+/* ============================================
+   JOIS MATRIX MINIMAL
+   True Minimal x Matrix Identity
+   ============================================ */
+
+:root {
+    --black: #0A0A0A;
+    --matrix-gold: #C4A35A;
+    --matrix-amber: #D4AF37;
+    --white: #F5F5F0;
+    --gray: #1A1A1A;
+    --gray-mid: #2A2A2A;
+    --text-muted: #666666;
+    
+    --font-display: 'Courier New', Courier, monospace;
+    --font-body: 'Helvetica Neue', Arial, sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    border-radius: 0 !important;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-body);
+    background: var(--black);
+    color: var(--white);
+    font-weight: 300;
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* ============================================
+   MATRIX BACKGROUND - Subtle rain
+   ============================================ */
+.matrix-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+    overflow: hidden;
+}
+
+.matrix-column {
+    position: absolute;
+    top: -100%;
+    font-family: var(--font-display);
+    font-size: 11px;
+    color: var(--matrix-gold);
+    opacity: 0.12;
+    writing-mode: vertical-rl;
+    text-orientation: upright;
+    animation: matrix-fall linear infinite;
+    letter-spacing: 8px;
+}
+
+@keyframes matrix-fall {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(250vh); }
+}
+
+/* ============================================
+   LOADER - Terminal boot
+   ============================================ */
+.loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: var(--black);
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 1s ease, visibility 1s ease;
+}
+
+.loader.hidden {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.loader-text {
+    font-family: var(--font-display);
+    font-size: clamp(48px, 12vw, 96px);
+    letter-spacing: 0.3em;
+    color: var(--white);
+    margin-bottom: 40px;
+}
+
+.loader-line {
+    width: 200px;
+    height: 1px;
+    background: var(--gray);
+    position: relative;
+    overflow: hidden;
+}
+
+.loader-progress {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 0%;
+    background: var(--matrix-gold);
+    animation: boot-load 1.5s ease forwards;
+}
+
+@keyframes boot-load {
+    0% { width: 0%; }
+    100% { width: 100%; }
+}
+
+.loader-status {
+    font-family: var(--font-display);
+    font-size: 10px;
+    letter-spacing: 0.4em;
+    color: var(--matrix-gold);
+    margin-top: 30px;
+    text-transform: uppercase;
+}
+
+/* ============================================
+   NAVIGATION - Minimal terminal
+   ============================================ */
+.nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    padding: 30px 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(var(--black) 0%, transparent 100%);
+}
+
+.nav-logo {
+    font-family: var(--font-display);
+    font-size: 18px;
+    letter-spacing: 0.4em;
+    color: var(--white);
+    text-decoration: none;
+}
+
+.nav-links {
+    display: flex;
+    gap: 50px;
+}
+
+.nav-links a {
+    font-family: var(--font-display);
+    font-size: 10px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: var(--matrix-gold);
+}
+
+.nav-right {
+    display: flex;
+    gap: 25px;
+    align-items: center;
+}
+
+.nav-icon {
+    color: var(--text-muted);
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.nav-icon:hover {
+    color: var(--matrix-gold);
+}
+
+/* ============================================
+   HERO - Clean statement
+   ============================================ */
+.hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+    padding: 0 50px;
+}
+
+.hero-title {
+    font-family: var(--font-display);
+    font-size: clamp(72px, 18vw, 160px);
+    font-weight: 400;
+    letter-spacing: 0.5em;
+    color: var(--white);
+    padding-left: 0.5em;
+}
+
+.hero-sub {
+    font-family: var(--font-display);
+    font-size: 10px;
+    letter-spacing: 0.6em;
+    color: var(--matrix-gold);
+    margin-top: 30px;
+    text-transform: uppercase;
+}
+
+.hero-tagline {
+    font-size: 13px;
+    color: var(--text-muted);
+    margin-top: 50px;
+    max-width: 400px;
+}
+
+/* ============================================
+   SECTIONS - Minimal grid
+   ============================================ */
+.section {
+    padding: 120px 50px;
+    position: relative;
+    z-index: 1;
+}
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 80px;
+    max-width: 1400px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-bottom: 30px;
+    border-bottom: 1px solid var(--gray);
+}
+
+.section-title {
+    font-family: var(--font-display);
+    font-size: 11px;
+    letter-spacing: 0.5em;
+    text-transform: uppercase;
+    color: var(--white);
+}
+
+.section-link {
+    font-family: var(--font-display);
+    font-size: 9px;
+    letter-spacing: 0.3em;
+    color: var(--text-muted);
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: color 0.3s;
+}
+
+.section-link:hover {
+    color: var(--matrix-gold);
+}
+
+/* ============================================
+   PRODUCTS - Clean cards
+   ============================================ */
+.products {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.product {
+    position: relative;
+    cursor: pointer;
+}
+
+.product img {
+    width: 100%;
+    aspect-ratio: 3/4;
+    object-fit: cover;
+    filter: grayscale(20%);
+    transition: all 0.6s ease;
+}
+
+.product:hover img {
+    filter: grayscale(0%);
+}
+
+.product-tag {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    font-family: var(--font-display);
+    font-size: 8px;
+    letter-spacing: 0.2em;
+    padding: 5px 10px;
+    background: var(--matrix-gold);
+    color: var(--black);
+    text-transform: uppercase;
+}
+
+.product-info {
+    padding: 20px 0;
+}
+
+.product-name {
+    font-family: var(--font-display);
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--white);
+}
+
+.product-price {
+    font-family: var(--font-display);
+    font-size: 11px;
+    color: var(--text-muted);
+    margin-top: 8px;
+}
+
+/* ============================================
+   TECH SECTION - Minimal cards
+   ============================================ */
+.tech-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.tech-card {
+    padding: 50px 40px;
+    background: var(--gray);
+    border: 1px solid var(--gray-mid);
+    text-align: center;
+    transition: border-color 0.3s;
+}
+
+.tech-card:hover {
+    border-color: var(--matrix-gold);
+}
+
+.tech-icon {
+    font-size: 32px;
+    color: var(--matrix-gold);
+    margin-bottom: 25px;
+}
+
+.tech-title {
+    font-family: var(--font-display);
+    font-size: 12px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--white);
+    margin-bottom: 15px;
+}
+
+.tech-desc {
+    font-size: 12px;
+    color: var(--text-muted);
+    line-height: 1.8;
+}
+
+/* ============================================
+   EDITORIAL - Simple split
+   ============================================ */
+.editorial {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.editorial-img {
+    width: 100%;
+    aspect-ratio: 4/5;
+    object-fit: cover;
+}
+
+.editorial-content {
+    padding: 80px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.editorial-title {
+    font-family: var(--font-display);
+    font-size: 14px;
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    color: var(--white);
+    margin-bottom: 40px;
+}
+
+.editorial-text {
+    font-size: 14px;
+    color: var(--text-muted);
+    line-height: 2;
+}
+
+/* ============================================
+   FOOTER - Terminal style
+   ============================================ */
+.footer {
+    padding: 80px 50px;
+    border-top: 1px solid var(--gray);
+    text-align: center;
+    position: relative;
+    z-index: 1;
+}
+
+.footer-text {
+    font-family: var(--font-display);
+    font-size: 10px;
+    letter-spacing: 0.3em;
+    color: var(--text-muted);
+    text-transform: uppercase;
+}
+
+.footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-top: 30px;
+}
+
+.footer-link {
+    font-family: var(--font-display);
+    font-size: 9px;
+    letter-spacing: 0.2em;
+    color: var(--text-muted);
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: color 0.3s;
+}
+
+.footer-link:hover {
+    color: var(--matrix-gold);
+}
+
+/* ============================================
+   CART - Minimal drawer
+   ============================================ */
+.cart-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    opacity: 0;
+    visibility: hidden;
+    z-index: 2000;
+    transition: all 0.4s;
+}
+
+.cart-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.cart-drawer {
+    position: fixed;
+    right: -400px;
+    top: 0;
+    width: 400px;
+    height: 100%;
+    background: var(--black);
+    border-left: 1px solid var(--gray);
+    z-index: 2001;
+    transition: right 0.4s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.cart-drawer.active {
+    right: 0;
+}
+
+.cart-header {
+    padding: 30px;
+    border-bottom: 1px solid var(--gray);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.cart-title {
+    font-family: var(--font-display);
+    font-size: 12px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+}
+
+.cart-close {
+    font-size: 20px;
+    color: var(--text-muted);
+    cursor: pointer;
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+@media only screen and (max-width: 1024px) {
+    .products {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .tech-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .editorial {
+        grid-template-columns: 1fr;
+    }
+    
+    .editorial-img {
+        aspect-ratio: 16/9;
+    }
+    
+    .editorial-content {
+        padding: 50px 30px;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .nav {
+        padding: 20px 25px;
+    }
+    
+    .nav-links {
+        display: none;
+    }
+    
+    .hero {
+        padding: 0 25px;
+    }
+    
+    .hero-title {
+        letter-spacing: 0.3em;
+    }
+    
+    .section {
+        padding: 80px 25px;
+    }
+    
+    .section-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+    }
+    
+    .products {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+    
+    .tech-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .footer {
+        padding: 60px 25px;
+    }
+    
+    .footer-links {
+        flex-wrap: wrap;
+        gap: 20px;
+    }
+    
+    .cart-drawer {
+        width: 100%;
+        right: -100%;
+    }
+}
