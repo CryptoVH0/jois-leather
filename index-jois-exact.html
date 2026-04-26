@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JOIS — Street Luxury</title>
+    <link rel="stylesheet" href="styles-jois-final.css">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    
+    <meta name="description" content="JOIS — Street Luxury Fashion. Premium leather goods, streetwear, NFT collection. Made in Mexico.">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-left">
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <a href="index-jois-exact.html" class="header-logo">JOIS</a>
+        </div>
+        <div class="header-right">
+            <span class="header-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <circle cx="11" cy="11" r="8"/>
+                    <path d="M21 21l-4.35-4.35"/>
+                </svg>
+            </span>
+            <a href="account/login.html" class="header-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                    <circle cx="12" cy="7" r="4"/>
+                </svg>
+            </a>
+            <span class="header-icon" id="cartIcon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/>
+                    <line x1="3" y1="6" x2="21" y2="6"/>
+                    <path d="M16 10a4 4 0 0 1-8 0"/>
+                </svg>
+            </span>
+        </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-overlay" id="mobileOverlay"></div>
+    <div class="mobile-menu" id="mobileMenu">
+        <span class="mobile-menu-close" id="mobileClose">×</span>
+        <div class="mobile-menu-links">
+            <a href="#">NEW</a>
+            <a href="#men">MEN</a>
+            <a href="#women">WOMEN</a>
+            <a href="#footwear">FOOTWEAR</a>
+            <a href="#accessories">ACCESSORIES</a>
+            <a href="#nft">NFT</a>
+            <a href="#about">ABOUT US</a>
+            <a href="#contact">CONTACT</a>
+        </div>
+    </div>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="hero-content">
+            <p class="hero-label">New Collection</p>
+            <h1 class="hero-title">Street Luxury<br>for Modern<br>Consumers</h1>
+            <a href="#men" class="hero-cta">Shop Now</a>
+        </div>
+        <div class="hero-carousel">
+            <img src="https://images.unsplash.com/photo-1516826957135-700dedea698c?w=400&q=90" alt="Streetwear model">
+            <img src="https://images.unsplash.com/photo-1551028719-00167b16eac5?w=400&q=90" alt="Leather jacket">
+            <img src="https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=400&q=90" alt="Hoodie">
+            <img src="https://images.unsplash.com/photo-1539533018447-63fcce2678e3?w=400&q=90" alt="Urban style">
+        </div>
+        <div class="carousel-dots">
+            <span class="carousel-dot active"></span>
+            <span class="carousel-dot"></span>
+            <span class="carousel-dot"></span>
+            <span class="carousel-dot"></span>
+        </div>
+    </section>
+
+    <!-- Men / Women Category -->
+    <section class="category" id="men">
+        <div class="category-inner">
+            <div class="category-block">
+                <p class="category-label">Men</p>
+                <h2 class="category-title">Timeless pieces built for everyday.</h2>
+                <a href="#" class="category-link">Shop Men</a>
+            </div>
+            <div class="category-block" id="women">
+                <p class="category-label">Women</p>
+                <h2 class="category-title">Modern silhouettes for every movement.</h2>
+                <a href="#" class="category-link">Shop Women</a>
+            </div>
+        </div>
+        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&q=90" alt="Men collection" class="category-image" style="aspect-ratio: 16/9; margin-bottom: 15px;">
+        <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=800&q=90" alt="Women collection" class="category-image" style="aspect-ratio: 16/9;">
+    </section>
+
+    <!-- NFT Section -->
+    <section class="nft-section" id="nft">
+        <p class="nft-label">Digital Collection</p>
+        <h2 class="nft-title">NFT Collection</h2>
+        <p class="nft-desc">Digital ownership meets physical luxury. Each piece can be authenticated through NFT technology.</p>
+        
+        <div class="nft-scroll">
+            <div class="nft-card">
+                <img src="https://images.unsplash.com/photo-1634973357973-f2ed2657db3c?w=400&q=90" alt="Genesis Pass">
+                <span class="nft-tag">#001</span>
+                <p class="nft-name">Genesis Pass</p>
+                <p class="nft-price">0.5 ETH</p>
+            </div>
+            <div class="nft-card">
+                <img src="https://images.unsplash.com/photo-1646463276616-2f7f8a6f5c0d?w=400&q=90" alt="Craft Token">
+                <span class="nft-tag">#002</span>
+                <p class="nft-name">Craft Token</p>
+                <p class="nft-price">0.3 ETH</p>
+            </div>
+            <div class="nft-card">
+                <img src="https://images.unsplash.com/photo-1620321023374-d1a68fbc720f?w=400&q=90" alt="Artisan Series">
+                <span class="nft-tag">#003</span>
+                <p class="nft-name">Artisan Series</p>
+                <p class="nft-price">0.15 ETH</p>
+            </div>
+            <div class="nft-card">
+                <img src="https://images.unsplash.com/photo-1618005198919-d3d4b5c92dbc?w=400&q=90" alt="Founder NFT">
+                <span class="nft-tag">#004</span>
+                <p class="nft-name">Founder NFT</p>
+                <p class="nft-price">Mint Price</p>
+            </div>
+        </div>
+        
+        <a href="nft.html" class="nft-link">View All</a>
+    </section>
+
+    <!-- About Us -->
+    <section class="about-section" id="about">
+        <p class="about-label">Our Story</p>
+        <h2 class="about-title">About Us</h2>
+        <p class="about-text">We create functional clothing with a purpose. Rooted in urban culture and driven by craftsmanship, our collections are designed to move with you — every day.</p>
+        
+        <div class="about-grid">
+            <img src="https://images.unsplash.com/photo-1539533018447-63fcce2678e3?w=400&q=90" alt="Craftsmanship">
+            <img src="https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=400&q=90" alt="Material">
+            <img src="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=400&q=90" alt="Product">
+            <img src="https://images.unsplash.com/photo-1627123424574-724758594e93?w=400&q=90" alt="Detail">
+        </div>
+        
+        <div class="about-values">
+            <div class="about-value">
+                <div class="about-value-icon">◇</div>
+                <p class="about-value-title">Sustainable</p>
+                <p class="about-value-text">Ethically sourced</p>
+            </div>
+            <div class="about-value">
+                <div class="about-value-icon">◆</div>
+                <p class="about-value-title">Quality</p>
+                <p class="about-value-text">Premium materials</p>
+            </div>
+            <div class="about-value">
+                <div class="about-value-icon">○</div>
+                <p class="about-value-title">Global</p>
+                <p class="about-value-text">Worldwide shipping</p>
+            </div>
+        </div>
+        
+        <a href="about.html" class="about-link">Read More</a>
+    </section>
+
+    <!-- Trust Bar -->
+    <section class="trust-bar">
+        <div class="trust-item">
+            <div class="trust-icon">◇</div>
+            <p class="trust-title">Free Shipping</p>
+            <p class="trust-text">On all orders over $150</p>
+        </div>
+        <div class="trust-item">
+            <div class="trust-icon">◈</div>
+            <p class="trust-title">Easy Returns</p>
+            <p class="trust-text">30 day return policy</p>
+        </div>
+        <div class="trust-item">
+            <div class="trust-icon">■</div>
+            <p class="trust-title">Secure Payment</p>
+            <p class="trust-text">100% secure checkout</p>
+        </div>
+        <div class="trust-item">
+            <div class="trust-icon">●</div>
+            <p class="trust-title">Support</p>
+            <p class="trust-text">We're here to help</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer" id="contact">
+        <div class="footer-newsletter">
+            <p class="footer-newsletter-title">Newsletter</p>
+            <div class="footer-newsletter-form">
+                <input type="email" placeholder="Enter your email">
+                <button>Subscribe</button>
+            </div>
+        </div>
+        
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h4>Shop</h4>
+                <a href="#">Men</a>
+                <a href="#">Women</a>
+                <a href="#">Footwear</a>
+                <a href="#">Accessories</a>
+                <a href="#nft">NFT</a>
+            </div>
+            <div class="footer-col">
+                <h4>Info</h4>
+                <a href="#about">About Us</a>
+                <a href="#">Contact</a>
+                <a href="shipping-policy.html">Shipping</a>
+                <a href="legal/index.html">Returns</a>
+            </div>
+            <div class="footer-col">
+                <h4>Legal</h4>
+                <a href="legal/index.html">Terms</a>
+                <a href="legal/index.html">Privacy</a>
+                <a href="#">Cookies</a>
+            </div>
+            <div class="footer-col">
+                <h4>Connect</h4>
+                <a href="https://www.instagram.com/leatherjois" target="_blank">Instagram</a>
+                <a href="https://www.tiktok.com/@joisleather" target="_blank">TikTok</a>
+                <a href="#">Discord</a>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p class="footer-copy">© 2024 JOIS. All rights reserved.</p>
+            <div class="footer-social">
+                <a href="https://www.instagram.com/leatherjois" target="_blank">IG</a>
+                <a href="https://www.tiktok.com/@joisleather" target="_blank">TT</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Cart Drawer -->
+    <div class="cart-overlay" id="cartOverlay"></div>
+    <div class="cart-drawer" id="cartDrawer">
+        <div class="cart-header">
+            <h2 class="cart-title">Cart</h2>
+            <span class="cart-close" id="cartClose">×</span>
+        </div>
+        <div class="cart-content" id="cartContent">
+            <p style="padding: 40px; text-align: center; color: #757575; font-size: 12px;">EMPTY CART</p>
+        </div>
+    </div>
+
+    <script>
+        // Mobile Menu
+        const hamburger = document.getElementById('hamburger');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const mobileClose = document.getElementById('mobileClose');
+        const mobileOverlay = document.getElementById('mobileOverlay');
+
+        hamburger.addEventListener('click', () => {
+            mobileMenu.classList.add('active');
+            mobileOverlay.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        });
+
+        mobileClose.addEventListener('click', closeMobileMenu);
+        mobileOverlay.addEventListener('click', closeMobileMenu);
+
+        function closeMobileMenu() {
+            mobileMenu.classList.remove('active');
+            mobileOverlay.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        document.querySelectorAll('.mobile-menu-links a').forEach(link => {
+            link.addEventListener('click', closeMobileMenu);
+        });
+
+        // Cart
+        let cart = JSON.parse(localStorage.getItem('jois_cart')) || [];
+        
+        const cartDrawer = document.getElementById('cartDrawer');
+        const cartOverlay = document.getElementById('cartOverlay');
+        const cartClose = document.getElementById('cartClose');
+
+        document.getElementById('cartIcon').addEventListener('click', () => {
+            cartDrawer.classList.add('active');
+            cartOverlay.classList.add('active');
+        });
+
+        cartClose.addEventListener('click', () => {
+            cartDrawer.classList.remove('active');
+            cartOverlay.classList.remove('active');
+        });
+
+        cartOverlay.addEventListener('click', () => {
+            cartDrawer.classList.remove('active');
+            cartOverlay.classList.remove('active');
+        });
+
+        function updateCart() {
+            const content = document.getElementById('cartContent');
+            if (cart.length === 0) {
+                content.innerHTML = '<p style="padding: 40px; text-align: center; color: #757575; font-size: 12px;">EMPTY CART</p>';
+            } else {
+                let total = 0;
+                let html = '<div style="padding: 20px; overflow-y: auto;">';
+                cart.forEach((item, i) => {
+                    total += item.price;
+                    html += `<div style="display: flex; gap: 15px; padding: 15px 0; border-bottom: 1px solid #E0E0E0;">
+                        <img src="${item.image}" style="width: 60px; height: 80px; object-fit: cover;">
+                        <div style="flex: 1;">
+                            <p style="font-size: 12px; font-weight: 600; letter-spacing: 0.05em;">${item.name}</p>
+                            <p style="font-size: 12px; color: #757575; margin-top: 5px;">$${item.price.toLocaleString()} MXN</p>
+                        </div>
+                        <button onclick="removeFromCart(${i})" style="background: none; border: none; color: #757575; cursor: pointer; font-size: 20px;">×</button>
+                    </div>`;
+                });
+                html += '</div>';
+                html += `<div style="padding: 20px; border-top: 1px solid #E0E0E0;">
+                    <p style="text-align: center; font-size: 14px; font-weight: 600;">TOTAL: <span style="font-family: monospace;">$${total.toLocaleString()} MXN</span></p>
+                    <a href="checkout.html" style="display: block; text-align: center; padding: 15px; background: #000; color: #FFF; font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-decoration: none; margin-top: 15px;">CHECKOUT</a>
+                </div>`;
+                content.innerHTML = html;
+            }
+        }
+
+        function removeFromCart(index) {
+            cart.splice(index, 1);
+            localStorage.setItem('jois_cart', JSON.stringify(cart));
+            updateCart();
+        }
+
+        updateCart();
+    </script>
+</body>
+</html>
