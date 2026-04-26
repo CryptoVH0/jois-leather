@@ -31,7 +31,7 @@ html {
 }
 
 body {
-    font-family: var(--font-body);
+    font-family: 'Times New Roman MT', 'Times New Roman', serif;
     background: var(--white);
     color: var(--black);
     -webkit-font-smoothing: antialiased;
@@ -66,8 +66,9 @@ img {
 }
 
 .header-logo {
+    font-family: 'Times New Roman MT', 'Times New Roman', serif;
     font-size: 22px;
-    font-weight: 700;
+    font-weight: 400;
     letter-spacing: 0.2em;
     text-transform: uppercase;
 }
@@ -261,7 +262,7 @@ img {
 
 .category-title {
     font-size: 28px;
-    font-weight: 700;
+    font-weight: 400;
     letter-spacing: 0.02em;
     text-transform: uppercase;
     margin-bottom: 20px;
@@ -567,8 +568,9 @@ img {
 }
 
 .footer-brand h3 {
+    font-family: 'Times New Roman MT', 'Times New Roman', serif;
     font-size: 20px;
-    font-weight: 700;
+    font-weight: 400;
     letter-spacing: 0.2em;
     margin-bottom: 20px;
 }
