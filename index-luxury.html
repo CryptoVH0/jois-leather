@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JOIS — Street Luxury</title>
+    <link rel="stylesheet" href="styles-luxury.css">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    
+    <meta name="description" content="JOIS — Mexican luxury streetwear. Premium leather goods, NFT authentication, future heritage.">
+    <meta name="theme-color" content="#000000">
+</head>
+<body>
+    <!-- Premium Loader -->
+    <div class="loader" id="loader">
+        <div class="loader-logo">JOIS</div>
+        <div class="loader-bar"></div>
+    </div>
+
+    <!-- Header -->
+    <header class="header" id="header">
+        <div class="mobile-toggle" id="mobileToggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <a href="index-luxury.html" class="header-logo">JOIS</a>
+        <nav class="header-nav">
+            <a href="hombre.html">HOMBRE</a>
+            <a href="mujer.html">MUJER</a>
+            <a href="#nft">NFT</a>
+            <a href="#about">ABOUT</a>
+        </nav>
+        <div class="header-icons">
+            <span class="header-icon" id="cartIcon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/>
+                    <line x1="3" y1="6" x2="21" y2="6"/>
+                    <path d="M16 10a4 4 0 0 1-8 0"/>
+                </svg>
+            </span>
+        </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-overlay" id="mobileOverlay"></div>
+    <div class="mobile-menu" id="mobileMenu">
+        <span class="mobile-menu-close" id="mobileClose">×</span>
+        <div class="mobile-menu-links">
+            <a href="hombre.html">HOMBRE</a>
+            <a href="mujer.html">MUJER</a>
+            <a href="#nft">NFT</a>
+            <a href="#about">ABOUT</a>
+            <a href="account/login.html">ACCOUNT</a>
+        </div>
+    </div>
+
+    <!-- HERO — Cinematic Campaign -->
+    <section class="hero">
+        <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1920&q=90" alt="JOIS Campaign" class="hero-bg">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <p class="hero-eyebrow">Mexico City — 2024</p>
+            <h1 class="hero-title">STREET<br>LUXURY</h1>
+            <p class="hero-subtitle">Premium leather craftsmanship meets digital authenticity</p>
+            <a href="hombre.html" class="hero-cta">Explore Collection</a>
+        </div>
+        <div class="scroll-indicator">
+            <span>Scroll</span>
+            <div class="scroll-line"></div>
+        </div>
+    </section>
+
+    <!-- CATEGORY SPLIT — Men / Women -->
+    <section class="category-split">
+        <div class="category-block" onclick="window.location.href='hombre.html'">
+            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=1200&q=90" alt="Hombre" class="category-image">
+            <div class="category-content">
+                <p class="category-label">Colección</p>
+                <h2 class="category-title">HOMBRE</h2>
+                <span class="category-link">Explorar →</span>
+            </div>
+        </div>
+        <div class="category-block" onclick="window.location.href='mujer.html'">
+            <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=1200&q=90" alt="Mujer" class="category-image">
+            <div class="category-content">
+                <p class="category-label">Colección</p>
+                <h2 class="category-title">MUJER</h2>
+                <span class="category-link">Explorar →</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- NFT SECTION — Authenticity Infrastructure -->
+    <section class="nft-section" id="nft">
+        <p class="nft-eyebrow">Digital Ownership</p>
+        <h2 class="nft-title">AUTHENTICITY<br>VERIFIED</h2>
+        <p class="nft-description">
+            Every JOIS piece comes with blockchain-backed authenticity.<br>
+            Your ownership. Immutable. Eternal.
+        </p>
+        <div class="nft-features">
+            <div class="nft-feature">
+                <div class="nft-feature-icon">◇</div>
+                <p class="nft-feature-label">Verify</p>
+            </div>
+            <div class="nft-feature">
+                <div class="nft-feature-icon">◈</div>
+                <p class="nft-feature-label">Own</p>
+            </div>
+            <div class="nft-feature">
+                <div class="nft-feature-icon">○</div>
+                <p class="nft-feature-label">Collect</p>
+            </div>
+        </div>
+        <a href="nft.html" class="nft-cta">Enter Collection</a>
+    </section>
+
+    <!-- ABOUT SECTION — Heritage Story -->
+    <section class="about-section" id="about">
+        <div class="about-grid">
+            <div class="about-images">
+                <img src="https://images.unsplash.com/photo-1539533018447-63fcce2678e3?w=600&q=90" alt="Craftsmanship">
+                <img src="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=600&q=90" alt="Leather detail">
+            </div>
+            <div class="about-content">
+                <p class="about-eyebrow">Our Story</p>
+                <h2 class="about-title">HERITAGE<br>REDEFINED</h2>
+                <p class="about-text">
+                    Born in a small workshop in Mexico City, where leather was treated as art. 
+                    Three generations of craftsmanship. One vision: to create pieces that transcend time.
+                </p>
+                <p class="about-text">
+                    Today, we merge that heritage with modern technology. Each piece is authenticated 
+                    on the blockchain. Your JOIS is not just a garment — it's a legacy.
+                </p>
+                <div class="about-values">
+                    <div class="about-value">
+                        <div class="about-value-icon">◇</div>
+                        <p class="about-value-title">Heritage</p>
+                        <p class="about-value-text">3 generations</p>
+                    </div>
+                    <div class="about-value">
+                        <div class="about-value-icon">◆</div>
+                        <p class="about-value-title">Craft</p>
+                        <p class="about-value-text">Premium leather</p>
+                    </div>
+                    <div class="about-value">
+                        <div class="about-value-icon">○</div>
+                        <p class="about-value-title">Future</p>
+                        <p class="about-value-text">NFT verified</p>
+                    </div>
+                </div>
+                <a href="about.html" class="about-link">Read Our Story →</a>
+            </div>
+            <div class="about-detail">
+                <img src="https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=600&q=90" alt="Product detail">
+            </div>
+        </div>
+    </section>
+
+    <!-- TRUST BAR -->
+    <section class="trust-bar">
+        <div class="trust-item">
+            <div class="trust-icon">◇</div>
+            <div class="trust-content">
+                <p class="trust-title">Free Shipping</p>
+                <p class="trust-text">Orders over $150 USD</p>
+            </div>
+        </div>
+        <div class="trust-item">
+            <div class="trust-icon">◈</div>
+            <div class="trust-content">
+                <p class="trust-title">Easy Returns</p>
+                <p class="trust-text">30 day policy</p>
+            </div>
+        </div>
+        <div class="trust-item">
+            <div class="trust-icon">■</div>
+            <div class="trust-content">
+                <p class="trust-title">Secure Payment</p>
+                <p class="trust-text">Encrypted checkout</p>
+            </div>
+        </div>
+        <div class="trust-item">
+            <div class="trust-icon">●</div>
+            <div class="trust-content">
+                <p class="trust-title">Authenticity</p>
+                <p class="trust-text">NFT certified</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <h3>JOIS</h3>
+                <p>Mexican luxury streetwear. Premium craftsmanship meets digital authenticity. Born in Mexico City. Built for the world.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Shop</h4>
+                <a href="hombre.html">Hombre</a>
+                <a href="mujer.html">Mujer</a>
+                <a href="nft.html">NFT</a>
+            </div>
+            <div class="footer-col">
+                <h4>Info</h4>
+                <a href="about.html">About</a>
+                <a href="#">Contact</a>
+            </div>
+            <div class="footer-col">
+                <h4>Legal</h4>
+                <a href="legal/index.html">Terms</a>
+                <a href="legal/index.html">Privacy</a>
+            </div>
+            <div class="footer-col">
+                <h4>Connect</h4>
+                <a href="https://www.instagram.com/leatherjois" target="_blank">Instagram</a>
+                <a href="https://www.tiktok.com/@joisleather" target="_blank">TikTok</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p class="footer-copy">© 2024 JOIS. All rights reserved.</p>
+            <div class="footer-social">
+                <a href="https://www.instagram.com/leatherjois" target="_blank">IG</a>
+                <a href="https://www.tiktok.com/@joisleather" target="_blank">TT</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Cart Drawer -->
+    <div class="cart-overlay" id="cartOverlay"></div>
+    <div class="cart-drawer" id="cartDrawer">
+        <div class="cart-header">
+            <h2 class="cart-title">CART</h2>
+            <span class="cart-close" id="cartClose">×</span>
+        </div>
+        <div class="cart-content" id="cartContent">
+            <p class="cart-empty">Your cart is empty</p>
+        </div>
+    </div>
+
+    <script>
+        // Loader
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                document.getElementById('loader').classList.add('hidden');
+            }, 1500);
+        });
+
+        // Header scroll effect
+        const header = document.getElementById('header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Mobile Menu
+        const mobileToggle = document.getElementById('mobileToggle');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const mobileClose = document.getElementById('mobileClose');
+        const mobileOverlay = document.getElementById('mobileOverlay');
+
+        mobileToggle.addEventListener('click', () => {
+            mobileMenu.classList.add('active');
+            mobileOverlay.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        });
+
+        function closeMobileMenu() {
+            mobileMenu.classList.remove('active');
+            mobileOverlay.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        mobileClose.addEventListener('click', closeMobileMenu);
+        mobileOverlay.addEventListener('click', closeMobileMenu);
+
+        document.querySelectorAll('.mobile-menu-links a').forEach(link => {
+            link.addEventListener('click', closeMobileMenu);
+        });
+
+        // Cart
+        const cartDrawer = document.getElementById('cartDrawer');
+        const cartOverlay = document.getElementById('cartOverlay');
+        const cartClose = document.getElementById('cartClose');
+
+        document.getElementById('cartIcon').addEventListener('click', () => {
+            cartDrawer.classList.add('active');
+            cartOverlay.classList.add('active');
+        });
+
+        cartClose.addEventListener('click', () => {
+            cartDrawer.classList.remove('active');
+            cartOverlay.classList.remove('active');
+        });
+
+        cartOverlay.addEventListener('click', () => {
+            cartDrawer.classList.remove('active');
+            cartOverlay.classList.remove('active');
+        });
+    </script>
+</body>
+</html>
