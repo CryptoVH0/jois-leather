@@ -1017,3 +1017,28 @@ body {
         bottom: auto;
     }
 }
+
+/* ============================================
+   CART COUNT BADGE
+   ============================================ */
+
+.cart-count {
+    position: absolute;
+    top: -6px;
+    right: -8px;
+    background: var(--black);
+    color: var(--white);
+    font-size: 10px;
+    font-weight: 600;
+    min-width: 18px;
+    height: 18px;
+    border-radius: 9px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 5px;
+}
+
+.header-icon {
+    position: relative;
+}
