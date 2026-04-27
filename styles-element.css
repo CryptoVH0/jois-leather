@@ -244,6 +244,12 @@ body {
     flex-direction: column;
 }
 
+.hero-images video, .hero-images img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
 .hero-images img {
     width: 100%;
     height: 33.333vh;
@@ -813,7 +819,13 @@ body {
         order: 2;
     }
     
-    .hero-images img {
+    .hero-images video, .hero-images img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.hero-images img {
         height: 40vh;
     }
     
