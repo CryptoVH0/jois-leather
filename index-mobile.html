@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>JOIS — Street Luxury</title>
+    <link rel="stylesheet" href="styles-mobile.css">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    
+    <meta name="description" content="JOIS — Street Luxury Fashion. Premium leather goods, NFT collection. Made in Mexico.">
+    <meta name="theme-color" content="#ffffff">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="mobile-toggle" id="mobileToggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <a href="index-mobile.html" class="header-logo">JOIS</a>
+        <nav class="header-nav">
+            <a href="#new">NEW</a>
+            <a href="hombre.html">MENS</a>
+            <a href="mujer.html">WOMENS</a>
+            <a href="nft.html">NFT</a>
+        </nav>
+        <div class="header-icons">
+            <span class="header-icon" id="cartIcon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/>
+                    <line x1="3" y1="6" x2="21" y2="6"/>
+                    <path d="M16 10a4 4 0 0 1-8 0"/>
+                </svg>
+            </span>
+        </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-overlay" id="mobileOverlay"></div>
+    <div class="mobile-menu" id="mobileMenu">
+        <span class="mobile-menu-close" id="mobileClose">×</span>
+        <div class="mobile-menu-links">
+            <a href="#new">NEW</a>
+            <a href="hombre.html">MENS</a>
+            <a href="mujer.html">WOMENS</a>
+            <a href="nft.html">NFT</a>
+            <a href="about.html">ABOUT</a>
+            <a href="account/login.html">ACCOUNT</a>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero" id="new">
+        <div class="hero-content">
+            <p class="hero-label">New Collection</p>
+            <h1 class="hero-title">STREET LUXURY FOR MODERN CONSUMERS</h1>
+            <p class="hero-text">Functional design. Premium materials. Built for the present.</p>
+            <a href="hombre.html" class="hero-cta">SHOP NOW</a>
+        </div>
+        <div class="hero-images">
+            <video autoplay muted loop playsinline controlsList="nodownload" poster="https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=800&q=90">
+                <source src="YOUR_3D_VIDEO_URL.mp4" type="video/mp4">
+            </video>
+        </div>
+    </section>
+
+    <!-- Category Section -->
+    <section class="category-section">
+        <div class="category-block" id="men">
+            <p class="category-label">Mens</p>
+            <h2 class="category-title">Timeless pieces built for everyday.</h2>
+            <p class="category-text">Our men's collection combines streetwear aesthetics with premium craftsmanship.</p>
+            <a href="hombre.html" class="category-cta">SHOP MENS</a>
+        </div>
+        <div class="category-block" id="women">
+            <p class="category-label">Womens</p>
+            <h2 class="category-title">Modern silhouettes for every movement.</h2>
+            <p class="category-text">Designed for the modern woman. Clean lines, premium materials.</p>
+            <a href="mujer.html" class="category-cta">SHOP WOMENS</a>
+        </div>
+    </section>
+
+    <!-- NFT Section -->
+    <section class="nft-section" id="nft">
+        <div class="nft-info">
+            <p class="nft-label">Digital Collection</p>
+            <h2 class="nft-title">NFT COLLECTION</h2>
+            <p class="nft-text">Digital pieces inspired by our vision. Own a part of the culture.</p>
+            <a href="nft.html" class="nft-cta">EXPLORE NFTS</a>
+        </div>
+        <div class="nft-scroll">
+            <div class="nft-card">
+                <img src="https://images.unsplash.com/photo-1634973357973-f2ed2657db3c?w=400&q=90" alt="NFT #001">
+                <span class="nft-tag">#001</span>
+            </div>
+            <div class="nft-card">
+                <img src="https://images.unsplash.com/photo-1646463276616-2f7f8a6f5c0d?w=400&q=90" alt="NFT #002">
+                <span class="nft-tag">#002</span>
+            </div>
+            <div class="nft-card">
+                <img src="https://images.unsplash.com/photo-1620321023374-d1a68fbc720f?w=400&q=90" alt="NFT #003">
+                <span class="nft-tag">#003</span>
+            </div>
+            <div class="nft-card">
+                <img src="https://images.unsplash.com/photo-1618005198919-d3d4b5c92dbc?w=400&q=90" alt="NFT #004">
+                <span class="nft-tag">#004</span>
+            </div>
+        </div>
+        <a href="nft.html" class="nft-link">VIEW ALL</a>
+    </section>
+
+    <!-- About Section -->
+    <section class="about-section" id="about">
+        <p class="about-label">Our Story</p>
+        <h2 class="about-title">ABOUT US</h2>
+        <p class="about-text">We create functional clothing with a purpose. Rooted in urban culture and driven by craftsmanship, our collections are designed to move with you — every day.</p>
+        
+        <div class="about-values">
+            <div class="about-value">
+                <div class="about-value-icon">◇</div>
+                <div>
+                    <p class="about-value-title">Sustainable</p>
+                    <p class="about-value-text">Eco-friendly materials</p>
+                </div>
+            </div>
+            <div class="about-value">
+                <div class="about-value-icon">◆</div>
+                <div>
+                    <p class="about-value-title">Quality</p>
+                    <p class="about-value-text">Premium craftsmanship</p>
+                </div>
+            </div>
+            <div class="about-value">
+                <div class="about-value-icon">○</div>
+                <div>
+                    <p class="about-value-title">Global</p>
+                    <p class="about-value-text">Worldwide shipping</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="about-images">
+            <img src="https://images.unsplash.com/photo-1539533018447-63fcce2678e3?w=600&q=90" alt="Model">
+            <img src="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=600&q=90" alt="Detail">
+        </div>
+
+        <div class="about-detail">
+            <img src="https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=600&q=90" alt="Product">
+        </div>
+
+        <a href="about.html" class="about-link">READ MORE</a>
+    </section>
+
+    <!-- Trust Bar -->
+    <section class="trust-bar">
+        <div class="trust-item">
+            <div class="trust-icon">◇</div>
+            <div>
+                <p class="trust-title">Free Shipping</p>
+                <p class="trust-text">Orders over $150</p>
+            </div>
+        </div>
+        <div class="trust-item">
+            <div class="trust-icon">◈</div>
+            <div>
+                <p class="trust-title">Easy Returns</p>
+                <p class="trust-text">30 day policy</p>
+            </div>
+        </div>
+        <div class="trust-item">
+            <div class="trust-icon">■</div>
+            <div>
+                <p class="trust-title">Secure Payment</p>
+                <p class="trust-text">Encrypted checkout</p>
+            </div>
+        </div>
+        <div class="trust-item">
+            <div class="trust-icon">●</div>
+            <div>
+                <p class="trust-title">Support</p>
+                <p class="trust-text">We're here to help</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-brand">
+            <h3>JOIS</h3>
+            <p>Street luxury fashion. Premium materials, functional design. Made in Mexico.</p>
+            <div class="footer-newsletter">
+                <input type="email" placeholder="Your email">
+                <button>Subscribe</button>
+            </div>
+        </div>
+        
+        <div class="footer-col">
+            <h4>Shop</h4>
+            <a href="hombre.html">Mens</a>
+            <a href="mujer.html">Womens</a>
+            <a href="nft.html">NFT</a>
+        </div>
+        
+        <div class="footer-col">
+            <h4>Info</h4>
+            <a href="about.html">About</a>
+            <a href="#">Contact</a>
+        </div>
+        
+        <div class="footer-col">
+            <h4>Legal</h4>
+            <a href="legal/index.html">Terms</a>
+            <a href="legal/index.html">Privacy</a>
+        </div>
+
+        <div class="footer-bottom">
+            <p class="footer-copy">© 2024 JOIS. All rights reserved.</p>
+            <div class="footer-social">
+                <a href="https://www.instagram.com/leatherjois" target="_blank">IG</a>
+                <a href="https://www.tiktok.com/@joisleather" target="_blank">TT</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Cart Drawer -->
+    <div class="cart-overlay" id="cartOverlay"></div>
+    <div class="cart-drawer" id="cartDrawer">
+        <div class="cart-header">
+            <h2 class="cart-title">CART</h2>
+            <span class="cart-close" id="cartClose">×</span>
+        </div>
+        <div class="cart-content" id="cartContent">
+            <p class="cart-empty">YOUR CART IS EMPTY</p>
+        </div>
+    </div>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileToggle = document.getElementById('mobileToggle');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const mobileClose = document.getElementById('mobileClose');
+        const mobileOverlay = document.getElementById('mobileOverlay');
+
+        mobileToggle.addEventListener('click', () => {
+            mobileToggle.classList.add('active');
+            mobileMenu.classList.add('active');
+            mobileOverlay.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        });
+
+        function closeMobileMenu() {
+            mobileToggle.classList.remove('active');
+            mobileMenu.classList.remove('active');
+            mobileOverlay.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        mobileClose.addEventListener('click', closeMobileMenu);
+        mobileOverlay.addEventListener('click', closeMobileMenu);
+
+        document.querySelectorAll('.mobile-menu-links a').forEach(link => {
+            link.addEventListener('click', closeMobileMenu);
+        });
+
+        // Cart Drawer (Slide Up on Mobile)
+        const cartDrawer = document.getElementById('cartDrawer');
+        const cartOverlay = document.getElementById('cartOverlay');
+        const cartClose = document.getElementById('cartClose');
+
+        document.getElementById('cartIcon').addEventListener('click', () => {
+            cartDrawer.classList.add('active');
+            cartOverlay.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        });
+
+        cartClose.addEventListener('click', () => {
+            cartDrawer.classList.remove('active');
+            cartOverlay.classList.remove('active');
+            document.body.style.overflow = '';
+        });
+
+        cartOverlay.addEventListener('click', () => {
+            cartDrawer.classList.remove('active');
+            cartOverlay.classList.remove('active');
+            document.body.style.overflow = '';
+        });
+
+        // Close on escape
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                closeMobileMenu();
+                cartDrawer.classList.remove('active');
+                cartOverlay.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        });
+    </script>
+</body>
+</html>

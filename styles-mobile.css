@@ -1,0 +1,1019 @@
+/* JOIS MOBILE-FIRST — Enhanced Mobile UX */
+
+:root {
+    --white: #FFFFFF;
+    --off-white: #F7F7F7;
+    --black: #000000;
+    --dark: #111111;
+    --charcoal: #333333;
+    --mid: #666666;
+    --light: #E5E5E5;
+    --gold: #C4A35A;
+    --safe-top: env(safe-area-inset-top, 0px);
+    --safe-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    background: var(--white);
+    color: var(--black);
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    overscroll-behavior: none;
+}
+
+/* ============================================
+   HEADER — MOBILE OPTIMIZED
+   ============================================ */
+
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    background: var(--white);
+    border-bottom: 1px solid var(--light);
+    z-index: 1000;
+    padding-top: var(--safe-top);
+}
+
+.header-logo {
+    font-family: 'Times New Roman MT', 'Times New Roman', serif;
+    font-size: 16px;
+    font-weight: 400;
+    letter-spacing: 0.25em;
+    color: var(--black);
+    text-decoration: none;
+    position: relative;
+    z-index: 1002;
+}
+
+.header-nav {
+    display: none;
+}
+
+.header-icons {
+    display: flex;
+    gap: 18px;
+    align-items: center;
+}
+
+.header-icon {
+    cursor: pointer;
+    opacity: 0.9;
+    transition: transform 0.2s, opacity 0.2s;
+    min-width: 44px;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.header-icon:active {
+    transform: scale(0.9);
+}
+
+/* Mobile Toggle — Thumb Friendly */
+.mobile-toggle {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    z-index: 1002;
+    padding: 10px;
+    margin-left: -10px;
+}
+
+.mobile-toggle span {
+    width: 22px;
+    height: 2px;
+    background: var(--black);
+    transition: transform 0.3s, opacity 0.3s;
+}
+
+.mobile-toggle.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.mobile-toggle.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.mobile-toggle.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+}
+
+/* ============================================
+   MOBILE MENU — FULL SCREEN OVERLAY
+   ============================================ */
+
+.mobile-overlay {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 2000;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s, visibility 0.3s;
+    backdrop-filter: blur(4px);
+}
+
+.mobile-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.mobile-menu {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 85%;
+    max-width: 320px;
+    height: 100%;
+    background: var(--white);
+    z-index: 2001;
+    padding: 80px 30px 40px;
+    transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+.mobile-menu.active {
+    right: 0;
+}
+
+.mobile-menu-close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 32px;
+    cursor: pointer;
+    opacity: 0.6;
+    min-width: 44px;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: var(--safe-top);
+}
+
+.mobile-menu-links {
+    display: flex;
+    flex-direction: column;
+}
+
+.mobile-menu-links a {
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--black);
+    text-decoration: none;
+    padding: 16px 0;
+    border-bottom: 1px solid var(--light);
+    transition: padding-left 0.3s, color 0.3s;
+    min-height: 56px;
+    display: flex;
+    align-items: center;
+}
+
+.mobile-menu-links a:active {
+    padding-left: 10px;
+    color: var(--mid);
+}
+
+/* ============================================
+   HERO — MOBILE VERTICAL STORY
+   ============================================ */
+
+.hero {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    padding-top: 60px;
+}
+
+.hero-content {
+    padding: 80px 24px 40px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.hero-label {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--mid);
+    margin-bottom: 15px;
+}
+
+.hero-title {
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -0.01em;
+    color: var(--black);
+    margin-bottom: 20px;
+}
+
+.hero-text {
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 1.7;
+    color: var(--mid);
+    margin-bottom: 30px;
+}
+
+.hero-cta {
+    display: inline-block;
+    padding: 16px 40px;
+    background: var(--black);
+    color: var(--white);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    text-decoration: none;
+    width: fit-content;
+    min-height: 52px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.3s, transform 0.2s;
+}
+
+.hero-cta:active {
+    transform: scale(0.98);
+}
+
+.hero-cta:hover {
+    background: var(--charcoal);
+}
+
+.hero-images {
+    width: 100%;
+    position: relative;
+}
+
+.hero-images video,
+.hero-images img {
+    width: 100%;
+    height: 50vh;
+    object-fit: cover;
+}
+
+.carousel-dots {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 8px;
+}
+
+.carousel-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.5);
+}
+
+.carousel-dot.active {
+    background: var(--white);
+}
+
+/* ============================================
+   CATEGORY — MOBILE STACK
+   ============================================ */
+
+.category-section {
+    display: flex;
+    flex-direction: column;
+}
+
+.category-block {
+    padding: 60px 24px;
+    border-bottom: 1px solid var(--light);
+}
+
+.category-label {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 12px;
+}
+
+.category-title {
+    font-size: 26px;
+    font-weight: 700;
+    line-height: 1.2;
+    color: var(--black);
+    margin-bottom: 15px;
+}
+
+.category-text {
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 1.7;
+    color: var(--mid);
+    margin-bottom: 25px;
+}
+
+.category-cta {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--black);
+    text-decoration: none;
+    padding-bottom: 5px;
+    border-bottom: 1px solid var(--black);
+    width: fit-content;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+}
+
+.category-image {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    margin-top: 30px;
+}
+
+/* ============================================
+   NFT — MOBILE HORIZONTAL SCROLL
+   ============================================ */
+
+.nft-section {
+    padding: 80px 24px;
+    border-top: 1px solid var(--light);
+}
+
+.nft-info {
+    margin-bottom: 40px;
+}
+
+.nft-label {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 12px;
+}
+
+.nft-title {
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--black);
+    margin-bottom: 15px;
+}
+
+.nft-text {
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 1.7;
+    color: var(--mid);
+    margin-bottom: 25px;
+}
+
+.nft-cta {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--black);
+    text-decoration: none;
+    padding-bottom: 5px;
+    border-bottom: 1px solid var(--black);
+    width: fit-content;
+    margin-bottom: 40px;
+}
+
+/* Horizontal Scroll NFT */
+.nft-scroll {
+    display: flex;
+    gap: 16px;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x mandatory;
+    padding-bottom: 20px;
+    margin: 0 -24px;
+    padding-left: 24px;
+    padding-right: 24px;
+}
+
+.nft-scroll::-webkit-scrollbar {
+    display: none;
+}
+
+.nft-card {
+    flex: 0 0 75%;
+    aspect-ratio: 3/4;
+    position: relative;
+    overflow: hidden;
+    background: var(--off-white);
+    scroll-snap-align: start;
+}
+
+.nft-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.nft-tag {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    color: var(--white);
+    background: var(--black);
+    padding: 6px 12px;
+}
+
+.nft-link {
+    display: block;
+    text-align: center;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--black);
+    text-decoration: none;
+    padding: 16px;
+    border-bottom: 1px solid var(--black);
+    width: 100%;
+    margin-top: 20px;
+    min-height: 52px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* ============================================
+   ABOUT — MOBILE STORY
+   ============================================ */
+
+.about-section {
+    padding: 80px 24px;
+    border-top: 1px solid var(--light);
+}
+
+.about-label {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 12px;
+}
+
+.about-title {
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--black);
+    margin-bottom: 20px;
+}
+
+.about-text {
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 1.9;
+    color: var(--mid);
+    margin-bottom: 30px;
+}
+
+.about-values {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    margin-bottom: 40px;
+}
+
+.about-value {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+}
+
+.about-value-icon {
+    font-size: 20px;
+    color: var(--gold);
+    margin-top: 2px;
+}
+
+.about-value-title {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--black);
+    margin-bottom: 5px;
+}
+
+.about-value-text {
+    font-size: 13px;
+    color: var(--mid);
+}
+
+.about-images {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    gap: 16px;
+    margin-bottom: 40px;
+}
+
+.about-images img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.about-detail img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    margin-bottom: 40px;
+}
+
+.about-link {
+    display: block;
+    text-align: center;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--black);
+    text-decoration: none;
+    padding: 16px;
+    border: 1px solid var(--black);
+    width: 100%;
+    min-height: 52px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* ============================================
+   TRUST BAR — MOBILE GRID
+   ============================================ */
+
+.trust-bar {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border-top: 1px solid var(--light);
+}
+
+.trust-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 24px 20px;
+    border-bottom: 1px solid var(--light);
+    border-right: 1px solid var(--light);
+}
+
+.trust-item:nth-child(2n) {
+    border-right: none;
+}
+
+.trust-item:nth-last-child(-n+2) {
+    border-bottom: none;
+}
+
+.trust-icon {
+    font-size: 20px;
+    color: var(--gold);
+}
+
+.trust-title {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--black);
+}
+
+.trust-text {
+    font-size: 10px;
+    color: var(--mid);
+}
+
+/* ============================================
+   FOOTER — MOBILE STACK
+   ============================================ */
+
+.footer {
+    padding: 60px 24px 40px;
+    padding-bottom: calc(40px + var(--safe-bottom));
+    background: var(--white);
+}
+
+.footer-brand h3 {
+    font-family: 'Times New Roman MT', serif;
+    font-size: 18px;
+    font-weight: 400;
+    letter-spacing: 0.25em;
+    margin-bottom: 15px;
+}
+
+.footer-brand p {
+    font-size: 13px;
+    font-weight: 300;
+    line-height: 1.7;
+    color: var(--mid);
+}
+
+.footer-newsletter {
+    margin-top: 20px;
+    display: flex;
+}
+
+.footer-newsletter input {
+    flex: 1;
+    padding: 14px 16px;
+    border: 1px solid var(--light);
+    font-size: 14px;
+    outline: none;
+}
+
+.footer-newsletter button {
+    padding: 14px 20px;
+    background: var(--black);
+    color: var(--white);
+    border: none;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    cursor: pointer;
+    min-height: 48px;
+}
+
+.footer-col {
+    margin-top: 35px;
+}
+
+.footer-col h4 {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    margin-bottom: 15px;
+}
+
+.footer-col a {
+    display: block;
+    font-size: 14px;
+    font-weight: 300;
+    color: var(--mid);
+    text-decoration: none;
+    margin-bottom: 10px;
+    min-height: 40px;
+    display: flex;
+    align-items: center;
+}
+
+.footer-bottom {
+    margin-top: 40px;
+    padding-top: 25px;
+    border-top: 1px solid var(--light);
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+    text-align: center;
+}
+
+.footer-copy {
+    font-size: 11px;
+    color: var(--mid);
+}
+
+.footer-social {
+    display: flex;
+    gap: 20px;
+}
+
+.footer-social a {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    color: var(--black);
+    text-decoration: none;
+    min-width: 44px;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* ============================================
+   CART DRAWER — MOBILE SLIDE UP
+   ============================================ */
+
+.cart-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 3000;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s;
+    backdrop-filter: blur(4px);
+}
+
+.cart-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.cart-drawer {
+    position: fixed;
+    bottom: -100%;
+    top: auto;
+    right: 0;
+    width: 100%;
+    max-width: 100%;
+    height: 85vh;
+    background: var(--white);
+    z-index: 3001;
+    transition: bottom 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    flex-direction: column;
+    border-radius: 20px 20px 0 0;
+    box-shadow: 0 -10px 40px rgba(0, 0, 0, 0.2);
+}
+
+.cart-drawer.active {
+    bottom: 0;
+}
+
+.cart-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 24px;
+    border-bottom: 1px solid var(--light);
+}
+
+.cart-title {
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+}
+
+.cart-close {
+    font-size: 28px;
+    cursor: pointer;
+    opacity: 0.6;
+    min-width: 44px;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cart-content {
+    flex: 1;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    padding: 24px;
+}
+
+.cart-empty {
+    text-align: center;
+    padding: 60px 20px;
+    font-size: 12px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--mid);
+}
+
+/* ============================================
+   DESKTOP — 1024px+
+   ============================================ */
+
+@media (min-width: 1024px) {
+    .header {
+        height: 70px;
+        padding: 0 40px;
+    }
+    
+    .header-logo {
+        font-size: 18px;
+    }
+    
+    .header-nav {
+        display: flex;
+        gap: 35px;
+    }
+    
+    .header-nav a {
+        font-size: 11px;
+        font-weight: 500;
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+        color: var(--black);
+        text-decoration: none;
+        transition: opacity 0.3s;
+    }
+    
+    .header-nav a:hover {
+        opacity: 0.5;
+    }
+    
+    .header-icons {
+        gap: 20px;
+    }
+    
+    .mobile-toggle,
+    .mobile-overlay,
+    .mobile-menu {
+        display: none;
+    }
+    
+    .hero {
+        display: grid;
+        grid-template-columns: 45% 55%;
+        min-height: 100vh;
+        padding-top: 70px;
+    }
+    
+    .hero-content {
+        padding: 60px 50px;
+        justify-content: center;
+    }
+    
+    .hero-title {
+        font-size: clamp(32px, 4vw, 52px);
+    }
+    
+    .hero-images video,
+    .hero-images img {
+        height: 33.333vh;
+    }
+    
+    .category-section {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+    
+    .category-block {
+        padding: 80px 50px;
+    }
+    
+    .category-block:first-child {
+        border-right: 1px solid var(--light);
+    }
+    
+    .nft-section {
+        padding: 100px 50px;
+    }
+    
+    .nft-header {
+        display: grid;
+        grid-template-columns: 35% 65%;
+        gap: 60px;
+        margin-bottom: 50px;
+    }
+    
+    .nft-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 20px;
+    }
+    
+    .nft-scroll {
+        display: none;
+    }
+    
+    .about-section {
+        padding: 100px 50px;
+    }
+    
+    .about-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 50px;
+        margin-bottom: 60px;
+    }
+    
+    .about-images {
+        display: grid;
+        grid-template-rows: 1fr 1fr;
+        gap: 20px;
+        height: 500px;
+    }
+    
+    .about-images img {
+        height: 100%;
+    }
+    
+    .about-detail {
+        height: 500px;
+    }
+    
+    .about-detail img {
+        height: 100%;
+        margin-bottom: 0;
+    }
+    
+    .about-values {
+        flex-direction: row;
+        gap: 40px;
+    }
+    
+    .about-link {
+        width: fit-content;
+        border: none;
+        border-bottom: 1px solid var(--black);
+        padding: 0;
+        padding-bottom: 5px;
+        margin-top: 0;
+    }
+    
+    .trust-bar {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+    }
+    
+    .trust-item {
+        padding: 40px 30px;
+        border-bottom: none;
+        border-right: 1px solid var(--light);
+    }
+    
+    .trust-item:last-child {
+        border-right: none;
+    }
+    
+    .footer {
+        padding: 80px 50px 40px;
+    }
+    
+    .footer-grid {
+        display: grid;
+        grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+        gap: 50px;
+        margin-bottom: 60px;
+    }
+    
+    .footer-col {
+        margin-top: 0;
+    }
+    
+    .footer-bottom {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    
+    .cart-drawer {
+        top: 0;
+        bottom: auto;
+        right: -400px;
+        width: 100%;
+        max-width: 400px;
+        height: 100%;
+        border-radius: 0;
+    }
+    
+    .cart-drawer.active {
+        right: 0;
+        bottom: auto;
+    }
+}
