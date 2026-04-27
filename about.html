@@ -3,326 +3,207 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About — JOIS Leather</title>
-    <link rel="stylesheet" href="styles-luxury.css">
-    <link rel="stylesheet" href="styles-animation.css">
-    <link rel="stylesheet" href="styles-product.css">
+    <title>JOIS — Sobre Nosotros</title>
+    <link rel="stylesheet" href="styles-element.css">
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
     
-    <style>
-        :root {
-            --black: #0A0A0A;
-            --white: #F5F5F0;
-            --beige: #C4A35A;
-            --gray: #3A3A3A;
-        }
-        
-        body {
-            background: var(--black);
-            color: var(--white);
-            font-family: -apple-system, BlinkMacSystemFont, sans-serif;
-            font-weight: 300;
-            line-height: 1.8;
-            margin: 0;
-            padding: 0;
-        }
-        
-        .nav-main {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            padding: 30px 50px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            z-index: 1000;
-            background: rgba(10, 10, 10, 0.9);
-            border-bottom: 1px solid rgba(196, 163, 90, 0.1);
-        }
-        
-        .nav-logo {
-            font-family: 'Times New Roman MT', serif;
-            font-size: 24px;
-            letter-spacing: 0.3em;
-            color: var(--white);
-            text-decoration: none;
-        }
-        
-        .nav-links {
-            display: flex;
-            gap: 40px;
-        }
-        
-        .nav-links a {
-            font-size: 11px;
-            letter-spacing: 0.15em;
-            text-transform: uppercase;
-            color: rgba(245, 245, 240, 0.6);
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-        
-        .nav-links a:hover {
-            color: var(--beige);
-        }
-        
-        .about-hero {
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            padding: 120px 50px 80px;
-        }
-        
-        .about-hero h1 {
-            font-family: 'Times New Roman MT', serif;
-            font-size: clamp(48px, 10vw, 120px);
-            font-weight: 400;
-            letter-spacing: 0.3em;
-            margin-bottom: 30px;
-            color: var(--white);
-        }
-        
-        .about-hero .tagline {
-            font-size: 12px;
-            letter-spacing: 0.4em;
-            text-transform: uppercase;
-            color: var(--beige);
-            margin-bottom: 60px;
-        }
-        
-        .about-manifesto {
-            max-width: 800px;
-            font-size: 18px;
-            line-height: 2;
-            color: rgba(245, 245, 240, 0.8);
-        }
-        
-        .about-section {
-            padding: 100px 50px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        
-        .about-section h2 {
-            font-family: 'Times New Roman MT', serif;
-            font-size: 36px;
-            letter-spacing: 0.2em;
-            margin-bottom: 40px;
-            color: var(--white);
-        }
-        
-        .about-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 60px;
-        }
-        
-        .about-card {
-            text-align: center;
-        }
-        
-        .about-card .icon {
-            font-size: 48px;
-            margin-bottom: 20px;
-            color: var(--beige);
-        }
-        
-        .about-card h3 {
-            font-size: 14px;
-            letter-spacing: 0.2em;
-            text-transform: uppercase;
-            margin-bottom: 15px;
-            color: var(--white);
-        }
-        
-        .about-card p {
-            font-size: 14px;
-            color: rgba(245, 245, 240, 0.6);
-            line-height: 1.8;
-        }
-        
-        .about-quote {
-            padding: 150px 50px;
-            text-align: center;
-            background: linear-gradient(180deg, var(--black) 0%, rgba(26, 26, 26, 0.5) 50%, var(--black) 100%);
-        }
-        
-        .about-quote blockquote {
-            font-family: 'Times New Roman MT', serif;
-            font-size: clamp(24px, 4vw, 48px);
-            font-style: italic;
-            line-height: 1.6;
-            max-width: 900px;
-            margin: 0 auto;
-            color: var(--white);
-        }
-        
-        .about-quote cite {
-            display: block;
-            margin-top: 40px;
-            font-size: 12px;
-            letter-spacing: 0.3em;
-            text-transform: uppercase;
-            color: var(--beige);
-            font-style: normal;
-        }
-        
-        .about-cta {
-            padding: 100px 50px;
-            text-align: center;
-        }
-        
-        .about-cta h2 {
-            font-family: 'Times New Roman MT', serif;
-            font-size: 32px;
-            letter-spacing: 0.2em;
-            margin-bottom: 30px;
-        }
-        
-        .about-cta a {
-            display: inline-block;
-            padding: 20px 50px;
-            background: transparent;
-            border: 1px solid var(--beige);
-            color: var(--beige);
-            font-size: 11px;
-            letter-spacing: 0.2em;
-            text-transform: uppercase;
-            text-decoration: none;
-            transition: all 0.4s;
-        }
-        
-        .about-cta a:hover {
-            background: var(--beige);
-            color: var(--black);
-        }
-        
-        .footer-main {
-            padding: 60px 50px;
-            text-align: center;
-            border-top: 1px solid rgba(196, 163, 90, 0.1);
-        }
-        
-        .footer-main p {
-            font-size: 11px;
-            letter-spacing: 0.15em;
-            color: rgba(245, 245, 240, 0.4);
-        }
-        
-        @media (max-width: 768px) {
-            .about-grid {
-                grid-template-columns: 1fr;
-                gap: 40px;
-            }
-            
-            .nav-links {
-                display: none;
-            }
-        }
-    </style>
+    <meta name="description" content="JOIS — Nuestra historia. Lujo urbano mexicano combinado con tecnología Web3.">
 </head>
-<body class="scanlines">
-    <div class="bg-particles"></div>
-    <div class="bg-grid"></div>
-    <div class="ambient-glow"></div>
-    <div class="ambient-glow ambient-glow-2"></div>
-    <div class="matrix-rain" id="matrixRain">
-        <div class="matrix-column" style="left:5%;animation-duration:8s;animation-delay:0s;">JOIS</div>
-        <div class="matrix-column" style="left:15%;animation-duration:12s;animation-delay:1s;">CUIR</div>
-        <div class="matrix-column" style="left:25%;animation-duration:10s;animation-delay:2s;">LUXURY</div>
-        <div class="matrix-column" style="left:35%;animation-duration:9s;animation-delay:0.5s;">LEATHER</div>
-        <div class="matrix-column" style="left:45%;animation-duration:11s;animation-delay:1.5s;">MAISON</div>
-        <div class="matrix-column" style="left:55%;animation-duration:7s;animation-delay:3s;">MEXICO</div>
-        <div class="matrix-column" style="left:65%;animation-duration:13s;animation-delay:2.5s;">PREMIUM</div>
-        <div class="matrix-column" style="left:75%;animation-duration:8s;animation-delay:1s;">AUTHENTIC</div>
-        <div class="matrix-column" style="left:85%;animation-duration:10s;animation-delay:0.8s;">STREETWEAR</div>
-        <div class="matrix-column" style="left:95%;animation-duration:9s;animation-delay:2s;">JOIS</div>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="mobile-toggle" id="mobileToggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <a href="index-espanol.html" class="header-logo">JOIS</a>
+        <nav class="header-nav">
+            <a href="index-espanol.html">SHOP</a>
+            <a href="about.html">ABOUT US</a>
+            <a href="nft.html">NFT</a>
+        </nav>
+        <div class="header-icons">
+            <a href="account/login.html" class="header-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                    <circle cx="12" cy="7" r="4"/>
+                </svg>
+            </a>
+            <span class="header-icon" id="cartIcon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/>
+                    <line x1="3" y1="6" x2="21" y2="6"/>
+                    <path d="M16 10a4 4 0 0 1-8 0"/>
+                </svg>
+            </span>
+        </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-overlay" id="mobileOverlay"></div>
+    <div class="mobile-menu" id="mobileMenu">
+        <span class="mobile-menu-close" id="mobileClose">×</span>
+        <div class="mobile-menu-links">
+            <a href="index-espanol.html">SHOP</a>
+            <a href="about.html">ABOUT US</a>
+            <a href="nft.html">NFT</a>
+        </div>
     </div>
 
-    <nav class="nav-main">
-        <a href="index.html" class="nav-logo">JOIS</a>
-        <div class="nav-links">
-            <a href="index.html">Inicio</a>
-            <a href="index.html#hombre">Hombre</a>
-            <a href="index.html#mujer">Mujer</a>
-            <a href="nft.html">NFT</a>
-            <a href="about.html">About</a>
-            <a href="account/login.html">Sign In</a>
-        </div>
-    </nav>
-
-    <section class="about-hero">
-        <h1>JOIS</h1>
-        <p class="tagline">Maison de Cuir Contemporáneo</p>
-        <p class="about-manifesto">
-            No somos una marca de moda. Somos una declaración de intención.<br>
-            Cada pieza es una conversación entre tradición artesanal mexicana<br>
-            y la precisión del diseño contemporáneo.
-        </p>
-    </section>
-
-    <section class="about-section">
-        <h2>Filosofía</h2>
-        <div class="about-grid">
-            <div class="about-card">
-                <div class="icon">◆</div>
-                <h3>Artesanía</h3>
-                <p>Cada pieza es construida a mano en nuestro atelier de la Ciudad de México. Sin prisas. Sin shortcuts. Solo工艺.</p>
-            </div>
-            <div class="about-card">
-                <div class="icon">◇</div>
-                <h3>Autenticidad</h3>
-                <p>El cuero premium tiene memoria. Guarda la historia de quien lo porta. Cada marca, cada costura, es evidencia de calidad.</p>
-            </div>
-            <div class="about-card">
-                <div class="icon">○</div>
-                <h3>Exclusividad</h3>
-                <p>Ediciones limitadas. Una vez que se agotan, no regresan. El lujo verdadero no se repite.</p>
-            </div>
+    <!-- About Hero -->
+    <section class="hero" style="min-height: 60vh; display: flex; align-items: center; padding-top: 70px;">
+        <div style="padding: 80px 50px; max-width: 800px;">
+            <p class="hero-label" style="font-size: 10px; letter-spacing: 0.3em; text-transform: uppercase; color: #666; margin-bottom: 20px;">Nuestra Historia</p>
+            <h1 class="hero-title" style="font-size: clamp(32px, 5vw, 56px); font-weight: 700; line-height: 1.1; margin-bottom: 30px;">SOBRE NOSOTROS</h1>
         </div>
     </section>
 
-    <section class="about-quote">
-        <blockquote>
-            "El lujo no es el precio.<br>
-            Es el tiempo, el conocimiento y<br>
-            la intención que pones en cada pieza."
-        </blockquote>
-        <cite>— Fundador, JOIS</cite>
-    </section>
+    <!-- About Content -->
+    <section style="padding: 80px 50px; max-width: 900px; margin: 0 auto;">
+        <div style="margin-bottom: 60px;">
+            <p style="font-size: 18px; line-height: 2; color: #333; margin-bottom: 30px;">
+                JOIS nació de una idea simple: la moda no debería quedarse solo en lo físico.
+            </p>
+            <p style="font-size: 16px; line-height: 2; color: #666; margin-bottom: 25px;">
+                Venimos de la tradición de crear artículos de piel con historia, oficio y carácter, pero entendimos que el futuro exige algo más que diseño: exige conexión, autenticidad y evolución.
+            </p>
+            <p style="font-size: 16px; line-height: 2; color: #666; margin-bottom: 25px;">
+                Nuestra visión fue unir el lujo del mundo real con el poder del Web3, no solo usando NFTs como certificados de autenticidad, sino como un puente para acercar a las personas a una nueva forma de pertenecer, coleccionar y vivir una marca.
+            </p>
+            <p style="font-size: 16px; line-height: 2; color: #666; margin-bottom: 25px;">
+                Cada pieza no es solo un producto; es una identidad verificable, una historia registrada y una puerta hacia una comunidad donde la moda y la tecnología dejan de ser mundos separados.
+            </p>
+        </div>
 
-    <section class="about-section">
-        <h2>Origen</h2>
-        <div class="about-grid">
-            <div class="about-card">
-                <div class="icon">▲</div>
-                <h3>México</h3>
-                <p>Desde León, Guanajuato — centro mundial del cuero premium desde 1576. El mejor cuero del mundo tiene acento mexicano.</p>
+        <!-- Values -->
+        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; margin-top: 80px;">
+            <div style="text-align: center; padding: 40px 20px; border: 1px solid #E5E5E5;">
+                <div style="font-size: 28px; margin-bottom: 15px;">◇</div>
+                <h3 style="font-size: 11px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 10px;">Sostenible</h3>
+                <p style="font-size: 13px; color: #666;">Materiales ecológicos y producción ética</p>
             </div>
-            <div class="about-card">
-                <div class="icon">●</div>
-                <h3>Tecnología</h3>
-                <p>Cada pieza incluye certificado de autenticidad digital. NFT verification. Ownership que trasciende lo físico.</p>
+            <div style="text-align: center; padding: 40px 20px; border: 1px solid #E5E5E5;">
+                <div style="font-size: 28px; margin-bottom: 15px;">◆</div>
+                <h3 style="font-size: 11px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 10px;">Calidad</h3>
+                <p style="font-size: 13px; color: #666;">Artesanía premium en cada pieza</p>
             </div>
-            <div class="about-card">
-                <div class="icon">■</div>
-                <h3>Futuro</h3>
-                <p>Moda que no contaminates. Procesos sustentables. Materiales que regresan a la tierra. Lujo responsable.</p>
+            <div style="text-align: center; padding: 40px 20px; border: 1px solid #E5E5E5;">
+                <div style="font-size: 28px; margin-bottom: 15px;">○</div>
+                <h3 style="font-size: 11px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 10px;">Global</h3>
+                <p style="font-size: 13px; color: #666;">Envíos a todo el mundo</p>
             </div>
         </div>
     </section>
 
-    <section class="about-cta">
-        <h2>Únete a la comunidad</h2>
-        <a href="account/login.html">Crear Cuenta</a>
+    <!-- Trust Bar -->
+    <section class="trust-bar">
+        <div class="trust-item">
+            <div class="trust-icon">◇</div>
+            <div class="trust-content">
+                <p class="trust-title">Envío Gratis</p>
+                <p class="trust-text">En pedidos mayores a $150 USD</p>
+            </div>
+        </div>
+        <div class="trust-item">
+            <div class="trust-icon">◈</div>
+            <div class="trust-content">
+                <p class="trust-title">Devoluciones Fáciles</p>
+                <p class="trust-text">Política de 30 días</p>
+            </div>
+        </div>
+        <div class="trust-item">
+            <div class="trust-icon">■</div>
+            <div class="trust-content">
+                <p class="trust-title">Pago Seguro</p>
+                <p class="trust-text">Checkout 100% seguro</p>
+            </div>
+        </div>
+        <div class="trust-item">
+            <div class="trust-icon">●</div>
+            <div class="trust-content">
+                <p class="trust-title">Soporte</p>
+                <p class="trust-text">Estamos para ayudarte</p>
+            </div>
+        </div>
     </section>
 
-    <footer class="footer-main">
-        <p>© 2024 JOIS Leather. Todos los derechos reservados.</p>
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <h3>JOIS</h3>
+                <p>Moda de lujo urbano. Materiales premium, diseño funcional y estética moderna. Hecho en México.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Tienda</h4>
+                <a href="#shop">Hombre</a>
+                <a href="#shop">Mujer</a>
+                <a href="nft.html">NFT</a>
+            </div>
+            <div class="footer-col">
+                <h4>Info</h4>
+                <a href="about.html">Sobre Nosotros</a>
+                <a href="#">Contacto</a>
+            </div>
+            <div class="footer-col">
+                <h4>Legal</h4>
+                <a href="legal/index.html">Términos</a>
+                <a href="legal/index.html">Privacidad</a>
+            </div>
+            <div class="footer-col">
+                <h4>Conectar</h4>
+                <a href="https://www.instagram.com/leatherjois" target="_blank">Instagram</a>
+                <a href="https://www.tiktok.com/@joisleather" target="_blank">TikTok</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p class="footer-copy">© 2024 JOIS. Todos los derechos reservados.</p>
+        </div>
     </footer>
+
+    <!-- Cart Drawer -->
+    <div class="cart-overlay" id="cartOverlay"></div>
+    <div class="cart-drawer" id="cartDrawer">
+        <div class="cart-header">
+            <h2 class="cart-title">CARRITO</h2>
+            <span class="cart-close" id="cartClose">×</span>
+        </div>
+        <div class="cart-content" id="cartContent">
+            <p class="cart-empty">TU CARRITO ESTÁ VACÍO</p>
+        </div>
+    </div>
+
+    <script>
+        const mobileToggle = document.getElementById('mobileToggle');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const mobileClose = document.getElementById('mobileClose');
+        const mobileOverlay = document.getElementById('mobileOverlay');
+
+        mobileToggle.addEventListener('click', () => {
+            mobileMenu.classList.add('active');
+            mobileOverlay.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        });
+
+        function closeMobileMenu() {
+            mobileMenu.classList.remove('active');
+            mobileOverlay.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        mobileClose.addEventListener('click', closeMobileMenu);
+        mobileOverlay.addEventListener('click', closeMobileMenu);
+
+        document.getElementById('cartIcon')?.addEventListener('click', () => {
+            document.getElementById('cartDrawer')?.classList.add('active');
+            document.getElementById('cartOverlay')?.classList.add('active');
+        });
+
+        document.getElementById('cartClose')?.addEventListener('click', () => {
+            document.getElementById('cartDrawer')?.classList.remove('active');
+            document.getElementById('cartOverlay')?.classList.remove('active');
+        });
+    </script>
 </body>
 </html>
