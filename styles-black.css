@@ -1,0 +1,271 @@
+/* JOIS BLACK — Dark Luxury Theme */
+
+:root {
+    --white: #FFFFFF;
+    --off-white: #F7F7F7;
+    --black: #000000;
+    --dark: #0A0A0A;
+    --dark-gray: #1A1A1A;
+    --mid-gray: #333333;
+    --text-gray: #666666;
+    --light-gray: #2A2A2A;
+    --gold: #C4A35A;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    background: var(--black);
+    color: var(--white);
+    line-height: 1.5;
+}
+
+/* Header */
+.header {
+    background: var(--black);
+    border-bottom: 1px solid var(--light-gray);
+}
+
+.header-logo {
+    color: var(--white);
+    font-family: 'Times New Roman MT', 'Times New Roman', serif;
+    letter-spacing: 0.3em;
+}
+
+.header-nav a {
+    color: var(--white);
+    opacity: 0.8;
+}
+
+.header-nav a:hover {
+    opacity: 1;
+}
+
+.header-icon {
+    color: var(--white);
+}
+
+/* Mobile */
+.mobile-toggle span {
+    background: var(--white);
+}
+
+.mobile-menu {
+    background: var(--dark);
+}
+
+.mobile-menu-links a {
+    color: var(--white);
+    border-color: var(--light-gray);
+}
+
+/* Hero */
+.hero {
+    background: var(--dark);
+}
+
+.hero-label {
+    color: var(--gold);
+}
+
+.hero-title {
+    color: var(--white);
+}
+
+.hero-text {
+    color: rgba(255,255,255,0.6);
+}
+
+.hero-cta {
+    background: var(--white);
+    color: var(--black);
+}
+
+.hero-cta:hover {
+    background: var(--gold);
+    color: var(--white);
+}
+
+/* Category Section */
+.category-section {
+    background: var(--black);
+}
+
+.category-block {
+    background: var(--dark);
+    border-bottom: 1px solid var(--light-gray);
+}
+
+.category-label {
+    color: var(--gold);
+}
+
+.category-title {
+    color: var(--white);
+}
+
+.category-text {
+    color: rgba(255,255,255,0.6);
+}
+
+.category-cta {
+    color: var(--white);
+    border-color: var(--white);
+}
+
+.category-cta:hover {
+    background: var(--white);
+    color: var(--black);
+}
+
+/* NFT Section */
+.nft-section {
+    background: var(--dark-gray);
+    border-top: 1px solid var(--light-gray);
+    border-bottom: 1px solid var(--light-gray);
+}
+
+.nft-label {
+    color: var(--gold);
+}
+
+.nft-title {
+    color: var(--white);
+}
+
+.nft-text {
+    color: rgba(255,255,255,0.6);
+}
+
+.nft-card {
+    background: var(--dark);
+    border: 1px solid var(--light-gray);
+}
+
+.nft-tag {
+    background: var(--gold);
+    color: var(--black);
+}
+
+.nft-name {
+    color: var(--white);
+}
+
+.nft-price {
+    color: var(--gold);
+}
+
+.nft-cta {
+    background: var(--white);
+    color: var(--black);
+}
+
+.nft-cta:hover {
+    background: var(--gold);
+    color: var(--white);
+}
+
+/* About Section */
+.about-section {
+    background: var(--black);
+}
+
+.about-label {
+    color: var(--gold);
+}
+
+.about-title {
+    color: var(--white);
+}
+
+.about-text {
+    color: rgba(255,255,255,0.6);
+}
+
+.about-value-title {
+    color: var(--white);
+}
+
+.about-value-text {
+    color: rgba(255,255,255,0.5);
+}
+
+.about-link {
+    color: var(--white);
+    border-color: var(--white);
+}
+
+.about-link:hover {
+    color: var(--gold);
+    border-color: var(--gold);
+}
+
+/* Trust Bar */
+.trust-bar {
+    background: var(--dark);
+    border-color: var(--light-gray);
+}
+
+.trust-item {
+    border-color: var(--light-gray);
+}
+
+.trust-title {
+    color: var(--white);
+}
+
+.trust-text {
+    color: rgba(255,255,255,0.5);
+}
+
+/* Footer */
+.footer {
+    background: var(--black);
+    border-top: 1px solid var(--light-gray);
+}
+
+.footer-brand h3 {
+    color: var(--white);
+}
+
+.footer-brand p {
+    color: rgba(255,255,255,0.5);
+}
+
+.footer-col h4 {
+    color: var(--white);
+}
+
+.footer-col a {
+    color: rgba(255,255,255,0.5);
+}
+
+.footer-col a:hover {
+    color: var(--gold);
+}
+
+.footer-copy {
+    color: rgba(255,255,255,0.3);
+}
+
+/* Cart */
+.cart-drawer {
+    background: var(--dark);
+}
+
+.cart-title {
+    color: var(--white);
+}
+
+.cart-close {
+    color: var(--white);
+}
+
+.cart-overlay {
+    background: rgba(0,0,0,0.8);
+}
